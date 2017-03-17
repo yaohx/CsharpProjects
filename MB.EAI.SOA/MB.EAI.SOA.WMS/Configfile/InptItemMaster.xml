@@ -1,0 +1,1175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  XML 文件生成时间 2014-04-02 03:42  -->
+<!--  如果生成的是明细需要用  GetByForeingKey 替换 SelectObject 同时修改对应主表中DeleteObject 语句 -->
+<Entity>
+  <PrimaryKeyName>ID</PrimaryKeyName>
+  <MappingTableName>INPT_ITEM_MASTER</MappingTableName>
+  <Sqls>
+    <Sql Name="SelectObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              SELECT 
+ INPT_ITEM_MASTER_ID 
+ ,CO 
+ ,DIV 
+ ,SEASON 
+ ,SEASON_YR 
+ ,STYLE 
+ ,STYLE_SFX 
+ ,COLOR 
+ ,COLOR_SFX 
+ ,SEC_DIM 
+ ,QUAL 
+ ,SIZE_RANGE_CODE 
+ ,SIZE_REL_POSN_IN_TABLE 
+ ,SIZE_DESC 
+ ,SKU_ATTR_REQD 
+ ,BATCH_REQD 
+ ,PROD_STAT_REQD 
+ ,CNTRY_OF_ORGN_REQD 
+ ,COORD_1 
+ ,COORD_2 
+ ,VOLTY_CODE 
+ ,PKG_TYPE 
+ ,PROD_GROUP 
+ ,PROD_SUB_GRP 
+ ,PROD_TYPE 
+ ,PROD_LINE 
+ ,SALE_GRP 
+ ,DB_QTY_UOM 
+ ,DSP_QTY_UOM 
+ ,SKU_DESC 
+ ,COLOR_DESC 
+ ,UPC_PRE_DIGIT 
+ ,UPC_VENDOR_CODE 
+ ,UPC_SRL_PROD_NBR 
+ ,UPC_POST_DIGIT 
+ ,CARTON_TYPE 
+ ,UNIT_PRICE 
+ ,RETAIL_PRICE 
+ ,OPER_CODE 
+ ,STD_PACK_QTY 
+ ,STD_BUNDL_QTY 
+ ,STD_CASE_QTY 
+ ,MAX_CASE_QTY 
+ ,STD_CASE_LEN 
+ ,STD_CASE_WIDTH 
+ ,STD_CASE_HT 
+ ,STD_TIER_QTY 
+ ,STD_PLT_QTY 
+ ,CUBE_MULT_QTY 
+ ,UNIT_WT 
+ ,UNIT_VOL 
+ ,STD_PACK_WT 
+ ,STD_PACK_VOL 
+ ,STD_CASE_WT 
+ ,STD_CASE_VOL 
+ ,NEST_VOL 
+ ,NEST_CNT 
+ ,PROD_LIFE_IN_DAY 
+ ,ALLOW_RCPT_OLDER_SKU 
+ ,MHE_WT_TOL_AMNT 
+ ,MHE_WT_TOL_TYPE 
+ ,PICK_WT_TOL_AMNT 
+ ,PICK_WT_TOL_TYPE 
+ ,TRLR_TEMP_ZONE 
+ ,ACTVTN_DATE 
+ ,MAX_RECV_TO_XPIRE_DAYS 
+ ,CRITCL_DIM_1 
+ ,CRITCL_DIM_2 
+ ,CRITCL_DIM_3 
+ ,MFG_DATE_REQD 
+ ,XPIRE_DATE_REQD 
+ ,SHIP_BY_DATE_REQD 
+ ,STAT_CODE 
+ ,SKU_BRCD 
+ ,STD_SUB_PACK_QTY 
+ ,CATCH_WT 
+ ,CONS_PRTY_DATE_WINDOW_INCR 
+ ,LOAD_ATTR 
+ ,WT_TOL_PCNT 
+ ,CONS_PRTY_DATE_CODE 
+ ,HAZMAT_CODE 
+ ,CONS_PRTY_DATE_WINDOW 
+ ,AVG_DLY_DMND 
+ ,TEMP_ZONE 
+ ,SKU_ID 
+ ,VENDOR_ITEM_NBR 
+ ,UNITS_PER_PICK_ACTIVE 
+ ,HNDL_ATTR_ACTIVE 
+ ,UNITS_PER_PICK_CASE_PICK 
+ ,HNDL_ATTR_CASE_PICK 
+ ,UNITS_PER_PICK_RESV 
+ ,HNDL_ATTR_RESV 
+ ,SRL_NBR_REQD 
+ ,ERROR_SEQ_NBR 
+ ,PROC_STAT_CODE 
+ ,MERCH_TYPE 
+ ,STORE_DEPT 
+ ,CRUSH_CODE 
+ ,STD_PACK_WIDTH 
+ ,STD_PACK_LEN 
+ ,STD_PACK_HT 
+ ,UNIT_WIDTH 
+ ,UNIT_LEN 
+ ,UNIT_HT 
+ ,CONVEY_FLAG 
+ ,PKT_CONSOL_ATTR 
+ ,BUYER_DISP_CODE 
+ ,MERCH_GROUP 
+ ,SPL_INSTR_CODE_1 
+ ,SPL_INSTR_CODE_2 
+ ,SPL_INSTR_CODE_3 
+ ,SPL_INSTR_CODE_4 
+ ,SPL_INSTR_CODE_5 
+ ,SPL_INSTR_CODE_6 
+ ,SPL_INSTR_CODE_7 
+ ,SPL_INSTR_CODE_8 
+ ,SPL_INSTR_CODE_9 
+ ,SPL_INSTR_CODE_10 
+ ,SPL_INSTR_1 
+ ,SPL_INSTR_2 
+ ,SKU_PROFILE_ID 
+ ,DFLT_BATCH_STAT 
+ ,ECCN_NBR 
+ ,EXP_LICN_NBR 
+ ,EXP_LICN_XP_DATE 
+ ,EXP_LICN_SYMBOL 
+ ,ORGN_CERT_CODE 
+ ,COMMODITY_CODE 
+ ,COMMODITY_LEVEL_DESC 
+ ,FRT_CLASS 
+ ,NMFC_CODE 
+ ,INCUB_DAYS 
+ ,INCUB_HOURS 
+ ,DFLT_INCUB_LOCK 
+ ,BASE_INCUB_FLAG 
+ ,MAX_RCPT_QTY 
+ ,PROMPT_PACK_QTY 
+ ,HNDL_ATTR_UOM_ACT 
+ ,HNDL_ATTR_UOM_CP 
+ ,SRL_NBR_BRCD_TYPE 
+ ,DUP_SRL_NBR_FLAG 
+ ,MINOR_SRL_NBR_REQ 
+ ,FTZ_FLAG 
+ ,HTS_NBR 
+ ,STD_SUB_PACK_HT 
+ ,STD_SUB_PACK_LEN 
+ ,STD_SUB_PACK_WIDTH 
+ ,STD_SUB_PACK_VOL 
+ ,STD_SUB_PACK_WT 
+ ,PROMPT_FOR_VENDOR_ITEM_NBR 
+ ,CC_TOLER_UOM 
+ ,CC_VAR_TOLER_VALUE 
+ ,VOCOLLECT_BASE_WT 
+ ,VOCOLLECT_BASE_QTY 
+ ,VOCOLLECT_BASE_ITEM 
+ ,PICK_WT_TOL_AMNT_ERROR 
+ ,PRICE_TKT_TYPE 
+ ,SKU_IMAGE_FILENAME 
+ ,MONETARY_VALUE 
+ ,MV_CURRENCY_CODE 
+ ,MV_SIZE_UOM 
+ ,UN_NBR 
+ ,CODE_DATE_PROMPT_METHOD_FLAG 
+ ,MIN_RECV_TO_XPIRE_DAYS 
+ ,MIN_PCNT_FOR_LPN_SPLIT 
+ ,MIN_LPN_QTY_FOR_SPLIT 
+ ,PROD_CATGRY 
+ ,PRICE_TIX_AVAIL_FLAG 
+ ,PREF_CRIT_FLAG 
+ ,PRODUCER_FLAG 
+ ,NET_COST_FLAG 
+ ,STAB_CODE 
+ ,ITEM_ORIENTATION 
+ ,PROTN_FACTOR 
+ ,CAVITY_LEN 
+ ,CAVITY_WD 
+ ,CAVITY_HT 
+ ,INCREMENTAL_LEN 
+ ,INCREMENTAL_WD 
+ ,INCREMENTAL_HT 
+ ,STACKABLE_ITEM 
+ ,MAX_NEST_NUMBER 
+ ,CREATE_DATE_TIME 
+ ,MOD_DATE_TIME 
+ ,USER_ID 
+ ,MARKS_NBRS 
+  
+ FROM 
+ INPT_ITEM_MASTER 
+  WHERE @Where ;
+]]>
+        </String>
+        <Param Name = "@Where" Column = "Where" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="AddObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              INSERT INTO 
+ INPT_ITEM_MASTER 
+ (INPT_ITEM_MASTER_ID 
+ ,CO 
+ ,DIV 
+ ,SEASON 
+ ,SEASON_YR 
+ ,STYLE 
+ ,STYLE_SFX 
+ ,COLOR 
+ ,COLOR_SFX 
+ ,SEC_DIM 
+ ,QUAL 
+ ,SIZE_RANGE_CODE 
+ ,SIZE_REL_POSN_IN_TABLE 
+ ,SIZE_DESC 
+ ,SKU_ATTR_REQD 
+ ,BATCH_REQD 
+ ,PROD_STAT_REQD 
+ ,CNTRY_OF_ORGN_REQD 
+ ,COORD_1 
+ ,COORD_2 
+ ,VOLTY_CODE 
+ ,PKG_TYPE 
+ ,PROD_GROUP 
+ ,PROD_SUB_GRP 
+ ,PROD_TYPE 
+ ,PROD_LINE 
+ ,SALE_GRP 
+ ,DB_QTY_UOM 
+ ,DSP_QTY_UOM 
+ ,SKU_DESC 
+ ,COLOR_DESC 
+ ,UPC_PRE_DIGIT 
+ ,UPC_VENDOR_CODE 
+ ,UPC_SRL_PROD_NBR 
+ ,UPC_POST_DIGIT 
+ ,CARTON_TYPE 
+ ,UNIT_PRICE 
+ ,RETAIL_PRICE 
+ ,OPER_CODE 
+ ,STD_PACK_QTY 
+ ,STD_BUNDL_QTY 
+ ,STD_CASE_QTY 
+ ,MAX_CASE_QTY 
+ ,STD_CASE_LEN 
+ ,STD_CASE_WIDTH 
+ ,STD_CASE_HT 
+ ,STD_TIER_QTY 
+ ,STD_PLT_QTY 
+ ,CUBE_MULT_QTY 
+ ,UNIT_WT 
+ ,UNIT_VOL 
+ ,STD_PACK_WT 
+ ,STD_PACK_VOL 
+ ,STD_CASE_WT 
+ ,STD_CASE_VOL 
+ ,NEST_VOL 
+ ,NEST_CNT 
+ ,PROD_LIFE_IN_DAY 
+ ,ALLOW_RCPT_OLDER_SKU 
+ ,MHE_WT_TOL_AMNT 
+ ,MHE_WT_TOL_TYPE 
+ ,PICK_WT_TOL_AMNT 
+ ,PICK_WT_TOL_TYPE 
+ ,TRLR_TEMP_ZONE 
+ ,ACTVTN_DATE 
+ ,MAX_RECV_TO_XPIRE_DAYS 
+ ,CRITCL_DIM_1 
+ ,CRITCL_DIM_2 
+ ,CRITCL_DIM_3 
+ ,MFG_DATE_REQD 
+ ,XPIRE_DATE_REQD 
+ ,SHIP_BY_DATE_REQD 
+ ,STAT_CODE 
+ ,SKU_BRCD 
+ ,STD_SUB_PACK_QTY 
+ ,CATCH_WT 
+ ,CONS_PRTY_DATE_WINDOW_INCR 
+ ,LOAD_ATTR 
+ ,WT_TOL_PCNT 
+ ,CONS_PRTY_DATE_CODE 
+ ,HAZMAT_CODE 
+ ,CONS_PRTY_DATE_WINDOW 
+ ,AVG_DLY_DMND 
+ ,TEMP_ZONE 
+ ,SKU_ID 
+ ,VENDOR_ITEM_NBR 
+ ,UNITS_PER_PICK_ACTIVE 
+ ,HNDL_ATTR_ACTIVE 
+ ,UNITS_PER_PICK_CASE_PICK 
+ ,HNDL_ATTR_CASE_PICK 
+ ,UNITS_PER_PICK_RESV 
+ ,HNDL_ATTR_RESV 
+ ,SRL_NBR_REQD 
+ ,ERROR_SEQ_NBR 
+ ,PROC_STAT_CODE 
+ ,MERCH_TYPE 
+ ,STORE_DEPT 
+ ,CRUSH_CODE 
+ ,STD_PACK_WIDTH 
+ ,STD_PACK_LEN 
+ ,STD_PACK_HT 
+ ,UNIT_WIDTH 
+ ,UNIT_LEN 
+ ,UNIT_HT 
+ ,CONVEY_FLAG 
+ ,PKT_CONSOL_ATTR 
+ ,BUYER_DISP_CODE 
+ ,MERCH_GROUP 
+ ,SPL_INSTR_CODE_1 
+ ,SPL_INSTR_CODE_2 
+ ,SPL_INSTR_CODE_3 
+ ,SPL_INSTR_CODE_4 
+ ,SPL_INSTR_CODE_5 
+ ,SPL_INSTR_CODE_6 
+ ,SPL_INSTR_CODE_7 
+ ,SPL_INSTR_CODE_8 
+ ,SPL_INSTR_CODE_9 
+ ,SPL_INSTR_CODE_10 
+ ,SPL_INSTR_1 
+ ,SPL_INSTR_2 
+ ,SKU_PROFILE_ID 
+ ,DFLT_BATCH_STAT 
+ ,ECCN_NBR 
+ ,EXP_LICN_NBR 
+ ,EXP_LICN_XP_DATE 
+ ,EXP_LICN_SYMBOL 
+ ,ORGN_CERT_CODE 
+ ,COMMODITY_CODE 
+ ,COMMODITY_LEVEL_DESC 
+ ,FRT_CLASS 
+ ,NMFC_CODE 
+ ,INCUB_DAYS 
+ ,INCUB_HOURS 
+ ,DFLT_INCUB_LOCK 
+ ,BASE_INCUB_FLAG 
+ ,MAX_RCPT_QTY 
+ ,PROMPT_PACK_QTY 
+ ,HNDL_ATTR_UOM_ACT 
+ ,HNDL_ATTR_UOM_CP 
+ ,SRL_NBR_BRCD_TYPE 
+ ,DUP_SRL_NBR_FLAG 
+ ,MINOR_SRL_NBR_REQ 
+ ,FTZ_FLAG 
+ ,HTS_NBR 
+ ,STD_SUB_PACK_HT 
+ ,STD_SUB_PACK_LEN 
+ ,STD_SUB_PACK_WIDTH 
+ ,STD_SUB_PACK_VOL 
+ ,STD_SUB_PACK_WT 
+ ,PROMPT_FOR_VENDOR_ITEM_NBR 
+ ,CC_TOLER_UOM 
+ ,CC_VAR_TOLER_VALUE 
+ ,VOCOLLECT_BASE_WT 
+ ,VOCOLLECT_BASE_QTY 
+ ,VOCOLLECT_BASE_ITEM 
+ ,PICK_WT_TOL_AMNT_ERROR 
+ ,PRICE_TKT_TYPE 
+ ,SKU_IMAGE_FILENAME 
+ ,MONETARY_VALUE 
+ ,MV_CURRENCY_CODE 
+ ,MV_SIZE_UOM 
+ ,UN_NBR 
+ ,CODE_DATE_PROMPT_METHOD_FLAG 
+ ,MIN_RECV_TO_XPIRE_DAYS 
+ ,MIN_PCNT_FOR_LPN_SPLIT 
+ ,MIN_LPN_QTY_FOR_SPLIT 
+ ,PROD_CATGRY 
+ ,PRICE_TIX_AVAIL_FLAG 
+ ,PREF_CRIT_FLAG 
+ ,PRODUCER_FLAG 
+ ,NET_COST_FLAG 
+ ,STAB_CODE 
+ ,ITEM_ORIENTATION 
+ ,PROTN_FACTOR 
+ ,CAVITY_LEN 
+ ,CAVITY_WD 
+ ,CAVITY_HT 
+ ,INCREMENTAL_LEN 
+ ,INCREMENTAL_WD 
+ ,INCREMENTAL_HT 
+ ,STACKABLE_ITEM 
+ ,MAX_NEST_NUMBER 
+ ,CREATE_DATE_TIME 
+ ,MOD_DATE_TIME 
+ ,USER_ID 
+ ,MARKS_NBRS 
+ ) 
+ VALUES( 
+ @INPT_ITEM_MASTER_ID 
+ ,@CO 
+ ,@DIV 
+ ,@SEASON 
+ ,@SEASON_YR 
+ ,@STYLE 
+ ,@STYLE_SFX 
+ ,@COLOR 
+ ,@COLOR_SFX 
+ ,@SEC_DIM 
+ ,@QUAL 
+ ,@SIZE_RANGE_CODE 
+ ,@SIZE_REL_POSN_IN_TABLE 
+ ,@SIZE_DESC 
+ ,@SKU_ATTR_REQD 
+ ,@BATCH_REQD 
+ ,@PROD_STAT_REQD 
+ ,@CNTRY_OF_ORGN_REQD 
+ ,@COORD_1 
+ ,@COORD_2 
+ ,@VOLTY_CODE 
+ ,@PKG_TYPE 
+ ,@PROD_GROUP 
+ ,@PROD_SUB_GRP 
+ ,@PROD_TYPE 
+ ,@PROD_LINE 
+ ,@SALE_GRP 
+ ,@DB_QTY_UOM 
+ ,@DSP_QTY_UOM 
+ ,@SKU_DESC 
+ ,@COLOR_DESC 
+ ,@UPC_PRE_DIGIT 
+ ,@UPC_VENDOR_CODE 
+ ,@UPC_SRL_PROD_NBR 
+ ,@UPC_POST_DIGIT 
+ ,@CARTON_TYPE 
+ ,@UNIT_PRICE 
+ ,@RETAIL_PRICE 
+ ,@OPER_CODE 
+ ,@STD_PACK_QTY 
+ ,@STD_BUNDL_QTY 
+ ,@STD_CASE_QTY 
+ ,@MAX_CASE_QTY 
+ ,@STD_CASE_LEN 
+ ,@STD_CASE_WIDTH 
+ ,@STD_CASE_HT 
+ ,@STD_TIER_QTY 
+ ,@STD_PLT_QTY 
+ ,@CUBE_MULT_QTY 
+ ,@UNIT_WT 
+ ,@UNIT_VOL 
+ ,@STD_PACK_WT 
+ ,@STD_PACK_VOL 
+ ,@STD_CASE_WT 
+ ,@STD_CASE_VOL 
+ ,@NEST_VOL 
+ ,@NEST_CNT 
+ ,@PROD_LIFE_IN_DAY 
+ ,@ALLOW_RCPT_OLDER_SKU 
+ ,@MHE_WT_TOL_AMNT 
+ ,@MHE_WT_TOL_TYPE 
+ ,@PICK_WT_TOL_AMNT 
+ ,@PICK_WT_TOL_TYPE 
+ ,@TRLR_TEMP_ZONE 
+ ,@ACTVTN_DATE 
+ ,@MAX_RECV_TO_XPIRE_DAYS 
+ ,@CRITCL_DIM_1 
+ ,@CRITCL_DIM_2 
+ ,@CRITCL_DIM_3 
+ ,@MFG_DATE_REQD 
+ ,@XPIRE_DATE_REQD 
+ ,@SHIP_BY_DATE_REQD 
+ ,@STAT_CODE 
+ ,@SKU_BRCD 
+ ,@STD_SUB_PACK_QTY 
+ ,@CATCH_WT 
+ ,@CONS_PRTY_DATE_WINDOW_INCR 
+ ,@LOAD_ATTR 
+ ,@WT_TOL_PCNT 
+ ,@CONS_PRTY_DATE_CODE 
+ ,@HAZMAT_CODE 
+ ,@CONS_PRTY_DATE_WINDOW 
+ ,@AVG_DLY_DMND 
+ ,@TEMP_ZONE 
+ ,@SKU_ID 
+ ,@VENDOR_ITEM_NBR 
+ ,@UNITS_PER_PICK_ACTIVE 
+ ,@HNDL_ATTR_ACTIVE 
+ ,@UNITS_PER_PICK_CASE_PICK 
+ ,@HNDL_ATTR_CASE_PICK 
+ ,@UNITS_PER_PICK_RESV 
+ ,@HNDL_ATTR_RESV 
+ ,@SRL_NBR_REQD 
+ ,@ERROR_SEQ_NBR 
+ ,@PROC_STAT_CODE 
+ ,@MERCH_TYPE 
+ ,@STORE_DEPT 
+ ,@CRUSH_CODE 
+ ,@STD_PACK_WIDTH 
+ ,@STD_PACK_LEN 
+ ,@STD_PACK_HT 
+ ,@UNIT_WIDTH 
+ ,@UNIT_LEN 
+ ,@UNIT_HT 
+ ,@CONVEY_FLAG 
+ ,@PKT_CONSOL_ATTR 
+ ,@BUYER_DISP_CODE 
+ ,@MERCH_GROUP 
+ ,@SPL_INSTR_CODE_1 
+ ,@SPL_INSTR_CODE_2 
+ ,@SPL_INSTR_CODE_3 
+ ,@SPL_INSTR_CODE_4 
+ ,@SPL_INSTR_CODE_5 
+ ,@SPL_INSTR_CODE_6 
+ ,@SPL_INSTR_CODE_7 
+ ,@SPL_INSTR_CODE_8 
+ ,@SPL_INSTR_CODE_9 
+ ,@SPL_INSTR_CODE_10 
+ ,@SPL_INSTR_1 
+ ,@SPL_INSTR_2 
+ ,@SKU_PROFILE_ID 
+ ,@DFLT_BATCH_STAT 
+ ,@ECCN_NBR 
+ ,@EXP_LICN_NBR 
+ ,@EXP_LICN_XP_DATE 
+ ,@EXP_LICN_SYMBOL 
+ ,@ORGN_CERT_CODE 
+ ,@COMMODITY_CODE 
+ ,@COMMODITY_LEVEL_DESC 
+ ,@FRT_CLASS 
+ ,@NMFC_CODE 
+ ,@INCUB_DAYS 
+ ,@INCUB_HOURS 
+ ,@DFLT_INCUB_LOCK 
+ ,@BASE_INCUB_FLAG 
+ ,@MAX_RCPT_QTY 
+ ,@PROMPT_PACK_QTY 
+ ,@HNDL_ATTR_UOM_ACT 
+ ,@HNDL_ATTR_UOM_CP 
+ ,@SRL_NBR_BRCD_TYPE 
+ ,@DUP_SRL_NBR_FLAG 
+ ,@MINOR_SRL_NBR_REQ 
+ ,@FTZ_FLAG 
+ ,@HTS_NBR 
+ ,@STD_SUB_PACK_HT 
+ ,@STD_SUB_PACK_LEN 
+ ,@STD_SUB_PACK_WIDTH 
+ ,@STD_SUB_PACK_VOL 
+ ,@STD_SUB_PACK_WT 
+ ,@PROMPT_FOR_VENDOR_ITEM_NBR 
+ ,@CC_TOLER_UOM 
+ ,@CC_VAR_TOLER_VALUE 
+ ,@VOCOLLECT_BASE_WT 
+ ,@VOCOLLECT_BASE_QTY 
+ ,@VOCOLLECT_BASE_ITEM 
+ ,@PICK_WT_TOL_AMNT_ERROR 
+ ,@PRICE_TKT_TYPE 
+ ,@SKU_IMAGE_FILENAME 
+ ,@MONETARY_VALUE 
+ ,@MV_CURRENCY_CODE 
+ ,@MV_SIZE_UOM 
+ ,@UN_NBR 
+ ,@CODE_DATE_PROMPT_METHOD_FLAG 
+ ,@MIN_RECV_TO_XPIRE_DAYS 
+ ,@MIN_PCNT_FOR_LPN_SPLIT 
+ ,@MIN_LPN_QTY_FOR_SPLIT 
+ ,@PROD_CATGRY 
+ ,@PRICE_TIX_AVAIL_FLAG 
+ ,@PREF_CRIT_FLAG 
+ ,@PRODUCER_FLAG 
+ ,@NET_COST_FLAG 
+ ,@STAB_CODE 
+ ,@ITEM_ORIENTATION 
+ ,@PROTN_FACTOR 
+ ,@CAVITY_LEN 
+ ,@CAVITY_WD 
+ ,@CAVITY_HT 
+ ,@INCREMENTAL_LEN 
+ ,@INCREMENTAL_WD 
+ ,@INCREMENTAL_HT 
+ ,@STACKABLE_ITEM 
+ ,@MAX_NEST_NUMBER 
+ ,@CREATE_DATE_TIME 
+ ,@MOD_DATE_TIME 
+ ,@USER_ID 
+ ,@MARKS_NBRS 
+ );
+]]>
+        </String>
+        <Param Name = "@INPT_ITEM_MASTER_ID" Column = "INPT_ITEM_MASTER_ID" TypeName = "System.Int32" />
+        <Param Name = "@CO" Column = "CO" TypeName = "System.String" />
+        <Param Name = "@DIV" Column = "DIV" TypeName = "System.String" />
+        <Param Name = "@SEASON" Column = "SEASON" TypeName = "System.String" />
+        <Param Name = "@SEASON_YR" Column = "SEASON_YR" TypeName = "System.String" />
+        <Param Name = "@STYLE" Column = "STYLE" TypeName = "System.String" />
+        <Param Name = "@STYLE_SFX" Column = "STYLE_SFX" TypeName = "System.String" />
+        <Param Name = "@COLOR" Column = "COLOR" TypeName = "System.String" />
+        <Param Name = "@COLOR_SFX" Column = "COLOR_SFX" TypeName = "System.String" />
+        <Param Name = "@SEC_DIM" Column = "SEC_DIM" TypeName = "System.String" />
+        <Param Name = "@QUAL" Column = "QUAL" TypeName = "System.String" />
+        <Param Name = "@SIZE_RANGE_CODE" Column = "SIZE_RANGE_CODE" TypeName = "System.String" />
+        <Param Name = "@SIZE_REL_POSN_IN_TABLE" Column = "SIZE_REL_POSN_IN_TABLE" TypeName = "System.String" />
+        <Param Name = "@SIZE_DESC" Column = "SIZE_DESC" TypeName = "System.String" />
+        <Param Name = "@SKU_ATTR_REQD" Column = "SKU_ATTR_REQD" TypeName = "System.String" />
+        <Param Name = "@BATCH_REQD" Column = "BATCH_REQD" TypeName = "System.String" />
+        <Param Name = "@PROD_STAT_REQD" Column = "PROD_STAT_REQD" TypeName = "System.String" />
+        <Param Name = "@CNTRY_OF_ORGN_REQD" Column = "CNTRY_OF_ORGN_REQD" TypeName = "System.String" />
+        <Param Name = "@COORD_1" Column = "COORD_1" TypeName = "System.Int32" />
+        <Param Name = "@COORD_2" Column = "COORD_2" TypeName = "System.Int32" />
+        <Param Name = "@VOLTY_CODE" Column = "VOLTY_CODE" TypeName = "System.String" />
+        <Param Name = "@PKG_TYPE" Column = "PKG_TYPE" TypeName = "System.String" />
+        <Param Name = "@PROD_GROUP" Column = "PROD_GROUP" TypeName = "System.String" />
+        <Param Name = "@PROD_SUB_GRP" Column = "PROD_SUB_GRP" TypeName = "System.String" />
+        <Param Name = "@PROD_TYPE" Column = "PROD_TYPE" TypeName = "System.String" />
+        <Param Name = "@PROD_LINE" Column = "PROD_LINE" TypeName = "System.String" />
+        <Param Name = "@SALE_GRP" Column = "SALE_GRP" TypeName = "System.String" />
+        <Param Name = "@DB_QTY_UOM" Column = "DB_QTY_UOM" TypeName = "System.String" />
+        <Param Name = "@DSP_QTY_UOM" Column = "DSP_QTY_UOM" TypeName = "System.String" />
+        <Param Name = "@SKU_DESC" Column = "SKU_DESC" TypeName = "System.String" />
+        <Param Name = "@COLOR_DESC" Column = "COLOR_DESC" TypeName = "System.String" />
+        <Param Name = "@UPC_PRE_DIGIT" Column = "UPC_PRE_DIGIT" TypeName = "System.String" />
+        <Param Name = "@UPC_VENDOR_CODE" Column = "UPC_VENDOR_CODE" TypeName = "System.String" />
+        <Param Name = "@UPC_SRL_PROD_NBR" Column = "UPC_SRL_PROD_NBR" TypeName = "System.String" />
+        <Param Name = "@UPC_POST_DIGIT" Column = "UPC_POST_DIGIT" TypeName = "System.String" />
+        <Param Name = "@CARTON_TYPE" Column = "CARTON_TYPE" TypeName = "System.String" />
+        <Param Name = "@UNIT_PRICE" Column = "UNIT_PRICE" TypeName = "System.Double" />
+        <Param Name = "@RETAIL_PRICE" Column = "RETAIL_PRICE" TypeName = "System.Double" />
+        <Param Name = "@OPER_CODE" Column = "OPER_CODE" TypeName = "System.String" />
+        <Param Name = "@STD_PACK_QTY" Column = "STD_PACK_QTY" TypeName = "System.Double" />
+        <Param Name = "@STD_BUNDL_QTY" Column = "STD_BUNDL_QTY" TypeName = "System.Double" />
+        <Param Name = "@STD_CASE_QTY" Column = "STD_CASE_QTY" TypeName = "System.Double" />
+        <Param Name = "@MAX_CASE_QTY" Column = "MAX_CASE_QTY" TypeName = "System.Double" />
+        <Param Name = "@STD_CASE_LEN" Column = "STD_CASE_LEN" TypeName = "System.Single" />
+        <Param Name = "@STD_CASE_WIDTH" Column = "STD_CASE_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@STD_CASE_HT" Column = "STD_CASE_HT" TypeName = "System.Single" />
+        <Param Name = "@STD_TIER_QTY" Column = "STD_TIER_QTY" TypeName = "System.Double" />
+        <Param Name = "@STD_PLT_QTY" Column = "STD_PLT_QTY" TypeName = "System.Double" />
+        <Param Name = "@CUBE_MULT_QTY" Column = "CUBE_MULT_QTY" TypeName = "System.Double" />
+        <Param Name = "@UNIT_WT" Column = "UNIT_WT" TypeName = "System.Double" />
+        <Param Name = "@UNIT_VOL" Column = "UNIT_VOL" TypeName = "System.Double" />
+        <Param Name = "@STD_PACK_WT" Column = "STD_PACK_WT" TypeName = "System.Double" />
+        <Param Name = "@STD_PACK_VOL" Column = "STD_PACK_VOL" TypeName = "System.Double" />
+        <Param Name = "@STD_CASE_WT" Column = "STD_CASE_WT" TypeName = "System.Double" />
+        <Param Name = "@STD_CASE_VOL" Column = "STD_CASE_VOL" TypeName = "System.Double" />
+        <Param Name = "@NEST_VOL" Column = "NEST_VOL" TypeName = "System.Double" />
+        <Param Name = "@NEST_CNT" Column = "NEST_CNT" TypeName = "System.Int32" />
+        <Param Name = "@PROD_LIFE_IN_DAY" Column = "PROD_LIFE_IN_DAY" TypeName = "System.Int32" />
+        <Param Name = "@ALLOW_RCPT_OLDER_SKU" Column = "ALLOW_RCPT_OLDER_SKU" TypeName = "System.String" />
+        <Param Name = "@MHE_WT_TOL_AMNT" Column = "MHE_WT_TOL_AMNT" TypeName = "System.Int16" />
+        <Param Name = "@MHE_WT_TOL_TYPE" Column = "MHE_WT_TOL_TYPE" TypeName = "System.String" />
+        <Param Name = "@PICK_WT_TOL_AMNT" Column = "PICK_WT_TOL_AMNT" TypeName = "System.Int16" />
+        <Param Name = "@PICK_WT_TOL_TYPE" Column = "PICK_WT_TOL_TYPE" TypeName = "System.String" />
+        <Param Name = "@TRLR_TEMP_ZONE" Column = "TRLR_TEMP_ZONE" TypeName = "System.String" />
+        <Param Name = "@ACTVTN_DATE" Column = "ACTVTN_DATE" TypeName = "System.DateTime" />
+        <Param Name = "@MAX_RECV_TO_XPIRE_DAYS" Column = "MAX_RECV_TO_XPIRE_DAYS" TypeName = "System.Int32" />
+        <Param Name = "@CRITCL_DIM_1" Column = "CRITCL_DIM_1" TypeName = "System.Single" />
+        <Param Name = "@CRITCL_DIM_2" Column = "CRITCL_DIM_2" TypeName = "System.Single" />
+        <Param Name = "@CRITCL_DIM_3" Column = "CRITCL_DIM_3" TypeName = "System.Single" />
+        <Param Name = "@MFG_DATE_REQD" Column = "MFG_DATE_REQD" TypeName = "System.String" />
+        <Param Name = "@XPIRE_DATE_REQD" Column = "XPIRE_DATE_REQD" TypeName = "System.String" />
+        <Param Name = "@SHIP_BY_DATE_REQD" Column = "SHIP_BY_DATE_REQD" TypeName = "System.String" />
+        <Param Name = "@STAT_CODE" Column = "STAT_CODE" TypeName = "System.Int16" />
+        <Param Name = "@SKU_BRCD" Column = "SKU_BRCD" TypeName = "System.String" />
+        <Param Name = "@STD_SUB_PACK_QTY" Column = "STD_SUB_PACK_QTY" TypeName = "System.Double" />
+        <Param Name = "@CATCH_WT" Column = "CATCH_WT" TypeName = "System.String" />
+        <Param Name = "@CONS_PRTY_DATE_WINDOW_INCR" Column = "CONS_PRTY_DATE_WINDOW_INCR" TypeName = "System.Int16" />
+        <Param Name = "@LOAD_ATTR" Column = "LOAD_ATTR" TypeName = "System.String" />
+        <Param Name = "@WT_TOL_PCNT" Column = "WT_TOL_PCNT" TypeName = "System.Single" />
+        <Param Name = "@CONS_PRTY_DATE_CODE" Column = "CONS_PRTY_DATE_CODE" TypeName = "System.String" />
+        <Param Name = "@HAZMAT_CODE" Column = "HAZMAT_CODE" TypeName = "System.String" />
+        <Param Name = "@CONS_PRTY_DATE_WINDOW" Column = "CONS_PRTY_DATE_WINDOW" TypeName = "System.String" />
+        <Param Name = "@AVG_DLY_DMND" Column = "AVG_DLY_DMND" TypeName = "System.Double" />
+        <Param Name = "@TEMP_ZONE" Column = "TEMP_ZONE" TypeName = "System.String" />
+        <Param Name = "@SKU_ID" Column = "SKU_ID" TypeName = "System.String" />
+        <Param Name = "@VENDOR_ITEM_NBR" Column = "VENDOR_ITEM_NBR" TypeName = "System.String" />
+        <Param Name = "@UNITS_PER_PICK_ACTIVE" Column = "UNITS_PER_PICK_ACTIVE" TypeName = "System.Double" />
+        <Param Name = "@HNDL_ATTR_ACTIVE" Column = "HNDL_ATTR_ACTIVE" TypeName = "System.String" />
+        <Param Name = "@UNITS_PER_PICK_CASE_PICK" Column = "UNITS_PER_PICK_CASE_PICK" TypeName = "System.Double" />
+        <Param Name = "@HNDL_ATTR_CASE_PICK" Column = "HNDL_ATTR_CASE_PICK" TypeName = "System.String" />
+        <Param Name = "@UNITS_PER_PICK_RESV" Column = "UNITS_PER_PICK_RESV" TypeName = "System.Double" />
+        <Param Name = "@HNDL_ATTR_RESV" Column = "HNDL_ATTR_RESV" TypeName = "System.String" />
+        <Param Name = "@SRL_NBR_REQD" Column = "SRL_NBR_REQD" TypeName = "System.Int16" />
+        <Param Name = "@ERROR_SEQ_NBR" Column = "ERROR_SEQ_NBR" TypeName = "System.Int32" />
+        <Param Name = "@PROC_STAT_CODE" Column = "PROC_STAT_CODE" TypeName = "System.Int16" />
+        <Param Name = "@MERCH_TYPE" Column = "MERCH_TYPE" TypeName = "System.String" />
+        <Param Name = "@STORE_DEPT" Column = "STORE_DEPT" TypeName = "System.String" />
+        <Param Name = "@CRUSH_CODE" Column = "CRUSH_CODE" TypeName = "System.String" />
+        <Param Name = "@STD_PACK_WIDTH" Column = "STD_PACK_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@STD_PACK_LEN" Column = "STD_PACK_LEN" TypeName = "System.Single" />
+        <Param Name = "@STD_PACK_HT" Column = "STD_PACK_HT" TypeName = "System.Single" />
+        <Param Name = "@UNIT_WIDTH" Column = "UNIT_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@UNIT_LEN" Column = "UNIT_LEN" TypeName = "System.Single" />
+        <Param Name = "@UNIT_HT" Column = "UNIT_HT" TypeName = "System.Single" />
+        <Param Name = "@CONVEY_FLAG" Column = "CONVEY_FLAG" TypeName = "System.String" />
+        <Param Name = "@PKT_CONSOL_ATTR" Column = "PKT_CONSOL_ATTR" TypeName = "System.String" />
+        <Param Name = "@BUYER_DISP_CODE" Column = "BUYER_DISP_CODE" TypeName = "System.String" />
+        <Param Name = "@MERCH_GROUP" Column = "MERCH_GROUP" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_1" Column = "SPL_INSTR_CODE_1" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_2" Column = "SPL_INSTR_CODE_2" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_3" Column = "SPL_INSTR_CODE_3" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_4" Column = "SPL_INSTR_CODE_4" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_5" Column = "SPL_INSTR_CODE_5" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_6" Column = "SPL_INSTR_CODE_6" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_7" Column = "SPL_INSTR_CODE_7" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_8" Column = "SPL_INSTR_CODE_8" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_9" Column = "SPL_INSTR_CODE_9" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_10" Column = "SPL_INSTR_CODE_10" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_1" Column = "SPL_INSTR_1" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_2" Column = "SPL_INSTR_2" TypeName = "System.String" />
+        <Param Name = "@SKU_PROFILE_ID" Column = "SKU_PROFILE_ID" TypeName = "System.String" />
+        <Param Name = "@DFLT_BATCH_STAT" Column = "DFLT_BATCH_STAT" TypeName = "System.Int16" />
+        <Param Name = "@ECCN_NBR" Column = "ECCN_NBR" TypeName = "System.String" />
+        <Param Name = "@EXP_LICN_NBR" Column = "EXP_LICN_NBR" TypeName = "System.String" />
+        <Param Name = "@EXP_LICN_XP_DATE" Column = "EXP_LICN_XP_DATE" TypeName = "System.DateTime" />
+        <Param Name = "@EXP_LICN_SYMBOL" Column = "EXP_LICN_SYMBOL" TypeName = "System.String" />
+        <Param Name = "@ORGN_CERT_CODE" Column = "ORGN_CERT_CODE" TypeName = "System.String" />
+        <Param Name = "@COMMODITY_CODE" Column = "COMMODITY_CODE" TypeName = "System.String" />
+        <Param Name = "@COMMODITY_LEVEL_DESC" Column = "COMMODITY_LEVEL_DESC" TypeName = "System.String" />
+        <Param Name = "@FRT_CLASS" Column = "FRT_CLASS" TypeName = "System.String" />
+        <Param Name = "@NMFC_CODE" Column = "NMFC_CODE" TypeName = "System.String" />
+        <Param Name = "@INCUB_DAYS" Column = "INCUB_DAYS" TypeName = "System.Int16" />
+        <Param Name = "@INCUB_HOURS" Column = "INCUB_HOURS" TypeName = "System.Single" />
+        <Param Name = "@DFLT_INCUB_LOCK" Column = "DFLT_INCUB_LOCK" TypeName = "System.String" />
+        <Param Name = "@BASE_INCUB_FLAG" Column = "BASE_INCUB_FLAG" TypeName = "System.String" />
+        <Param Name = "@MAX_RCPT_QTY" Column = "MAX_RCPT_QTY" TypeName = "System.Double" />
+        <Param Name = "@PROMPT_PACK_QTY" Column = "PROMPT_PACK_QTY" TypeName = "System.String" />
+        <Param Name = "@HNDL_ATTR_UOM_ACT" Column = "HNDL_ATTR_UOM_ACT" TypeName = "System.String" />
+        <Param Name = "@HNDL_ATTR_UOM_CP" Column = "HNDL_ATTR_UOM_CP" TypeName = "System.String" />
+        <Param Name = "@SRL_NBR_BRCD_TYPE" Column = "SRL_NBR_BRCD_TYPE" TypeName = "System.String" />
+        <Param Name = "@DUP_SRL_NBR_FLAG" Column = "DUP_SRL_NBR_FLAG" TypeName = "System.Int16" />
+        <Param Name = "@MINOR_SRL_NBR_REQ" Column = "MINOR_SRL_NBR_REQ" TypeName = "System.Int16" />
+        <Param Name = "@FTZ_FLAG" Column = "FTZ_FLAG" TypeName = "System.String" />
+        <Param Name = "@HTS_NBR" Column = "HTS_NBR" TypeName = "System.String" />
+        <Param Name = "@STD_SUB_PACK_HT" Column = "STD_SUB_PACK_HT" TypeName = "System.Single" />
+        <Param Name = "@STD_SUB_PACK_LEN" Column = "STD_SUB_PACK_LEN" TypeName = "System.Single" />
+        <Param Name = "@STD_SUB_PACK_WIDTH" Column = "STD_SUB_PACK_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@STD_SUB_PACK_VOL" Column = "STD_SUB_PACK_VOL" TypeName = "System.Double" />
+        <Param Name = "@STD_SUB_PACK_WT" Column = "STD_SUB_PACK_WT" TypeName = "System.Double" />
+        <Param Name = "@PROMPT_FOR_VENDOR_ITEM_NBR" Column = "PROMPT_FOR_VENDOR_ITEM_NBR" TypeName = "System.String" />
+        <Param Name = "@CC_TOLER_UOM" Column = "CC_TOLER_UOM" TypeName = "System.String" />
+        <Param Name = "@CC_VAR_TOLER_VALUE" Column = "CC_VAR_TOLER_VALUE" TypeName = "System.Int64" />
+        <Param Name = "@VOCOLLECT_BASE_WT" Column = "VOCOLLECT_BASE_WT" TypeName = "System.Double" />
+        <Param Name = "@VOCOLLECT_BASE_QTY" Column = "VOCOLLECT_BASE_QTY" TypeName = "System.Double" />
+        <Param Name = "@VOCOLLECT_BASE_ITEM" Column = "VOCOLLECT_BASE_ITEM" TypeName = "System.String" />
+        <Param Name = "@PICK_WT_TOL_AMNT_ERROR" Column = "PICK_WT_TOL_AMNT_ERROR" TypeName = "System.Int16" />
+        <Param Name = "@PRICE_TKT_TYPE" Column = "PRICE_TKT_TYPE" TypeName = "System.String" />
+        <Param Name = "@SKU_IMAGE_FILENAME" Column = "SKU_IMAGE_FILENAME" TypeName = "System.String" />
+        <Param Name = "@MONETARY_VALUE" Column = "MONETARY_VALUE" TypeName = "System.Double" />
+        <Param Name = "@MV_CURRENCY_CODE" Column = "MV_CURRENCY_CODE" TypeName = "System.String" />
+        <Param Name = "@MV_SIZE_UOM" Column = "MV_SIZE_UOM" TypeName = "System.String" />
+        <Param Name = "@UN_NBR" Column = "UN_NBR" TypeName = "System.String" />
+        <Param Name = "@CODE_DATE_PROMPT_METHOD_FLAG" Column = "CODE_DATE_PROMPT_METHOD_FLAG" TypeName = "System.String" />
+        <Param Name = "@MIN_RECV_TO_XPIRE_DAYS" Column = "MIN_RECV_TO_XPIRE_DAYS" TypeName = "System.Int32" />
+        <Param Name = "@MIN_PCNT_FOR_LPN_SPLIT" Column = "MIN_PCNT_FOR_LPN_SPLIT" TypeName = "System.Int16" />
+        <Param Name = "@MIN_LPN_QTY_FOR_SPLIT" Column = "MIN_LPN_QTY_FOR_SPLIT" TypeName = "System.Double" />
+        <Param Name = "@PROD_CATGRY" Column = "PROD_CATGRY" TypeName = "System.String" />
+        <Param Name = "@PRICE_TIX_AVAIL_FLAG" Column = "PRICE_TIX_AVAIL_FLAG" TypeName = "System.String" />
+        <Param Name = "@PREF_CRIT_FLAG" Column = "PREF_CRIT_FLAG" TypeName = "System.String" />
+        <Param Name = "@PRODUCER_FLAG" Column = "PRODUCER_FLAG" TypeName = "System.String" />
+        <Param Name = "@NET_COST_FLAG" Column = "NET_COST_FLAG" TypeName = "System.String" />
+        <Param Name = "@STAB_CODE" Column = "STAB_CODE" TypeName = "System.String" />
+        <Param Name = "@ITEM_ORIENTATION" Column = "ITEM_ORIENTATION" TypeName = "System.String" />
+        <Param Name = "@PROTN_FACTOR" Column = "PROTN_FACTOR" TypeName = "System.String" />
+        <Param Name = "@CAVITY_LEN" Column = "CAVITY_LEN" TypeName = "System.Single" />
+        <Param Name = "@CAVITY_WD" Column = "CAVITY_WD" TypeName = "System.Single" />
+        <Param Name = "@CAVITY_HT" Column = "CAVITY_HT" TypeName = "System.Single" />
+        <Param Name = "@INCREMENTAL_LEN" Column = "INCREMENTAL_LEN" TypeName = "System.Single" />
+        <Param Name = "@INCREMENTAL_WD" Column = "INCREMENTAL_WD" TypeName = "System.Single" />
+        <Param Name = "@INCREMENTAL_HT" Column = "INCREMENTAL_HT" TypeName = "System.Single" />
+        <Param Name = "@STACKABLE_ITEM" Column = "STACKABLE_ITEM" TypeName = "System.String" />
+        <Param Name = "@MAX_NEST_NUMBER" Column = "MAX_NEST_NUMBER" TypeName = "System.Int16" />
+        <Param Name = "@CREATE_DATE_TIME" Column = "CREATE_DATE_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@MOD_DATE_TIME" Column = "MOD_DATE_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@USER_ID" Column = "USER_ID" TypeName = "System.String" />
+        <Param Name = "@MARKS_NBRS" Column = "MARKS_NBRS" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="UpdateObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              UPDATE  INPT_ITEM_MASTER 
+ SET  INPT_ITEM_MASTER_ID = @INPT_ITEM_MASTER_ID 
+ ,CO = @CO 
+ ,DIV = @DIV 
+ ,SEASON = @SEASON 
+ ,SEASON_YR = @SEASON_YR 
+ ,STYLE = @STYLE 
+ ,STYLE_SFX = @STYLE_SFX 
+ ,COLOR = @COLOR 
+ ,COLOR_SFX = @COLOR_SFX 
+ ,SEC_DIM = @SEC_DIM 
+ ,QUAL = @QUAL 
+ ,SIZE_RANGE_CODE = @SIZE_RANGE_CODE 
+ ,SIZE_REL_POSN_IN_TABLE = @SIZE_REL_POSN_IN_TABLE 
+ ,SIZE_DESC = @SIZE_DESC 
+ ,SKU_ATTR_REQD = @SKU_ATTR_REQD 
+ ,BATCH_REQD = @BATCH_REQD 
+ ,PROD_STAT_REQD = @PROD_STAT_REQD 
+ ,CNTRY_OF_ORGN_REQD = @CNTRY_OF_ORGN_REQD 
+ ,COORD_1 = @COORD_1 
+ ,COORD_2 = @COORD_2 
+ ,VOLTY_CODE = @VOLTY_CODE 
+ ,PKG_TYPE = @PKG_TYPE 
+ ,PROD_GROUP = @PROD_GROUP 
+ ,PROD_SUB_GRP = @PROD_SUB_GRP 
+ ,PROD_TYPE = @PROD_TYPE 
+ ,PROD_LINE = @PROD_LINE 
+ ,SALE_GRP = @SALE_GRP 
+ ,DB_QTY_UOM = @DB_QTY_UOM 
+ ,DSP_QTY_UOM = @DSP_QTY_UOM 
+ ,SKU_DESC = @SKU_DESC 
+ ,COLOR_DESC = @COLOR_DESC 
+ ,UPC_PRE_DIGIT = @UPC_PRE_DIGIT 
+ ,UPC_VENDOR_CODE = @UPC_VENDOR_CODE 
+ ,UPC_SRL_PROD_NBR = @UPC_SRL_PROD_NBR 
+ ,UPC_POST_DIGIT = @UPC_POST_DIGIT 
+ ,CARTON_TYPE = @CARTON_TYPE 
+ ,UNIT_PRICE = @UNIT_PRICE 
+ ,RETAIL_PRICE = @RETAIL_PRICE 
+ ,OPER_CODE = @OPER_CODE 
+ ,STD_PACK_QTY = @STD_PACK_QTY 
+ ,STD_BUNDL_QTY = @STD_BUNDL_QTY 
+ ,STD_CASE_QTY = @STD_CASE_QTY 
+ ,MAX_CASE_QTY = @MAX_CASE_QTY 
+ ,STD_CASE_LEN = @STD_CASE_LEN 
+ ,STD_CASE_WIDTH = @STD_CASE_WIDTH 
+ ,STD_CASE_HT = @STD_CASE_HT 
+ ,STD_TIER_QTY = @STD_TIER_QTY 
+ ,STD_PLT_QTY = @STD_PLT_QTY 
+ ,CUBE_MULT_QTY = @CUBE_MULT_QTY 
+ ,UNIT_WT = @UNIT_WT 
+ ,UNIT_VOL = @UNIT_VOL 
+ ,STD_PACK_WT = @STD_PACK_WT 
+ ,STD_PACK_VOL = @STD_PACK_VOL 
+ ,STD_CASE_WT = @STD_CASE_WT 
+ ,STD_CASE_VOL = @STD_CASE_VOL 
+ ,NEST_VOL = @NEST_VOL 
+ ,NEST_CNT = @NEST_CNT 
+ ,PROD_LIFE_IN_DAY = @PROD_LIFE_IN_DAY 
+ ,ALLOW_RCPT_OLDER_SKU = @ALLOW_RCPT_OLDER_SKU 
+ ,MHE_WT_TOL_AMNT = @MHE_WT_TOL_AMNT 
+ ,MHE_WT_TOL_TYPE = @MHE_WT_TOL_TYPE 
+ ,PICK_WT_TOL_AMNT = @PICK_WT_TOL_AMNT 
+ ,PICK_WT_TOL_TYPE = @PICK_WT_TOL_TYPE 
+ ,TRLR_TEMP_ZONE = @TRLR_TEMP_ZONE 
+ ,ACTVTN_DATE = @ACTVTN_DATE 
+ ,MAX_RECV_TO_XPIRE_DAYS = @MAX_RECV_TO_XPIRE_DAYS 
+ ,CRITCL_DIM_1 = @CRITCL_DIM_1 
+ ,CRITCL_DIM_2 = @CRITCL_DIM_2 
+ ,CRITCL_DIM_3 = @CRITCL_DIM_3 
+ ,MFG_DATE_REQD = @MFG_DATE_REQD 
+ ,XPIRE_DATE_REQD = @XPIRE_DATE_REQD 
+ ,SHIP_BY_DATE_REQD = @SHIP_BY_DATE_REQD 
+ ,STAT_CODE = @STAT_CODE 
+ ,SKU_BRCD = @SKU_BRCD 
+ ,STD_SUB_PACK_QTY = @STD_SUB_PACK_QTY 
+ ,CATCH_WT = @CATCH_WT 
+ ,CONS_PRTY_DATE_WINDOW_INCR = @CONS_PRTY_DATE_WINDOW_INCR 
+ ,LOAD_ATTR = @LOAD_ATTR 
+ ,WT_TOL_PCNT = @WT_TOL_PCNT 
+ ,CONS_PRTY_DATE_CODE = @CONS_PRTY_DATE_CODE 
+ ,HAZMAT_CODE = @HAZMAT_CODE 
+ ,CONS_PRTY_DATE_WINDOW = @CONS_PRTY_DATE_WINDOW 
+ ,AVG_DLY_DMND = @AVG_DLY_DMND 
+ ,TEMP_ZONE = @TEMP_ZONE 
+ ,SKU_ID = @SKU_ID 
+ ,VENDOR_ITEM_NBR = @VENDOR_ITEM_NBR 
+ ,UNITS_PER_PICK_ACTIVE = @UNITS_PER_PICK_ACTIVE 
+ ,HNDL_ATTR_ACTIVE = @HNDL_ATTR_ACTIVE 
+ ,UNITS_PER_PICK_CASE_PICK = @UNITS_PER_PICK_CASE_PICK 
+ ,HNDL_ATTR_CASE_PICK = @HNDL_ATTR_CASE_PICK 
+ ,UNITS_PER_PICK_RESV = @UNITS_PER_PICK_RESV 
+ ,HNDL_ATTR_RESV = @HNDL_ATTR_RESV 
+ ,SRL_NBR_REQD = @SRL_NBR_REQD 
+ ,ERROR_SEQ_NBR = @ERROR_SEQ_NBR 
+ ,PROC_STAT_CODE = @PROC_STAT_CODE 
+ ,MERCH_TYPE = @MERCH_TYPE 
+ ,STORE_DEPT = @STORE_DEPT 
+ ,CRUSH_CODE = @CRUSH_CODE 
+ ,STD_PACK_WIDTH = @STD_PACK_WIDTH 
+ ,STD_PACK_LEN = @STD_PACK_LEN 
+ ,STD_PACK_HT = @STD_PACK_HT 
+ ,UNIT_WIDTH = @UNIT_WIDTH 
+ ,UNIT_LEN = @UNIT_LEN 
+ ,UNIT_HT = @UNIT_HT 
+ ,CONVEY_FLAG = @CONVEY_FLAG 
+ ,PKT_CONSOL_ATTR = @PKT_CONSOL_ATTR 
+ ,BUYER_DISP_CODE = @BUYER_DISP_CODE 
+ ,MERCH_GROUP = @MERCH_GROUP 
+ ,SPL_INSTR_CODE_1 = @SPL_INSTR_CODE_1 
+ ,SPL_INSTR_CODE_2 = @SPL_INSTR_CODE_2 
+ ,SPL_INSTR_CODE_3 = @SPL_INSTR_CODE_3 
+ ,SPL_INSTR_CODE_4 = @SPL_INSTR_CODE_4 
+ ,SPL_INSTR_CODE_5 = @SPL_INSTR_CODE_5 
+ ,SPL_INSTR_CODE_6 = @SPL_INSTR_CODE_6 
+ ,SPL_INSTR_CODE_7 = @SPL_INSTR_CODE_7 
+ ,SPL_INSTR_CODE_8 = @SPL_INSTR_CODE_8 
+ ,SPL_INSTR_CODE_9 = @SPL_INSTR_CODE_9 
+ ,SPL_INSTR_CODE_10 = @SPL_INSTR_CODE_10 
+ ,SPL_INSTR_1 = @SPL_INSTR_1 
+ ,SPL_INSTR_2 = @SPL_INSTR_2 
+ ,SKU_PROFILE_ID = @SKU_PROFILE_ID 
+ ,DFLT_BATCH_STAT = @DFLT_BATCH_STAT 
+ ,ECCN_NBR = @ECCN_NBR 
+ ,EXP_LICN_NBR = @EXP_LICN_NBR 
+ ,EXP_LICN_XP_DATE = @EXP_LICN_XP_DATE 
+ ,EXP_LICN_SYMBOL = @EXP_LICN_SYMBOL 
+ ,ORGN_CERT_CODE = @ORGN_CERT_CODE 
+ ,COMMODITY_CODE = @COMMODITY_CODE 
+ ,COMMODITY_LEVEL_DESC = @COMMODITY_LEVEL_DESC 
+ ,FRT_CLASS = @FRT_CLASS 
+ ,NMFC_CODE = @NMFC_CODE 
+ ,INCUB_DAYS = @INCUB_DAYS 
+ ,INCUB_HOURS = @INCUB_HOURS 
+ ,DFLT_INCUB_LOCK = @DFLT_INCUB_LOCK 
+ ,BASE_INCUB_FLAG = @BASE_INCUB_FLAG 
+ ,MAX_RCPT_QTY = @MAX_RCPT_QTY 
+ ,PROMPT_PACK_QTY = @PROMPT_PACK_QTY 
+ ,HNDL_ATTR_UOM_ACT = @HNDL_ATTR_UOM_ACT 
+ ,HNDL_ATTR_UOM_CP = @HNDL_ATTR_UOM_CP 
+ ,SRL_NBR_BRCD_TYPE = @SRL_NBR_BRCD_TYPE 
+ ,DUP_SRL_NBR_FLAG = @DUP_SRL_NBR_FLAG 
+ ,MINOR_SRL_NBR_REQ = @MINOR_SRL_NBR_REQ 
+ ,FTZ_FLAG = @FTZ_FLAG 
+ ,HTS_NBR = @HTS_NBR 
+ ,STD_SUB_PACK_HT = @STD_SUB_PACK_HT 
+ ,STD_SUB_PACK_LEN = @STD_SUB_PACK_LEN 
+ ,STD_SUB_PACK_WIDTH = @STD_SUB_PACK_WIDTH 
+ ,STD_SUB_PACK_VOL = @STD_SUB_PACK_VOL 
+ ,STD_SUB_PACK_WT = @STD_SUB_PACK_WT 
+ ,PROMPT_FOR_VENDOR_ITEM_NBR = @PROMPT_FOR_VENDOR_ITEM_NBR 
+ ,CC_TOLER_UOM = @CC_TOLER_UOM 
+ ,CC_VAR_TOLER_VALUE = @CC_VAR_TOLER_VALUE 
+ ,VOCOLLECT_BASE_WT = @VOCOLLECT_BASE_WT 
+ ,VOCOLLECT_BASE_QTY = @VOCOLLECT_BASE_QTY 
+ ,VOCOLLECT_BASE_ITEM = @VOCOLLECT_BASE_ITEM 
+ ,PICK_WT_TOL_AMNT_ERROR = @PICK_WT_TOL_AMNT_ERROR 
+ ,PRICE_TKT_TYPE = @PRICE_TKT_TYPE 
+ ,SKU_IMAGE_FILENAME = @SKU_IMAGE_FILENAME 
+ ,MONETARY_VALUE = @MONETARY_VALUE 
+ ,MV_CURRENCY_CODE = @MV_CURRENCY_CODE 
+ ,MV_SIZE_UOM = @MV_SIZE_UOM 
+ ,UN_NBR = @UN_NBR 
+ ,CODE_DATE_PROMPT_METHOD_FLAG = @CODE_DATE_PROMPT_METHOD_FLAG 
+ ,MIN_RECV_TO_XPIRE_DAYS = @MIN_RECV_TO_XPIRE_DAYS 
+ ,MIN_PCNT_FOR_LPN_SPLIT = @MIN_PCNT_FOR_LPN_SPLIT 
+ ,MIN_LPN_QTY_FOR_SPLIT = @MIN_LPN_QTY_FOR_SPLIT 
+ ,PROD_CATGRY = @PROD_CATGRY 
+ ,PRICE_TIX_AVAIL_FLAG = @PRICE_TIX_AVAIL_FLAG 
+ ,PREF_CRIT_FLAG = @PREF_CRIT_FLAG 
+ ,PRODUCER_FLAG = @PRODUCER_FLAG 
+ ,NET_COST_FLAG = @NET_COST_FLAG 
+ ,STAB_CODE = @STAB_CODE 
+ ,ITEM_ORIENTATION = @ITEM_ORIENTATION 
+ ,PROTN_FACTOR = @PROTN_FACTOR 
+ ,CAVITY_LEN = @CAVITY_LEN 
+ ,CAVITY_WD = @CAVITY_WD 
+ ,CAVITY_HT = @CAVITY_HT 
+ ,INCREMENTAL_LEN = @INCREMENTAL_LEN 
+ ,INCREMENTAL_WD = @INCREMENTAL_WD 
+ ,INCREMENTAL_HT = @INCREMENTAL_HT 
+ ,STACKABLE_ITEM = @STACKABLE_ITEM 
+ ,MAX_NEST_NUMBER = @MAX_NEST_NUMBER 
+ ,CREATE_DATE_TIME = @CREATE_DATE_TIME 
+ ,MOD_DATE_TIME = @MOD_DATE_TIME 
+ ,USER_ID = @USER_ID 
+ ,MARKS_NBRS = @MARKS_NBRS 
+  
+ WHERE ID = @ID ;
+]]>
+        </String>
+        <Param Name = "@INPT_ITEM_MASTER_ID" Column = "INPT_ITEM_MASTER_ID" TypeName = "System.Int32" />
+        <Param Name = "@CO" Column = "CO" TypeName = "System.String" />
+        <Param Name = "@DIV" Column = "DIV" TypeName = "System.String" />
+        <Param Name = "@SEASON" Column = "SEASON" TypeName = "System.String" />
+        <Param Name = "@SEASON_YR" Column = "SEASON_YR" TypeName = "System.String" />
+        <Param Name = "@STYLE" Column = "STYLE" TypeName = "System.String" />
+        <Param Name = "@STYLE_SFX" Column = "STYLE_SFX" TypeName = "System.String" />
+        <Param Name = "@COLOR" Column = "COLOR" TypeName = "System.String" />
+        <Param Name = "@COLOR_SFX" Column = "COLOR_SFX" TypeName = "System.String" />
+        <Param Name = "@SEC_DIM" Column = "SEC_DIM" TypeName = "System.String" />
+        <Param Name = "@QUAL" Column = "QUAL" TypeName = "System.String" />
+        <Param Name = "@SIZE_RANGE_CODE" Column = "SIZE_RANGE_CODE" TypeName = "System.String" />
+        <Param Name = "@SIZE_REL_POSN_IN_TABLE" Column = "SIZE_REL_POSN_IN_TABLE" TypeName = "System.String" />
+        <Param Name = "@SIZE_DESC" Column = "SIZE_DESC" TypeName = "System.String" />
+        <Param Name = "@SKU_ATTR_REQD" Column = "SKU_ATTR_REQD" TypeName = "System.String" />
+        <Param Name = "@BATCH_REQD" Column = "BATCH_REQD" TypeName = "System.String" />
+        <Param Name = "@PROD_STAT_REQD" Column = "PROD_STAT_REQD" TypeName = "System.String" />
+        <Param Name = "@CNTRY_OF_ORGN_REQD" Column = "CNTRY_OF_ORGN_REQD" TypeName = "System.String" />
+        <Param Name = "@COORD_1" Column = "COORD_1" TypeName = "System.Int32" />
+        <Param Name = "@COORD_2" Column = "COORD_2" TypeName = "System.Int32" />
+        <Param Name = "@VOLTY_CODE" Column = "VOLTY_CODE" TypeName = "System.String" />
+        <Param Name = "@PKG_TYPE" Column = "PKG_TYPE" TypeName = "System.String" />
+        <Param Name = "@PROD_GROUP" Column = "PROD_GROUP" TypeName = "System.String" />
+        <Param Name = "@PROD_SUB_GRP" Column = "PROD_SUB_GRP" TypeName = "System.String" />
+        <Param Name = "@PROD_TYPE" Column = "PROD_TYPE" TypeName = "System.String" />
+        <Param Name = "@PROD_LINE" Column = "PROD_LINE" TypeName = "System.String" />
+        <Param Name = "@SALE_GRP" Column = "SALE_GRP" TypeName = "System.String" />
+        <Param Name = "@DB_QTY_UOM" Column = "DB_QTY_UOM" TypeName = "System.String" />
+        <Param Name = "@DSP_QTY_UOM" Column = "DSP_QTY_UOM" TypeName = "System.String" />
+        <Param Name = "@SKU_DESC" Column = "SKU_DESC" TypeName = "System.String" />
+        <Param Name = "@COLOR_DESC" Column = "COLOR_DESC" TypeName = "System.String" />
+        <Param Name = "@UPC_PRE_DIGIT" Column = "UPC_PRE_DIGIT" TypeName = "System.String" />
+        <Param Name = "@UPC_VENDOR_CODE" Column = "UPC_VENDOR_CODE" TypeName = "System.String" />
+        <Param Name = "@UPC_SRL_PROD_NBR" Column = "UPC_SRL_PROD_NBR" TypeName = "System.String" />
+        <Param Name = "@UPC_POST_DIGIT" Column = "UPC_POST_DIGIT" TypeName = "System.String" />
+        <Param Name = "@CARTON_TYPE" Column = "CARTON_TYPE" TypeName = "System.String" />
+        <Param Name = "@UNIT_PRICE" Column = "UNIT_PRICE" TypeName = "System.Double" />
+        <Param Name = "@RETAIL_PRICE" Column = "RETAIL_PRICE" TypeName = "System.Double" />
+        <Param Name = "@OPER_CODE" Column = "OPER_CODE" TypeName = "System.String" />
+        <Param Name = "@STD_PACK_QTY" Column = "STD_PACK_QTY" TypeName = "System.Double" />
+        <Param Name = "@STD_BUNDL_QTY" Column = "STD_BUNDL_QTY" TypeName = "System.Double" />
+        <Param Name = "@STD_CASE_QTY" Column = "STD_CASE_QTY" TypeName = "System.Double" />
+        <Param Name = "@MAX_CASE_QTY" Column = "MAX_CASE_QTY" TypeName = "System.Double" />
+        <Param Name = "@STD_CASE_LEN" Column = "STD_CASE_LEN" TypeName = "System.Single" />
+        <Param Name = "@STD_CASE_WIDTH" Column = "STD_CASE_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@STD_CASE_HT" Column = "STD_CASE_HT" TypeName = "System.Single" />
+        <Param Name = "@STD_TIER_QTY" Column = "STD_TIER_QTY" TypeName = "System.Double" />
+        <Param Name = "@STD_PLT_QTY" Column = "STD_PLT_QTY" TypeName = "System.Double" />
+        <Param Name = "@CUBE_MULT_QTY" Column = "CUBE_MULT_QTY" TypeName = "System.Double" />
+        <Param Name = "@UNIT_WT" Column = "UNIT_WT" TypeName = "System.Double" />
+        <Param Name = "@UNIT_VOL" Column = "UNIT_VOL" TypeName = "System.Double" />
+        <Param Name = "@STD_PACK_WT" Column = "STD_PACK_WT" TypeName = "System.Double" />
+        <Param Name = "@STD_PACK_VOL" Column = "STD_PACK_VOL" TypeName = "System.Double" />
+        <Param Name = "@STD_CASE_WT" Column = "STD_CASE_WT" TypeName = "System.Double" />
+        <Param Name = "@STD_CASE_VOL" Column = "STD_CASE_VOL" TypeName = "System.Double" />
+        <Param Name = "@NEST_VOL" Column = "NEST_VOL" TypeName = "System.Double" />
+        <Param Name = "@NEST_CNT" Column = "NEST_CNT" TypeName = "System.Int32" />
+        <Param Name = "@PROD_LIFE_IN_DAY" Column = "PROD_LIFE_IN_DAY" TypeName = "System.Int32" />
+        <Param Name = "@ALLOW_RCPT_OLDER_SKU" Column = "ALLOW_RCPT_OLDER_SKU" TypeName = "System.String" />
+        <Param Name = "@MHE_WT_TOL_AMNT" Column = "MHE_WT_TOL_AMNT" TypeName = "System.Int16" />
+        <Param Name = "@MHE_WT_TOL_TYPE" Column = "MHE_WT_TOL_TYPE" TypeName = "System.String" />
+        <Param Name = "@PICK_WT_TOL_AMNT" Column = "PICK_WT_TOL_AMNT" TypeName = "System.Int16" />
+        <Param Name = "@PICK_WT_TOL_TYPE" Column = "PICK_WT_TOL_TYPE" TypeName = "System.String" />
+        <Param Name = "@TRLR_TEMP_ZONE" Column = "TRLR_TEMP_ZONE" TypeName = "System.String" />
+        <Param Name = "@ACTVTN_DATE" Column = "ACTVTN_DATE" TypeName = "System.DateTime" />
+        <Param Name = "@MAX_RECV_TO_XPIRE_DAYS" Column = "MAX_RECV_TO_XPIRE_DAYS" TypeName = "System.Int32" />
+        <Param Name = "@CRITCL_DIM_1" Column = "CRITCL_DIM_1" TypeName = "System.Single" />
+        <Param Name = "@CRITCL_DIM_2" Column = "CRITCL_DIM_2" TypeName = "System.Single" />
+        <Param Name = "@CRITCL_DIM_3" Column = "CRITCL_DIM_3" TypeName = "System.Single" />
+        <Param Name = "@MFG_DATE_REQD" Column = "MFG_DATE_REQD" TypeName = "System.String" />
+        <Param Name = "@XPIRE_DATE_REQD" Column = "XPIRE_DATE_REQD" TypeName = "System.String" />
+        <Param Name = "@SHIP_BY_DATE_REQD" Column = "SHIP_BY_DATE_REQD" TypeName = "System.String" />
+        <Param Name = "@STAT_CODE" Column = "STAT_CODE" TypeName = "System.Int16" />
+        <Param Name = "@SKU_BRCD" Column = "SKU_BRCD" TypeName = "System.String" />
+        <Param Name = "@STD_SUB_PACK_QTY" Column = "STD_SUB_PACK_QTY" TypeName = "System.Double" />
+        <Param Name = "@CATCH_WT" Column = "CATCH_WT" TypeName = "System.String" />
+        <Param Name = "@CONS_PRTY_DATE_WINDOW_INCR" Column = "CONS_PRTY_DATE_WINDOW_INCR" TypeName = "System.Int16" />
+        <Param Name = "@LOAD_ATTR" Column = "LOAD_ATTR" TypeName = "System.String" />
+        <Param Name = "@WT_TOL_PCNT" Column = "WT_TOL_PCNT" TypeName = "System.Single" />
+        <Param Name = "@CONS_PRTY_DATE_CODE" Column = "CONS_PRTY_DATE_CODE" TypeName = "System.String" />
+        <Param Name = "@HAZMAT_CODE" Column = "HAZMAT_CODE" TypeName = "System.String" />
+        <Param Name = "@CONS_PRTY_DATE_WINDOW" Column = "CONS_PRTY_DATE_WINDOW" TypeName = "System.String" />
+        <Param Name = "@AVG_DLY_DMND" Column = "AVG_DLY_DMND" TypeName = "System.Double" />
+        <Param Name = "@TEMP_ZONE" Column = "TEMP_ZONE" TypeName = "System.String" />
+        <Param Name = "@SKU_ID" Column = "SKU_ID" TypeName = "System.String" />
+        <Param Name = "@VENDOR_ITEM_NBR" Column = "VENDOR_ITEM_NBR" TypeName = "System.String" />
+        <Param Name = "@UNITS_PER_PICK_ACTIVE" Column = "UNITS_PER_PICK_ACTIVE" TypeName = "System.Double" />
+        <Param Name = "@HNDL_ATTR_ACTIVE" Column = "HNDL_ATTR_ACTIVE" TypeName = "System.String" />
+        <Param Name = "@UNITS_PER_PICK_CASE_PICK" Column = "UNITS_PER_PICK_CASE_PICK" TypeName = "System.Double" />
+        <Param Name = "@HNDL_ATTR_CASE_PICK" Column = "HNDL_ATTR_CASE_PICK" TypeName = "System.String" />
+        <Param Name = "@UNITS_PER_PICK_RESV" Column = "UNITS_PER_PICK_RESV" TypeName = "System.Double" />
+        <Param Name = "@HNDL_ATTR_RESV" Column = "HNDL_ATTR_RESV" TypeName = "System.String" />
+        <Param Name = "@SRL_NBR_REQD" Column = "SRL_NBR_REQD" TypeName = "System.Int16" />
+        <Param Name = "@ERROR_SEQ_NBR" Column = "ERROR_SEQ_NBR" TypeName = "System.Int32" />
+        <Param Name = "@PROC_STAT_CODE" Column = "PROC_STAT_CODE" TypeName = "System.Int16" />
+        <Param Name = "@MERCH_TYPE" Column = "MERCH_TYPE" TypeName = "System.String" />
+        <Param Name = "@STORE_DEPT" Column = "STORE_DEPT" TypeName = "System.String" />
+        <Param Name = "@CRUSH_CODE" Column = "CRUSH_CODE" TypeName = "System.String" />
+        <Param Name = "@STD_PACK_WIDTH" Column = "STD_PACK_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@STD_PACK_LEN" Column = "STD_PACK_LEN" TypeName = "System.Single" />
+        <Param Name = "@STD_PACK_HT" Column = "STD_PACK_HT" TypeName = "System.Single" />
+        <Param Name = "@UNIT_WIDTH" Column = "UNIT_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@UNIT_LEN" Column = "UNIT_LEN" TypeName = "System.Single" />
+        <Param Name = "@UNIT_HT" Column = "UNIT_HT" TypeName = "System.Single" />
+        <Param Name = "@CONVEY_FLAG" Column = "CONVEY_FLAG" TypeName = "System.String" />
+        <Param Name = "@PKT_CONSOL_ATTR" Column = "PKT_CONSOL_ATTR" TypeName = "System.String" />
+        <Param Name = "@BUYER_DISP_CODE" Column = "BUYER_DISP_CODE" TypeName = "System.String" />
+        <Param Name = "@MERCH_GROUP" Column = "MERCH_GROUP" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_1" Column = "SPL_INSTR_CODE_1" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_2" Column = "SPL_INSTR_CODE_2" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_3" Column = "SPL_INSTR_CODE_3" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_4" Column = "SPL_INSTR_CODE_4" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_5" Column = "SPL_INSTR_CODE_5" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_6" Column = "SPL_INSTR_CODE_6" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_7" Column = "SPL_INSTR_CODE_7" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_8" Column = "SPL_INSTR_CODE_8" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_9" Column = "SPL_INSTR_CODE_9" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_CODE_10" Column = "SPL_INSTR_CODE_10" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_1" Column = "SPL_INSTR_1" TypeName = "System.String" />
+        <Param Name = "@SPL_INSTR_2" Column = "SPL_INSTR_2" TypeName = "System.String" />
+        <Param Name = "@SKU_PROFILE_ID" Column = "SKU_PROFILE_ID" TypeName = "System.String" />
+        <Param Name = "@DFLT_BATCH_STAT" Column = "DFLT_BATCH_STAT" TypeName = "System.Int16" />
+        <Param Name = "@ECCN_NBR" Column = "ECCN_NBR" TypeName = "System.String" />
+        <Param Name = "@EXP_LICN_NBR" Column = "EXP_LICN_NBR" TypeName = "System.String" />
+        <Param Name = "@EXP_LICN_XP_DATE" Column = "EXP_LICN_XP_DATE" TypeName = "System.DateTime" />
+        <Param Name = "@EXP_LICN_SYMBOL" Column = "EXP_LICN_SYMBOL" TypeName = "System.String" />
+        <Param Name = "@ORGN_CERT_CODE" Column = "ORGN_CERT_CODE" TypeName = "System.String" />
+        <Param Name = "@COMMODITY_CODE" Column = "COMMODITY_CODE" TypeName = "System.String" />
+        <Param Name = "@COMMODITY_LEVEL_DESC" Column = "COMMODITY_LEVEL_DESC" TypeName = "System.String" />
+        <Param Name = "@FRT_CLASS" Column = "FRT_CLASS" TypeName = "System.String" />
+        <Param Name = "@NMFC_CODE" Column = "NMFC_CODE" TypeName = "System.String" />
+        <Param Name = "@INCUB_DAYS" Column = "INCUB_DAYS" TypeName = "System.Int16" />
+        <Param Name = "@INCUB_HOURS" Column = "INCUB_HOURS" TypeName = "System.Single" />
+        <Param Name = "@DFLT_INCUB_LOCK" Column = "DFLT_INCUB_LOCK" TypeName = "System.String" />
+        <Param Name = "@BASE_INCUB_FLAG" Column = "BASE_INCUB_FLAG" TypeName = "System.String" />
+        <Param Name = "@MAX_RCPT_QTY" Column = "MAX_RCPT_QTY" TypeName = "System.Double" />
+        <Param Name = "@PROMPT_PACK_QTY" Column = "PROMPT_PACK_QTY" TypeName = "System.String" />
+        <Param Name = "@HNDL_ATTR_UOM_ACT" Column = "HNDL_ATTR_UOM_ACT" TypeName = "System.String" />
+        <Param Name = "@HNDL_ATTR_UOM_CP" Column = "HNDL_ATTR_UOM_CP" TypeName = "System.String" />
+        <Param Name = "@SRL_NBR_BRCD_TYPE" Column = "SRL_NBR_BRCD_TYPE" TypeName = "System.String" />
+        <Param Name = "@DUP_SRL_NBR_FLAG" Column = "DUP_SRL_NBR_FLAG" TypeName = "System.Int16" />
+        <Param Name = "@MINOR_SRL_NBR_REQ" Column = "MINOR_SRL_NBR_REQ" TypeName = "System.Int16" />
+        <Param Name = "@FTZ_FLAG" Column = "FTZ_FLAG" TypeName = "System.String" />
+        <Param Name = "@HTS_NBR" Column = "HTS_NBR" TypeName = "System.String" />
+        <Param Name = "@STD_SUB_PACK_HT" Column = "STD_SUB_PACK_HT" TypeName = "System.Single" />
+        <Param Name = "@STD_SUB_PACK_LEN" Column = "STD_SUB_PACK_LEN" TypeName = "System.Single" />
+        <Param Name = "@STD_SUB_PACK_WIDTH" Column = "STD_SUB_PACK_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@STD_SUB_PACK_VOL" Column = "STD_SUB_PACK_VOL" TypeName = "System.Double" />
+        <Param Name = "@STD_SUB_PACK_WT" Column = "STD_SUB_PACK_WT" TypeName = "System.Double" />
+        <Param Name = "@PROMPT_FOR_VENDOR_ITEM_NBR" Column = "PROMPT_FOR_VENDOR_ITEM_NBR" TypeName = "System.String" />
+        <Param Name = "@CC_TOLER_UOM" Column = "CC_TOLER_UOM" TypeName = "System.String" />
+        <Param Name = "@CC_VAR_TOLER_VALUE" Column = "CC_VAR_TOLER_VALUE" TypeName = "System.Int64" />
+        <Param Name = "@VOCOLLECT_BASE_WT" Column = "VOCOLLECT_BASE_WT" TypeName = "System.Double" />
+        <Param Name = "@VOCOLLECT_BASE_QTY" Column = "VOCOLLECT_BASE_QTY" TypeName = "System.Double" />
+        <Param Name = "@VOCOLLECT_BASE_ITEM" Column = "VOCOLLECT_BASE_ITEM" TypeName = "System.String" />
+        <Param Name = "@PICK_WT_TOL_AMNT_ERROR" Column = "PICK_WT_TOL_AMNT_ERROR" TypeName = "System.Int16" />
+        <Param Name = "@PRICE_TKT_TYPE" Column = "PRICE_TKT_TYPE" TypeName = "System.String" />
+        <Param Name = "@SKU_IMAGE_FILENAME" Column = "SKU_IMAGE_FILENAME" TypeName = "System.String" />
+        <Param Name = "@MONETARY_VALUE" Column = "MONETARY_VALUE" TypeName = "System.Double" />
+        <Param Name = "@MV_CURRENCY_CODE" Column = "MV_CURRENCY_CODE" TypeName = "System.String" />
+        <Param Name = "@MV_SIZE_UOM" Column = "MV_SIZE_UOM" TypeName = "System.String" />
+        <Param Name = "@UN_NBR" Column = "UN_NBR" TypeName = "System.String" />
+        <Param Name = "@CODE_DATE_PROMPT_METHOD_FLAG" Column = "CODE_DATE_PROMPT_METHOD_FLAG" TypeName = "System.String" />
+        <Param Name = "@MIN_RECV_TO_XPIRE_DAYS" Column = "MIN_RECV_TO_XPIRE_DAYS" TypeName = "System.Int32" />
+        <Param Name = "@MIN_PCNT_FOR_LPN_SPLIT" Column = "MIN_PCNT_FOR_LPN_SPLIT" TypeName = "System.Int16" />
+        <Param Name = "@MIN_LPN_QTY_FOR_SPLIT" Column = "MIN_LPN_QTY_FOR_SPLIT" TypeName = "System.Double" />
+        <Param Name = "@PROD_CATGRY" Column = "PROD_CATGRY" TypeName = "System.String" />
+        <Param Name = "@PRICE_TIX_AVAIL_FLAG" Column = "PRICE_TIX_AVAIL_FLAG" TypeName = "System.String" />
+        <Param Name = "@PREF_CRIT_FLAG" Column = "PREF_CRIT_FLAG" TypeName = "System.String" />
+        <Param Name = "@PRODUCER_FLAG" Column = "PRODUCER_FLAG" TypeName = "System.String" />
+        <Param Name = "@NET_COST_FLAG" Column = "NET_COST_FLAG" TypeName = "System.String" />
+        <Param Name = "@STAB_CODE" Column = "STAB_CODE" TypeName = "System.String" />
+        <Param Name = "@ITEM_ORIENTATION" Column = "ITEM_ORIENTATION" TypeName = "System.String" />
+        <Param Name = "@PROTN_FACTOR" Column = "PROTN_FACTOR" TypeName = "System.String" />
+        <Param Name = "@CAVITY_LEN" Column = "CAVITY_LEN" TypeName = "System.Single" />
+        <Param Name = "@CAVITY_WD" Column = "CAVITY_WD" TypeName = "System.Single" />
+        <Param Name = "@CAVITY_HT" Column = "CAVITY_HT" TypeName = "System.Single" />
+        <Param Name = "@INCREMENTAL_LEN" Column = "INCREMENTAL_LEN" TypeName = "System.Single" />
+        <Param Name = "@INCREMENTAL_WD" Column = "INCREMENTAL_WD" TypeName = "System.Single" />
+        <Param Name = "@INCREMENTAL_HT" Column = "INCREMENTAL_HT" TypeName = "System.Single" />
+        <Param Name = "@STACKABLE_ITEM" Column = "STACKABLE_ITEM" TypeName = "System.String" />
+        <Param Name = "@MAX_NEST_NUMBER" Column = "MAX_NEST_NUMBER" TypeName = "System.Int16" />
+        <Param Name = "@CREATE_DATE_TIME" Column = "CREATE_DATE_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@MOD_DATE_TIME" Column = "MOD_DATE_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@USER_ID" Column = "USER_ID" TypeName = "System.String" />
+        <Param Name = "@MARKS_NBRS" Column = "MARKS_NBRS" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="DeleteObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              DELETE 
+ FROM INPT_ITEM_MASTER 
+ WHERE ID = @ID;
+]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>

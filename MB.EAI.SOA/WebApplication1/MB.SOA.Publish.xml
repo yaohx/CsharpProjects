@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Intel\MaService" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="05/07/2013 09:12:00" />
+    <file relUrl="bin/MB.RuleBase.dll" publishTime="07/31/2013 11:33:46" />
+    <file relUrl="bin/MB.RuleBase.Common.dll" publishTime="07/31/2013 11:33:46" />
+    <file relUrl="Global.asax" publishTime="04/08/2014 10:56:45" />
+    <file relUrl="bin/MB.EAI.SOA.COMMON.dll" publishTime="05/15/2014 15:28:23" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="04/08/2014 10:56:45" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Caching.dll" publishTime="05/07/2013 09:12:00" />
+    <file relUrl="bin/MB.EAI.SOA.OERP.dll" publishTime="05/15/2014 15:28:24" />
+    <file relUrl="bin/Newtonsoft.Json.xml" publishTime="05/14/2014 16:20:09" />
+    <file relUrl="bin/MB.RuleBase.xml" publishTime="05/07/2013 09:12:00" />
+    <file relUrl="bin/Microsoft.Practices.ServiceLocation.dll" publishTime="05/07/2013 09:12:00" />
+    <file relUrl="bin/MB.Util.xml" publishTime="09/09/2013 15:45:25" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="04/08/2014 10:56:45" />
+    <file relUrl="bin/Configfile/Gdn.xml" publishTime="04/18/2014 09:32:37" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll" publishTime="05/07/2013 09:12:00" />
+    <file relUrl="Default.aspx" publishTime="04/23/2014 16:01:10" />
+    <file relUrl="bin/Microsoft.Practices.Unity.dll" publishTime="05/07/2013 09:12:00" />
+    <file relUrl="bin/WebApplication1.pdb" publishTime="05/15/2014 15:31:21" />
+    <file relUrl="bin/MB.ORM.dll" publishTime="09/09/2013 14:49:50" />
+    <file relUrl="bin/MB.AOP.xml" publishTime="05/07/2013 09:11:59" />
+    <file relUrl="bin/WebApplication1.dll" publishTime="05/15/2014 15:31:21" />
+    <file relUrl="HttpHandlers/OrganizeHandler.ashx" publishTime="05/15/2014 10:35:07" />
+    <file relUrl="bin/Microsoft.Practices.Unity.Interception.dll" publishTime="05/07/2013 09:12:00" />
+    <file relUrl="bin/Configfile/Organization.xml" publishTime="05/15/2014 10:37:25" />
+    <file relUrl="bin/MB.AOP.dll" publishTime="05/07/2013 09:11:59" />
+    <file relUrl="bin/MB.Util.dll" publishTime="10/24/2013 10:19:59" />
+    <file relUrl="bin/MB.EAI.SOA.COMMON.pdb" publishTime="05/15/2014 15:28:23" />
+    <file relUrl="bin/MB.EAI.SOA.OERP.pdb" publishTime="05/15/2014 15:28:24" />
+    <file relUrl="WebTest.aspx" publishTime="04/08/2014 12:17:30" />
+    <file relUrl="bin/Oracle.DataAccess.dll" publishTime="08/31/2012 06:26:22" />
+    <file relUrl="Web.config" publishTime="05/15/2014 15:31:43" />
+    <file relUrl="bin/MB.ORM.xml" publishTime="05/07/2013 09:11:59" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="05/14/2014 16:20:09" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="04/08/2014 10:56:45" />
+  </publishProfile>
+</publishData>

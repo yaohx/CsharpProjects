@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://MBEAI.WMS.OutPKT.WMS_PKT_VariantRequest/Imports" targetNamespace="http://MBEAI.WMS.OutPKT.WMS_PKT_VariantRequest/Imports" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.101.189:80/BizTalkWcfService/BtsMAServer.svc?xsd=xsd2" namespace="http://MBEAI.WMS.OutPKT.WMS_PKT_VariantRequest" />
+</xs:schema>

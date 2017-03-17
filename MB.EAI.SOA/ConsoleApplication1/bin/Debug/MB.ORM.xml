@@ -1,0 +1,2832 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MB.ORM</name>
+    </assembly>
+    <members>
+        <member name="T:MB.Orm.DB.IDatabaseFactory">
+            <summary>
+            数据库创建工厂接口。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DB.IDatabaseFactory.CreateDatabase">
+            <summary>
+            默认从动态路由表中创建一个连接写库的数据库连接字符窜
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DB.IDatabaseFactory.CreateDatabase(System.Boolean)">
+            <summary>
+            从云计算平台动态路由表中获取
+            </summary>
+            <param name="readOnly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DB.IDatabaseFactory.CreateDatabase(System.String,System.String,System.Boolean)">
+            <summary>
+            根据应用编码、数据库名称、是否特定设置的读写需求来创建
+            </summary>
+            <param name="appCode"></param>
+            <param name="dbName"></param>
+            <param name="readOnly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DB.IDatabaseFactory.CreateDatabase(System.String)">
+            <summary>
+            指定Db配置名称，目前只能从本地App.Config 的 配置中找对应的名称
+            </summary>
+            <param name="dbName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DB.IDatabaseFactory.CreateDatabase(MB.Orm.DB.OperationDatabaseContext)">
+            <summary>
+            根据上下文来创建所需要的数据库
+            </summary>
+            <param name="databaseContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.Persistence.DbCommandExecuteTrack">
+            <summary>
+            数据库操作执行跟踪处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.DbCommandExecuteTrack.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.DbCommandExecuteTrack.CommandToTrackMessage(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand)">
+            <summary>
+            把DbCommand 转换为可阅的消息文本格式。
+            </summary>
+            <param name="db"></param>
+            <param name="dbCmd"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.Persistence.DbCommandExecuteTrack.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.ModelMappingInfo">
+            <summary>
+            对象Mapping 的描述。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.ClassName">
+            <summary>
+            数据对象的名字。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.EntityType">
+            <summary>
+            实体的类型。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.MapTable">
+            <summary>
+            映射的表。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.IsMultiPrimaryKey">
+            <summary>
+            是否为联合主键。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.PrimaryKeys">
+            <summary>
+            主键。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.HasAutoIncreasePorperty">
+            <summary>
+            是否存在自增列属性。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.AutoIncreasePorperty">
+            <summary>
+            自增列属性。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.FieldPropertys">
+            <summary>
+            字段属性的映射信息。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.XmlConfigFileName">
+            <summary>
+            XML 文件配置的名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.ModelMappingInfo.ConfigOptions">
+            <summary>
+            对象的配置选项信息。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Att.AutoIncreaseAttribute">
+             <summary>
+            AutoIncreaseAttribute指示该属性是自动增长的。
+            自动增长默认种子为1
+             </summary>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.ICacheLoader">
+            <summary>
+            缓存接口,需要业务类去实现的接口
+            </summary>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.ICacheLoader.LoadCache">
+            <summary>
+            加载缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.EntityCfg">
+            <summary>
+            缓存加载配置
+            </summary>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.EntityCfg.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.EntityCfg.CustomLoaderType">
+            <summary>
+            自动以缓存加载类型
+            如果同时配置了RuleType，以CustomLoaderType优先
+            </summary>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.EntityCfg.CacheItemPriority">
+            <summary>
+            缓存项的优先级 None = 0, Low = 1, Normal = 2, High = 3, NotRemovable = 4,
+            默认值是Normal
+            </summary>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.EntityCfg.Expirations">
+            <summary>
+            过期策略
+            </summary>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.EntityCfg.IsCacheItemRefreshed">
+            <summary>
+            过期以后是否刷新
+            </summary>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.CacheExpirationCfg">
+            <summary>
+            过期策略配置
+            </summary>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.CacheExpirationCfg.FilePath">
+            <summary>
+            如果是FileDependency的策略，需要提供FilePath
+            </summary>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.CacheExpirationCfg.ExpireTime">
+            <summary>
+            如果是SlidingTime，AbsoluteTime过期策略，需要提供过期时间
+            </summary>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.CacheExpirationType">
+            <summary>
+            过期策略枚举
+            </summary>
+        </member>
+        <member name="F:MB.Orm.EntitySetCache.CacheExpirationType.Never">
+            <summary>
+            从不
+            </summary>
+        </member>
+        <member name="F:MB.Orm.EntitySetCache.CacheExpirationType.FileDependency">
+            <summary>
+            根据文件
+            </summary>
+        </member>
+        <member name="F:MB.Orm.EntitySetCache.CacheExpirationType.SlidingTime">
+            <summary>
+            相对时间
+            </summary>
+        </member>
+        <member name="F:MB.Orm.EntitySetCache.CacheExpirationType.AbsoluteTime">
+            <summary>
+            绝对时间
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Persistence.EntityDataHelper">
+            <summary>
+            实体数据处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityDataHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityDataHelper.GetEntityKeyValue(System.Object)">
+            <summary>
+             获取数据实体的键值。
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityDataHelper.GetEntityKeyValue(System.Object,System.String@)">
+            <summary>
+            获取数据实体的键值。
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.Persistence.EntityDataHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Persistence.EntityCodeHelper">
+            <summary>
+             EntityCodeHelper： 统一处理单据号增加的解决方案。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityCodeHelper.GetEntityCode(System.String)">
+            <summary>
+            获取单据对象的单据号
+            在不传入单据分区编码的情况下，使用全局的分区编码*
+            </summary>
+            <param name="docTypeName">单据类型编码</param>
+            <returns>单据号</returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityCodeHelper.GetEntityCode(System.String,System.String)">
+            <summary>
+            获取单据对象的单据号。
+            备注：业务系统需要提供存储过程的方式来实现以便性能上得到提高。
+            每次只能获取一个标识符号
+            在Oracle 中需要创建 FU_GET_NEXT_DOC_CODE SQL 函数
+            </summary>
+            <param name="docTypeName">单据类型编码</param>
+            <param name="sectCode">单据标识</param>
+            <returns>单据号</returns>
+        </member>
+        <member name="P:MB.Orm.Persistence.EntityCodeHelper.NewInstance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Xml.XmlResourceHelper">
+            <summary>
+            XML 配置文件 读取。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.Xml.XmlResourceHelper.CreateXmlDocument(System.String)">
+            <summary>
+            创建XML document
+            </summary>
+            <param name="xmlFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.Mapping.Xml.ColumnConfigHelper">
+            <summary>
+            属性列 XML 配置处理相关。 
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DB.OperationDatabaseScope">
+            <summary>
+            cloud database 操作范围...
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DB.OperationDatabaseScope.#ctor">
+            <summary>
+            constructor.
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DB.OperationDatabaseScope.#ctor(System.Boolean)">
+            <summary>
+            constructor.
+            </summary>
+            <param name="readOnly"></param>
+        </member>
+        <member name="M:MB.Orm.DB.OperationDatabaseScope.#ctor(System.String)">
+            <summary>
+            constructor
+            </summary>
+            <param name="dbName"></param>
+        </member>
+        <member name="M:MB.Orm.DB.OperationDatabaseScope.#ctor(MB.Orm.DB.OperationDatabaseContext)">
+            <summary>
+            constructor.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:MB.Orm.DB.OperationDatabaseScope.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.SmartBuilder.BuilderData">
+            <summary>
+            BuilderData
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.BaseSqlGenerator">
+            <summary>
+            数据对象SQL 自动生成基类。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.SetDatabaseType(MB.Orm.Enums.DatabaseType)">
+            <summary>
+            设置对应需要操作的数据库类型。
+            可以从应用程序的Config 文件中获取。
+            </summary>
+            <param name="databaseType"></param>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.GenerateSql(System.Type,MB.Orm.Enums.OperationType,System.String[])">
+            <summary>
+            获取配置的SQL 字符窜信息。
+            </summary>
+            <param name="entityType"></param>
+            <param name="OperationType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.GenerateSimpleSelectSql(System.Type,System.String[])">
+            <summary>
+            GenerateSelectSql
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.GenerateFindByKeySql(System.Type,System.String[])">
+            <summary>
+            GenerateFindByKeySql
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.GenerateInsertSql(System.Type,System.String[])">
+            <summary>
+            GenerateInsertSql
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.GenerateUpdateSql(System.Type,System.String[])">
+            <summary>
+            GenerateUpdateSql
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.GenerateDeleteSql(System.Type)">
+            <summary>
+            GenerateDeleteSql
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.GenerateCacheKey(System.Type,MB.Orm.Enums.OperationType)">
+            <summary>
+            产生实体SQL 语句缓存需要的键值。
+            </summary>
+            <param name="entityType"></param>
+            <param name="OperationType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.GenerateCacheKey(System.Type,MB.Orm.Enums.OperationType,System.String[])">
+            <summary>
+            产生实体SQL 语句缓存需要的键值。
+            </summary>
+            <param name="entityType"></param>
+            <param name="operationType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.GetAutoIncreaseID(MB.Orm.Mapping.ModelMappingInfo)">
+            <summary>
+            获取自增列的ID 值。
+            </summary>
+            <param name="mappingInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.BaseSqlGenerator.ToSqlVal(System.String)">
+            <summary>
+            转换值为拼接SQL 需要的语句。
+            </summary>
+            <param name="sVal"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.DbSql.BaseSqlGenerator.ParameterPrefix">
+            <summary>
+            数据库操作参数前缀。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Persistence.EntityIdentityHelper">
+            <summary>
+            EntityIdentityHelper： 统一处理实体自增加列解决方案。
+            
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityIdentityHelper.FillEntityIdentity(System.Object)">
+            <summary>
+            设置实体的键值。
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityIdentityHelper.GetEntityIdentity(System.String)">
+            <summary>
+            获取实体对象的自增列值。
+            备注：业务系统需要提供存储过程的方式来实现以便性能上得到提高。
+            把int 类型作为自增加列类型，基于以下理论： Int32 的最大值为：2147483647 ，每天都对该表产生一百万个请求的话可以使用 6年（一年360天）。
+            6年的数据 基本上都需要整理，对一般表来说，每天都有一百万个请求基本上不可能的。
+            对于有可能每天都产生一百万条记录的表，可以考虑使用Int64 类型，只要针对该表单独进行处理就可以。（方法如：Oracel 的话用 create sequence ,sql server 用自带的自增列）
+            在Oracle 中需要创建 FU_GET_NEXT_IDENTITY SQL 函数
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityIdentityHelper.GetEntityIdentity(System.String,System.Int32)">
+            <summary>
+            获取实体对象的自增列值。
+            备注：业务系统需要提供存储过程的方式来实现以便性能上得到提高。
+            把int 类型作为自增加列类型，基于以下理论： Int32 的最大值为：2147483647 ，每天都对该表产生一百万个请求的话可以使用 6年（一年360天）。
+            6年的数据 基本上都需要整理，对一般表来说，每天都有一百万个请求基本上不可能的。
+            对于有可能每天都产生一百万条记录的表，可以考虑使用Int64 类型，只要针对该表单独进行处理就可以。（方法如：Oracel 的话用 create sequence ,sql server 用自带的自增列）
+            在Oracle 中需要创建 FU_GET_NEXT_IDENTITY SQL 函数
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Exists.IExistsBuilder.Where(System.String,System.Object)">
+            <summary>
+            查询条件
+            </summary>
+            <param name="columnName"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.DbSql.SqlGeneratorManager">
+            <summary>
+            SqlGeneratorManager
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlGeneratorManager.GetSqlGenerator(MB.Orm.Enums.ModelConfigOptions)">
+            <summary>
+            获取生成SQL 的操作对象
+            </summary>
+            <param name="cfgOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlGeneratorManager.GetSqlGenerator(MB.Orm.Enums.ModelConfigOptions,System.String[])">
+            <summary>
+            获取生成SQL 的操作对象。
+            </summary>
+            <param name="cfgOptions"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.DbSql.SqlString">
+            <summary>
+            数据库操作SQL结构。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlString.#ctor(System.String,System.Collections.Generic.List{MB.Orm.DbSql.SqlParamInfo})">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="strSql"></param>
+            <param name="paramField"></param>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlString.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlString.SqlStr">
+            <summary>
+            拼接出来的数据库操作字符窜。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlString.ParamFields">
+            <summary>
+            该SQL语句的参数。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Persistence.DatabaseHelper">
+            <summary>
+            包含常用的工厂方法创建一个数据库。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseHelper.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseHelper.CreateDatabase">
+            <summary>
+            反射调用创建一个数据库对象,.
+            如果调用的不是默认配置的数据库，需要调用 using(MB.Orm.Persistence.DatabaseConfigurationScope)
+            来进行处理。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseHelper.CreateDatabase(System.String)">
+            <summary>
+            根据配置的名称创建数据库对象,如果指定的数据库配置节点名称，那么DatabaseConfigurationScope对它不起作用。
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseHelper.InitDBProcessMonitor">
+            <summary>
+            对于数据操作性能指标的监视对象的创建
+            再每次创建数据库连接的时候新增对象DBProcessMonitorInfo，到LIST中
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseHelper.CreateDatabaseType">
+            <summary>
+            创建数据库配置对应的数据类型。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseHelper.GetDatabaseType(Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            根据database 获取对应的数据库类型。
+            </summary>
+            <param name="db"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseHelper.SaveConnectionString(System.String)">
+            <summary>
+            设置当前数据库连接字符窜。
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseHelper.GetConnectionString">
+            <summary>
+            获取当前配置的数据库连接字符窜。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.QueryParameterMappingInfo">
+            <summary>
+            查询参数的属性映射描述。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.QueryParameterMappingInfo.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.QueryParameterMappingInfo.#ctor(System.String,System.String)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="propertyName"></param>
+            <param name="fieldName"></param>
+        </member>
+        <member name="P:MB.Orm.Mapping.QueryParameterMappingInfo.PropertyName">
+            <summary>
+            属性名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.QueryParameterMappingInfo.FieldName">
+            <summary>
+            映射的字段名称。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Att.ReferenceObjectAttribute">
+             <summary>
+            ReferenceObjectAttribute指示该属性是引用的另外一个对象，
+            因此，在执行持久化操作的时候，需要根据参数进行额外的处理。
+            默认情况下，当持久化实体对象的时候，ReferenceObjectAttribute
+            指示的属性，不进行操作。
+             </summary>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.EntitySetCacheCfgHelper">
+            <summary>
+            数据缓存配置的帮助类
+            </summary>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.EntitySetCacheCfgHelper.#cctor">
+            <summary>
+            静态构造函数，构造单例
+            </summary>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.EntitySetCacheCfgHelper.GetEntitySetCfg">
+            <summary>
+            获取缓存加载器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.EntitySetCacheCfgHelper.CachePath">
+            <summary>
+            缓存路径
+            </summary>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.EntitySetCacheCfgHelper.CacheFileInfoName">
+            <summary>
+            缓存文件详细信息列表
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.SmartBuilder.AbstractBaseBuilder">
+            <summary>
+            AbstractBaseBuilder
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Common.DbShare">
+            <summary>
+            数据库操作公共处理相关函数。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Common.DbShare.SystemTypeNameToDbType(System.String)">
+            <summary>
+            转换SystemType
+            </summary>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.Common.DbShare.Instance">
+            <summary>
+            Instance.
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Att.SubObjectAttribute">
+            <summary>
+            SubObjectAttribute指示该属性是引用的是子对象，
+            因此，在执行持久化操作的时候，需要根据参数进行额外的处理。
+            默认情况下，当持久化实体对象的时候，SubObjectAttribute
+            指示的属性，不进行操作。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Exceptions.SqlArgumentXmlConfigException">
+            <summary>
+            在XML 文件的SQL语句配置中，参数配置有误。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Exceptions.NotManagedBySelfException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Exceptions.DatabaseNonsupportException">
+            <summary>
+            数据库类型不能支持。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.SqlParamInfo">
+            <summary>
+            执行SQL语句需要的参数。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlParamInfo.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlParamInfo.ToString">
+            <summary>
+            ToString。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlParamInfo.Name">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlParamInfo.MappingName">
+            <summary>
+            映射到对象的属性名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlParamInfo.Description">
+            <summary>
+            参数描述
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlParamInfo.Direction">
+            <summary>
+            输入、输出方向
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlParamInfo.DbType">
+            <summary>
+            参数类型
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlParamInfo.Length">
+            <summary>
+            参数长度。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlParamInfo.Value">
+            <summary>
+            当前的参数值。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlParamInfo.Overcast">
+            <summary>
+            判断参数的值是否在拼接SQL 时直接被覆盖掉。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Enums.PersistOptions">
+            <summary>
+            这个枚举指明当操作]一个实体对象的时候，应该采用何种策略
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.PersistOptions.SelfOnly">
+            <summary>
+            只包含自己的属性
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.PersistOptions.IncludeChildren">
+            <summary>
+            包含自己和所有的子对象
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.PersistOptions.IncludeReference">
+            <summary>
+            包含自己和父对象
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.PersistOptions.Full">
+            <summary>
+            同时还要更新引用对象的数据
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Exceptions.ManagedByOtherPMException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.FilterCondition">
+            <summary>
+            关注于Filter本身的过滤条件
+            </summary>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.FilterParameter">
+            <summary>
+            过滤条件，在查询缓存中数据的时候需要指定过滤条件
+            </summary>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.FilterParameter.CreateFilterParamater``1(System.String,System.Object)">
+            <summary>
+            创建缓存过滤的参数，默认情况下过滤条件都是 == 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="propertyName"></param>
+            <param name="propertyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.FilterParameter.CreateFilterParamater``1(System.String,System.Object,MB.Orm.EntitySetCache.FilterCondition)">
+            <summary>
+            创建缓存过滤的参数，并且自己指定过滤条件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="propertyName"></param>
+            <param name="propertyValue"></param>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.FilterParameter.FilterName">
+            <summary>
+            需要与被过滤的数据源中的某个属性名字一致
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Common.DefaltDataRelationContainer">
+            <summary>
+            默认的数据存储容器
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Common.DataRelationContainer`1">
+            <summary>
+            关系数据容器。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Common.IDataRelationContainer`1">
+            <summary>
+            关系数据容器必须要实现的接口。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Common.IDataRelationContainer`1.AddItem(MB.Orm.Common.DataRelationValue{`0})">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="M:MB.Orm.Common.IDataRelationContainer`1.GetChilds``2(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TDetail"></typeparam>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.#ctor(`0)">
+            <summary>
+            实例化一个容器对象。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.AddItem(MB.Orm.Common.DataRelationValue{`0})">
+            <summary>
+            增加关联子项到容器中。
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.GetChilds``2(``0)">
+            <summary>
+            在关系容器中获取指定的子对象。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TDetail"></typeparam>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.GetAllChilds``1">
+            <summary>
+            获取指定类型的所有对象。
+            </summary>
+            <param name="dataType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.GetAllChildsCount``1">
+            <summary>
+            获取指定类型所有子对象的数量。
+            </summary>
+            <typeparam name="TDetail"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.SetAllChildsID``1(System.Int32)">
+            <summary>
+            设置指定类型所有实体对象的键值。
+            </summary>
+            <typeparam name="TDetail"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.ResetForeingKeyValue">
+            <summary>
+            重新设置所有实体对象的外键值。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.RegisterRelation``2(System.Linq.Expressions.Expression{System.Func{``1,System.Object}})">
+            <summary>
+            登记主从明细表的关系信息。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TDetail"></typeparam>
+            <param name="foreingKeyNameExpress"></param>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.RegisterRelation``2(System.String)">
+            <summary>
+            登记主从明细表的关系信息。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TDetail"></typeparam>
+            <param name="foreingKeyName"></param>
+        </member>
+        <member name="M:MB.Orm.Common.DataRelationContainer`1.RegisterRelation``2(MB.Orm.Common.EntityRelationMapInfo)">
+            <summary>
+            登记对象之间的关系。
+            </summary>
+            <typeparam name="T">父对象</typeparam>
+            <typeparam name="TDetail">子对象</typeparam>
+        </member>
+        <member name="P:MB.Orm.Common.DataRelationContainer`1.RootEntity">
+            <summary>
+            获取根对象.
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Persistence.DatabaseExecuteExtender">
+            <summary>
+            提供一个可以获取分页数据的处理类。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseExecuteExtender.ExecuteDataSet(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand,System.Data.Common.DbTransaction,System.Int32,System.Int32)">
+            <summary>
+            ExecuteDataSet
+            </summary>
+            <param name="db"></param>
+            <param name="command"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.IFace.IQuery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.Orm.IFace.IQuery`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:MB.Orm.Exceptions.XmlSqlConfigNotExistsException">
+            <summary>
+            获取配置SQL 语句出错！
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.SqlGeneratorType.AutoCreate">
+            <summary>
+            通过属性配置的自动产生。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.SqlGeneratorType.XmlConfig">
+            <summary>
+            通过XML 配置文件
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Enums.ModelConfigOptions">
+            <summary>
+            指定实体对象类通过那种方式来进行处理。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.ModelConfigOptions.ColumnCfgByAttribute">
+            <summary>
+            通过Attribut配置对象的列映射。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.ModelConfigOptions.ColumnCfgByXml">
+            <summary>
+            通过Xml配置对象的列映射。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.ModelConfigOptions.AutoCreateSql">
+            <summary>
+            根据列的映射自动创建处理的SQL 语句。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.ModelConfigOptions.CreateSqlByXmlCfg">
+            <summary>
+            通过XML 文件的配置得到SQL 语句。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.ModelConfigOptions.ExecuteByRule">
+            <summary>
+            对象类的永久性处理通过业务类来进行操作。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Enums.DatabaseType">
+            <summary>
+            数据库类型。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.DatabaseType.MSSQLServer">
+            <summary>
+            MSSQLServer
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.DatabaseType.Oracle">
+            <summary>
+            Oracle
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.DatabaseType.OleDBSupported">
+            <summary>
+            OleDBSupported
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.DatabaseType.Sqlite">
+            <summary>
+            Sqlite
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.DatabaseType.MySql">
+            <summary>
+            MySql
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DB.OperationDatabaseContext">
+            <summary>
+            操作数据库配置信息,目前只以读写分离的实现为主。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DB.OperationDatabaseContext.#ctor">
+            <summary>
+            constructer...
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DB.OperationDatabaseContext.#ctor(System.Boolean)">
+            <summary>
+            constructer...
+            </summary>
+            <param name="readOnly"></param>
+        </member>
+        <member name="M:MB.Orm.DB.OperationDatabaseContext.#ctor(System.String)">
+            <summary>
+            constructer...
+            </summary>
+            <param name="dbName"></param>
+        </member>
+        <member name="P:MB.Orm.DB.OperationDatabaseContext.Current">
+            <summary>
+            当前的数据库配置信息.
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Query.IQueryBuilder.ExecuteScalar``1">
+            <summary>
+            目前只支持返回值类型或字符窜
+            </summary>
+            <typeparam name="TReturn"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Query.IQueryBuilder.Execute``1">
+            <summary>
+            T 目前只支持返回值类型或字符窜
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Query.IQueryBuilder.ExecuteDynamic">
+            <summary>
+            返回动态对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Query.IQueryBuilder.ExecuteDynamicList">
+            <summary>
+            返回动态对象集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Query.IQueryBuilder.Select(System.String)">
+            <summary>
+            选择需要返回的字段。
+            </summary>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Query.IQueryBuilder.Where(System.String,System.Object)">
+            <summary>
+            查询条件
+            </summary>
+            <param name="columnName"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Query.IQueryBuilder`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            
+            </summary>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Query.IQueryBuilder`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Object)">
+            <summary>
+            查询条件
+            </summary>
+            <param name="columnName"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Query.IQueryBuilder`1.Select(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            查询返回的字段。
+            </summary>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:MB.Orm.DbSql.SmartBuilder.Delete.DeleteBuilder`1" -->
+        <member name="T:MB.Orm.DbSql.SmartBuilder.Delete.DeleteBuilder">
+            <summary>
+            DeleteBuilder
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.SmartBuilder.Delete.IDeleteBuilder">
+            <summary>
+            IDeleteBuilder
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Delete.IDeleteBuilder.Where(System.String,System.Object)">
+            <summary>
+            删除的条件
+            </summary>
+            <param name="columnName"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.DbSql.SmartBuilder.Delete.IDeleteBuilder`1">
+            <summary>
+            IDeleteBuilder
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Delete.IDeleteBuilder`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+            <summary>
+            删除的条件
+            </summary>
+            <param name="columnName">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.Delete.IDeleteBuilder`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},System.Object)">
+            <summary>
+            删除的条件
+            </summary>
+            <param name="columnName">列名</param>
+            <param name="value">对应的值</param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.Common.EntityRelationInfo">
+            <summary>
+            实体对象之间的配置信息。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Common.EntityRelationMapInfo">
+            <summary>
+            列名称之间的对应关系
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Persistence.EntityDistributedHelper">
+            <summary>
+            单据实体对象的分布式控制处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityDistributedHelper.CheckEntityCanSave(System.Object)">
+            <summary>
+            判断是否存在最后修改时间。
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityDistributedHelper.GetSaveLastModifiedDateCommand(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Object)">
+            <summary>
+            获取执行更新实体最后修改时间的DbCommand。
+            </summary>
+            <param name="db"></param>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.Persistence.DatabaseConfigurationScope">
+            <summary>
+            决定连接哪个配置数据库的连接处理。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseConfigurationScope.#ctor(System.String)">
+            <summary>
+            决定连接哪个配置数据库的连接处理。
+            </summary>
+            <param name="configurationDatabase"></param>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseConfigurationScope.CreateDatabaseType">
+            <summary>
+            创建数据库配置对应的数据类型。
+            请 使用 DatabaseHelper.CreateDatabaseType();代替
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseConfigurationScope.GetDatabaseType(Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            根据database 获取对应的数据库类型。
+            请 使用 DatabaseHelper.GetDatabaseType(db);代替
+            </summary>
+            <param name="db"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.DatabaseConfigurationScope.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:MB.Orm.MbOrmCacheCofigurationHandler">
+            <summary>
+            MbOrmCofigurationHandler 
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Xml.XmlSqlMappingInfo">
+            <summary>
+            XmlSqlMappingInfo 单据包含的业务对象配置的。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.#ctor(System.String)">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="selectName"></param>
+            <param name="addName"></param>
+            <param name="updateName"></param>
+            <param name="deleteName"></param>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.ObjectName">
+            <summary>
+            mapping 对象的名称，可以的XML 文件名称或者是表的名称
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.SelectObject">
+            <summary>
+            获取对象数据 XML 配置语句名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.AddObject">
+            <summary>
+            增加数据的XML 配置语句名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.UpdateObject">
+            <summary>
+            修改数据的XML 配置语句名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.DeleteObject">
+            <summary>
+            删除数据的XML 配置语句名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.KeyName">
+            <summary>
+            对象键值列的名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.DeleteNotInIDS">
+            <summary>
+            通过not in ids 的方式删除不在集合中的数据达到批量删除的效果。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.GetByForeingKey">
+            <summary>
+            通过外键获取该对象的数据.
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.XmlSqlMappingInfo.IniGetByLinkObjectKey">
+            <summary>
+            通过连动数据的键值获取新增状态下对象的数据.
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Exceptions.ArgumentNullException">
+            <summary>
+            参数传入不能为空异常。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Xml.SqlConfigHelper">
+            <summary>
+            XML 配置对象SQL 操作处理相关,对于涉及到多表操作都通过这种方式来进行处理。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.Xml.SqlConfigHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.Xml.SqlConfigHelper.GetSqlString(System.String,System.String)">
+            <summary>
+            获取指定的SQL 字符窜。
+            </summary>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Mapping.Xml.SqlConfigHelper.GetObjectStandardEditSql(System.String,MB.Orm.Enums.OperationType)">
+            <summary>
+            从XML 文件中获取该对象标准SQL 操作语句。
+            </summary>
+            <param name="xmlFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Mapping.Xml.SqlConfigHelper.GetSqlQueryParamMappings(System.String,System.String)">
+            <summary>
+            根据指定的 XML 和 SQL 名称获取参数的Mapping 配置信息。
+            </summary>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.Mapping.Xml.SqlConfigHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.IFace.IPersistenceManager">
+            <summary>
+            永久化操作需要处理需要实现的接口。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Close">
+             <summary>
+             关闭一个PersistenceManager。当一个PersistenceManager被关闭的时候，需要做如下的工作
+            1、释放它所管理的实体类，以及相关的状态。如果不释放，可能造成内存泄露
+            2、如果Flush方法没有被执行，则执行Flush方法。
+            3、释放数据库联接等资源。
+            4、从PersistenManagerfactroy中清除自己
+             </summary>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.PersistNew(System.Object)">
+            <summary>
+            将一个新的实体对象转换成可持续对象，这个对象在事务结束的时候，会被Insert到数据库中
+            调用这个方法后，该对象的状态为EntityState.New
+            如果一个对象的状态为EntityState.Persistent，则本方法将抛出一个EntityIsPersistentException异常
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.PersistNew(System.Object,System.String[])">
+            <summary>
+            将一个新的实体对象转换成可持续对象,并且指明要保存的属性
+            </summary>
+            <param name="entity"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Persist(System.Object)">
+             <summary>
+             将一个实体对象保存到数据库中。
+            如果一个对象是Trasient的，则将其转换为EntityState.New状态。在事务结束的时候，会被Insert到数据库中
+            否则，其状态就是EntityState.Persist，就更新到数据库中。
+            如果一个Trasient对象实际上已经存在于数据库中，由于Persist方法并不检查实际的数据库，因此，
+            调用这个方法，将会抛出异常。这个时候，应该使用先使用Attach方法，然后调用Persist。
+            Persist方法主要用于已受管的对象的更新
+             </summary>
+             <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Persist(System.Object,System.String[])">
+            <summary>
+            将一个实体对象保存到数据库中,并且指明要保存的属性
+            </summary>
+            <param name="entity"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Update(System.Object)">
+             <summary>
+             强制将一个实体更新到数据库中。
+             执行这个方法，将把对象的状态强制变为EntityState.Persist。
+             由于Update方法并不检查实际的数据库，因此如果一个对象实际上不存在于数据库中，那么，这个方法实际上
+             不会对数据库造成变化。
+             如果不能确认对象已经存在于数据库中，那么，应该使用先使用Attach方法。
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Update(System.Object,System.String[])">
+            <summary>
+             将一个实体对象更新到数据库中,并且指明要保存的属性 
+            </summary>
+            <param name="entity"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Delete(System.Object)">
+            <summary>
+            删除一个对象。
+            一个对象被删除后，其状态变成EntityState.Deleted，在事务结束的时候，会被从数据库中删除。
+            如果一个对象不是持久的，那么，这个方法将抛出异常。
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Attach(System.Object)">
+            <summary>
+            将一个对象标记为可持续的。如果这个对象已经存在于实际的数据库中，那么，这个对象的状态就是
+            EntityState.Persistent，否则，这个对象的状态就是EntityState.New。
+            注意：这个方法不会导致对数据库实际数据的更改
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Reload(System.Object@)">
+            <summary>
+            重新从数据库中载入这个对象，这意味着重新给对象的各个属性赋值。 
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Evict(System.Object)">
+            <summary>
+            从缓存中把某个对象移除。 
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.FindByPrimaryKey(System.Type,System.Object[])">
+            <summary>
+            根据主键查找某个对象，如果主键是多个字段的，顺序必须同TableMapAttribute中的顺序相同,否则将有不可预测的事情发生 
+            </summary>
+            <param name="entityType"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.GetState(System.Object)">
+            <summary>
+            获取某个对象的状态。这个对象必须是受该PersistenceManager管理的，否则，抛出异常
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Flush">
+             <summary>
+             本操作使对实体对象所作的更改立即生效。
+            如果本操作实效，应该做如下操作：
+            从缓存中清除该对象
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.Cancel">
+            <summary>
+            该方法撤销前面所做的所有操作。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.IFace.IPersistenceManager.NewQuery">
+            <summary>
+            开始一个新的查询。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.IFace.IPersistenceManager.CurrentTransaction">
+            <summary>
+            获取PersistenceManager当前所处的事务
+            </summary>
+        </member>
+        <member name="P:MB.Orm.IFace.IPersistenceManager.IgnoreCache">
+            <summary>
+            指示在默认的情况下，所有的操作是否忽略缓存。如果忽略缓存，那么，有的时候会存在一些不一致的情况，
+            除非系统被禁止了缓存的使用。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Exceptions.EntityIsTransientException">
+            <summary>
+            不能持久化临时对象而产生的异常。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.XmlConfigSqlGenerator">
+            <summary>
+            获取配置的XML文件处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.XmlConfigSqlGenerator.GenerateSimpleSelectSql(System.Type,System.String[])">
+            <summary>
+            GenerateSelectSql
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.XmlConfigSqlGenerator.GenerateFindByKeySql(System.Type,System.String[])">
+            <summary>
+            GenerateFindByKeySql
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.XmlConfigSqlGenerator.GenerateInsertSql(System.Type,System.String[])">
+            <summary>
+            GenerateInsertSql
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.XmlConfigSqlGenerator.GenerateUpdateSql(System.Type,System.String[])">
+            <summary>
+            GenerateUpdateSql
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.XmlConfigSqlGenerator.GenerateDeleteSql(System.Type)">
+            <summary>
+            GenerateDeleteSql
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.DbSql.SmartBuilder.ISmartSqlGenerator">
+            <summary>
+            IFluentSqlGenerator
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.SmartBuilder.BaseSmartSqlGenerator">
+            <summary>
+            BaseFluentSqlGenerator
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupOracleBuilder">
+            <summary>
+            支持oracle数据库的动态聚组查询语句构造类
+            </summary>
+        </member>
+        <member name="F:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupBuilder._DynamicGroupSettings">
+            <summary>
+            动态聚组客户端的设置
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupBuilder.#ctor(MB.Util.Model.DynamicGroupSetting)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="setting"></param>
+        </member>
+        <member name="M:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupBuilder.BuildDynamicQuery(System.String)">
+            <summary>
+            需要继承的具体类型继承并且重写
+            </summary>
+            <param name="sqlFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupBuilder.GetQueryFields">
+            <summary>
+            得到查询的字段Select以后，from之前的查询字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupBuilder.GetGroupFields">
+            <summary>
+            得到分组的字段。用于SQL语句的GroupBy以后
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupBuilder.GetFromSql">
+            <summary>
+            得到聚组FROM的语句
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupBuilder.GetAggConditionSql">
+            <summary>
+            得到聚合条件的SQL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupBuilder.ConvertToDbOperator(MB.Util.Model.DynamicGroupConditionOperator)">
+            <summary>
+            转换成数据库中的操作符号
+            </summary>
+            <param name="op"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.Common.EntityDataExtender">
+            <summary>
+            实体对象的扩张方法。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Common.EntityDataExtender.AddChildItem``1(MB.Orm.Common.BaseModel,MB.Orm.Common.IDataRelationContainer{MB.Orm.Common.BaseModel},``0)">
+            <summary>
+            增加一个子项。
+            </summary>
+            <typeparam name="TBaseModel"></typeparam>
+            <typeparam name="T"></typeparam>
+            <param name="parent"></param>
+            <param name="rootContainer"></param>
+            <param name="child"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Common.EntityDataExtender.GetChildItems``1(MB.Orm.Common.BaseModel,MB.Orm.Common.IDataRelationContainer{MB.Orm.Common.BaseModel})">
+            <summary>
+            获取所有指定类型的子项。
+            </summary>
+            <typeparam name="TDetail"></typeparam>
+            <param name="parent"></param>
+            <param name="rootContainer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Common.EntityDataExtender.GetPropertyName``1(``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            获取对象属性名称。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entity"></param>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.CacheProxy">
+            <summary>
+            统一把ORM 中涉及到的Cache 都集中放在这里是为了 对Cache 更好的管理，
+            Cache 是非常珍贵的资源，使用要节约。同时计划和策略也非常关键。
+            
+            CacheProxy 
+            </summary>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.CacheEntity(System.Object)">
+            <summary>
+            CacheEntity.
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.CacheEntity(System.Object,System.String)">
+            <summary>
+            CacheEntity
+            </summary>
+            <param name="entity"></param>
+            <param name="key"></param>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.GetCachedEntity(System.Type,System.Object[])">
+            <summary>
+            GetCachedEntity
+            </summary>
+            <param name="t"></param>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.ContainsEntity(System.Object)">
+            <summary>
+            ContainsEntity
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.ContainsEntity(System.Type,System.Object[])">
+            <summary>
+            ContainsEntity
+            </summary>
+            <param name="t"></param>
+            <param name="keys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.RemoveCachedEntity(System.Object)">
+            <summary>
+            RemoveCachedEntity
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.ClearEntityCache">
+            <summary>
+            ClearEntityCache
+            </summary>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.CacheSql(System.String,MB.Orm.DbSql.SqlString[])">
+            <summary>
+            CacheSql
+            </summary>
+            <param name="key"></param>
+            <param name="sql"></param>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.GetCachedSql(System.String)">
+            <summary>
+            GetCachedSql
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.ContainsSql(System.String)">
+            <summary>
+            ContainsSql
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.CacheMapping(System.String,System.Object)">
+            <summary>
+            CacheMapping
+            </summary>
+            <param name="key"></param>
+            <param name="sql"></param>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.GetCacheMapping``1(System.String)">
+            <summary>
+            GetCacheMapping
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.ContainsCacheMapping(System.String)">
+            <summary>
+            ContainsSql
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.CacheXmlCfgFile(System.String,System.Object)">
+            <summary>
+            CacheXmlCfgFile
+            </summary>
+            <param name="key"></param>
+            <param name="sql"></param>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.GetCacheXmlCfgFile``1(System.String)">
+            <summary>
+            GetCacheXmlCfgFile
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.CacheProxy.ContainsXmlCfgFile(System.String)">
+            <summary>
+            ContainsXmlCfgFile
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.CacheProxy.EntitySetCache">
+            <summary>
+            EntitySetCache的容器
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Enums.FieldMappingType">
+            <summary>
+            字段Mapping 的类型。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.FieldMappingType.Attribute">
+            <summary>
+            通过对象的属性配置来映射。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.FieldMappingType.Xml">
+            <summary>
+            通过XML 配置 属性来进行映射。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DB.DefaultDatabaseFactory">
+            <summary>
+            DefaultDatabaseFactory
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DB.DefaultDatabaseFactory.CreateDatabase">
+            <summary>
+            CreateDatabase
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DB.DefaultDatabaseFactory.CreateDatabase(System.Boolean)">
+            <summary>
+            CreateDatabase
+            </summary>
+            <param name="readOnly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DB.DefaultDatabaseFactory.CreateDatabase(System.String)">
+            <summary>
+            CreateDatabase
+            </summary>
+            <param name="dbName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DB.DefaultDatabaseFactory.CreateDatabase(System.String,System.String,System.Boolean)">
+            <summary>
+            本地配置文件中暂时不提供该方法的使用
+            </summary>
+            <param name="appCode"></param>
+            <param name="dbName"></param>
+            <param name="readOnly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DB.DefaultDatabaseFactory.CreateDatabase(MB.Orm.DB.OperationDatabaseContext)">
+            <summary>
+            databaseContext
+            </summary>
+            <param name="databaseContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.DB.DynamicDatabaseSettingInfo">
+            <summary>
+            云计算
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DB.DynamicDatabaseSettingInfo.Provider">
+            <summary>
+            数据库连接Provider
+            </summary>
+        </member>
+        <member name="P:MB.Orm.DB.DynamicDatabaseSettingInfo.ConnectionString">
+            <summary>
+            ConnectionString.
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DB.DatabaseFactoryExtender">
+            <summary>
+            Database Factory 扩展方法.
+            为实现数据库动态路由表而增加
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DB.DatabaseFactoryExtender.CreateDatabase(System.String,System.String)">
+            <summary>
+            根据指定的provider 和 connectionString 创建对应的链接数据库，不从本地配置文件中创建.
+            </summary>
+            <param name="provider"></param>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.DbSql.SmartBuilder.ActionsHandler">
+            <summary>
+            ActionsHandler
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Persistence.PersistenceManagerHelper">
+            <summary>
+            执行Entity 永久化操作的公共方法。
+            
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.#ctor">
+            <summary>
+            兼容老版本二增加
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.#ctor(System.String[])">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.GetSqlStringCommand(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String)">
+            <summary>
+            根据SQL 字符窜获取执行的DBCommand.
+            </summary>
+            <param name="db"></param>
+            <param name="sqlString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.GetSqlParamsPrefix(Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            根据数据库类型获取SQL 参数的前缀.
+            </summary>
+            <param name="db"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.CreateDbCommandBySqlParams(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,System.Collections.Generic.List{MB.Orm.DbSql.SqlParamInfo})">
+            <summary>
+            根据参数和XML文件获取数据库执行的DbCommand.
+            </summary>
+            <param name="db">当前连接库</param>
+            <param name="xmlFileName">Mapping对应的XML 文件名称</param>
+            <param name="sqlName">SQL 语句配置对应的名称</param>
+            <param name="sqlParams">参数以及值</param>
+            <returns>Command 数组,如果只配置一个SqlString 那么就只返回一个DbCommand</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MB.Orm.Persistence.PersistenceManagerHelper.CreateDbCommandByXml(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,System.Object[])" -->
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.RemoveSqlStringLastSemicolon(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String)">
+            <summary>
+            判断是否为Oracle 通过是否为单个执行任务,如果是那么去掉 最后一个分号
+            </summary>
+            <param name="db"></param>
+            <param name="sqlString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.AddParamInfoToDbCommand(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand,MB.Orm.DbSql.SqlParamInfo)">
+            <summary>
+            创建Command 执行的参数
+            </summary>
+            <param name="db">配置的数据库</param>
+            <param name="dbCmd">dbCommand</param>
+            <param name="paramInfo">sql参数</param>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.AddParamInfoToDbCommand(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand,MB.Orm.DbSql.SqlParamInfo,System.Object)">
+            <summary>
+            创建Command 执行的参数
+            </summary>
+            <param name="db">配置的数据库</param>
+            <param name="dbCmd">dbCommand</param>
+            <param name="paramInfo">sql参数</param>
+            <param name="parValue">参数值</param>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.CreateParName(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String)">
+            <summary>
+            为当前数据库创建对应的一个参数。
+            </summary>
+            <param name="db">当前数据库</param>
+            <param name="name">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.GetDbCommand(Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.Orm.Common.BaseModel,System.String)">
+            <summary>
+            创建一个针对一个实体永久化操作的Command。
+            </summary>
+            <param name="db"></param>
+            <param name="entity">操作实体</param>
+            <param name="sqlName">SQL 语句配置对应的名称</param>
+            <returns>返回包含的DbCommand</returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.GetDbCommand``1(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Collections.Generic.IList{``0},System.String,System.String)">
+            <summary>
+            创建一个针对一个实体永久化操作的Commands。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="db"></param>
+            <param name="entitys"></param>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.GetDbCommand(Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.Orm.Common.BaseModel,System.String,System.String)">
+            <summary>
+            创建一个针对一个实体永久化操作的Command。   MB.Util.Emit.DynamicPropertyAccessor
+            </summary>
+            <param name="db"></param>
+            <param name="entity">操作实体</param>
+            <param name="xmlFileName">SQL 语句配置对应XML文件</param>
+            <param name="sqlName">SQL 语句配置对应的名称</param>
+            <returns>返回包含的DbCommand</returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.GetDbCommand(Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.Orm.Common.BaseModel,MB.Orm.Enums.OperationType,System.String[])">
+            <summary>
+             针对一个实体永久化操作。
+              整个业务对象的所有实体操作在业务类的层次中进行整合操作处理。
+            </summary>
+            <param name="db"></param>
+            <param name="entity"></param>
+            <param name="operationType"></param>
+            <param name="propertys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.CreateDbCommandByDataRow(Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.Orm.DbSql.SqlString[],System.Data.DataRow)">
+            <summary>
+            根据DataRow 创建 数据库操作需要的DbCommand。
+            </summary>
+            <param name="db">当前连接的数据库</param>
+            <param name="sqlStrs">SQL 字符窜</param>
+            <param name="drData">参数值，以DataRow 中的字段名称来进行匹配</param>
+            <returns>Command 数组,如果只有一个SqlString 那么就只返回一个DbCommand</returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.CreateDeleteNotInDbCommand(Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.Orm.DbSql.SqlString[],System.Data.DataRow[],System.String,System.Object)">
+            <summary>
+            创建基于DataRow数组 的Delete Not In DbCommand.
+            </summary>
+            <param name="db"></param>
+            <param name="sqlDeleteNotIn"></param>
+            <param name="drsData"></param>
+            <param name="keyName"></param>
+            <param name="foreingKeyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.PrepareExecuteCommandByEmit(System.Collections.Generic.Dictionary{System.String,MB.Util.Emit.DynamicPropertyAccessor},Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Object,MB.Orm.DbSql.SqlString)">
+            <summary>
+            通过Emit 方式获取实体的值。
+            </summary>
+            <param name="dycs"></param>
+            <param name="db"></param>
+            <param name="entity"></param>
+            <param name="sqlStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.PrepareExecuteCommand(Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.Orm.Common.BaseModel,MB.Orm.DbSql.SqlString)">
+            <summary>
+            得到没有返回值的数据库操作Command.
+            </summary>
+            <param name="db"></param>
+            <param name="entity"></param>
+            <param name="sqlStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.ConvertToRealDbValue(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Object,System.Data.DbType)">
+            <summary>
+            转换为数据库能真正存储的值。
+            </summary>
+            <param name="db"></param>
+            <param name="val"></param>
+            <param name="dbType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.PersistenceManagerHelper.ConvertToRealDbType(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.DbType)">
+            <summary>
+            获取真正数据库处理类型。
+            </summary>
+            <param name="db"></param>
+            <param name="dbType"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.Persistence.PersistenceManagerHelper.NewInstance">
+            <summary>
+            多线程安全的单实例模式。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Persistence.EntityDbCommandInfo">
+            <summary>
+            数据实体对象的DbCommand 描述信息。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityDbCommandInfo.#ctor(System.Object,System.Data.Common.DbCommand)">
+            <summary>
+            构造函数..
+            </summary>
+            <param name="dataEntity"></param>
+            <param name="dbCommand"></param>
+        </member>
+        <member name="M:MB.Orm.Persistence.EntityDbCommandInfo.#ctor(System.Object,System.Data.Common.DbCommand,System.Boolean)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="dataEntity"></param>
+            <param name="_dbCommand"></param>
+            <param name="isMainEntity"></param>
+        </member>
+        <member name="P:MB.Orm.Persistence.EntityDbCommandInfo.DataEntity">
+            <summary>
+            当前进行操作的数据实体。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Persistence.EntityDbCommandInfo.DbCommand">
+            <summary>
+            数据库操作的DbCommand.
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Persistence.EntityDbCommandInfo.IsMainEntity">
+            <summary>
+            在批量处理中是否为主要单据描述对象。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Persistence.EntityDbCommandInfo.IsPartPropertyUpdate">
+            <summary>
+            判断是否为部分属性更新。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Persistence.EntityDbCommandInfo.OperationType">
+            <summary>
+            当前命令的操作方式。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Att.ObjectXmlAttribute">
+            <summary>
+            指示该实体类的映射元数据信息由XML文件来进行描述。
+            
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.Att.ObjectXmlAttribute.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="xmlFileName"></param>
+        </member>
+        <member name="T:MB.Orm.Enums.OperationType">
+            <summary>
+            数据对象操作类型。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.OperationType.None">
+            <summary>
+            未知状态，,根据其它的条件来决定具体的操作。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.OperationType.Select">
+            <summary>
+            获取数据。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.OperationType.SelectByKey">
+            <summary>
+            通过键值获取数据。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.OperationType.Insert">
+            <summary>
+            插入数据。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.OperationType.Update">
+            <summary>
+            修改数据
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.OperationType.Delete">
+            <summary>
+            删除数据。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.OperationType.DeleteNotIn">
+            <summary>
+            通过delete not in 的方式来删除数据。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Enums.OperationType.Others">
+            <summary>
+            其它。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Exceptions.SubClassMustOverrideException">
+            <summary>
+            子类必须覆盖基类的方法。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Persistence.DbQueryTargetRowCountScope">
+            <summary>
+            添加默认的查询默认返回值最大命中数。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.Persistence.DbQueryTargetRowCountScope.TargetRowCount">
+            <summary>
+            最大命中数。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.DbQueryTargetRowCountScope.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Persistence.DbQueryTargetRowCountScope.#ctor(System.Int32)">
+            <summary>
+            设置默认返回的最大命中数。
+            </summary>
+            <param name="rowCount">最大命中数。</param>
+        </member>
+        <member name="M:MB.Orm.Persistence.DbQueryTargetRowCountScope.GetTargetRowCountSqlFilter(MB.Orm.Enums.DatabaseType)">
+            <summary>
+            获取配置的最大命中数SQL 过滤条件。
+            </summary>
+            <param name="dbaseType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Persistence.DbQueryTargetRowCountScope.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Att.ModelMapAttribute">
+             <summary>
+            TableMapAttribute指示实体类所映射的表。
+            其中PrimaryKeys指明关键字段的名称。
+             </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.Att.ModelMapAttribute.#ctor(System.String,System.String[])">
+            <summary>
+            构造函数.
+            </summary>
+            <param name="tableName"></param>
+            <param name="primaryKeys"></param>
+        </member>
+        <member name="M:MB.Orm.Mapping.Att.ModelMapAttribute.#ctor(System.String,System.String,System.String[])">
+            <summary>
+            构造函数.
+            </summary>
+            <param name="tableName"></param>
+            <param name="xmlFileName"></param>
+            <param name="primaryKeys"></param>
+        </member>
+        <member name="M:MB.Orm.Mapping.Att.ModelMapAttribute.#ctor(System.String,System.String,MB.Orm.Enums.ModelConfigOptions,System.String[])">
+            <summary>
+            构造函数.
+            </summary>
+            <param name="tableName"></param>
+            <param name="xmlFileName"></param>
+            <param name="configOptions"></param>
+            <param name="primaryKeys"></param>
+        </member>
+        <member name="P:MB.Orm.Mapping.Att.ModelMapAttribute.TableName">
+            <summary>
+            表名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Att.ModelMapAttribute.PrimaryKeys">
+            <summary>
+            主键。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Att.ModelMapAttribute.XmlFileName">
+            <summary>
+            XML文件配置的名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.Att.ModelMapAttribute.ConfigOptions">
+            <summary>
+            数据实体的数据库操作方式配置。
+            默认情况下：实体属性的映射配置通过Attribute 来完成，
+            SQL 的创建通过XML 配置来完成。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Exceptions.EntityNotInheritBaseModelException">
+            <summary>
+            Model 实体必须继承MB.Orm.Common.BaseModel 基类。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Exceptions.EntityIsPersistentException">
+            <summary>
+            实体持久化操作异常。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.SqlShareHelper">
+            <summary>
+            SqlShareHelper 提供创建SQL 语句的静态方法。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.DbSql.SqlShareHelper.ORACLE_PARAM_PREFIX">
+            <summary>
+            Oracle 参数前缀。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.DbSql.SqlShareHelper.SQL_SERVER_PARAM_PREFIX">
+            <summary>
+            SQL SERVER 参数前缀。
+            </summary>
+        </member>
+        <member name="F:MB.Orm.DbSql.SqlShareHelper.SQL_XML_CFG_PARAM_PREFIX">
+            <summary>
+            获取当前数据库对应参数前缀。
+            XML 文件中配置的参数 @
+            </summary>
+        </member>
+        <member name="F:MB.Orm.DbSql.SqlShareHelper.SQL_SPEC_STRING">
+            <summary>
+            XML SQL 配置特殊参数。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.BuildQueryInSql``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            根据数组创建查询语句中的In查询语句.
+            如果有可能会产生超过8000个字符，请使用 SplitInSqlStringBySqlMaxLength 代替
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.BuildQueryInSql``1(System.Collections.Generic.IList{``0},System.String)">
+            <summary>
+            根据数组创建查询语句中的In查询语句.
+            如果有可能会产生超过8000个字符，请使用 SplitInSqlStringBySqlMaxLength 代替
+            </summary>
+            <param name="ids"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.BuildQueryInSql(System.Data.DataRow[],System.String,System.Boolean)">
+            <summary>
+            根据数组创建查询语句中的In查询语句.
+            如果有可能会产生超过8000个字符，请使用 SplitInSqlStringBySqlMaxLength 代替
+            </summary>
+            <param name="drsData"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.BuildQueryInSql(System.Data.DataRow[],System.String)">
+            <summary>
+            根据数组创建查询语句中的In查询语句.
+            如果有可能会产生超过8000个字符，请使用 SplitInSqlStringBySqlMaxLength 代替
+            </summary>
+            <param name="drsData"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.SplitInSqlStringBySqlMaxLength``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            拆分创建符合 IN 查询语句的SQL 语句
+            拆分的条件是拼接的字符窜长度不能超过允许的最大长度（8000 字节）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="vals"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.SplitInSqlStringByValueCount``1(System.Collections.Generic.IList{``0},System.Int32)">
+            <summary>
+            通过值的个数进行拆分
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="vals"></param>
+            <param name="splitValueCcount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.GetKeyValuesToString(System.Data.DataRow[],System.String)">
+            <summary>
+            以字符窜的形式获取指定字段的值，并拼接成字符窜。
+            这里的ID 字段只能是Int 类型。
+            </summary>
+            <param name="drsData"></param>
+            <param name="keyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.GetSqlStringParamsName(System.String)">
+            <summary>
+            获取字符窜中参数的名称.
+            </summary>
+            <param name="sqlStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.ReplaceCanExecSqlString(System.String,System.Collections.Generic.IList{System.String},System.Data.DataRow)">
+            <summary>
+            把行中的值替换SQL语句中的参数满足执行的要求
+            </summary>
+            <param name="sqlStr"></param>
+            <param name="paramsName"></param>
+            <param name="drData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.ReplaceCanExecSqlStringEx(System.String,System.Object[])">
+            <summary>
+            把行中的值替换SQL语句中的参数满足执行的要求
+            </summary>
+            <param name="sqlStr"></param>
+            <param name="parsValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.QueryParametersToSqlString(MB.Orm.Mapping.QueryParameterMappings,MB.Util.Model.QueryParameterInfo[])">
+            <summary>
+            根据查询的参数数组转换为可以进行查询的SQL 字符窜。
+            </summary>
+            <param name="queryParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SqlShareHelper.ConvertConditionToSqlStr(MB.Util.DataFilterConditions)">
+            <summary>
+            根据查询的条件转换为SQL 查询的字符窜。 
+            </summary>
+            <param name="queryCondition"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.DbSql.SqlShareHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.SmartBuilder.SmartTableColumnInfo">
+            <summary>
+            ActiveTableColumn
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.DynamicGroupBuilder.DynamicGroupBuilderFactory.CreateQueryBuilder(MB.Util.Model.DynamicGroupSetting)">
+            <summary>
+            创建动态聚组SQL生成对象
+            </summary>
+            <param name="setting"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.Mapping.AttMappingManager">
+            <summary>
+            通过Attribute 属性配置的映射操作类。
+            通过Instance 访问 不需要直接实例化该类。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.AttMappingManager.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.AttMappingManager.GetEntityMappingPropertys(System.Type)">
+            <summary>
+            获取实体对象的简单映射。
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Mapping.AttMappingManager.CheckExistsModelMapping(System.Type)">
+            <summary>
+            判断该类型是否存在实体映射的配置信息。
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Mapping.AttMappingManager.GetModelMappingInfo(System.Type)">
+            <summary>
+            获取对象的映射信息。
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.Mapping.AttMappingManager.GetPrimaryKey(System.Object,MB.Orm.Mapping.ModelMappingInfo@)">
+            <summary>
+             获取实体对象的配置主键。
+            </summary>
+            <param name="entity"></param>
+            <param name="entityMappingInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.Mapping.AttMappingManager.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Att.ExclusiveAttribute">
+            <summary>
+            ExclusiveAttribute指示相关的属性不需要映射到数据库
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.Att.ColumnMapAttribute">
+            <summary>
+            ColumnMapAttribute指明某个实体类属性所映射的数据库字段
+            目前的版本，在DbType部分，对大数据对象的支持有问题，需要
+            进一步改进
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.Att.ColumnMapAttribute.#ctor(System.String,System.Data.DbType)">
+            <summary>
+            
+            </summary>
+            <param name="columnName"></param>
+            <param name="dbtype"></param>
+        </member>
+        <member name="M:MB.Orm.Mapping.Att.ColumnMapAttribute.#ctor(System.String,System.String,System.Data.DbType)">
+            <summary>
+            
+            </summary>
+            <param name="columnName"></param>
+            <param name="description"></param>
+            <param name="dbtype"></param>
+        </member>
+        <member name="M:MB.Orm.Mapping.Att.ColumnMapAttribute.#ctor(System.String,System.Data.DbType,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="columnName"></param>
+            <param name="dbtype"></param>
+            <param name="defaultValue"></param>
+        </member>
+        <member name="P:MB.Orm.Mapping.Att.ColumnMapAttribute.Description">
+            <summary>
+            描述。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Common.ValueValidated">
+            <summary>
+            数据值有效性验证。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Common.ValueValidated.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Common.ValueValidated.RowIsNull(System.Data.DataRow)">
+            <summary>
+            判断整行的数据是否都为空。在新增的时候，如果是空行，将忽略不进行处理。
+            </summary>
+            <param name="drData"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.Common.ValueValidated.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.QueryParameterMappings">
+            <summary>
+            查询参数的映射列表。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.QueryParameterMappings.#ctor">
+            <summary>
+             查询参数的映射列表
+            </summary>
+        </member>
+        <member name="M:MB.Orm.Mapping.QueryParameterMappings.#ctor(System.String,System.String[])">
+            <summary>
+            查询参数的映射列表
+            </summary>
+            <param name="defaultTableAlias">默认缺省的表别名</param>
+            <param name="paramterMappingInfo">映射描述，属性和字段之间用逗号分开。</param>
+        </member>
+        <member name="M:MB.Orm.Mapping.QueryParameterMappings.Add(MB.Orm.Mapping.QueryParameterMappingInfo)">
+            <summary>
+            
+            </summary>
+            <param name="mappingInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Orm.Mapping.QueryParameterMappings.DefaultTableAlias">
+            <summary>
+            默认缺省的表别名。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.Mapping.FieldPropertyInfo">
+            <summary>
+            字段 和 对象属性的Mapping 信息。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.PropertyName">
+            <summary>
+            属性名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.FieldName">
+            <summary>
+            字段名称。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.DbType">
+            <summary>
+            对应数据库类型。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.DefaultValue">
+            <summary>
+            缺省的值。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.IsReferenceObject">
+            <summary>
+            是否引用对象。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.IsSubObject">
+            <summary>
+            是否为子对象。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.AutoIncrease">
+            <summary>
+            是否为自增列。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.Step">
+            <summary>
+            自增列的步长。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.DeclaringType">
+            <summary>
+            对象属性定义的类型。
+            </summary>
+        </member>
+        <member name="P:MB.Orm.Mapping.FieldPropertyInfo.PropertyInfo">
+            <summary>
+            数据对象属性描述信息。
+            </summary>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.AbstractCacheLoader">
+            <summary>
+            缓存加载器
+            </summary>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.CacheItemRefreshAction">
+            <summary>
+            刷新CacheItem
+            </summary>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheItemRefreshAction.Refresh(System.String,System.Object,Microsoft.Practices.EnterpriseLibrary.Caching.CacheItemRemovedReason)">
+            <summary>
+            刷新
+            </summary>
+            <param name="removedKey"></param>
+            <param name="expiredValue"></param>
+            <param name="removalReason"></param>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.CacheData.EntityCfg">
+            <summary>
+            缓存配置信息
+            </summary>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.CacheData`1">
+            <summary>
+            某一种缓存数据，以类型来区分
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheData`1.InitCacheData(System.Collections.Generic.List{`0},MB.Orm.EntitySetCache.EntityCfg)">
+            <summary>
+            加载缓存数据
+            </summary>
+            <param name="cacheData"></param>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheData`1.MegerIncrementalData(System.Collections.Generic.List{`0})">
+            <summary>
+            将增量信息保存进已有的缓存中
+            </summary>
+            <param name="incrementalDatas">incrementalDatas 中的EntityState决定了缓存数据的删除，修改和新增</param>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheData`1.BuildKey(System.Object)">
+            <summary>
+            构造当前对象的主键，用来通过字典的形式存储
+            主键的值作为键存储
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheData`1.getFilterExpression(System.Linq.IQueryable{`0},MB.Orm.EntitySetCache.FilterParameter)">
+            <summary>
+            得到过滤的表达式
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <param name="para"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheData`1.getContainsExpression(System.String,System.String)">
+            <summary>
+            得到String.Contain的Expression用于缓存数据类型为String的过滤条件
+            </summary>
+            <param name="propertyName"></param>
+            <param name="propertyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheData`1.GetObjects">
+            <summary>
+            获取该缓存的全部实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheData`1.GetObjectsWithFilters(MB.Orm.EntitySetCache.FilterParameter[])">
+            <summary>
+            根据过滤器查询缓存数据，返回过滤后的结果
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="filters"></param>
+            <returns></returns> 
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheData`1.GetObjectsWithKey(System.String)">
+            <summary>
+            通过键值获取某个实体
+            </summary>
+            <param name="key">键值,键可以用过BuildKey来获得</param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.EntitySetCache.CacheContainer">
+            <summary>
+            缓存数据的容易，整个容器是一个Microsoft.Practices.EnterpriseLibrary.Caching的一个CacheManager
+            其中每一个项是一个CacheData,每一条数据是CacheData的一个项
+            </summary>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.#ctor">
+            <summary>
+            私有化的构造函数，防止被构造多次
+            </summary>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.LoadCache">
+            <summary>
+            通过缓存注册器，加载缓存到缓存容器中
+            </summary>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.LoadCache(MB.Orm.EntitySetCache.EntityCfg)">
+            <summary>
+            加载缓存
+            </summary>
+            <param name="entityCfg"></param>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.loadCacheData(MB.Orm.EntitySetCache.EntityCfg)">
+            <summary>
+            从继承的CustomerLoader中获取数据
+            </summary>
+            <param name="entityCfg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.fillCacheData(System.Collections.IList,MB.Orm.EntitySetCache.EntityCfg)">
+            <summary>
+            加载CacheData中的项目
+            </summary>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.addCacheDataToContainer(System.String,MB.Orm.EntitySetCache.CacheData,MB.Orm.EntitySetCache.EntityCfg)">
+            <summary>
+            将Cache的数据加到缓存manager中
+            </summary>
+            <param name="cacheData"></param>
+            <param name="entityCfg"></param>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.GetObjects``1">
+            <summary>
+            根据类型直接获取缓存
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.GetObjectsWithFilter``1(MB.Orm.EntitySetCache.FilterParameter[])">
+            <summary>
+            根据过滤条件，返回缓存对象LIST
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="filters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.GetObjectByKey``1(System.String)">
+            <summary>
+            根据键值返回对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cacheDataKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.EntitySetCache.CacheContainer.RemoveEntity(System.Type)">
+            <summary>
+            从缓存管理器中去除缓存
+            </summary>
+            <param name="entityType"></param>
+        </member>
+        <member name="P:MB.Orm.EntitySetCache.CacheContainer.Current">
+            <summary>
+            当前缓存容器的实例
+            </summary>
+        </member>
+        <member name="T:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory">
+            <summary>
+            SmartBuilderFactory
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateDeleteBuilder``1">
+            <summary>
+            CreateDeleteBuilder
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateDeleteBuilder``1(``0)" -->
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateDeleteBuilder(System.Type)">
+            <summary>
+            CreateDeleteBuilder
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateInsertBuilder``1">
+            <summary>
+            CreateInsertBuilder
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateInsertBuilder``1(``0)" -->
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateInsertBuilder(System.Type)">
+            <summary>
+            CreateInsertBuilder
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateUpdateBuilder``1">
+            <summary>
+            CreateUpdateBuilder
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateUpdateBuilder``1(``0)" -->
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateUpdateBuilder(System.Type)">
+            <summary>
+            CreateUpdateBuilder
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateQueryBuilder``1">
+            <summary>
+            CreateQueryBuilder
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateQueryBuilder(System.Type)">
+            <summary>
+            CreateQueryBuilder
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateExistsBuilder(System.Type)">
+            <summary>
+            CreateExistsBuilder
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.SmartBuilder.SmartBuilderFactory.CreateExistsBuilder``1">
+            <summary>
+            CreateExistsBuilder
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Orm.DbSql.AutoMappingSqlGenerator">
+            <summary>
+            通过配置属性自动生成SQL语句。
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.AutoMappingSqlGenerator.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.Orm.DbSql.AutoMappingSqlGenerator.GenerateSimpleSelectSql(System.Type,System.String[])">
+            <summary>
+            根据配置的属性信息生成选择的Select 语句。
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.AutoMappingSqlGenerator.GenerateFindByKeySql(System.Type,System.String[])">
+            <summary>
+            通过键值自动获取某一条记录的SQL 语句。
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.AutoMappingSqlGenerator.GenerateInsertSql(System.Type,System.String[])">
+            <summary>
+            根据配置的信息自动产生Insert 的SQL 语句。
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.AutoMappingSqlGenerator.GenerateUpdateSql(System.Type,System.String[])">
+            <summary>
+            根据对象的配置信息自动生成Update SQL 语句。
+            </summary>
+            <param name="entityType"></param>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Orm.DbSql.AutoMappingSqlGenerator.GenerateDeleteSql(System.Type)">
+            <summary>
+            根据对象配置信息获取自动生成的Delete SQL 语句。
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

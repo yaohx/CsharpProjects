@@ -1,0 +1,11 @@
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\bin\MB.EAI.SOA.WCFHost.dll
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\bin\MB.EAI.SOA.WCFHost.pdb
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\bin\MB.SOA.Client.dll
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\bin\Newtonsoft.Json.dll
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\obj\Debug\MB.EAI.SOA.WCFHost.dll
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\obj\Debug\MB.EAI.SOA.WCFHost.pdb
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\obj\Debug\MB.EAI.SOA.WCFHost.csprojResolveAssemblyReference.cache
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\bin\MB.Util.dll
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\bin\MB.AOP.dll
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\bin\MB.Util.xml
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.WCFHost\bin\MB.AOP.xml

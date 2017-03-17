@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://MBEAI.WMS.OutPKT.WMS_PKT_VariantRequest" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BizTalkServiceInstance" targetNamespace="http://MBEAI.WMS.OutPKT.WMS_PKT_VariantRequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <CreationInfo Created="2014-04-26 15:51:00Z" />
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://MBEAI.WMS.OutPKT.WMS_PKT_VariantRequest/Imports">
+      <xsd:import schemaLocation="http://192.168.101.189:80/BizTalkWcfService/BtsMAServer.svc?xsd=xsd2" namespace="http://MBEAI.WMS.OutPKT.WMS_PKT_VariantRequest" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="BtsMAServer_MA_PKT_InputMessage">
+    <wsdl:part name="part" element="tns:Orders" />
+  </wsdl:message>
+  <wsdl:message name="BtsMAServer_MA_PKT_OutputMessage" />
+  <wsdl:portType name="BtsMAServer">
+    <wsdl:documentation />
+    <wsdl:operation name="MA_PKT">
+      <wsdl:documentation />
+      <wsdl:input message="tns:BtsMAServer_MA_PKT_InputMessage" />
+      <wsdl:output message="tns:BtsMAServer_MA_PKT_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITwoWayAsyncVoid" type="tns:BtsMAServer">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MA_PKT">
+      <wsdl:documentation />
+      <soap:operation soapAction="MA_PKT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BizTalkServiceInstance">
+    <wsdl:port name="BasicHttpBinding_ITwoWayAsyncVoid" binding="tns:BasicHttpBinding_ITwoWayAsyncVoid">
+      <soap:address location="http://192.168.101.189/BizTalkWcfService/BtsMAServer.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

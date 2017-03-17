@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  XML 文件生成时间 2014-04-14 04:53  -->
+<!--  如果生成的是明细需要用  GetByForeingKey 替换 SelectObject 同时修改对应主表中DeleteObject 语句 -->
+<Entity>
+  <PrimaryKeyName>ID</PrimaryKeyName>
+  <MappingTableName>gdn</MappingTableName>
+  <Sqls>
+    <Sql Name="GetDistroDeliveredNoteHeaderByBBN">
+      <SqlString>
+        <String>
+          <![CDATA[
+              
+        SELECT @Src_Doc_Type  Src_Doc_Type,
+               @Src_Doc_Unit  Src_Doc_Unit,
+               @Src_Doc_Num   Src_Doc_Num,
+               T.RCV_WAREH_ID STORE_NBR,
+               T.BBN_NUM      IDT_NUM,
+               NULL           IN_STORE_DATE,
+               NULL           DISTRO_TYPE,
+               NULL           PO_NBR,
+               NULL           START_SHIP_DATE
+               ,NULL SHPMT_NBR
+          FROM BBN T
+         WHERE T.CANCELLED = 'F' AND T.BBN_NUM = @Src_Doc_Num AND
+               T.VENDER_ID = @Src_Doc_Unit;
+          ]]>
+        </String>
+        <Param Name = "@Src_Doc_Type" Column = "Src_Doc_Type" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Unit" Column = "Src_Doc_Unit" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Num" Column = "Src_Doc_Num" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="GetDistroDeliveredNoteHeaderByTFO">
+      <SqlString>
+        <String>
+          <![CDATA[
+      SELECT @Src_Doc_Type Src_Doc_Type,
+        @Src_Doc_Unit Src_Doc_Unit,
+        @Src_Doc_Num Src_Doc_Num,
+        DECODE(NVL(T.IS_LOWER_ORDEDR, 'F'), 'T', T.LOWER_SHOP_ID, T.RCV_WAREH_ID) STORE_NBR,
+        T.TFO_NUM IDT_NUM,
+        T.INVSG_DATE IN_STORE_DATE,
+        NULL DISTRO_TYPE,
+        NULL PO_NBR,
+        NULL START_SHIP_DATE
+        ,NULL SHPMT_NBR
+   FROM TFO T
+  WHERE T.CANCELLED = 'F' 
+        AND T.TFO_NUM = @Src_Doc_Num
+        AND T.UNIT_ID = @Src_Doc_Unit;
+
+          ]]>
+        </String>
+        <Param Name = "@Src_Doc_Type" Column = "Src_Doc_Type" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Unit" Column = "Src_Doc_Unit" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Num" Column = "Src_Doc_Num" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="GetDistroDeliveredNoteHeaderByTBN">
+      <SqlString>
+        <String>
+          <![CDATA[
+         SELECT @Src_Doc_Type  Src_Doc_Type,
+       @Src_Doc_Unit  Src_Doc_Unit,
+       @Src_Doc_Num   Src_Doc_Num,
+       T.RCV_WAREH_ID STORE_NBR,
+       T.TBN_NUM IDT_NUM,
+       T.INVSG_TIME IN_STORE_DATE
+       ,NULL DISTRO_TYPE
+       ,NULL PO_NBR
+       ,NULL START_SHIP_DATE  
+       ,NULL SHPMT_NBR
+  FROM TBN T
+ WHERE T.CANCELLED = 'F' AND T.TBN_NUM = @Src_Doc_Num AND
+       T.VENDER_ID = @Src_Doc_Unit;
+          ]]>
+        </String>
+        <Param Name = "@Src_Doc_Type" Column = "Src_Doc_Type" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Unit" Column = "Src_Doc_Unit" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Num" Column = "Src_Doc_Num" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="GetDistroDeliveredNoteHeaderByFON">
+      <SqlString>
+        <String>
+          <![CDATA[
+           SELECT @Src_Doc_Type Src_Doc_Type,
+       @Src_Doc_Unit Src_Doc_Unit,
+       @Src_Doc_Num Src_Doc_Num,
+DECODE(NVL(S.IS_LOWER_ORDER, 'F') ,
+              'T',
+              S.LOWER_SHOP_ID,
+              T.RCV_WAREH_ID) STORE_NBR,
+       DECODE(S.PROVIDE_TYPE, '11', 'OTB' || S.VENDER_ID || S.FUC_NUM, '') PO_NBR,
+       DECODE(S.PROVIDE_TYPE, '11', '2', '1') DISTRO_TYPE,
+       S.FUC_NUM IDT_NUM,
+       T.ORD_AT IN_STORE_DATE,
+       T.BATCH_DATE START_SHIP_DATE
+       ,null SHPMT_NBR
+  FROM FUC_ORD T, FUC S
+ WHERE T.FUC_NUM = S.FUC_NUM AND T.VENDER_ID = S.VENDER_ID AND
+       S.CANCELLED = 'F' AND T.CANCELLED = 'F' AND
+       T.FUC_ORD_NUM = @Src_Doc_Num AND T.VENDEE_ID = @Src_Doc_Unit;
+          ]]>
+        </String>
+        <Param Name = "@Src_Doc_Type" Column = "Src_Doc_Type" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Unit" Column = "Src_Doc_Unit" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Num" Column = "Src_Doc_Num" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="GetDistroDeliveredNoteHeaderByAAD">
+      <SqlString>
+        <String>
+          <![CDATA[
+           SELECT @Src_Doc_Type Src_Doc_Type,
+           @Src_Doc_Unit Src_Doc_Unit,
+           @Src_Doc_Num Src_Doc_Num,
+           DECODE(S.LOW_IDT_FLAG, 'T', S.LOW_SHOP_ID, S.RCV_WAREH_ID) STORE_NBR,
+       S.IDT_NUM,
+       T.ADM_AT IN_STORE_DATE,
+       CASE WHEN s.cit_type ='MO' THEN 'MFO'|| a.agent_id || a.mfo_num 
+            WHEN s.cit_type='PS' THEN 'API'|| b.vendee_id || s.pid_num END PO_NBR,
+      CASE WHEN s.cit_type ='MO' THEN DECODE(a.ACROSS_FLAG,'T','2','1') 
+            WHEN s.cit_type='PS' THEN DECODE(b.ACROSS_FLAG,'T','2','1') END DISTRO_TYPE,
+      d.unit_short_id||c.grn_num SHPMT_NBR    ,
+      null START_SHIP_DATE
+  FROM ADN T
+  INNER JOIN IDT S ON (T.VENDEE_ID = S.VENDEE_ID AND
+                           T.IDT_NUM = S.IDT_NUM)
+  LEFT JOIN MFO A ON a.agent_id=s.vender_id AND a.mfo_num=s.pid_num AND a.cancelled='F'
+  LEFT JOIN PUO b ON b.VENDEE_ID = S.VENDER_ID AND b.IDT_NUM = S.PID_NUM AND b.cancelled='F'
+  LEFT JOIN GRN c ON c.SRC_DOC_TYPE = 'PUO' AND c.src_unit_id=s.vender_id AND c.src_doc_num=b.puo_num AND c.cancelled='F' AND c.struck='F'
+  LEFT JOIN Sys_Unit d ON c.wareh_id=d.unit_id
+  where T.VENDER_ID=@Src_Doc_Unit AND T.ADN_NUM=@Src_Doc_Num;
+          ]]>
+        </String>
+        <Param Name = "@Src_Doc_Type" Column = "Src_Doc_Type" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Unit" Column = "Src_Doc_Unit" TypeName = "System.String" />
+        <Param Name = "@Src_Doc_Num" Column = "Src_Doc_Num" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="GetDistroDeliveredNoteHeader">
+      <SqlString>
+        <String>
+          <![CDATA[
+           SELECT A.UNIT_ID,A.GDN_NUM,A.SRC_DOC_TYPE,A.SRC_UNIT_ID Src_Doc_Unit,A.SRC_DOC_NUM,A.WIF_NUM 
+           FROM GDN A 
+           WHERE A.NEED_SEND = '20' AND A.PROGRESS = 'CN' AND A.STRUCK = 'F' 
+              AND A.CANCELLED = 'F'
+              AND A.IMPORT_WMOS_DMODE = 'DST' AND A.WIF_NUM IS NOT NULL
+              and rownum<1000;
+          ]]>
+        </String>
+      </SqlString>
+    </Sql>
+    <Sql Name="GetDistroDeliveredNote">
+      <SqlString>
+        <String>
+          <![CDATA[
+             SELECT --WMOS_DISTRO_SEQ.NEXTVAL, 
+       D.UNIT_SHORT_ID WHSE,
+       A.WIF_NUM DISTRO_NBR,
+       CASE WHEN A.SRC_DOC_TYPE='FON' THEN (SELECT T.FUC_LINE_ID
+             FROM FUC_DTL_LINE T
+            WHERE T.FUC_NUM ='' AND T.VENDER_ID = B.UNIT_ID AND
+                  T.PROD_ID = B.PROD_ID)  END SEQ_NBR,
+                  
+      '1' DISTRO_TYPE,
+       '?' PO_NBR,
+       '?' STORE_NBR,
+       'MB' CO,
+       '001' DIV,      
+       C.PROD_PROP SEASON,
+       C.PROD_SORT || C.PROD_STYLE STYLE,
+       C.COLOR ,
+       C.EDITION SEC_DIM,
+       C.SPEC SIZE_DESC,
+       '?' SHPMT_NBR,
+       '?' STAT_CODE,
+       B.QUANTITY REQD_QTY,
+      /* B.PROD_ID ,*/
+       '?' DISTRO_BREAK_ATTR,
+       
+       A.SRC_DOC_TYPE ORDER_TYPE,
+       NVL(E.UNIT_SHORT_ID,'MB01') RET_NAME,
+       0 WAVE_PROC_TYPE,
+       0 ERROR_SEQ_NBR,
+       0 PROC_STAT_CODE,
+       'MB' CARTON_LABEL_TYPE,
+       '51' CARTON_CUBNG_INDIC,
+       
+       'Y' REF_FIELD_3,
+       'vBATCH_DATE' START_SHIP_DATE,
+       SYSDATE CREATE_DATE_TIME,
+       SYSDATE MOD_DATE_TIME,
+       'ERP' USER_ID,
+       ''PICK_LOCN_ASSIGN_TYPE,
+       'vDISTRO_TYPE 'MERCH_TYPE,
+       'vDISTRO_TYPE' MERCH_GROUP,
+       'vDISTRO_TYPE' INVN_TYPE,
+       'vINVSG_AT' IN_STORE_DATE,
+       A.UNIT_ID || A.GDN_NUM REF_FIELD_1,
+       TO_CHAR(A.DOC_DATE, 'YYYY-MM-DD') REF_FIELD_2,
+       A.RCV_UNIT_ID ASSORT_NBR,
+       G.BRAND_CODE STORE_DEPT,
+      
+       A.GDN_NUM EVENT_CODE,
+       '' UN_NBR
+  FROM GDN       A,
+       GDN_DTL   B,
+       PRODUCT   C,
+       SYS_UNIT  D,
+       SYS_UNIT  E,
+       PROD_CLS  F,
+       SYS_BRAND G
+ WHERE A.UNIT_ID = B.UNIT_ID AND A.GDN_NUM = B.GDN_NUM AND
+       B.PROD_ID = C.PROD_ID AND A.WAREH_ID = D.UNIT_ID(+) AND
+       A.TSP_COM_ID = E.UNIT_ID(+) AND C.PROD_PROP = F.PROD_PROP AND
+       C.PROD_SORT = F.PROD_SORT AND C.PROD_STYLE = F.PROD_STYLE AND
+       F.BRAND_ID = G.BRAND_ID(+) 
+      /* AND A.GDN_NUM = pGDN_NUM AND
+       A.UNIT_ID = pUNIT_ID;*/
+]]>
+        </String>
+        <Param Name = "@Where" Column = "Where" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="GetDistroDeliveredNoteSAP">
+      <SqlString>
+        <String>
+          <![CDATA[
+             SELECT a.unit_id,a.gdn_num,COUNT(1) LineCount 
+              FROM   MTSBW.GDN A
+              INNER JOIN MTSBW.GDN_DTL B ON A.UNIT_ID=B.UNIT_ID AND A.GDN_NUM=B.GDN_NUM
+              WHERE  (A.SAP_FLAG = '2' OR A.SAP_FLAG = '1')
+              AND    ROWNUM <= 1000
+              AND    EXISTS (SELECT 1
+                      FROM   MTSBW.SYS_CODE B
+                      WHERE  B.CODE_CLASS = 'SAP_UNIT_TO'
+                      AND    A.WAREH_ID = B.CODE)
+              AND    EXISTS (SELECT 1
+                      FROM   MTSBW.SYS_CODE C
+                      WHERE  C.CODE_CLASS = 'SAP_DELIV_MODE'
+                      AND    A.DELIV_MODE = C.CODE)
+              GROUP BY A.UNIT_ID,A.GDN_NUM
+              HAVING(COUNT(1)<=4000);
+]]>
+        </String>
+        <Param Name = "@Where" Column = "Where" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+
+  </Sqls>
+</Entity>

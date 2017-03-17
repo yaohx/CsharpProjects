@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c965d6ef-b61e-45b9-b968-c09242893a2b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="MB.Util" />
+      <ReferencedAssembly AssemblyName="mscorlib" />
+      <ReferencedAssembly AssemblyName="System.Configuration" />
+      <ReferencedAssembly AssemblyName="System.Core" />
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Data.DataSetExtensions" />
+      <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+      <ReferencedAssembly AssemblyName="System.Xml" />
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.101.188/MB.EAI.SOA/MB.EAI.SOA.BANGGO.Services.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MB.xsd" MetadataType="Schema" ID="e9b793c5-b937-4e3b-82da-0d22bba6f055" SourceId="1" SourceUrl="http://192.168.101.188/MB.EAI.SOA/MB.EAI.SOA.BANGGO.Services.svc?xsd=xsd2" />
+    <MetadataFile FileName="MB.wsdl" MetadataType="Wsdl" ID="93ef3c90-a433-47e0-b307-b1cae04d2d68" SourceId="1" SourceUrl="http://192.168.101.188/MB.EAI.SOA/MB.EAI.SOA.BANGGO.Services.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="MB.disco" MetadataType="Disco" ID="76ff0d98-e456-4611-81c4-c313e4891c9b" SourceId="1" SourceUrl="http://192.168.101.188/MB.EAI.SOA/MB.EAI.SOA.BANGGO.Services.svc?disco" />
+    <MetadataFile FileName="MB1.xsd" MetadataType="Schema" ID="cc2ee6e3-6e8f-4666-b803-0845524a2361" SourceId="1" SourceUrl="http://192.168.101.188/MB.EAI.SOA/MB.EAI.SOA.BANGGO.Services.svc?xsd=xsd1" />
+    <MetadataFile FileName="BangggoServiceProxy.wsdl" MetadataType="Wsdl" ID="af0dbb2e-06a4-4920-ad3a-d6992361b7d4" SourceId="1" SourceUrl="http://192.168.101.188/MB.EAI.SOA/MB.EAI.SOA.BANGGO.Services.svc?wsdl" />
+    <MetadataFile FileName="MB2.xsd" MetadataType="Schema" ID="a9507465-8691-40a1-915d-215590e71630" SourceId="1" SourceUrl="http://192.168.101.188/MB.EAI.SOA/MB.EAI.SOA.BANGGO.Services.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

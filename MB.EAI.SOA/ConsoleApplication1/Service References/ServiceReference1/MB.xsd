@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MB.EAI.SOA.BANGGO.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MB.EAI.SOA.BANGGO.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ProductInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BrandCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GoodsName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GoodsSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GoodsWeight" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MarketPrice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalePoint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeasonCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SeriesCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SkuVos" nillable="true" type="tns:ArrayOfSkuVo" />
+      <xs:element minOccurs="0" name="ThemeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductInfo" nillable="true" type="tns:ProductInfo" />
+  <xs:complexType name="ArrayOfSkuVo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SkuVo" nillable="true" type="tns:SkuVo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSkuVo" nillable="true" type="tns:ArrayOfSkuVo" />
+  <xs:complexType name="SkuVo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ColorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ColorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustumCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GoodsSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SizeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SizeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SkuVo" nillable="true" type="tns:SkuVo" />
+  <xs:complexType name="ReturnMSG">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isok" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnMSG" nillable="true" type="tns:ReturnMSG" />
+</xs:schema>

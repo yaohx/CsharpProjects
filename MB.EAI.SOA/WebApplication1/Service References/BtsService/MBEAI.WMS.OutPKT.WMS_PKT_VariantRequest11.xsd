@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://MBEAI.WMS.OutPKT.WMS_PKT_VariantRequest" xmlns:b="http://schemas.microsoft.com/BizTalk/2003" targetNamespace="http://MBEAI.WMS.OutPKT.WMS_PKT_VariantRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Orders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="Order">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Header">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Wif_Num" type="xs:string" />
+                    <xs:element name="Ship_Via" type="xs:string" />
+                    <xs:element name="Ship_DateTime" type="xs:string" />
+                    <xs:element name="User_ID" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="Details">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Prod_ID" type="xs:string" />
+                    <xs:element name="Allow_Qty" type="xs:string" />
+                    <xs:element name="Delivered_Qty" type="xs:string" />
+                    <xs:element name="Cancel_Qty" type="xs:string" />
+                    <xs:element name="Order_Qty" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="unbounded" name="BoxHeaders">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Box_Num" type="xs:string" />
+                    <xs:element name="Box_Type" type="xs:string" />
+                    <xs:element name="Box_Size" type="xs:string" />
+                    <xs:element name="Box_Vol" type="xs:string" />
+                    <xs:element name="Box_WT" type="xs:string" />
+                    <xs:element name="Total_Qty" type="xs:string" />
+                    <xs:element name="Start_Time" type="xs:string" />
+                    <xs:element name="Close_Time" type="xs:string" />
+                    <xs:element maxOccurs="unbounded" name="BoxDetails">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Prod_ID" type="xs:string" />
+                          <xs:element name="Act_Qty" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,7 @@
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.BANGGO\bin\Debug\MB.EAI.SOA.BANGGO.exe.config
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.BANGGO\bin\Debug\MB.EAI.SOA.BANGGO.exe
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.BANGGO\bin\Debug\MB.EAI.SOA.BANGGO.pdb
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.BANGGO\bin\Debug\Newtonsoft.Json.dll
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.BANGGO\bin\Debug\Newtonsoft.Json.xml
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.BANGGO\obj\Debug\MB.EAI.SOA.BANGGO.exe
+D:\Works\Projects\EAISOA\MB.EAI.SOA\MB.EAI.SOA.BANGGO\obj\Debug\MB.EAI.SOA.BANGGO.pdb

@@ -1,0 +1,29 @@
+2014-05-15 10:40:03.157:(localhost)代码执行轨迹-->MA没有传送任何信息
+2014-05-15 10:40:37.320:(localhost)系统错误--> Activation error occured while trying to get instance of type Database, key "MB.OldERP" Resolution of the dependency failed, type = "Microsoft.Practices.EnterpriseLibrary.Data.Database", name = "MB.OldERP".
+Exception occurred while: while resolving.
+Exception is: InvalidOperationException - The type Database cannot be constructed. You must configure the container to supply this value.
+-----------------------------------------------
+At the time of the exception, the container was:
+
+  Resolving Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.OldERP
+ The type Database cannot be constructed. You must configure the container to supply this value.
+2014-05-15 10:40:37.354:(localhost)代码执行轨迹-->   在 Microsoft.Practices.ServiceLocation.ServiceLocatorImplBase.GetInstance(Type serviceType, String key)
+   在 Microsoft.Practices.ServiceLocation.ServiceLocatorImplBase.GetInstance[TService](String key)
+   在 Microsoft.Practices.EnterpriseLibrary.Data.DatabaseFactory.InnerCreateDatabase(String name)
+   在 Microsoft.Practices.EnterpriseLibrary.Data.DatabaseFactory.CreateDatabase(String name)
+   在 MB.Orm.DB.DefaultDatabaseFactory.CreateDatabase()
+2014-05-15 10:40:37.354:(localhost)系统错误-->创建数据库对象出错,请检查配置的 MB.OldERP 数据库连接字符窜
+2014-05-15 10:41:59.661:(localhost)代码执行轨迹-->MA没有传送任何信息
+2014-05-15 10:42:05.087:(localhost)代码执行轨迹-->MB.CacheProxy 缓存没有进行相应的配置！Activation error occured while trying to get instance of type ICacheManager, key "MBFS.Orm.EntityCache"
+2014-05-15 10:42:05.088:(localhost)代码执行轨迹-->成功发现SQL 语句：GetShopInfo
+2014-05-15 10:42:05.842:(localhost)代码执行轨迹-->正在执行: CommandText:select T.UNIT_ID ShopID, T.NAME, O.UNIT_ID OwnerID, o.name OwnerName, T.HIERARCHY, P.DESCRIPTION PROVINCE, C.DESCRIPTION CITY FROM MTSBW.SYS_UNIT T INNER JOIN MTSBW.SYS_UNIT_CLSF TS ON T.UNIT_ID = TS.UNIT_ID INNER JOIN MTSBW.SHOP S ON T.UNIT_ID = S.SHOP_ID INNER JOIN MTSBW.SYS_CODE P ON T.PROVINCE = P.CODE AND P.CODE_CLASS = 'PROVINCE_CODE' INNER JOIN MTSBW.SYS_CODE C ON T.CITY = C.CODE AND C.CODE_CLASS = 'CITY_CODE' INNER JOIN MTSBW.SYS_UNIT O ON T.OWNER_ID = O.UNIT_ID WHERE TS.UNIT_TYPE = 'SH' AND TS.STATUS = 'A' AND NVL(S.CLOSE_DATE, SYSDATE) >= SYSDATE(没有参数)
+2014-05-15 12:10:01.180:(localhost)代码执行轨迹-->MA没有传送任何信息
+2014-05-15 12:10:15.128:(localhost)代码执行轨迹-->MB.CacheProxy 缓存没有进行相应的配置！Activation error occured while trying to get instance of type ICacheManager, key "MBFS.Orm.EntityCache"
+2014-05-15 12:10:15.130:(localhost)代码执行轨迹-->成功发现SQL 语句：GetShopInfo
+2014-05-15 12:10:15.181:(localhost)代码执行轨迹-->正在执行: CommandText:select T.UNIT_ID ShopID, T.NAME, O.UNIT_ID OwnerID, o.name OwnerName, T.HIERARCHY, P.DESCRIPTION PROVINCE, C.DESCRIPTION CITY FROM MTSBW.SYS_UNIT T INNER JOIN MTSBW.SYS_UNIT_CLSF TS ON T.UNIT_ID = TS.UNIT_ID INNER JOIN MTSBW.SHOP S ON T.UNIT_ID = S.SHOP_ID INNER JOIN MTSBW.SYS_CODE P ON T.PROVINCE = P.CODE AND P.CODE_CLASS = 'PROVINCE_CODE' INNER JOIN MTSBW.SYS_CODE C ON T.CITY = C.CODE AND C.CODE_CLASS = 'CITY_CODE' INNER JOIN MTSBW.SYS_UNIT O ON T.OWNER_ID = O.UNIT_ID WHERE TS.UNIT_TYPE = 'SH' AND TS.STATUS = 'A' AND NVL(S.CLOSE_DATE, SYSDATE) >= SYSDATE(没有参数)
+2014-05-15 12:10:49.625:(localhost)代码执行轨迹-->MB.CacheProxy 缓存没有进行相应的配置！Activation error occured while trying to get instance of type ICacheManager, key "MBFS.Orm.EntityCache"
+2014-05-15 12:10:49.626:(localhost)代码执行轨迹-->成功发现SQL 语句：GetShopInfo
+2014-05-15 12:10:49.678:(localhost)代码执行轨迹-->正在执行: CommandText:select T.UNIT_ID ShopID, T.NAME, O.UNIT_ID OwnerID, o.name OwnerName, T.HIERARCHY, P.DESCRIPTION PROVINCE, C.DESCRIPTION CITY FROM MTSBW.SYS_UNIT T INNER JOIN MTSBW.SYS_UNIT_CLSF TS ON T.UNIT_ID = TS.UNIT_ID INNER JOIN MTSBW.SHOP S ON T.UNIT_ID = S.SHOP_ID INNER JOIN MTSBW.SYS_CODE P ON T.PROVINCE = P.CODE AND P.CODE_CLASS = 'PROVINCE_CODE' INNER JOIN MTSBW.SYS_CODE C ON T.CITY = C.CODE AND C.CODE_CLASS = 'CITY_CODE' INNER JOIN MTSBW.SYS_UNIT O ON T.OWNER_ID = O.UNIT_ID WHERE TS.UNIT_TYPE = 'SH' AND TS.STATUS = 'A' AND NVL(S.CLOSE_DATE, SYSDATE) >= SYSDATE(没有参数)
+2014-05-15 12:11:30.005:(localhost)代码执行轨迹-->MB.CacheProxy 缓存没有进行相应的配置！Activation error occured while trying to get instance of type ICacheManager, key "MBFS.Orm.EntityCache"
+2014-05-15 12:11:30.006:(localhost)代码执行轨迹-->成功发现SQL 语句：GetShopInfo
+2014-05-15 12:11:30.022:(localhost)代码执行轨迹-->正在执行: CommandText:select T.UNIT_ID ShopID, T.NAME, O.UNIT_ID OwnerID, o.name OwnerName, T.HIERARCHY, P.DESCRIPTION PROVINCE, C.DESCRIPTION CITY FROM MTSBW.SYS_UNIT T INNER JOIN MTSBW.SYS_UNIT_CLSF TS ON T.UNIT_ID = TS.UNIT_ID INNER JOIN MTSBW.SHOP S ON T.UNIT_ID = S.SHOP_ID INNER JOIN MTSBW.SYS_CODE P ON T.PROVINCE = P.CODE AND P.CODE_CLASS = 'PROVINCE_CODE' INNER JOIN MTSBW.SYS_CODE C ON T.CITY = C.CODE AND C.CODE_CLASS = 'CITY_CODE' INNER JOIN MTSBW.SYS_UNIT O ON T.OWNER_ID = O.UNIT_ID WHERE TS.UNIT_TYPE = 'SH' AND TS.STATUS = 'A' AND NVL(S.CLOSE_DATE, SYSDATE) >= SYSDATE(没有参数)

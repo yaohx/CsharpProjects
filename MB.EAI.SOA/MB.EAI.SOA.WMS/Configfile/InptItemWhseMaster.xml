@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  XML 文件生成时间 2014-04-03 09:53  -->
+<!--  如果生成的是明细需要用  GetByForeingKey 替换 SelectObject 同时修改对应主表中DeleteObject 语句 -->
+<Entity>
+  <PrimaryKeyName>ID</PrimaryKeyName>
+  <MappingTableName>INPT_ITEM_WHSE_MASTER</MappingTableName>
+  <Sqls>
+    <Sql Name="SelectObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              SELECT 
+ INPT_ITEM_WHSE_MASTER_ID 
+ ,CO 
+ ,DIV 
+ ,SEASON 
+ ,SEASON_YR 
+ ,STYLE 
+ ,STYLE_SFX 
+ ,COLOR 
+ ,COLOR_SFX 
+ ,SEC_DIM 
+ ,QUAL 
+ ,SIZE_RANGE_CODE 
+ ,SIZE_REL_POSN_IN_TABLE 
+ ,SIZE_DESC 
+ ,SKU_ID 
+ ,WHSE 
+ ,LPN_PER_TIER 
+ ,TIER_PER_PLT 
+ ,CASE_SIZE_TYPE 
+ ,PICK_RATE 
+ ,WAGE_VALUE 
+ ,PACK_RATE 
+ ,SPL_PROC_RATE 
+ ,AUTO_SUB_CASE 
+ ,ASSIGN_DYNAMIC_ACTV_PICK_SITE 
+ ,ASSIGN_DYNAMIC_CASE_PICK_SITE 
+ ,PICK_LOCN_ASSIGN_TYPE 
+ ,PUTWY_TYPE 
+ ,LET_UP_PRTY 
+ ,DFLT_WAVE_PROC_TYPE 
+ ,XCESS_WAVE_NEED_PROC_TYPE 
+ ,ALLOC_TYPE 
+ ,VIOLATE_FIFO_ALLOC_QTY_MATCH 
+ ,QV_ITEM_GRP 
+ ,QUAL_INSPCT_ITEM_GRP 
+ ,MAX_UNITS_IN_DYNAMIC_ACTV 
+ ,MAX_CASES_IN_DYNAMIC_ACTV 
+ ,MAX_UNITS_IN_DYNAMIC_CASE_PICK 
+ ,MAX_CASES_IN_DYNAMIC_CASE_PICK 
+ ,STAT_CODE 
+ ,SHELF_DAYS 
+ ,VENDOR_ID 
+ ,VENDOR_CARTON_PER_TIER 
+ ,VENDOR_TIER_PER_PLT 
+ ,ORD_CARTON_PER_TIER 
+ ,ORD_TIER_PER_PLT 
+ ,DFLT_CATCH_WT_METHOD 
+ ,DFLT_DATE_MASK 
+ ,CARTON_BREAK_ATTR 
+ ,PROC_STAT_CODE 
+ ,ERROR_SEQ_NBR 
+ ,MISC_SHORT_ALPHA_1 
+ ,MISC_SHORT_ALPHA_2 
+ ,MISC_ALPHA_1 
+ ,MISC_ALPHA_2 
+ ,MISC_ALPHA_3 
+ ,MISC_NUMERIC_1 
+ ,MISC_NUMERIC_2 
+ ,MISC_NUMERIC_3 
+ ,MISC_DATE_1 
+ ,MISC_DATE_2 
+ ,SKU_PROFILE_ID 
+ ,CHUTE_ASSIGN_TYPE 
+ ,FIFO_RANGE 
+ ,ACTV_REPL_ORGN 
+ ,PRTL_CASE_ALLOC_THRESH_UNITS 
+ ,PRTL_CASE_PUTWY_THRESH_UNITS 
+ ,VENDOR_TAGGED_EPC_FLAG 
+ ,DFLT_MIN_FROM_PREV_LOCN_FLAG 
+ ,SLOT_MISC_1 
+ ,SLOT_MISC_2 
+ ,SLOT_MISC_3 
+ ,SLOT_MISC_4 
+ ,SLOT_MISC_5 
+ ,SLOT_MISC_6 
+ ,SLOT_ROTATE_EACHES_FLAG 
+ ,SLOT_ROTATE_INNERS_FLAG 
+ ,SLOT_ROTATE_BINS_FLAG 
+ ,SLOT_ROTATE_CASES_FLAG 
+ ,SLOT_3D_SLOTTING_FLAG 
+ ,SLOT_NEST_EACHES_FLAG 
+ ,SLOT_INCR_HT 
+ ,SLOT_INCR_LEN 
+ ,SLOT_INCR_WIDTH 
+ ,NBR_OF_DYN_ACTV_PICK_PER_SKU 
+ ,NBR_OF_DYN_CASE_PICK_PER_SKU 
+ ,CREATE_DATE_TIME 
+ ,MOD_DATE_TIME 
+ ,USER_ID 
+  
+ FROM 
+ INPT_ITEM_WHSE_MASTER 
+  WHERE @Where ;
+]]>
+        </String>
+        <Param Name = "@Where" Column = "Where" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="AddObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              INSERT INTO 
+ INPT_ITEM_WHSE_MASTER 
+ (INPT_ITEM_WHSE_MASTER_ID 
+ ,CO 
+ ,DIV 
+ ,SEASON 
+ ,SEASON_YR 
+ ,STYLE 
+ ,STYLE_SFX 
+ ,COLOR 
+ ,COLOR_SFX 
+ ,SEC_DIM 
+ ,QUAL 
+ ,SIZE_RANGE_CODE 
+ ,SIZE_REL_POSN_IN_TABLE 
+ ,SIZE_DESC 
+ ,SKU_ID 
+ ,WHSE 
+ ,LPN_PER_TIER 
+ ,TIER_PER_PLT 
+ ,CASE_SIZE_TYPE 
+ ,PICK_RATE 
+ ,WAGE_VALUE 
+ ,PACK_RATE 
+ ,SPL_PROC_RATE 
+ ,AUTO_SUB_CASE 
+ ,ASSIGN_DYNAMIC_ACTV_PICK_SITE 
+ ,ASSIGN_DYNAMIC_CASE_PICK_SITE 
+ ,PICK_LOCN_ASSIGN_TYPE 
+ ,PUTWY_TYPE 
+ ,LET_UP_PRTY 
+ ,DFLT_WAVE_PROC_TYPE 
+ ,XCESS_WAVE_NEED_PROC_TYPE 
+ ,ALLOC_TYPE 
+ ,VIOLATE_FIFO_ALLOC_QTY_MATCH 
+ ,QV_ITEM_GRP 
+ ,QUAL_INSPCT_ITEM_GRP 
+ ,MAX_UNITS_IN_DYNAMIC_ACTV 
+ ,MAX_CASES_IN_DYNAMIC_ACTV 
+ ,MAX_UNITS_IN_DYNAMIC_CASE_PICK 
+ ,MAX_CASES_IN_DYNAMIC_CASE_PICK 
+ ,STAT_CODE 
+ ,SHELF_DAYS 
+ ,VENDOR_ID 
+ ,VENDOR_CARTON_PER_TIER 
+ ,VENDOR_TIER_PER_PLT 
+ ,ORD_CARTON_PER_TIER 
+ ,ORD_TIER_PER_PLT 
+ ,DFLT_CATCH_WT_METHOD 
+ ,DFLT_DATE_MASK 
+ ,CARTON_BREAK_ATTR 
+ ,PROC_STAT_CODE 
+ ,ERROR_SEQ_NBR 
+ ,MISC_SHORT_ALPHA_1 
+ ,MISC_SHORT_ALPHA_2 
+ ,MISC_ALPHA_1 
+ ,MISC_ALPHA_2 
+ ,MISC_ALPHA_3 
+ ,MISC_NUMERIC_1 
+ ,MISC_NUMERIC_2 
+ ,MISC_NUMERIC_3 
+ ,MISC_DATE_1 
+ ,MISC_DATE_2 
+ ,SKU_PROFILE_ID 
+ ,CHUTE_ASSIGN_TYPE 
+ ,FIFO_RANGE 
+ ,ACTV_REPL_ORGN 
+ ,PRTL_CASE_ALLOC_THRESH_UNITS 
+ ,PRTL_CASE_PUTWY_THRESH_UNITS 
+ ,VENDOR_TAGGED_EPC_FLAG 
+ ,DFLT_MIN_FROM_PREV_LOCN_FLAG 
+ ,SLOT_MISC_1 
+ ,SLOT_MISC_2 
+ ,SLOT_MISC_3 
+ ,SLOT_MISC_4 
+ ,SLOT_MISC_5 
+ ,SLOT_MISC_6 
+ ,SLOT_ROTATE_EACHES_FLAG 
+ ,SLOT_ROTATE_INNERS_FLAG 
+ ,SLOT_ROTATE_BINS_FLAG 
+ ,SLOT_ROTATE_CASES_FLAG 
+ ,SLOT_3D_SLOTTING_FLAG 
+ ,SLOT_NEST_EACHES_FLAG 
+ ,SLOT_INCR_HT 
+ ,SLOT_INCR_LEN 
+ ,SLOT_INCR_WIDTH 
+ ,NBR_OF_DYN_ACTV_PICK_PER_SKU 
+ ,NBR_OF_DYN_CASE_PICK_PER_SKU 
+ ,CREATE_DATE_TIME 
+ ,MOD_DATE_TIME 
+ ,USER_ID 
+ ) 
+ VALUES( 
+ @INPT_ITEM_WHSE_MASTER_ID 
+ ,@CO 
+ ,@DIV 
+ ,@SEASON 
+ ,@SEASON_YR 
+ ,@STYLE 
+ ,@STYLE_SFX 
+ ,@COLOR 
+ ,@COLOR_SFX 
+ ,@SEC_DIM 
+ ,@QUAL 
+ ,@SIZE_RANGE_CODE 
+ ,@SIZE_REL_POSN_IN_TABLE 
+ ,@SIZE_DESC 
+ ,@SKU_ID 
+ ,@WHSE 
+ ,@LPN_PER_TIER 
+ ,@TIER_PER_PLT 
+ ,@CASE_SIZE_TYPE 
+ ,@PICK_RATE 
+ ,@WAGE_VALUE 
+ ,@PACK_RATE 
+ ,@SPL_PROC_RATE 
+ ,@AUTO_SUB_CASE 
+ ,@ASSIGN_DYNAMIC_ACTV_PICK_SITE 
+ ,@ASSIGN_DYNAMIC_CASE_PICK_SITE 
+ ,@PICK_LOCN_ASSIGN_TYPE 
+ ,@PUTWY_TYPE 
+ ,@LET_UP_PRTY 
+ ,@DFLT_WAVE_PROC_TYPE 
+ ,@XCESS_WAVE_NEED_PROC_TYPE 
+ ,@ALLOC_TYPE 
+ ,@VIOLATE_FIFO_ALLOC_QTY_MATCH 
+ ,@QV_ITEM_GRP 
+ ,@QUAL_INSPCT_ITEM_GRP 
+ ,@MAX_UNITS_IN_DYNAMIC_ACTV 
+ ,@MAX_CASES_IN_DYNAMIC_ACTV 
+ ,@MAX_UNITS_IN_DYNAMIC_CASE_PICK 
+ ,@MAX_CASES_IN_DYNAMIC_CASE_PICK 
+ ,@STAT_CODE 
+ ,@SHELF_DAYS 
+ ,@VENDOR_ID 
+ ,@VENDOR_CARTON_PER_TIER 
+ ,@VENDOR_TIER_PER_PLT 
+ ,@ORD_CARTON_PER_TIER 
+ ,@ORD_TIER_PER_PLT 
+ ,@DFLT_CATCH_WT_METHOD 
+ ,@DFLT_DATE_MASK 
+ ,@CARTON_BREAK_ATTR 
+ ,@PROC_STAT_CODE 
+ ,@ERROR_SEQ_NBR 
+ ,@MISC_SHORT_ALPHA_1 
+ ,@MISC_SHORT_ALPHA_2 
+ ,@MISC_ALPHA_1 
+ ,@MISC_ALPHA_2 
+ ,@MISC_ALPHA_3 
+ ,@MISC_NUMERIC_1 
+ ,@MISC_NUMERIC_2 
+ ,@MISC_NUMERIC_3 
+ ,@MISC_DATE_1 
+ ,@MISC_DATE_2 
+ ,@SKU_PROFILE_ID 
+ ,@CHUTE_ASSIGN_TYPE 
+ ,@FIFO_RANGE 
+ ,@ACTV_REPL_ORGN 
+ ,@PRTL_CASE_ALLOC_THRESH_UNITS 
+ ,@PRTL_CASE_PUTWY_THRESH_UNITS 
+ ,@VENDOR_TAGGED_EPC_FLAG 
+ ,@DFLT_MIN_FROM_PREV_LOCN_FLAG 
+ ,@SLOT_MISC_1 
+ ,@SLOT_MISC_2 
+ ,@SLOT_MISC_3 
+ ,@SLOT_MISC_4 
+ ,@SLOT_MISC_5 
+ ,@SLOT_MISC_6 
+ ,@SLOT_ROTATE_EACHES_FLAG 
+ ,@SLOT_ROTATE_INNERS_FLAG 
+ ,@SLOT_ROTATE_BINS_FLAG 
+ ,@SLOT_ROTATE_CASES_FLAG 
+ ,@SLOT_3D_SLOTTING_FLAG 
+ ,@SLOT_NEST_EACHES_FLAG 
+ ,@SLOT_INCR_HT 
+ ,@SLOT_INCR_LEN 
+ ,@SLOT_INCR_WIDTH 
+ ,@NBR_OF_DYN_ACTV_PICK_PER_SKU 
+ ,@NBR_OF_DYN_CASE_PICK_PER_SKU 
+ ,@CREATE_DATE_TIME 
+ ,@MOD_DATE_TIME 
+ ,@USER_ID 
+ );
+]]>
+        </String>
+        <Param Name = "@INPT_ITEM_WHSE_MASTER_ID" Column = "INPT_ITEM_WHSE_MASTER_ID" TypeName = "System.Int32" />
+        <Param Name = "@CO" Column = "CO" TypeName = "System.String" />
+        <Param Name = "@DIV" Column = "DIV" TypeName = "System.String" />
+        <Param Name = "@SEASON" Column = "SEASON" TypeName = "System.String" />
+        <Param Name = "@SEASON_YR" Column = "SEASON_YR" TypeName = "System.String" />
+        <Param Name = "@STYLE" Column = "STYLE" TypeName = "System.String" />
+        <Param Name = "@STYLE_SFX" Column = "STYLE_SFX" TypeName = "System.String" />
+        <Param Name = "@COLOR" Column = "COLOR" TypeName = "System.String" />
+        <Param Name = "@COLOR_SFX" Column = "COLOR_SFX" TypeName = "System.String" />
+        <Param Name = "@SEC_DIM" Column = "SEC_DIM" TypeName = "System.String" />
+        <Param Name = "@QUAL" Column = "QUAL" TypeName = "System.String" />
+        <Param Name = "@SIZE_RANGE_CODE" Column = "SIZE_RANGE_CODE" TypeName = "System.String" />
+        <Param Name = "@SIZE_REL_POSN_IN_TABLE" Column = "SIZE_REL_POSN_IN_TABLE" TypeName = "System.String" />
+        <Param Name = "@SIZE_DESC" Column = "SIZE_DESC" TypeName = "System.String" />
+        <Param Name = "@SKU_ID" Column = "SKU_ID" TypeName = "System.String" />
+        <Param Name = "@WHSE" Column = "WHSE" TypeName = "System.String" />
+        <Param Name = "@LPN_PER_TIER" Column = "LPN_PER_TIER" TypeName = "System.Int32" />
+        <Param Name = "@TIER_PER_PLT" Column = "TIER_PER_PLT" TypeName = "System.Int32" />
+        <Param Name = "@CASE_SIZE_TYPE" Column = "CASE_SIZE_TYPE" TypeName = "System.String" />
+        <Param Name = "@PICK_RATE" Column = "PICK_RATE" TypeName = "System.Double" />
+        <Param Name = "@WAGE_VALUE" Column = "WAGE_VALUE" TypeName = "System.Double" />
+        <Param Name = "@PACK_RATE" Column = "PACK_RATE" TypeName = "System.Double" />
+        <Param Name = "@SPL_PROC_RATE" Column = "SPL_PROC_RATE" TypeName = "System.Double" />
+        <Param Name = "@AUTO_SUB_CASE" Column = "AUTO_SUB_CASE" TypeName = "System.String" />
+        <Param Name = "@ASSIGN_DYNAMIC_ACTV_PICK_SITE" Column = "ASSIGN_DYNAMIC_ACTV_PICK_SITE" TypeName = "System.String" />
+        <Param Name = "@ASSIGN_DYNAMIC_CASE_PICK_SITE" Column = "ASSIGN_DYNAMIC_CASE_PICK_SITE" TypeName = "System.String" />
+        <Param Name = "@PICK_LOCN_ASSIGN_TYPE" Column = "PICK_LOCN_ASSIGN_TYPE" TypeName = "System.String" />
+        <Param Name = "@PUTWY_TYPE" Column = "PUTWY_TYPE" TypeName = "System.String" />
+        <Param Name = "@LET_UP_PRTY" Column = "LET_UP_PRTY" TypeName = "System.Int32" />
+        <Param Name = "@DFLT_WAVE_PROC_TYPE" Column = "DFLT_WAVE_PROC_TYPE" TypeName = "System.Int16" />
+        <Param Name = "@XCESS_WAVE_NEED_PROC_TYPE" Column = "XCESS_WAVE_NEED_PROC_TYPE" TypeName = "System.Int16" />
+        <Param Name = "@ALLOC_TYPE" Column = "ALLOC_TYPE" TypeName = "System.String" />
+        <Param Name = "@VIOLATE_FIFO_ALLOC_QTY_MATCH" Column = "VIOLATE_FIFO_ALLOC_QTY_MATCH" TypeName = "System.String" />
+        <Param Name = "@QV_ITEM_GRP" Column = "QV_ITEM_GRP" TypeName = "System.String" />
+        <Param Name = "@QUAL_INSPCT_ITEM_GRP" Column = "QUAL_INSPCT_ITEM_GRP" TypeName = "System.String" />
+        <Param Name = "@MAX_UNITS_IN_DYNAMIC_ACTV" Column = "MAX_UNITS_IN_DYNAMIC_ACTV" TypeName = "System.Double" />
+        <Param Name = "@MAX_CASES_IN_DYNAMIC_ACTV" Column = "MAX_CASES_IN_DYNAMIC_ACTV" TypeName = "System.Int32" />
+        <Param Name = "@MAX_UNITS_IN_DYNAMIC_CASE_PICK" Column = "MAX_UNITS_IN_DYNAMIC_CASE_PICK" TypeName = "System.Double" />
+        <Param Name = "@MAX_CASES_IN_DYNAMIC_CASE_PICK" Column = "MAX_CASES_IN_DYNAMIC_CASE_PICK" TypeName = "System.Int32" />
+        <Param Name = "@STAT_CODE" Column = "STAT_CODE" TypeName = "System.Int16" />
+        <Param Name = "@SHELF_DAYS" Column = "SHELF_DAYS" TypeName = "System.Int32" />
+        <Param Name = "@VENDOR_ID" Column = "VENDOR_ID" TypeName = "System.String" />
+        <Param Name = "@VENDOR_CARTON_PER_TIER" Column = "VENDOR_CARTON_PER_TIER" TypeName = "System.Int32" />
+        <Param Name = "@VENDOR_TIER_PER_PLT" Column = "VENDOR_TIER_PER_PLT" TypeName = "System.Int32" />
+        <Param Name = "@ORD_CARTON_PER_TIER" Column = "ORD_CARTON_PER_TIER" TypeName = "System.Int32" />
+        <Param Name = "@ORD_TIER_PER_PLT" Column = "ORD_TIER_PER_PLT" TypeName = "System.Int32" />
+        <Param Name = "@DFLT_CATCH_WT_METHOD" Column = "DFLT_CATCH_WT_METHOD" TypeName = "System.String" />
+        <Param Name = "@DFLT_DATE_MASK" Column = "DFLT_DATE_MASK" TypeName = "System.String" />
+        <Param Name = "@CARTON_BREAK_ATTR" Column = "CARTON_BREAK_ATTR" TypeName = "System.String" />
+        <Param Name = "@PROC_STAT_CODE" Column = "PROC_STAT_CODE" TypeName = "System.Int16" />
+        <Param Name = "@ERROR_SEQ_NBR" Column = "ERROR_SEQ_NBR" TypeName = "System.Int32" />
+        <Param Name = "@MISC_SHORT_ALPHA_1" Column = "MISC_SHORT_ALPHA_1" TypeName = "System.String" />
+        <Param Name = "@MISC_SHORT_ALPHA_2" Column = "MISC_SHORT_ALPHA_2" TypeName = "System.String" />
+        <Param Name = "@MISC_ALPHA_1" Column = "MISC_ALPHA_1" TypeName = "System.String" />
+        <Param Name = "@MISC_ALPHA_2" Column = "MISC_ALPHA_2" TypeName = "System.String" />
+        <Param Name = "@MISC_ALPHA_3" Column = "MISC_ALPHA_3" TypeName = "System.String" />
+        <Param Name = "@MISC_NUMERIC_1" Column = "MISC_NUMERIC_1" TypeName = "System.Double" />
+        <Param Name = "@MISC_NUMERIC_2" Column = "MISC_NUMERIC_2" TypeName = "System.Double" />
+        <Param Name = "@MISC_NUMERIC_3" Column = "MISC_NUMERIC_3" TypeName = "System.Double" />
+        <Param Name = "@MISC_DATE_1" Column = "MISC_DATE_1" TypeName = "System.DateTime" />
+        <Param Name = "@MISC_DATE_2" Column = "MISC_DATE_2" TypeName = "System.DateTime" />
+        <Param Name = "@SKU_PROFILE_ID" Column = "SKU_PROFILE_ID" TypeName = "System.String" />
+        <Param Name = "@CHUTE_ASSIGN_TYPE" Column = "CHUTE_ASSIGN_TYPE" TypeName = "System.String" />
+        <Param Name = "@FIFO_RANGE" Column = "FIFO_RANGE" TypeName = "System.Int16" />
+        <Param Name = "@ACTV_REPL_ORGN" Column = "ACTV_REPL_ORGN" TypeName = "System.String" />
+        <Param Name = "@PRTL_CASE_ALLOC_THRESH_UNITS" Column = "PRTL_CASE_ALLOC_THRESH_UNITS" TypeName = "System.Double" />
+        <Param Name = "@PRTL_CASE_PUTWY_THRESH_UNITS" Column = "PRTL_CASE_PUTWY_THRESH_UNITS" TypeName = "System.Double" />
+        <Param Name = "@VENDOR_TAGGED_EPC_FLAG" Column = "VENDOR_TAGGED_EPC_FLAG" TypeName = "System.String" />
+        <Param Name = "@DFLT_MIN_FROM_PREV_LOCN_FLAG" Column = "DFLT_MIN_FROM_PREV_LOCN_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_1" Column = "SLOT_MISC_1" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_2" Column = "SLOT_MISC_2" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_3" Column = "SLOT_MISC_3" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_4" Column = "SLOT_MISC_4" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_5" Column = "SLOT_MISC_5" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_6" Column = "SLOT_MISC_6" TypeName = "System.String" />
+        <Param Name = "@SLOT_ROTATE_EACHES_FLAG" Column = "SLOT_ROTATE_EACHES_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_ROTATE_INNERS_FLAG" Column = "SLOT_ROTATE_INNERS_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_ROTATE_BINS_FLAG" Column = "SLOT_ROTATE_BINS_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_ROTATE_CASES_FLAG" Column = "SLOT_ROTATE_CASES_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_3D_SLOTTING_FLAG" Column = "SLOT_3D_SLOTTING_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_NEST_EACHES_FLAG" Column = "SLOT_NEST_EACHES_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_INCR_HT" Column = "SLOT_INCR_HT" TypeName = "System.Single" />
+        <Param Name = "@SLOT_INCR_LEN" Column = "SLOT_INCR_LEN" TypeName = "System.Single" />
+        <Param Name = "@SLOT_INCR_WIDTH" Column = "SLOT_INCR_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@NBR_OF_DYN_ACTV_PICK_PER_SKU" Column = "NBR_OF_DYN_ACTV_PICK_PER_SKU" TypeName = "System.Int16" />
+        <Param Name = "@NBR_OF_DYN_CASE_PICK_PER_SKU" Column = "NBR_OF_DYN_CASE_PICK_PER_SKU" TypeName = "System.Int16" />
+        <Param Name = "@CREATE_DATE_TIME" Column = "CREATE_DATE_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@MOD_DATE_TIME" Column = "MOD_DATE_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@USER_ID" Column = "USER_ID" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="UpdateObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              UPDATE  INPT_ITEM_WHSE_MASTER 
+ SET  INPT_ITEM_WHSE_MASTER_ID = @INPT_ITEM_WHSE_MASTER_ID 
+ ,CO = @CO 
+ ,DIV = @DIV 
+ ,SEASON = @SEASON 
+ ,SEASON_YR = @SEASON_YR 
+ ,STYLE = @STYLE 
+ ,STYLE_SFX = @STYLE_SFX 
+ ,COLOR = @COLOR 
+ ,COLOR_SFX = @COLOR_SFX 
+ ,SEC_DIM = @SEC_DIM 
+ ,QUAL = @QUAL 
+ ,SIZE_RANGE_CODE = @SIZE_RANGE_CODE 
+ ,SIZE_REL_POSN_IN_TABLE = @SIZE_REL_POSN_IN_TABLE 
+ ,SIZE_DESC = @SIZE_DESC 
+ ,SKU_ID = @SKU_ID 
+ ,WHSE = @WHSE 
+ ,LPN_PER_TIER = @LPN_PER_TIER 
+ ,TIER_PER_PLT = @TIER_PER_PLT 
+ ,CASE_SIZE_TYPE = @CASE_SIZE_TYPE 
+ ,PICK_RATE = @PICK_RATE 
+ ,WAGE_VALUE = @WAGE_VALUE 
+ ,PACK_RATE = @PACK_RATE 
+ ,SPL_PROC_RATE = @SPL_PROC_RATE 
+ ,AUTO_SUB_CASE = @AUTO_SUB_CASE 
+ ,ASSIGN_DYNAMIC_ACTV_PICK_SITE = @ASSIGN_DYNAMIC_ACTV_PICK_SITE 
+ ,ASSIGN_DYNAMIC_CASE_PICK_SITE = @ASSIGN_DYNAMIC_CASE_PICK_SITE 
+ ,PICK_LOCN_ASSIGN_TYPE = @PICK_LOCN_ASSIGN_TYPE 
+ ,PUTWY_TYPE = @PUTWY_TYPE 
+ ,LET_UP_PRTY = @LET_UP_PRTY 
+ ,DFLT_WAVE_PROC_TYPE = @DFLT_WAVE_PROC_TYPE 
+ ,XCESS_WAVE_NEED_PROC_TYPE = @XCESS_WAVE_NEED_PROC_TYPE 
+ ,ALLOC_TYPE = @ALLOC_TYPE 
+ ,VIOLATE_FIFO_ALLOC_QTY_MATCH = @VIOLATE_FIFO_ALLOC_QTY_MATCH 
+ ,QV_ITEM_GRP = @QV_ITEM_GRP 
+ ,QUAL_INSPCT_ITEM_GRP = @QUAL_INSPCT_ITEM_GRP 
+ ,MAX_UNITS_IN_DYNAMIC_ACTV = @MAX_UNITS_IN_DYNAMIC_ACTV 
+ ,MAX_CASES_IN_DYNAMIC_ACTV = @MAX_CASES_IN_DYNAMIC_ACTV 
+ ,MAX_UNITS_IN_DYNAMIC_CASE_PICK = @MAX_UNITS_IN_DYNAMIC_CASE_PICK 
+ ,MAX_CASES_IN_DYNAMIC_CASE_PICK = @MAX_CASES_IN_DYNAMIC_CASE_PICK 
+ ,STAT_CODE = @STAT_CODE 
+ ,SHELF_DAYS = @SHELF_DAYS 
+ ,VENDOR_ID = @VENDOR_ID 
+ ,VENDOR_CARTON_PER_TIER = @VENDOR_CARTON_PER_TIER 
+ ,VENDOR_TIER_PER_PLT = @VENDOR_TIER_PER_PLT 
+ ,ORD_CARTON_PER_TIER = @ORD_CARTON_PER_TIER 
+ ,ORD_TIER_PER_PLT = @ORD_TIER_PER_PLT 
+ ,DFLT_CATCH_WT_METHOD = @DFLT_CATCH_WT_METHOD 
+ ,DFLT_DATE_MASK = @DFLT_DATE_MASK 
+ ,CARTON_BREAK_ATTR = @CARTON_BREAK_ATTR 
+ ,PROC_STAT_CODE = @PROC_STAT_CODE 
+ ,ERROR_SEQ_NBR = @ERROR_SEQ_NBR 
+ ,MISC_SHORT_ALPHA_1 = @MISC_SHORT_ALPHA_1 
+ ,MISC_SHORT_ALPHA_2 = @MISC_SHORT_ALPHA_2 
+ ,MISC_ALPHA_1 = @MISC_ALPHA_1 
+ ,MISC_ALPHA_2 = @MISC_ALPHA_2 
+ ,MISC_ALPHA_3 = @MISC_ALPHA_3 
+ ,MISC_NUMERIC_1 = @MISC_NUMERIC_1 
+ ,MISC_NUMERIC_2 = @MISC_NUMERIC_2 
+ ,MISC_NUMERIC_3 = @MISC_NUMERIC_3 
+ ,MISC_DATE_1 = @MISC_DATE_1 
+ ,MISC_DATE_2 = @MISC_DATE_2 
+ ,SKU_PROFILE_ID = @SKU_PROFILE_ID 
+ ,CHUTE_ASSIGN_TYPE = @CHUTE_ASSIGN_TYPE 
+ ,FIFO_RANGE = @FIFO_RANGE 
+ ,ACTV_REPL_ORGN = @ACTV_REPL_ORGN 
+ ,PRTL_CASE_ALLOC_THRESH_UNITS = @PRTL_CASE_ALLOC_THRESH_UNITS 
+ ,PRTL_CASE_PUTWY_THRESH_UNITS = @PRTL_CASE_PUTWY_THRESH_UNITS 
+ ,VENDOR_TAGGED_EPC_FLAG = @VENDOR_TAGGED_EPC_FLAG 
+ ,DFLT_MIN_FROM_PREV_LOCN_FLAG = @DFLT_MIN_FROM_PREV_LOCN_FLAG 
+ ,SLOT_MISC_1 = @SLOT_MISC_1 
+ ,SLOT_MISC_2 = @SLOT_MISC_2 
+ ,SLOT_MISC_3 = @SLOT_MISC_3 
+ ,SLOT_MISC_4 = @SLOT_MISC_4 
+ ,SLOT_MISC_5 = @SLOT_MISC_5 
+ ,SLOT_MISC_6 = @SLOT_MISC_6 
+ ,SLOT_ROTATE_EACHES_FLAG = @SLOT_ROTATE_EACHES_FLAG 
+ ,SLOT_ROTATE_INNERS_FLAG = @SLOT_ROTATE_INNERS_FLAG 
+ ,SLOT_ROTATE_BINS_FLAG = @SLOT_ROTATE_BINS_FLAG 
+ ,SLOT_ROTATE_CASES_FLAG = @SLOT_ROTATE_CASES_FLAG 
+ ,SLOT_3D_SLOTTING_FLAG = @SLOT_3D_SLOTTING_FLAG 
+ ,SLOT_NEST_EACHES_FLAG = @SLOT_NEST_EACHES_FLAG 
+ ,SLOT_INCR_HT = @SLOT_INCR_HT 
+ ,SLOT_INCR_LEN = @SLOT_INCR_LEN 
+ ,SLOT_INCR_WIDTH = @SLOT_INCR_WIDTH 
+ ,NBR_OF_DYN_ACTV_PICK_PER_SKU = @NBR_OF_DYN_ACTV_PICK_PER_SKU 
+ ,NBR_OF_DYN_CASE_PICK_PER_SKU = @NBR_OF_DYN_CASE_PICK_PER_SKU 
+ ,CREATE_DATE_TIME = @CREATE_DATE_TIME 
+ ,MOD_DATE_TIME = @MOD_DATE_TIME 
+ ,USER_ID = @USER_ID 
+  
+ WHERE ID = @ID ;
+]]>
+        </String>
+        <Param Name = "@INPT_ITEM_WHSE_MASTER_ID" Column = "INPT_ITEM_WHSE_MASTER_ID" TypeName = "System.Int32" />
+        <Param Name = "@CO" Column = "CO" TypeName = "System.String" />
+        <Param Name = "@DIV" Column = "DIV" TypeName = "System.String" />
+        <Param Name = "@SEASON" Column = "SEASON" TypeName = "System.String" />
+        <Param Name = "@SEASON_YR" Column = "SEASON_YR" TypeName = "System.String" />
+        <Param Name = "@STYLE" Column = "STYLE" TypeName = "System.String" />
+        <Param Name = "@STYLE_SFX" Column = "STYLE_SFX" TypeName = "System.String" />
+        <Param Name = "@COLOR" Column = "COLOR" TypeName = "System.String" />
+        <Param Name = "@COLOR_SFX" Column = "COLOR_SFX" TypeName = "System.String" />
+        <Param Name = "@SEC_DIM" Column = "SEC_DIM" TypeName = "System.String" />
+        <Param Name = "@QUAL" Column = "QUAL" TypeName = "System.String" />
+        <Param Name = "@SIZE_RANGE_CODE" Column = "SIZE_RANGE_CODE" TypeName = "System.String" />
+        <Param Name = "@SIZE_REL_POSN_IN_TABLE" Column = "SIZE_REL_POSN_IN_TABLE" TypeName = "System.String" />
+        <Param Name = "@SIZE_DESC" Column = "SIZE_DESC" TypeName = "System.String" />
+        <Param Name = "@SKU_ID" Column = "SKU_ID" TypeName = "System.String" />
+        <Param Name = "@WHSE" Column = "WHSE" TypeName = "System.String" />
+        <Param Name = "@LPN_PER_TIER" Column = "LPN_PER_TIER" TypeName = "System.Int32" />
+        <Param Name = "@TIER_PER_PLT" Column = "TIER_PER_PLT" TypeName = "System.Int32" />
+        <Param Name = "@CASE_SIZE_TYPE" Column = "CASE_SIZE_TYPE" TypeName = "System.String" />
+        <Param Name = "@PICK_RATE" Column = "PICK_RATE" TypeName = "System.Double" />
+        <Param Name = "@WAGE_VALUE" Column = "WAGE_VALUE" TypeName = "System.Double" />
+        <Param Name = "@PACK_RATE" Column = "PACK_RATE" TypeName = "System.Double" />
+        <Param Name = "@SPL_PROC_RATE" Column = "SPL_PROC_RATE" TypeName = "System.Double" />
+        <Param Name = "@AUTO_SUB_CASE" Column = "AUTO_SUB_CASE" TypeName = "System.String" />
+        <Param Name = "@ASSIGN_DYNAMIC_ACTV_PICK_SITE" Column = "ASSIGN_DYNAMIC_ACTV_PICK_SITE" TypeName = "System.String" />
+        <Param Name = "@ASSIGN_DYNAMIC_CASE_PICK_SITE" Column = "ASSIGN_DYNAMIC_CASE_PICK_SITE" TypeName = "System.String" />
+        <Param Name = "@PICK_LOCN_ASSIGN_TYPE" Column = "PICK_LOCN_ASSIGN_TYPE" TypeName = "System.String" />
+        <Param Name = "@PUTWY_TYPE" Column = "PUTWY_TYPE" TypeName = "System.String" />
+        <Param Name = "@LET_UP_PRTY" Column = "LET_UP_PRTY" TypeName = "System.Int32" />
+        <Param Name = "@DFLT_WAVE_PROC_TYPE" Column = "DFLT_WAVE_PROC_TYPE" TypeName = "System.Int16" />
+        <Param Name = "@XCESS_WAVE_NEED_PROC_TYPE" Column = "XCESS_WAVE_NEED_PROC_TYPE" TypeName = "System.Int16" />
+        <Param Name = "@ALLOC_TYPE" Column = "ALLOC_TYPE" TypeName = "System.String" />
+        <Param Name = "@VIOLATE_FIFO_ALLOC_QTY_MATCH" Column = "VIOLATE_FIFO_ALLOC_QTY_MATCH" TypeName = "System.String" />
+        <Param Name = "@QV_ITEM_GRP" Column = "QV_ITEM_GRP" TypeName = "System.String" />
+        <Param Name = "@QUAL_INSPCT_ITEM_GRP" Column = "QUAL_INSPCT_ITEM_GRP" TypeName = "System.String" />
+        <Param Name = "@MAX_UNITS_IN_DYNAMIC_ACTV" Column = "MAX_UNITS_IN_DYNAMIC_ACTV" TypeName = "System.Double" />
+        <Param Name = "@MAX_CASES_IN_DYNAMIC_ACTV" Column = "MAX_CASES_IN_DYNAMIC_ACTV" TypeName = "System.Int32" />
+        <Param Name = "@MAX_UNITS_IN_DYNAMIC_CASE_PICK" Column = "MAX_UNITS_IN_DYNAMIC_CASE_PICK" TypeName = "System.Double" />
+        <Param Name = "@MAX_CASES_IN_DYNAMIC_CASE_PICK" Column = "MAX_CASES_IN_DYNAMIC_CASE_PICK" TypeName = "System.Int32" />
+        <Param Name = "@STAT_CODE" Column = "STAT_CODE" TypeName = "System.Int16" />
+        <Param Name = "@SHELF_DAYS" Column = "SHELF_DAYS" TypeName = "System.Int32" />
+        <Param Name = "@VENDOR_ID" Column = "VENDOR_ID" TypeName = "System.String" />
+        <Param Name = "@VENDOR_CARTON_PER_TIER" Column = "VENDOR_CARTON_PER_TIER" TypeName = "System.Int32" />
+        <Param Name = "@VENDOR_TIER_PER_PLT" Column = "VENDOR_TIER_PER_PLT" TypeName = "System.Int32" />
+        <Param Name = "@ORD_CARTON_PER_TIER" Column = "ORD_CARTON_PER_TIER" TypeName = "System.Int32" />
+        <Param Name = "@ORD_TIER_PER_PLT" Column = "ORD_TIER_PER_PLT" TypeName = "System.Int32" />
+        <Param Name = "@DFLT_CATCH_WT_METHOD" Column = "DFLT_CATCH_WT_METHOD" TypeName = "System.String" />
+        <Param Name = "@DFLT_DATE_MASK" Column = "DFLT_DATE_MASK" TypeName = "System.String" />
+        <Param Name = "@CARTON_BREAK_ATTR" Column = "CARTON_BREAK_ATTR" TypeName = "System.String" />
+        <Param Name = "@PROC_STAT_CODE" Column = "PROC_STAT_CODE" TypeName = "System.Int16" />
+        <Param Name = "@ERROR_SEQ_NBR" Column = "ERROR_SEQ_NBR" TypeName = "System.Int32" />
+        <Param Name = "@MISC_SHORT_ALPHA_1" Column = "MISC_SHORT_ALPHA_1" TypeName = "System.String" />
+        <Param Name = "@MISC_SHORT_ALPHA_2" Column = "MISC_SHORT_ALPHA_2" TypeName = "System.String" />
+        <Param Name = "@MISC_ALPHA_1" Column = "MISC_ALPHA_1" TypeName = "System.String" />
+        <Param Name = "@MISC_ALPHA_2" Column = "MISC_ALPHA_2" TypeName = "System.String" />
+        <Param Name = "@MISC_ALPHA_3" Column = "MISC_ALPHA_3" TypeName = "System.String" />
+        <Param Name = "@MISC_NUMERIC_1" Column = "MISC_NUMERIC_1" TypeName = "System.Double" />
+        <Param Name = "@MISC_NUMERIC_2" Column = "MISC_NUMERIC_2" TypeName = "System.Double" />
+        <Param Name = "@MISC_NUMERIC_3" Column = "MISC_NUMERIC_3" TypeName = "System.Double" />
+        <Param Name = "@MISC_DATE_1" Column = "MISC_DATE_1" TypeName = "System.DateTime" />
+        <Param Name = "@MISC_DATE_2" Column = "MISC_DATE_2" TypeName = "System.DateTime" />
+        <Param Name = "@SKU_PROFILE_ID" Column = "SKU_PROFILE_ID" TypeName = "System.String" />
+        <Param Name = "@CHUTE_ASSIGN_TYPE" Column = "CHUTE_ASSIGN_TYPE" TypeName = "System.String" />
+        <Param Name = "@FIFO_RANGE" Column = "FIFO_RANGE" TypeName = "System.Int16" />
+        <Param Name = "@ACTV_REPL_ORGN" Column = "ACTV_REPL_ORGN" TypeName = "System.String" />
+        <Param Name = "@PRTL_CASE_ALLOC_THRESH_UNITS" Column = "PRTL_CASE_ALLOC_THRESH_UNITS" TypeName = "System.Double" />
+        <Param Name = "@PRTL_CASE_PUTWY_THRESH_UNITS" Column = "PRTL_CASE_PUTWY_THRESH_UNITS" TypeName = "System.Double" />
+        <Param Name = "@VENDOR_TAGGED_EPC_FLAG" Column = "VENDOR_TAGGED_EPC_FLAG" TypeName = "System.String" />
+        <Param Name = "@DFLT_MIN_FROM_PREV_LOCN_FLAG" Column = "DFLT_MIN_FROM_PREV_LOCN_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_1" Column = "SLOT_MISC_1" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_2" Column = "SLOT_MISC_2" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_3" Column = "SLOT_MISC_3" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_4" Column = "SLOT_MISC_4" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_5" Column = "SLOT_MISC_5" TypeName = "System.String" />
+        <Param Name = "@SLOT_MISC_6" Column = "SLOT_MISC_6" TypeName = "System.String" />
+        <Param Name = "@SLOT_ROTATE_EACHES_FLAG" Column = "SLOT_ROTATE_EACHES_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_ROTATE_INNERS_FLAG" Column = "SLOT_ROTATE_INNERS_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_ROTATE_BINS_FLAG" Column = "SLOT_ROTATE_BINS_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_ROTATE_CASES_FLAG" Column = "SLOT_ROTATE_CASES_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_3D_SLOTTING_FLAG" Column = "SLOT_3D_SLOTTING_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_NEST_EACHES_FLAG" Column = "SLOT_NEST_EACHES_FLAG" TypeName = "System.String" />
+        <Param Name = "@SLOT_INCR_HT" Column = "SLOT_INCR_HT" TypeName = "System.Single" />
+        <Param Name = "@SLOT_INCR_LEN" Column = "SLOT_INCR_LEN" TypeName = "System.Single" />
+        <Param Name = "@SLOT_INCR_WIDTH" Column = "SLOT_INCR_WIDTH" TypeName = "System.Single" />
+        <Param Name = "@NBR_OF_DYN_ACTV_PICK_PER_SKU" Column = "NBR_OF_DYN_ACTV_PICK_PER_SKU" TypeName = "System.Int16" />
+        <Param Name = "@NBR_OF_DYN_CASE_PICK_PER_SKU" Column = "NBR_OF_DYN_CASE_PICK_PER_SKU" TypeName = "System.Int16" />
+        <Param Name = "@CREATE_DATE_TIME" Column = "CREATE_DATE_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@MOD_DATE_TIME" Column = "MOD_DATE_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@USER_ID" Column = "USER_ID" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="DeleteObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              DELETE 
+ FROM INPT_ITEM_WHSE_MASTER 
+ WHERE ID = @ID;
+]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>

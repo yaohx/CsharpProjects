@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="http://localhost" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="06/19/2014 10:41:26" />
+    <file relUrl="Web.config" publishTime="05/06/2015 16:13:37" />
+    <file relUrl="bin/MB.EAI.SOA.WCFHost.dll" publishTime="05/06/2015 16:13:34" />
+    <file relUrl="bin/MB.EAI.SOA.WCFHost.pdb" publishTime="05/06/2015 16:13:34" />
+    <file relUrl="MB.EAI.SOA.YouFan.svc" publishTime="05/06/2015 16:08:45" />
+    <file relUrl="bin/MB.SOA.Client.dll" publishTime="12/30/2014 16:10:38" />
+  </publishProfile>
+</publishData>

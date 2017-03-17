@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--  XML 文件生成时间 2014-04-14 04:53  -->
+<!--  如果生成的是明细需要用  GetByForeingKey 替换 SelectObject 同时修改对应主表中DeleteObject 语句 -->
+<Entity>
+  <Sqls>
+    <Sql Name="GetShopInfo">
+      <SqlString>
+        <String>
+          <![CDATA[
+              
+        select T.UNIT_ID ShopID,
+       T.NAME,
+       O.UNIT_ID OwnerID,
+       o.name OwnerName,
+       T.HIERARCHY,       
+       P.DESCRIPTION PROVINCE,
+       C.DESCRIPTION CITY
+  FROM MTSBW.SYS_UNIT T
+ INNER JOIN MTSBW.SYS_UNIT_CLSF TS ON T.UNIT_ID = TS.UNIT_ID
+ INNER JOIN MTSBW.SHOP S ON T.UNIT_ID = S.SHOP_ID
+ INNER JOIN MTSBW.SYS_CODE P ON T.PROVINCE = P.CODE AND
+                                P.CODE_CLASS = 'PROVINCE_CODE'
+ INNER JOIN MTSBW.SYS_CODE C ON T.CITY = C.CODE AND
+                                C.CODE_CLASS = 'CITY_CODE'
+ INNER JOIN MTSBW.SYS_UNIT O ON T.OWNER_ID = O.UNIT_ID
+ WHERE TS.UNIT_TYPE = 'SH' AND TS.STATUS = 'A' AND
+       NVL(S.CLOSE_DATE, SYSDATE) >= SYSDATE
+          ]]>
+        </String> 
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>
