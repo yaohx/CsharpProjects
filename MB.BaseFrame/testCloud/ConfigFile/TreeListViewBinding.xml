@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--   XML 文件生成时间 2009-04-21 04:12  -->
+<Entity>
+  <Columns>
+    <Column Name = "Text" Description = "名称" DataType = "System.String" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "False"  VisibleWidth = "100" />
+    <Column Name = "ID" Description = "ID" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "False" VisibleWidth = "100" />
+    <Column Name = "PrevID" Description = "上级ID" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "False"  VisibleWidth = "100" />
+  </Columns>
+
+  <TreeListView>
+    <TreeListViewCfg Name="Default">
+      <KeyFieldName>ID</KeyFieldName>
+      <ParentFieldName>PrevID</ParentFieldName>
+      <DisplayFieldName>Text</DisplayFieldName>
+    </TreeListViewCfg>
+  </TreeListView>  
+</Entity>

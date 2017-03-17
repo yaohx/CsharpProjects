@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--   XML 文件生成时间 2009-04-21 04:12  -->
+<Entity>
+  <Columns>
+    <Column Name = "Name" Description = "名称" DataType = "System.String" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "False" VisibleWidth = "100" />
+    <Column Name = "Code" Description = "编码" DataType = "System.String" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "False"  VisibleWidth = "100" />
+    <Column Name = "CreateDate" Description = "创建日期" DataType = "System.DateTime" IsKey = "False" IsNull = "True"  Visibled = "False" CanEdit = "False"  VisibleWidth = "100" />
+
+    <Column Name = "Size" Description = "规格编码" DataType = "System.String" IsKey = "False" IsNull = "False"  Visibled = "True"   VisibleWidth = "100" />
+    <Column Name = "SizeName" Description = "规格名称" DataType = "System.String" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "False" VisibleWidth = "100" />
+    <Column Name = "Count" Description = "征订数量" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" SummaryItem="True" SummaryItemType="Sum" />
+    <Column Name = "Amount" Description = "征订金额" DataType = "System.Decimal" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" />
+
+    <Column Name = "TotalCount" Description = "数量合计" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" VisibleWidth = "100" />
+    <Column Name = "TotalAmount" Description = "金额合计" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" VisibleWidth = "100" />
+
+  </Columns>
+  <GridViews>
+    <GridViewLayout Name="Default">
+      <Column Name="CreateDate">
+        <DisplayFormat>
+          <FormatString>yyyy-MM-dd hh:mm:ss</FormatString>
+          <FormatType>DateTime</FormatType>
+        </DisplayFormat>
+      </Column>
+    </GridViewLayout>
+  </GridViews>
+  <!--配置导入的复制信息 -->
+  <DataImport Name ="Default">
+    <Operate>Overide</Operate>
+    <OverideKeys>Code,Name</OverideKeys>
+    <OverideFields>Count,Amount</OverideFields>
+  </DataImport>
+
+  <!-- 网格视图布局 -->
+  <GridViews>
+    <HViewConvertCfgParam Name="Default">
+      <!--[判断是否为动态Caption 列 -->
+      <DynamicColumnCaption>True</DynamicColumnCaption>
+      <!-- -->
+      <RowAreaColumns>Name,Code,CreateDate</RowAreaColumns>
+      <ConvertKeyColumns>Code,CreateDate</ConvertKeyColumns>
+      <ColumnAreaCfgInfo>
+        <ValueColumnName>Size</ValueColumnName>
+        <CaptionColumnName>SizeName</CaptionColumnName>
+        <OrderColumnName>Size</OrderColumnName>
+        <MappingColumnName>Count,Amount</MappingColumnName>
+        <MappingColumnType>System.Int32,System.Decimal</MappingColumnType>
+      </ColumnAreaCfgInfo>
+    </HViewConvertCfgParam>
+
+    <GridViewLayout Name="Default" GridViewType="AdvBandedGridView">
+      <Column Type="Band" Text="商品信息" VisibleWidth="200" Index="0" >
+        <Column Name="Name" VisibleWidth="60" Index="0" />
+        <Column Name="Code" VisibleWidth="60" Index="0" />
+        <Column Name="CreateDate" VisibleWidth="60" Index="0" />
+      </Column>
+      <Column Type="Band" Text="规格" VisibleWidth="600" Index="1">
+        <Column Name="Size" />
+        <Column Name="SizeName"  />
+        <Column Name="Count"  />
+        <Column Name="Amount" />
+      </Column>
+    </GridViewLayout>
+
+    <GridViewLayout Name="DynamicGroup" GridViewType="AdvBandedGridView">
+      <Column Type="Band" Text="商品信息" VisibleWidth="200" Index="0" >
+        <Column Name="Name" VisibleWidth="60" Index="0" />
+        <Column Name="Code" VisibleWidth="60" Index="0" />
+      </Column>
+      <Column Type="Band" Text="规格" VisibleWidth="600"  DynamicChild="True" Index="1">
+        <Column Type="Band" Text="@Size" VisibleWidth="200" Index="0" >
+          <Column Name="Count"  ColumnXmlCfgName="Count"/>
+          <Column Name="Amount" ColumnXmlCfgName="Amount" />
+        </Column>
+      </Column>
+    </GridViewLayout>
+
+    <GridViewLayout Name="DynamicColumn" GridViewType="AdvBandedGridView">
+      <Column Type="Band" Text="商品信息" VisibleWidth="200" Index="0" >
+        <Column Name="Name" VisibleWidth="60" Index="0" />
+        <Column Name="Code" VisibleWidth="60" Index="0" />
+      </Column>
+      <Column Type="Band" Text="规格" VisibleWidth="600"  DynamicChild="True" Index="1">
+        <Column Name="Count"  Text="@Size"  ColumnXmlCfgName="Count"/>
+      </Column>
+      <Column Type="Band" Text="合计" VisibleWidth="200" Index="0" >
+        <Column Name="TotalCount" />
+      </Column>
+    </GridViewLayout>
+    
+    
+    <GridViewLayout Name="SDynamicColumn" GridViewType="AdvBandedGridView">
+      <Column Type="Band" Text="商品信息" VisibleWidth="200" Index="0" >
+        <Column Name="Name" VisibleWidth="60" Index="0" />
+        <Column Name="Code" VisibleWidth="60" Index="0" />
+      </Column>
+      <Column Type="Band" Text="数量" VisibleWidth="600"  DynamicChild="True" Index="1">
+        <Column Name="Count"  Text="@Size"  ColumnXmlCfgName="Count"/>
+      </Column>
+      <Column Type="Band" Text="合计" VisibleWidth="200" Index="2" >
+        <Column Name="TotalCount" />
+      </Column>
+      <Column Type="Band" Text="金额" VisibleWidth="600"  DynamicChild="True" Index="3">
+        <Column Name="Amount"  Text="@Size"  ColumnXmlCfgName="Amount"/>
+      </Column>
+      <Column Type="Band" Text="合计" VisibleWidth="200" Index="4" >
+        <Column Name="TotalAmount" />
+      </Column>
+    </GridViewLayout>
+  </GridViews>
+</Entity>

@@ -1,0 +1,66 @@
+﻿    
+    public partial class FrmEdit#ObjectName# : MB.WinClientDefault.AbstractEditBaseForm {
+       // 文件生成时间 #SystemDateTime#
+        //明细数据的XML 配置文件
+       // private MB.WinClientDefault.Common.UIBindingEditGridCtl<#ObjectName#DetailInfo> _DetailBinding;
+        private static readonly string DETAIL_XML_FILE_NAME = "#ObjectName#Detail";  //组织XML 文件名称
+		private #ObjectName#UIRule _ClientRule;
+        #region onstruct function...
+        /// <summary>
+        /// onstruct function... 
+        /// </summary>
+        public FrmEdit#ObjectName#()
+            : this(null, MB.WinBase.Common.ObjectEditType.OpenReadOnly, null) {
+        }
+                /// <summary>
+        /// construct function...
+        /// </summary>
+        /// <param name="clientRuleObject"></param>
+        /// <param name="editType"></param>
+        /// <param name="bindingSource"></param>
+        public FrmEdit#ObjectName#(MB.WinBase.IFace.IClientRule clientRuleObject, MB.WinBase.Common.ObjectEditType editType,
+                               MB.WinBase.Binding.BindingSourceEx bindingSource)
+            : base(clientRuleObject, editType, bindingSource) {
+            InitializeComponent();
+
+            this.DataBindingProvider = myDataBindingProvider1;
+			
+			_ClientRule = clientRuleObject as #ObjectName#UIRule;
+           // _DetailBinding = new MB.WinClientDefault.Common.UIBindingEditGridCtl<#ObjectName#DetailInfo>(this, true, "#TableName#_ID");
+        }
+        #endregion onstruct function...
+
+        //覆盖基类的方法，以方便在保存之前处理一些业务相关的控制处理
+        public override int Save() {
+            bool check = MB.WinBase.UIDataInputValidated.DefaultInstance.DetailGridDataValidated(DETAIL_XML_FILE_NAME, grdCtlDetail.DataSource, "明细信息");
+            //添加其它方面的业务约束信息
+            //...
+            if (!check) return -1;
+
+            return base.Save();
+        }
+       // protected override void OnBindingSourcePositionChanged() {
+       //     bindingDetailGridData(((#ObjectName#Info)this.CurrentEditEntity).ID);
+       // }
+        #region 内部处理函数...
+        //绑定商品
+        private void bindingDetailGridData(int mainID) {
+            #ObjectName#DetailInfo[] detailEntitys = null;
+            if (_DetailBinding.CurrentMainKey == null || (int)_DetailBinding.CurrentMainKey != mainID) {
+                detailEntitys = _ClientRule.GetObjectDetail(mainID);
+                _DetailBinding.RefreshDataSource(this.CurrentEditEntity, mainID, detailEntitys, grdCtlDetail, DETAIL_XML_FILE_NAME, (int)#ObjectName#IDT.Detail);
+            }
+        }
+
+        private void tabCtlMain_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            int mainID = (this.CurrentEditEntity as #ObjectName#Info).ID;
+            if (tabCtlMain.SelectedTabPage.Equals(tPageDetail)) {
+                bindingDetailGridData(mainID);
+            }
+        }
+        #endregion 内部处理函数...
+    }
+
+
+   

@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27A7888C-BC3D-4D89-888A-33FB898DAA2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MB.WinClientDefault</RootNamespace>
+    <AssemblyName>MB.WinClientDefault</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\ERP\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\ExportBin\MB.WinClientDefault.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\ERP\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.BonusSkins.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.Data.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.OfficeSkins.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.OfficeSkins.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.Utils.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraBars.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraEditors.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraGrid.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraLayout.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraNavBar.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraPivotGrid.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v10.1.Core, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraPivotGrid.v10.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraRichEdit.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraTreeList.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraVerticalGrid.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.AOP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.AOP.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.GZipEncoder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.GZipEncoder.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.Json, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.Localization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.WcfServiceLocator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.WcfServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.WinDxChart, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.WinDxChart.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.WinEIDrive, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.WinEIDrive.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.WinOfficeAutomation, Version=5.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.WinOfficeAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractEditBaseForm.cs" />
+    <Compile Include="AbstractEditBaseForm.Designer.cs">
+      <DependentUpon>AbstractEditBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbstractBaseForm.cs" />
+    <Compile Include="AbstractBaseForm.Designer.cs">
+      <DependentUpon>AbstractBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbstractListViewForm.cs" />
+    <Compile Include="AbstractListViewForm.Designer.cs">
+      <DependentUpon>AbstractListViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AsynGetEntitysHelper.cs" />
+    <Compile Include="AsynLoadDataHelper.cs" />
+    <Compile Include="BackWorkWithWaitDialog.cs" />
+    <Compile Include="Common\BfModuleCommentHelper.cs" />
+    <Compile Include="Common\ChartAnalyzeHelper.cs" />
+    <Compile Include="Common\ExtendToolStripButtonInfo.cs" />
+    <Compile Include="Common\frmEditDocStateTrace.cs" />
+    <Compile Include="Common\frmEditDocStateTrace.Designer.cs">
+      <DependentUpon>frmEditDocStateTrace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\frmEditTreeNodeCheck.cs" />
+    <Compile Include="Common\frmEditTreeNodeCheck.Designer.cs">
+      <DependentUpon>frmEditTreeNodeCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FrmQuickCellDataInput.cs" />
+    <Compile Include="Common\FrmQuickCellDataInput.Designer.cs">
+      <DependentUpon>FrmQuickCellDataInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FrmSummay.cs" />
+    <Compile Include="Common\FrmSummay.Designer.cs">
+      <DependentUpon>FrmSummay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\MainViewDataNavigator.cs" />
+    <Compile Include="Common\UIDynamicColumnBinding.cs" />
+    <Compile Include="Common\UIBindingEditGridCtl.cs" />
+    <Compile Include="Common\UIGridCtlBatchAddHelper.cs" />
+    <Compile Include="Ctls\frmImageView.cs" />
+    <Compile Include="Ctls\frmImageView.Designer.cs">
+      <DependentUpon>frmImageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\frmMdiMenuSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ctls\frmMdiMenuSelection.Designer.cs">
+      <DependentUpon>frmMdiMenuSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\ucBfModuleComment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucBfModuleComment.Designer.cs">
+      <DependentUpon>ucBfModuleComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\ucDocLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucDocLog.Designer.cs">
+      <DependentUpon>ucDocLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\ucEditFileExplorer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucEditFileExplorer.Designer.cs">
+      <DependentUpon>ucEditFileExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\ucEntityEditBaseData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucEntityEditBaseData.Designer.cs">
+      <DependentUpon>ucEntityEditBaseData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\ucImageFileList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucImageFileList.Designer.cs">
+      <DependentUpon>ucImageFileList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomUserControl\ucChartView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomUserControl\ucChartView.Designer.cs">
+      <DependentUpon>ucChartView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataImport\DataImportInfo.cs" />
+    <Compile Include="DataImport\DefaultDataImportDialog.cs" />
+    <Compile Include="DataImport\DefaultDataImportDialog.Designer.cs">
+      <DependentUpon>DefaultDataImportDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataImport\DocDataImportHelper.cs" />
+    <Compile Include="DataImport\IImportTempletExportProvider.cs" />
+    <Compile Include="DataImport\ImportEngine.cs" />
+    <Compile Include="DefaultAsynCustomQueryView.cs" />
+    <Compile Include="DefaultAsynCustomQueryView.Designer.cs">
+      <DependentUpon>DefaultAsynCustomQueryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultAsynQueryViewForm.cs" />
+    <Compile Include="DefaultAsynQueryViewForm.Designer.cs">
+      <DependentUpon>DefaultAsynQueryViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultLoginForm.cs" />
+    <Compile Include="DefaultLoginForm.Designer.cs">
+      <DependentUpon>DefaultLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultMdiMainForm.cs" />
+    <Compile Include="DefaultMdiMainForm.Designer.cs">
+      <DependentUpon>DefaultMdiMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultTreeListViewForm.cs" />
+    <Compile Include="DefaultTreeListViewForm.Designer.cs">
+      <DependentUpon>DefaultTreeListViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultViewForm.cs" />
+    <Compile Include="DefaultViewForm.Designer.cs">
+      <DependentUpon>DefaultViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataImport\IDocDataImportProvider.cs" />
+    <Compile Include="BusinessOperateTrace.cs" />
+    <Compile Include="DynamicGroup\DynamicGroupUIHelper.cs" />
+    <Compile Include="DynamicGroup\DynamicGroupUIColumns.cs" />
+    <Compile Include="DynamicGroup\ucDynamicGroupResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DynamicGroup\ucDynamicGroupResult.Designer.cs">
+      <DependentUpon>ucDynamicGroupResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicGroup\FrmDynamicGroupSetting.cs" />
+    <Compile Include="DynamicGroup\FrmDynamicGroupSetting.Designer.cs">
+      <DependentUpon>FrmDynamicGroupSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extender\AbstractGridEditRule.cs" />
+    <Compile Include="Extender\AbstractTreeClientRule.cs" />
+    <Compile Include="Extender\IExtenderEditForm.cs" />
+    <Compile Include="Extender\ITreeListViewHoster.cs" />
+    <Compile Include="Extender\IViewFormStyleProvider.cs" />
+    <Compile Include="Extender\ViewGridExtenderHelper.cs" />
+    <Compile Include="frmDefaultAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDefaultAbout.Designer.cs">
+      <DependentUpon>frmDefaultAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Images\ImageListHelper.cs" />
+    <Compile Include="Menu\MyContextMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Menu\XFunctionTreeData.cs" />
+    <Compile Include="Menu\XtraMenuManager.cs" />
+    <Compile Include="OfficeAutomation\frmExcelEdit.cs" />
+    <Compile Include="OfficeAutomation\frmExcelEdit.Designer.cs">
+      <DependentUpon>frmExcelEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeAutomation\IExcelEditor.cs" />
+    <Compile Include="OfficeAutomation\WinformExcelEditor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QueryFilter\FrmGetObjectDataAssistant.cs" />
+    <Compile Include="QueryFilter\FrmGetObjectDataAssistant.Designer.cs">
+      <DependentUpon>FrmGetObjectDataAssistant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryFilter\FrmQueryFilterInput.cs" />
+    <Compile Include="QueryFilter\FrmQueryFilterInput.Designer.cs">
+      <DependentUpon>FrmQueryFilterInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryFilter\ucAdvanceFilterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueryFilter\ucAdvanceFilterControl.Designer.cs">
+      <DependentUpon>ucAdvanceFilterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryFilter\ucCombineFilterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueryFilter\ucCombineFilterControl.Designer.cs">
+      <DependentUpon>ucCombineFilterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryFilter\ucDataCheckListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueryFilter\ucDataCheckListView.Designer.cs">
+      <DependentUpon>ucDataCheckListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryFilter\ucDataTreeListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueryFilter\ucDataTreeListView.Designer.cs">
+      <DependentUpon>ucDataTreeListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QueryFilter\ucFilterCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueryFilter\ucFilterCondition.Designer.cs">
+      <DependentUpon>ucFilterCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RibbonMdiMainForm.cs" />
+    <Compile Include="RibbonMdiMainForm.Designer.cs">
+      <DependentUpon>RibbonMdiMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViewList\TreeViewNodesSortingForm.cs" />
+    <Compile Include="TreeViewList\TreeViewNodesSortingForm.Designer.cs">
+      <DependentUpon>TreeViewNodesSortingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UICommand\CommandExecutor.cs" />
+    <Compile Include="UICommand\UICreateHelper.cs" />
+    <Compile Include="UICommand\XCommands.cs" />
+    <Compile Include="UICommand\XMenuInfo.cs" />
+    <Compile Include="VersionAutoUpdate\IVersionDownload.cs" />
+    <Compile Include="VersionAutoUpdate\FileDownloadWaitDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VersionAutoUpdate\FileDownloadWaitDialog.Designer.cs">
+      <DependentUpon>FileDownloadWaitDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VersionAutoUpdate\VersionAutoUpdateHelper.cs" />
+    <Compile Include="VersionAutoUpdate\VersionDownloadHelper.cs" />
+    <Compile Include="WaitDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitDialogForm.Designer.cs">
+      <DependentUpon>WaitDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraEfficientBaseEditForm.cs" />
+    <Compile Include="XtraEfficientBaseEditForm.Designer.cs">
+      <DependentUpon>XtraEfficientBaseEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraGridViewEditForm.cs" />
+    <Compile Include="XtraGridViewEditForm.Designer.cs">
+      <DependentUpon>XtraGridViewEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraRibbonMdiMainForm.cs" />
+    <Compile Include="XtraRibbonMdiMainForm.Designer.cs">
+      <DependentUpon>XtraRibbonMdiMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraAbstractEditBaseForm.cs" />
+    <Compile Include="XtraAbstractEditBaseForm.Designer.cs">
+      <DependentUpon>XtraAbstractEditBaseForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AbstractEditBaseForm.resx">
+      <DependentUpon>AbstractEditBaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\FrmSummay.resx">
+      <DependentUpon>FrmSummay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\frmMdiMenuSelection.resx">
+      <DependentUpon>frmMdiMenuSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomUserControl\ucChartView.resx">
+      <DependentUpon>ucChartView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultAsynCustomQueryView.resx">
+      <DependentUpon>DefaultAsynCustomQueryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultMdiMainForm.resx">
+      <DependentUpon>DefaultMdiMainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultViewForm.resx">
+      <DependentUpon>DefaultViewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DynamicGroup\ucDynamicGroupResult.resx">
+      <DependentUpon>ucDynamicGroupResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DynamicGroup\FrmDynamicGroupSetting.resx">
+      <DependentUpon>FrmDynamicGroupSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\AddNew.ico" />
+    <EmbeddedResource Include="Images\Aggregation.ico" />
+    <EmbeddedResource Include="Images\Calculator.ico" />
+    <EmbeddedResource Include="Images\Chart.ico" />
+    <EmbeddedResource Include="Images\Copy.ico" />
+    <EmbeddedResource Include="Images\Delete.ico" />
+    <EmbeddedResource Include="Images\Excel.ico" />
+    <EmbeddedResource Include="Images\HelpList.ico" />
+    <EmbeddedResource Include="Images\OnlineMessage.ico" />
+    <EmbeddedResource Include="Images\PrintPreview.ico" />
+    <EmbeddedResource Include="Images\QuickSearch.ico" />
+    <EmbeddedResource Include="Images\Refresh.ico" />
+    <EmbeddedResource Include="Images\Save.ico" />
+    <EmbeddedResource Include="Images\Submit.ico" />
+    <EmbeddedResource Include="Images\Update.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Print.ico" />
+    <EmbeddedResource Include="Images\SearchTemplet.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OfficeAutomation\frmExcelEdit.resx">
+      <DependentUpon>frmExcelEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\AdvanceSearch.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ctls\ucDocLog.resx">
+      <DependentUpon>ucDocLog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\ucEntityEditBaseData.resx">
+      <DependentUpon>ucEntityEditBaseData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Open.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\CancelSubmit.ico" />
+    <EmbeddedResource Include="QueryFilter\FrmGetObjectDataAssistant.resx">
+      <DependentUpon>FrmGetObjectDataAssistant.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryFilter\FrmQueryFilterInput.resx">
+      <DependentUpon>FrmQueryFilterInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryFilter\ucCombineFilterControl.resx">
+      <DependentUpon>ucCombineFilterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryFilter\ucDataCheckListView.resx">
+      <DependentUpon>ucDataCheckListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryFilter\ucFilterCondition.resx">
+      <DependentUpon>ucFilterCondition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ctls\ucEditFileExplorer.resx">
+      <DependentUpon>ucEditFileExplorer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Output.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ctls\ucImageFileList.resx">
+      <DependentUpon>ucImageFileList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultAsynQueryViewForm.resx">
+      <DependentUpon>DefaultAsynQueryViewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\NullFileType.ico" />
+    <EmbeddedResource Include="TreeViewList\TreeViewNodesSortingForm.resx">
+      <DependentUpon>TreeViewNodesSortingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitDialogForm.resx">
+      <DependentUpon>WaitDialogForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmDefaultAbout.resx">
+      <DependentUpon>frmDefaultAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\wait.gif" />
+    <EmbeddedResource Include="VersionAutoUpdate\FileDownloadWaitDialog.resx">
+      <DependentUpon>FileDownloadWaitDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DataImport\DefaultDataImportDialog.resx">
+      <DependentUpon>DefaultDataImportDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultLoginForm.resx">
+      <DependentUpon>DefaultLoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AbstractListViewForm.resx">
+      <DependentUpon>AbstractListViewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\FrmQuickCellDataInput.resx">
+      <DependentUpon>FrmQuickCellDataInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\ucBfModuleComment.resx">
+      <DependentUpon>ucBfModuleComment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultTreeListViewForm.resx">
+      <DependentUpon>DefaultTreeListViewForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryFilter\ucAdvanceFilterControl.resx">
+      <DependentUpon>ucAdvanceFilterControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RibbonMdiMainForm.resx">
+      <DependentUpon>RibbonMdiMainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common\frmEditTreeNodeCheck.resx">
+      <DependentUpon>frmEditTreeNodeCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Module.ico" />
+    <EmbeddedResource Include="XtraEfficientBaseEditForm.resx">
+      <DependentUpon>XtraEfficientBaseEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraGridViewEditForm.resx">
+      <DependentUpon>XtraGridViewEditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraRibbonMdiMainForm.resx">
+      <DependentUpon>XtraRibbonMdiMainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XtraAbstractEditBaseForm.resx">
+      <DependentUpon>XtraAbstractEditBaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common\frmEditDocStateTrace.resx">
+      <DependentUpon>frmEditDocStateTrace.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\frmImageView.resx">
+      <DependentUpon>frmImageView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueryFilter\ucDataTreeListView.resx">
+      <DependentUpon>ucDataTreeListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MB.Util\MB.Util.csproj">
+      <Project>{c69057e7-bef9-4618-8faa-b9e9d6b069b0}</Project>
+      <Name>MB.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WinBase\MB.WinBase.csproj">
+      <Project>{136BE8E8-38D6-42AA-8127-D38609758A0B}</Project>
+      <Name>MB.WinBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WinDevexpressEx\MB.XWinLib.csproj">
+      <Project>{240CAE7B-156E-43F4-BE31-396570725F00}</Project>
+      <Name>MB.XWinLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VersionAutoUpdate\MB.VersionUpdate.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\ApplicationIcom.bmp" />
+    <Content Include="Images\application_ms_excel.ico" />
+    <Content Include="Images\CheckUserActivities.ico" />
+    <Content Include="Images\DynamicGroupSetting.ico" />
+    <Content Include="Images\DynamicGroupSettingView.ico" />
+    <Content Include="Images\Ribbon_Save_16x16.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

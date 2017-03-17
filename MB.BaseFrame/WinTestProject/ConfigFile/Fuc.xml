@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity> 
+  <MappingTableName>Fuc_Dtl</MappingTableName>
+  <Sqls>
+    <Sql Name="GetFucsByProdCls"><!--订货会市场ID-->
+      <SqlString>
+        <String>
+          <![CDATA[
+                SELECT fd.Prod_ID as ProdID,fd.Batch_Date as BatchDate,f.Agent_ID as VendeeID,
+                       NVL(ugt.DegreeIdx,666) + DECODE(Market_Pro,'A',1000,2000) as DegreeIdx,
+                       SUM(fd.Cntt_qty) as LeavedQty,f.DISP_WAREH_ID as WareID,NVL(pwr.Days,@DefWareOrderDays) as Days
+                FROM Product p INNER JOIN Mbfs_Fuc_Dtl fd ON fd.Prod_id=p.Prod_id  
+                INNER JOIN Mbfs_Fuc f ON f.ID=fd.Mbfs_Fuc_ID 
+                INNER JOIN mbfs_agent_detail ma ON ma.Agent_id=f.Agent_ID
+                LEFT JOIN PH_UnitDegrees ug ON ug.UnitID=f.Agent_ID
+                LEFT JOIN PH_UnitDegreeType ugt ON ugt.DegreeCode=ug.DegreeCode 
+                LEFT JOIN PH_WareRecDays pwr ON pwr.UnitID=f.DISP_WAREH_ID
+                WHERE p.PROD_CLS_ID=@ProdClsID 
+                GROUP BY fd.Prod_ID,fd.Batch_Date,f.Agent_ID,
+                  NVL(ugt.DegreeIdx,666) + DECODE(Market_Pro,'A',1000,2000),f.DISP_WAREH_ID,NVL(pwr.Days,@DefWareOrderDays);                  
+          ]]>
+        </String> 
+        
+        <Param Name = "@ProdClsID" Column = "ProdClsID" TypeName = "System.String" />
+        <Param Name = "@DefWareOrderDays" Column = "DefWareOrderDays" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+    <Sql Name="GetTaskFucsProdCls">
+      <SqlString>
+        <String>
+          <![CDATA[
+                SELECT DISTINCT p.PROD_CLS_ID as ProdClsID
+                FROM Product p INNER JOIN Mbfs_Fuc_Dtl fd ON fd.Prod_id=p.Prod_id  
+                WHERE p.PROD_CLS_ID>=@MinProdClsID AND p.PROD_CLS_ID<=@MaxProdClsID
+                ORDER BY p.PROD_CLS_ID;
+          ]]>
+        </String> 
+        <Param Name = "@MinProdClsID" Column = "ProdClsID" TypeName = "System.String" />
+        <Param Name = "@MaxProdClsID" Column = "ProdClsID" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="AddFucwTmpTable">
+      <SqlString>
+        <String>
+          <![CDATA[ INSERT INTO @TableName(VendeeID,ProdID,BatchDate,WareDate,WareID,WareQty,FucLevQty,PrLevQty)
+            VALUES(@VendeeID,@ProdID,@BatchDate,@WareDate,@WareID,@WareQty,@FucLevQty,@PrLevQty);]]>
+        </String>
+        <Param Name = "@TableName" Column = "TableName" TypeName = "System.String" Overcast="True"/>
+        <Param Name = "@VendeeID" Column = "VendeeID" TypeName = "System.String" /> 
+        <Param Name = "@ProdID" Column = "ProdID" TypeName = "System.String" />
+        <Param Name = "@BatchDate" Column = "BatchDate" TypeName = "System.DateTime" />
+        <Param Name = "@WareDate" Column = "WareDate" TypeName = "System.DateTime" />
+        <Param Name = "@WareID" Column = "WareID" TypeName = "System.String" />
+        <Param Name = "@WareQty" Column = "WareQty" TypeName = "System.Int32" />
+        <Param Name = "@FucLevQty" Column = "FucLevQty" TypeName = "System.Int32" />
+        <Param Name = "@PrLevQty" Column = "PrLevQty" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>

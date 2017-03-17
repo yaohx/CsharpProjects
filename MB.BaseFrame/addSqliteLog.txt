@@ -1,0 +1,9 @@
+2010-09-25 完成对Sqlite 的数据库支持的修改；
+1, 目前还不支持64位,对应64位操作系统可执行文件需要编译成X86
+2,修改涉及到的组件主要是:MB.ORM.DLL,涉及到的文件有
+  MB.Orm.Enums.DatabaseType.cs
+  MB.Orm.Persistence.DatabaseConfigurationScope.cs
+  MB.Orm.Persistence.EntityDistributedHelper.cs
+  MB.Orm.Persistence.EntityDistributedHelper.cs
+  MB.Orm.Persistence.EntityIdentityHelper.cs
+  MB.Orm.Persistence.PersistenceManagerHelper.cs

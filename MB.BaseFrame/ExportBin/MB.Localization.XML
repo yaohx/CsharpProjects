@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MB.Localization</name>
+    </assembly>
+    <members>
+        <member name="T:MB.Localization.ResourcesHelper">
+            <summary>
+            ResourcesHelper 管理程序中的最终用户消息和显示在界面上元素信息（为了多语言版本而增加的类），
+            </summary>
+        </member>
+        <member name="M:MB.Localization.ResourcesHelper.EnsureResources(System.String)">
+            
+            <summary>
+             确定区域性特定资源的访问
+            </summary>
+            <param name="resxName"> 资源名称</param>
+            <permission cref="T:System.Security.PermissionSet">internal</permission>
+            <example>
+            <code>
+             EnsureResources(FormType);
+            </code>
+            </example>
+        </member>
+        <member name="M:MB.Localization.ResourcesHelper.GetStringByCN(System.String,System.String,System.String,System.String[])">
+            <summary>
+            根据中文文本在数字词典中查找相应指定语言(线程语言)的文本。
+            </summary>
+            <param name="xmlFileName"></param>
+            <param name="textPath"></param>
+            <param name="cnText"></param>
+            <param name="paramValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Localization.ResourcesHelper.GetString(System.String,System.String,System.String,System.String,System.String[])">
+            <summary>
+            获取指定文本标身份的字符窜。
+            </summary>
+            <param name="pXmlFileName"></param>
+            <param name="pMsgPath"></param>
+            <param name="name"></param>
+            <param name="pParamValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Localization.ResourcesHelper.ReleaseAllResources">
+            
+             <summary>
+              通知 ResourceManager 对所有 ResourceSet 对象调用 Close，并释放所有资源
+             </summary>
+             <remarks> 此方法将缩小正在运行的应用程序中的工作集。以后在此 <see cref="T:System.Resources.ResourceManager"/> 上的任何资源查找都和第一次查找一样花费时间，因为它需要再次搜索和加载资源。<br/>
+              这在某些复杂线程处理方案中可能有用；在这种情况下创建新的 ResourceManager 不失为明智之举。<br/>
+              此方法还可用于以下情况：由当前的 ResourceManager 打开的 .resources 文件必须被明确释放，而无需等到 ResourceManager 完全超出范围并对它进行垃圾回收。
+            </remarks>
+            <permission cref="T:System.Security.PermissionSet">public</permission>
+        </member>
+        <member name="T:MB.Util.General">
+            <summary>
+            General  系统通过函数。
+            </summary>
+        </member>
+        <member name="M:MB.Util.General.#ctor">
+            <summary>
+            private constract function to prevent instance.
+            </summary>
+        </member>
+        <member name="M:MB.Util.General.GeApplicationDirectory">
+            <summary>
+            获取应用程序的当前目录。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MB.BaseFrame.CLL">
+            <summary>
+            通过指定的文本转换为系统当前运行需要的语言版本。
+            针对没有文本ID,直接文本翻译处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.BaseFrame.CLL.#ctor">
+            <summary>
+            add private construct function to prevent instance.
+            </summary>
+        </member>
+        <member name="M:MB.BaseFrame.CLL.Convert(System.String,System.String[])">
+            <summary>
+            通过指定的文本转换为系统当前运行需要的语言。
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.BaseFrame.CLL.Message(System.String,System.String[])">
+            <summary>
+            通过指定的文本转换为系统当前运行需要的语言。
+            </summary>
+            <param name="text"></param>
+            <param name="paramValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.BaseFrame.CLL.ExceptionMessage(System.String,System.String[])">
+            <summary>
+            通过指定的文本转换为系统当前运行需要的语言。
+            </summary>
+            <param name="text"></param>
+            <param name="paramValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.BaseFrame.CLL.SetControlTextLanguage(System.Windows.Forms.Control.ControlCollection)">
+            <summary>
+            根据指定的语言设置指定控件的文本描述。
+            </summary>
+            <param name="ctls"></param>
+        </member>
+        <member name="M:MB.BaseFrame.CLL.CultureInfoIsCN">
+            <summary>
+            判断当前运行语言是否为中文。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Localization.TextResource">
+            <summary>
+            TextResource 多语言文本资源处理。 
+            </summary>
+        </member>
+        <member name="M:MB.Localization.TextResource.Convert(System.String,System.String[])">
+            <summary>
+            通过指定的文本转换为系统当前运行需要的语言。
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Localization.TextResource.GetString(System.String)">
+            <summary>
+            得到多语言版本中字符描述
+            </summary>
+            <param name="textLandid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.Localization.TextResource.GetString(System.String,System.String[])">
+            <summary>
+            得到多语言版本中字符描述
+            </summary>
+            <param name="pKeyName"></param>
+            <param name="pDefaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Localization.MessagesResource">
+            <summary>
+            MessageResource 系统消息资源处理。
+            </summary>
+        </member>
+        <member name="M:MB.Localization.MessagesResource.Convert(System.String,System.String[])">
+            <summary>
+            通过指定的文本转换为系统当前运行需要的语言。
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.Localization.MessagesResource.Instance">
+            <summary>
+            获取消息资源文件。
+            </summary>
+        </member>
+    </members>
+</doc>

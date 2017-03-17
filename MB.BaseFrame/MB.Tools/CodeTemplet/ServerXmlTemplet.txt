@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  XML 文件生成时间 #SystemDateTime#  -->
+<!--  如果生成的是明细需要用  GetByForeingKey 替换 SelectObject 同时修改对应主表中DeleteObject 语句 -->
+<Entity>
+  <PrimaryKeyName>#KeyName#</PrimaryKeyName>
+  <MappingTableName>#TableName#</MappingTableName>
+  <Sqls>
+    #WHILE#
+    <Sql Name="#SqlName#">
+      <SqlString>
+        <String>
+              #SqlContent#
+        </String>
+        #SqlParam#
+      </SqlString>
+    </Sql>
+     #END#
+  </Sqls>
+</Entity>

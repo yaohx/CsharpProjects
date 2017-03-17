@@ -1,0 +1,14 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.csprojResolveAssemblyReference.cache
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.Properties.Resources.resources
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.csproj.GenerateResource.Cache
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WcfService.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WcfService.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.pdb
+D:\MB\MB.BaseFrame\ExportBin\MB.WcfService.dll
+D:\MB\MB.BaseFrame\ExportBin\MB.WcfService.pdb
+D:\MB\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.csprojResolveAssemblyReference.cache
+D:\MB\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.Properties.Resources.resources
+D:\MB\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.csproj.GenerateResource.Cache
+D:\MB\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.dll
+D:\MB\MB.BaseFrame\MB.WcfService\obj\Debug\MB.WcfService.pdb

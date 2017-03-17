@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{136BE8E8-38D6-42AA-8127-D38609758A0B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MB.WinBase</RootNamespace>
+    <AssemblyName>MB.WinBase</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\ERP\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\ExportBin\MB.WinBase.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\ERP\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\ExportBin\MB.WinBase.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.Data.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.Utils.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraEditors.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.AOP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.AOP.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.GZipEncoder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.GZipEncoder.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.Json, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.Localization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.WcfServiceLocator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExportBin\MB.WcfServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractClientRuleQuery.cs" />
+    <Compile Include="AppEnvironmentSetting.cs" />
+    <Compile Include="ApplicationExceptionTerminate.cs" />
+    <Compile Include="AppMessenger.cs" />
+    <Compile Include="Atts\AttributeConfigHelper.cs" />
+    <Compile Include="Atts\EditControlTypeAttribute.cs" />
+    <Compile Include="Atts\MappingAttribute.cs" />
+    <Compile Include="Atts\ModuleInvokeConfigAttribute.cs" />
+    <Compile Include="Atts\ModuleRejectCommandsAttribute.cs" />
+    <Compile Include="Atts\RuleClientLayoutAttribute.cs" />
+    <Compile Include="Atts\ServiceNameAttribute.cs" />
+    <Compile Include="Atts\SimpleDataFilterControlAttribute.cs" />
+    <Compile Include="Binding\BindingSourceRaiseEventsScope.cs" />
+    <Compile Include="Binding\ColumnBindingInfo.cs" />
+    <Compile Include="Binding\DataBindingOptions.cs" />
+    <Compile Include="Binding\BindingSourceHelper.cs" />
+    <Compile Include="AbstractClientRule.cs" />
+    <Compile Include="Binding\DataBindingProviderDesign.cs" />
+    <Compile Include="Binding\DesignColumnXmlCfgInfo.cs" />
+    <Compile Include="Binding\IDataBindingProvider.cs" />
+    <Compile Include="Binding\MyDataBindingProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Binding\MyDataBindingProvider.Designer.cs">
+      <DependentUpon>MyDataBindingProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Auditing\UserActivity.cs" />
+    <Compile Include="Auditing\UserActivityTracker.cs" />
+    <Compile Include="Common\ChartMappingInfo.cs" />
+    <Compile Include="Common\ChartSeriesInfo.cs" />
+    <Compile Include="Common\ChartSeriesPointInfo.cs" />
+    <Compile Include="Common\ChartViewCfgInfo.cs" />
+    <Compile Include="Common\ClientDataLoadType.cs" />
+    <Compile Include="Common\ClientUIType.cs" />
+    <Compile Include="Binding\BindingSourceEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\ColumnEditCfgInfo.cs" />
+    <Compile Include="Common\ColumnPropertyInfo.cs" />
+    <Compile Include="Common\ColumnSummaryInfo.cs" />
+    <Compile Include="Common\CommunicationDataType.cs" />
+    <Compile Include="Common\CustomViewType.cs" />
+    <Compile Include="Common\DataBindingType.cs" />
+    <Compile Include="Common\DataFilterElementCfgInfo.cs" />
+    <Compile Include="Common\DataFilterElementCfgs.cs" />
+    <Compile Include="Common\DataImportCfgInfo.cs" />
+    <Compile Include="Common\DataViewStyle.cs" />
+    <Compile Include="Common\DynamicGroup\DynamicGroupCfgHelper.cs" />
+    <Compile Include="Common\DynamicGroup\DynamicGroupColumnPropertyInfo.cs" />
+    <Compile Include="Common\DynamicGroup\DynamicGroupCfgInfo.cs" />
+    <Compile Include="Common\EditControlType.cs" />
+    <Compile Include="Common\EditRegionType.cs" />
+    <Compile Include="Common\EntityUIConfigInfo.cs" />
+    <Compile Include="Common\GeneralOperateMenus.cs" />
+    <Compile Include="Common\GetBufferByIndexCompletedEventArgs.cs" />
+    <Compile Include="Common\ModuleOpennedFrom.cs" />
+    <Compile Include="Common\ModuleInvokeOpts.cs" />
+    <Compile Include="Common\ModuleOpenState.cs" />
+    <Compile Include="Common\TreeListViewCfgInfo.cs" />
+    <Compile Include="Common\UICommandType.cs" />
+    <Compile Include="Ctls\frmAddSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ctls\MyButton.cs" />
+    <Compile Include="Ctls\MyGroupPanel.cs" />
+    <Compile Include="Ctls\MyTabPageControl.cs" />
+    <Compile Include="Ctls\RichTextBoxEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucClickButtonInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucClickButtonInput.Designer.cs">
+      <DependentUpon>ucClickButtonInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\ucDbPictureBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucEditDateFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucEditDateFilter.Designer.cs">
+      <DependentUpon>ucEditDateFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\ucIamgeIcoEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucIamgeIcoEdit.Designer.cs">
+      <DependentUpon>ucIamgeIcoEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\ucPopupRegionEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\ucPopupRegionEdit.Designer.cs">
+      <DependentUpon>ucPopupRegionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\UIRuler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ctls\WaitCursorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ctls\WaitCursorDialog.Designer.cs">
+      <DependentUpon>WaitCursorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HViewDataConvert.cs" />
+    <Compile Include="Common\ObjectEditType.cs" />
+    <Compile Include="Common\ObjectState.cs" />
+    <Compile Include="Common\StyleConditionInfo.cs" />
+    <Compile Include="Common\UIRuleXmlConfigInfo.cs" />
+    <Compile Include="Common\WaitDialogForArgs.cs" />
+    <Compile Include="Ctls\ComboxExtenderHelper.cs" />
+    <Compile Include="Ctls\frmEditDateFilter.cs" />
+    <Compile Include="Ctls\frmEditDateFilter.Designer.cs">
+      <DependentUpon>frmEditDateFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ctls\TreeViewDataBinding.cs" />
+    <Compile Include="Ctls\ucComboCheckedListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DesignEditor\AbstractComboBoxEditor.cs" />
+    <Compile Include="DesignEditor\AbstractModalEditor.cs" />
+    <Compile Include="DesignEditor\ConvertToDropDownList.cs" />
+    <Compile Include="DesignEditor\CustomTypeDescriptor.cs" />
+    <Compile Include="Design\MyComboxRememberProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\MyComboxRememberProvider.Designer.cs">
+      <DependentUpon>MyComboxRememberProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\MyNullValueProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\MyNullValueProvider.Designer.cs">
+      <DependentUpon>MyNullValueProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\MyTableLayoutPanelProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Design\MyTableLayoutPanelProvider.Designer.cs">
+      <DependentUpon>MyTableLayoutPanelProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\DataBindingException.cs" />
+    <Compile Include="Exceptions\NotAllowImplementedException.cs" />
+    <Compile Include="Exceptions\RuleClientConfigException.cs" />
+    <Compile Include="Common\GridViewLayoutInfo.cs" />
+    <Compile Include="IFace\IAsynClientGetEntitys.cs" />
+    <Compile Include="IFace\IAsynClientQueryRule.cs" />
+    <Compile Include="IFace\IBaseClientArea.cs" />
+    <Compile Include="IFace\IBaseEditForm.cs" />
+    <Compile Include="IFace\IBfModuleCommentClient.cs" />
+    <Compile Include="IFace\IChartViewControl.cs" />
+    <Compile Include="IFace\ICustomQueryViewRule.cs" />
+    <Compile Include="IFace\ICustomViewControl.cs" />
+    <Compile Include="IFace\IDataAssistantListControl.cs" />
+    <Compile Include="IFace\IDataFilterElementHoster.cs" />
+    <Compile Include="IFace\IFilterConditionCtl.cs" />
+    <Compile Include="IFace\IInvokeDataAssistantHoster.cs" />
+    <Compile Include="IFace\IForm.cs" />
+    <Compile Include="IFace\IClientBaseRule.cs" />
+    <Compile Include="IFace\IGetObjectDataAssistant.cs" />
+    <Compile Include="IFace\IMdiMainForm.cs" />
+    <Compile Include="IFace\IQueryFilterForm.cs" />
+    <Compile Include="IFace\IQueryObject.cs" />
+    <Compile Include="IFace\IViewDynamicGroupGridForm.cs" />
+    <Compile Include="IFace\IViewGridForm.cs" />
+    <Compile Include="IFace\IViewGridFormWithGreatData.cs" />
+    <Compile Include="IFace\IWaitDialogFormHoster.cs" />
+    <Compile Include="Images\ImageHelper.cs" />
+    <Compile Include="InvokeMethodWithWaitCursor.cs" />
+    <Compile Include="LayoutXmlConfigHelper.cs" />
+    <Compile Include="MessageBoxEx.cs" />
+    <Compile Include="MyCodeRunTrackInjection.cs" />
+    <Compile Include="ObjectDataFilterAssistantHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ShareLib.cs" />
+    <Compile Include="UIDataEditHelper.cs" />
+    <Compile Include="UIDataInputValidated.cs" />
+    <Compile Include="UIEditEntityList.cs" />
+    <Compile Include="VersionAutoUpdate\IClientVersionUpdate.cs" />
+    <Compile Include="WaitCursor.cs" />
+    <Compile Include="WcfClient\MessageHeaderHelper.cs" />
+    <Compile Include="WebClient\ClientChannel.cs" />
+    <Compile Include="WebClient\ClientChannelFactory.cs" />
+    <Compile Include="WebClient\WebGetHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ctls\frmAddSheet.resx">
+      <DependentUpon>frmAddSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\frmEditDateFilter.resx">
+      <DependentUpon>frmEditDateFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\RichTextBoxEx.resx">
+      <DependentUpon>RichTextBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\ucClickButtonInput.resx">
+      <DependentUpon>ucClickButtonInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\ucDBPictureBox.resx">
+      <DependentUpon>ucDbPictureBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\ucEditDateFilter.resx">
+      <DependentUpon>ucEditDateFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\ucPopupRegionEdit.resx">
+      <DependentUpon>ucPopupRegionEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\UIRuler.resx">
+      <DependentUpon>UIRuler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\WaitCursorDialog.resx">
+      <DependentUpon>WaitCursorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ctls\ucComboCheckedListBox.resx">
+      <DependentUpon>ucComboCheckedListBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ctls\ucIamgeIcoEdit.resx">
+      <DependentUpon>ucIamgeIcoEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\down.ico" />
+    <EmbeddedResource Include="Images\up.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common\FilterElementCfgs.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\DynamicGroup\DynamicGroupCfgSample.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MB.Util\MB.Util.csproj">
+      <Project>{c69057e7-bef9-4618-8faa-b9e9d6b069b0}</Project>
+      <Name>MB.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

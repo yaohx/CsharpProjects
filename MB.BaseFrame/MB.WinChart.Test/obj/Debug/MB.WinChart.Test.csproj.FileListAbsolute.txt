@@ -1,0 +1,8 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinChart.Test\bin\Debug\MB.WinChart.Test.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinChart.Test\bin\Debug\MB.WinChart.Test.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinChart.Test\obj\Debug\MB.WinChart.Test.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinChart.Test\obj\Debug\MB.WinChart.Test.pdb
+D:\MB\MB.BaseFrame\MB.WinChart.Test\bin\Debug\MB.WinChart.Test.dll
+D:\MB\MB.BaseFrame\MB.WinChart.Test\bin\Debug\MB.WinChart.Test.pdb
+D:\MB\MB.BaseFrame\MB.WinChart.Test\obj\Debug\MB.WinChart.Test.dll
+D:\MB\MB.BaseFrame\MB.WinChart.Test\obj\Debug\MB.WinChart.Test.pdb

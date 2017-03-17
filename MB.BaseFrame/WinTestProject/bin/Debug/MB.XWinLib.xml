@@ -1,0 +1,1689 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MB.XWinLib</name>
+    </assembly>
+    <members>
+        <member name="T:MB.XWinLib.DesignEditor.StyleConditionExpressionEditor">
+            <summary>
+            条件表达式编辑器
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.DesignEditor.StyleConditionExpressionEditor.GetDialog(System.Object)">
+            <summary>
+            获取编辑框
+            </summary>
+            <param name="instance">XtraStyleConditionInfo实例</param>
+            <returns>返回编辑框实例</returns>
+        </member>
+        <member name="M:MB.XWinLib.DesignEditor.StyleConditionExpressionEditor.GetEditValue">
+            <summary>
+            获取表达式
+            </summary>
+            <returns>表达式字符串</returns>
+        </member>
+        <member name="T:MB.XWinLib.DesignEditor.StyleConditionValueEditor">
+            <summary>
+            条件样式值编辑器.有些值需要使用下拉框来选择值,比如单据进度.
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.DesignEditor.StyleConditionValueEditor.AddDataToList(System.Windows.Forms.ListBox,System.Object)">
+            <summary>
+            条件样式值编辑器显示下拉框,把RepositoryItemLookUpEdit中的值显示出来
+            </summary>
+            <param name="lstBox"></param>
+            <param name="contextInstance"></param>
+        </member>
+        <member name="M:MB.XWinLib.DesignEditor.StyleConditionValueEditor.GetSelectedItem(System.Object,System.Object)">
+            <summary>
+            获取选中的值.
+            </summary>
+            <param name="selectedItem"></param>
+            <param name="contextInstance"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.XWinLib.DesignEditor.XtraStyleConditionInfo">
+            <summary>
+            StyleConditionInfo 网格列样式的条件描述。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.#ctor">
+            <summary>
+             StyleConditionInfo 网格列样式的条件描述。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.#ctor(System.String)">
+            <summary>
+             StyleConditionInfo 网格列样式的条件描述。
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.ToString">
+            <summary>
+            覆盖基类的方法，返回条件的名称。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.ColumnName">
+            <summary>
+            对应列的名称。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.ColumnCaption">
+            <summary>
+            显示Caption 的列的名称。可以为空
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.ApplyToRow">
+            <summary>
+            当前设置的条件是否应用到整行。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.Condition">
+            <summary>
+            数据比较的条件。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.StyleName">
+            <summary>
+            满足条件时，需要显示的样式的名称。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.Value">
+            <summary>
+            比较值。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.ValueDisplayText">
+            <summary>
+            比较值。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.Value2DisplayText">
+            <summary>
+            比较值2。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.Value2">
+            <summary>
+            比较值2。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.IsByEvent">
+            <summary>
+            是否通过控件事件来控制。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.Expression">
+            <summary>
+            表达式
+            (目前只支持简单的表达式) 例如：Col1 > Col2")
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.BackColor">
+            <summary>
+            背景颜色。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.ForeColor">
+            <summary>
+            字体颜色。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.ForeFont">
+            <summary>
+            字体。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.MarkImage">
+            <summary>
+            图片信息。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.DesignEditor.XtraStyleConditionInfo.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.DesignEditor.XmlColumnPropertyInfoEditor">
+            <summary>
+            条件样式下拉选择字段编辑控件。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.DesignEditor.XmlColumnPropertyInfoEditor.AddDataToList(System.Windows.Forms.ListBox,System.Object)">
+            <summary>
+            加载选择的列信息。
+            </summary>
+            <param name="lstBox"></param>
+            <param name="contextInstance"></param>
+        </member>
+        <member name="T:MB.XWinLib.GridDataBindingParam">
+            <summary>
+            GridDataBindParam 主要针对XtraGrid 数据源绑定的参数设置项。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.GridDataBindingParam.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.GridDataBindingParam.#ctor(DevExpress.XtraGrid.GridControl,System.Object)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="dataSource"></param>
+        </member>
+        <member name="M:MB.XWinLib.GridDataBindingParam.#ctor(DevExpress.XtraGrid.GridControl,System.Object,System.Boolean)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="pDg"></param>
+            <param name="pDataSource"></param>
+            <param name="pPropertys"></param>
+            <param name="imageViewUsePic"></param>
+            <param name="editObj"></param>
+        </member>
+        <member name="P:MB.XWinLib.GridDataBindingParam.XtraGrid">
+            <summary>
+            准备绑定数据源的XtraGrid。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.GridDataBindingParam.DataSource">
+            <summary>
+            准备绑定到控件的数据源。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.GridDataBindingParam.GroupByUISetting">
+            <summary>
+            判断控件数据的绑定是否使用UI 操作的分组方式。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.Localization.DevexpressLib">
+            <summary>
+            DevexpressLib 在应用程序的启动方法中调用，实现组件的本地化。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Localization.DevexpressLib.#ctor">
+            <summary>
+            private construct function...
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Localization.DevexpressLib.LocalSetting">
+            <summary>
+            开始设置资源的信息。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.Localization.EditorsLocal">
+            <summary>
+            PrintLocal 本地化语言处理类。。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.Localization.GridLocal">
+            <summary>
+            GridLocal 本地化语言处理类。。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Localization.GridLocal.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.Localization.PivotGridLocal">
+            <summary>
+            PivotGridLocal 本地化语言处理类。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Localization.PivotGridLocal.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.Localization.PrintLocal">
+            <summary>
+            PrintLocal 本地化语言处理类。。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.PivotGrid.ColPivotInfo">
+            <summary>
+            ColPivotInfo 字段进行轴分组拖动的参数信息设置。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.ColPivotInfo.#ctor(System.String)">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.PivotGrid.ColPivotList">
+            <summary>
+            ColPivotList 字段进行轴分组拖动的参数集合类。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.ColPivotList.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.ColPivotList.GetColPivotInfos(System.String)">
+            <summary>
+            根据字段的名称获取配置对应的信息。有可能存在一个字段对应多个Pivot分组的信息。
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.ColPivotList.Add(MB.XWinLib.PivotGrid.ColPivotInfo)">
+            <summary>
+            Public 方法。
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.XWinLib.PivotGrid.ColPivotList.Columns">
+            <summary>
+            所有列的配置信息。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.PivotGrid.PivotGridEx">
+            <summary>
+            PivotGridEx 扩展DevExpress.XtraPivotGrid.PivotGridControl  控件，做特殊的处理。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.PivotGridEx.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.PivotGridEx.ReSetContextMenu(MB.XWinLib.PivotGrid.XtraContextMenuType)">
+            <summary>
+            重新设置弹出窗口的菜单项。
+            </summary>
+            <param name="createMenus"></param>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.PivotGridEx.createMenuItems(MB.XWinLib.PivotGrid.XtraContextMenuType)">
+            <summary>
+            创建XtarGrid 的Context Menu 菜单项。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.PivotGridEx.getCtlParentForm(System.Windows.Forms.Control)">
+            <summary>
+            静态方法。
+            </summary>
+            <param name="ctl"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.XWinLib.PivotGrid.PivotGridEx.CreateOtherMenuByUser">
+            <summary>
+            获取或设置弹出菜单是否由用户自己创建
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.PivotGrid.PivotGridEx.ParentForm">
+            <summary>
+            获取控件所在的窗口。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.PivotGrid.PivotGridHelper">
+            <summary>
+            PivotGridHelper PivotGrid 操作相关的处理函数。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.PivotGridHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.PivotGridHelper.LoadPivotGridData(DevExpress.XtraPivotGrid.PivotGridControl,System.Object,MB.WinBase.IFace.IClientRuleQueryBase,MB.XWinLib.PivotGrid.ColPivotList)">
+            <summary>
+            把数据加载到PivotGrid 控件中。
+            </summary>
+            <param name="gridCtl">PivotGrid 控件。</param>
+            <param name="dataSource">准备加载的数据源。</param>
+            <param name="baseRule">当前正在处理的业务类。</param>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.PivotGridHelper.ExportToExcelAndShow(DevExpress.XtraPivotGrid.PivotGridControl)">
+            <summary>
+            把XtraGrid中的数据倒出到Excel 中 并打开Excel 进行显示
+            </summary>
+            <param name="pDg"></param>
+        </member>
+        <member name="M:MB.XWinLib.PivotGrid.PivotGridHelper.HandleClickXtraContextMenu(MB.WinBase.IFace.IForm,MB.XWinLib.PivotGrid.PivotGridEx,MB.XWinLib.PivotGrid.XtraContextMenuType)">
+            <summary>
+            执行PivotGrid 自定义事件。
+            </summary>
+            <param name="containerForm"></param>
+            <param name="xtraGrid"></param>
+            <param name="menuType"></param>
+        </member>
+        <member name="P:MB.XWinLib.PivotGrid.PivotGridHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.Print.XPrint">
+            <summary>
+            XPrint XWin 打印对象。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Print.XPrint.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Print.XPrint.ShowPreview(DevExpress.XtraPrinting.IPrintable,MB.XWinLib.Print.XPrintParam)">
+            <summary>
+            显示预览窗口。
+            </summary>
+            <param name="printable"></param>
+        </member>
+        <member name="P:MB.XWinLib.Print.XPrint.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.Print.XPrintParam">
+            <summary>
+            XPrintParam XPrint 需要的参数设置信息。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Print.XPrintParam.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Share.DynamicColumnSettingHelper.GetDynamicColumnSettings(MB.WinBase.IFace.IClientRuleQueryBase)">
+            <summary>
+            获取模板列表
+            </summary>
+            <param name="clientRuleObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.Share.DynamicColumnSettingHelper.SaveDynamicColumnSettings(MB.WinBase.IFace.IClientRuleQueryBase,System.String,System.Collections.Generic.List{MB.XWinLib.Share.DynamicColumnInfo},System.Collections.Generic.List{MB.XWinLib.Share.GridColumnSettingInfo})">
+            <summary>
+            保存列配置信息
+            </summary>
+            <param name="clientRuleObject"></param>
+            <param name="templateName"></param>
+            <param name="cols"></param>
+            <param name="settings"></param>
+        </member>
+        <member name="M:MB.XWinLib.Share.DynamicColumnSettingHelper.DeleteDynamicColumnSetting(MB.WinBase.IFace.IClientRuleQueryBase,System.String)">
+            <summary>
+            删除动态列设置信息
+            </summary>
+            <param name="clientRuleObject"></param>
+            <param name="templateName"></param>
+        </member>
+        <member name="M:MB.XWinLib.Share.DynamicColumnSettingHelper.GetDynamicColumnByTemplateName(MB.WinBase.IFace.IClientRuleQueryBase,System.String)">
+            <summary>
+            根据模板名称获取列配置信息
+            </summary>
+            <param name="clientRuleObject"></param>
+            <param name="templateName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.XWinLib.Share.FrmDynamicColumnSetting">
+            <summary>
+            动态列设置
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.Share.FrmDynamicColumnSetting.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Share.FrmDynamicColumnSetting.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.XWinLib.Share.FrmDynamicColumnSetting.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.Share.GridLayoutManager">
+            <summary>
+            网格控件布局管理。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Share.GridLayoutManager.SaveXtraGridState(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            保存XtraGrid 控件的UI 操作状态。
+            </summary>
+            <param name="xtraGCtl"></param>
+        </member>
+        <member name="M:MB.XWinLib.Share.GridLayoutManager.RestoreXtraGridState(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            恢复XtraGrid 控件的UI 操作保存状态。 
+            </summary>
+            <param name="xtraGCtl"></param>
+        </member>
+        <member name="M:MB.XWinLib.Share.GridLayoutManager.SaveXtraGridState(DevExpress.XtraGrid.GridControl,MB.XWinLib.Share.GridLayoutInfo)">
+            <summary>
+            保存XtraGrid 控件的UI 操作状态。
+            </summary>
+            <param name="xtraGCtl"></param>
+        </member>
+        <member name="M:MB.XWinLib.Share.GridLayoutManager.RestoreXtraGridState(DevExpress.XtraGrid.GridControl,MB.XWinLib.Share.GridLayoutInfo)">
+            <summary>
+            恢复XtraGrid 控件的UI 操作保存状态。 
+            </summary>
+            <param name="xtraGCtl"></param>
+        </member>
+        <member name="T:MB.XWinLib.Share.StyleCfgInfo">
+            <summary>
+            StyleCfgInfo 描述UI Style。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Share.StyleCfgInfo.#ctor(System.String)">
+            <summary>
+            构造函数.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="T:MB.XWinLib.Share.StyleCfgList">
+            <summary>
+            StyleCfgList UI Style 描述的特定集合类。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Share.StyleCfgList.#ctor(System.String)">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Share.StyleCfgList.CreateInstance">
+            <summary>
+            实例化一个样式的集合类。（增加它是为了实现单根模式）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.Share.StyleCfgList.CreateInstance(System.String)">
+            <summary>
+             实例化一个样式的集合类。（增加它是为了实现单根模式）
+            </summary>
+            <param name="cfgFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.Share.StyleCfgList.Add(MB.XWinLib.Share.StyleCfgInfo)">
+            <summary>
+            add
+            </summary>
+            <param name="colInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.XWinLib.Share.XmlCfgHelper">
+            <summary>
+            XmlCfgHelper 多轴网格分析 XML配置信息处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Share.XmlCfgHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Share.XmlCfgHelper.GetPivotGridCfgData(System.String)">
+            <summary>
+            获取配置在XML文件中的参数数据。
+            </summary>
+            <param name="xmlFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.XWinLib.Share.XmlCfgHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.MyXtraGridFilterDialog">
+            <summary>
+            自定义的过滤弹出框
+            当点击XtraGird列头上的过滤按钮弹出
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.MyXtraGridFilterDialog.GetCustomFiltersCriterion">
+            <summary>
+            得到自定义的过滤条件
+            </summary>
+            <returns>自定义的过滤条件</returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.MyXtraGridFilterDialog.GetFiltersCriterion">
+            <summary>
+            重写过滤条件生成方法，修改LIKE表达式的行为
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.MyXtraGridFilterDialog.resetOperandValue(DevExpress.Data.Filtering.CriteriaOperator)">
+            <summary>
+            重新设定表达式，
+            如果是LIKE表达式，自动在前后加上%%
+            </summary>
+            <param name="operandValue">需要被设定的表达式</param>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraGridDynamicHelper">
+            <summary>
+            动态列设置的帮助类
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridDynamicHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridDynamicHelper.GetDynamicColumns(MB.WinBase.IFace.IClientRuleQueryBase)">
+            <summary>
+            得到列信息，用于加载与呈现UI Grid时使用
+            </summary>
+            <param name="clientRuleObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridDynamicHelper.AppendQueryBehaviorColumns(MB.WinBase.IFace.IClientRuleQueryBase)">
+            <summary>
+            把动态列信息实现的列信息放入消息头
+            UIRule需要设定主键以保证主键列必需被加载，用于打开某一个记录时使用
+            </summary>
+            <param name="clientRuleObject"></param>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.XtraGridDynamicHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraRepositoryItemRegionEdit.#ctor(MB.WinBase.Common.ColumnEditCfgInfo)">
+            <summary>
+            
+            </summary>
+            <param name="columnEditCfgInfo"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraRegionEdit.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="editInfo"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraRegionEdit.ShowPopup">
+            <summary>
+            显示弹出界面
+            </summary>
+        </member>
+        <member name="E:MB.XWinLib.XtraGrid.XtraRegionEdit.AfterLinkIsClicked">
+            <summary>
+            当点击区域控件的链接以后触发
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.DynamicColumnBandGridHelper`1">
+            <summary>
+            动态列 绑定相关处理。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.DynamicColumnBandGridHelper`1.ResetDynamicCaptionColumnViewLayout(MB.WinBase.Data.HViewDataConvert{`0},MB.WinBase.Common.GridViewLayoutInfo)">
+            <summary>
+            创建动态列并带有动态Caption 的描述信息。
+            </summary>
+            <param name="convertObject"></param>
+            <param name="gridViewLayoutInfo"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.DynamicColumnBandGridHelper`1.ResetDynamicColumnViewLayout(MB.WinBase.Data.HViewDataConvert{`0},MB.WinBase.Common.GridViewLayoutInfo)">
+            <summary>
+             重新设置动态GridLayoutInfo 的信息。
+            </summary>
+            <param name="convertObject"></param>
+            <param name="gridViewLayoutInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.DataGridQuickInput">
+            <summary>
+            数据网格快速输入。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.DataGridQuickInput.#ctor(DevExpress.XtraGrid.GridControl,System.Collections.Generic.Dictionary{System.Data.DataRow,System.Collections.Generic.List{System.String}})">
+            <summary>
+            数据网格快速输入。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="inputFields"></param>
+            <param name="inputFieldTypeName"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.DataGridQuickInput.FillByRataInput(System.String)">
+            <summary>
+            根据比率输入的字符窜更改DataTable 中的值。
+            </summary>
+            <param name="rataStr"></param>
+        </member>
+        <member name="F:MB.XWinLib.Share.frmGridLayoutManager.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.Share.frmGridLayoutManager.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.XWinLib.Share.frmGridLayoutManager.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.FrmXtraGridViewOptions">
+            <summary>
+            FrmXtraGridViewOptions XtraGrid 网格选项设置。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.FrmXtraGridViewOptions.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.FrmXtraGridViewOptions.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.FrmXtraGridViewOptions.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要使用代码编辑器修改
+            此方法的内容。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.FrmXtraGridViewOptions.#ctor(DevExpress.XtraGrid.Views.Grid.GridView,MB.XWinLib.XtraGrid.GridViewOptionsInfo,System.String)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="optionsInfo"></param>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.IGridViewOptions">
+            <summary>
+            XtraGrid 选择设置接口。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.GridViewOptionsHelper">
+            <summary>
+            提供Grid View 配置项到XML 文件的存储处理。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridViewOptionsHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridViewOptionsHelper.SaveOptionsInfoToXML(MB.XWinLib.XtraGrid.GridViewOptionsInfo,System.String)">
+            <summary>
+            把设置的选项存储到XML 文件中。
+            </summary>
+            <param name="info"></param>
+            <param name="xmlFileName"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridViewOptionsHelper.CreateFromXMLToInfo(System.String)">
+            <summary>
+            从指定的XML 样式文件中创建ViewOptionsInfo.
+            </summary>
+            <param name="xmlFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridViewOptionsHelper.processObject(System.Text.StringBuilder,System.Object)">
+            <summary>
+            Reamark:处理样式表到XML
+            </summary>
+            <param name="sXml"></param>
+            <param name="val"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridViewOptionsHelper.createStyleInfoList(System.Xml.XmlNode,System.Object)">
+            <summary>
+            获取设置的样式集合
+            </summary>
+            <param name="parentNode"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridViewOptionsHelper.FromName(System.String)">
+            <summary>
+            获取FormatConditionEnum
+            </summary>
+            <param name="conditionName">条件名称</param>
+            <returns>FormatConditionEnum枚举</returns>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.GridViewOptionsInfo">
+            <summary>
+            样式描述信息。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridViewOptionsInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.AllowCellMerge">
+            <summary>
+            判断相同Cell 是否要合并.
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.ShowHorzLines">
+            <summary>
+            显示水平网格线。
+            </summary> 
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.ShowVertLines">
+            <summary>
+            显示垂直网格线。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.ForeFont">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.ForeColor">
+            <summary>
+            字体颜色
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.AutoScroll">
+            <summary>
+            是否启动滚动效果
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.InRow">
+            <summary>
+            判断滚动是否在行内执行
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.Speed">
+            <summary>
+            滚动速度
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.Conditions">
+            <summary>
+            条件。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridViewOptionsInfo.StyleConditions">
+            <summary>
+            样式的条件设置。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.GridControlEx">
+            <summary>
+            扩展 DevExpress.XtraGrid.GridControl 控件,主要是为了提供给 XtraGridEx 使用的。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridControlEx.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridControlEx.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            判断并处理Delete 键的情况。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridControlEx.ReSetContextMenu(MB.XWinLib.XtraGrid.XtraContextMenuType)">
+            <summary>
+            重新设置弹出窗口的菜单项。
+            </summary>
+            <param name="createMenus"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridControlEx.createCopyCellMenu(System.Windows.Forms.ContextMenu)">
+            <summary>
+             对每一个Grid都添加复制单元格的功能
+            </summary>
+            <param name="contextMenu">网格控件的context menu</param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridControlEx._CopyCellMenu_Click(System.Object,System.EventArgs)">
+            <summary>
+            赋值单元格右键菜单事件响应
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridControlEx.getCellValueFromGrid">
+            <summary>
+            根据当前鼠标点击的单元格得到单元格的内容
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.GridControlEx.getCellValueFromGrid(System.String)">
+            <summary>
+            根据属性名得到单元格的内容
+            可以显示的指定属性名字
+            </summary>
+            <param name="cfgPropertyName">单元格属性名，如果为空，则根据当前鼠标点击的单元格</param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridControlEx.ContextMenu">
+            <summary>
+             内置菜单应用..
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridControlEx.InstanceIdentity">
+            <summary>
+            当前实例的身份标记。
+            必须是一个固定的身份，不可以通过 System.Guid.NewGuid() 产生。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridControlEx.DataIOControl">
+            <summary>
+            获取或设置网格数据IO操作时控制的对象。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridControlEx.ParentForm">
+            <summary>
+            获取控件所在的窗口。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridControlEx.ValidedDeleteKeyDown">
+            <summary>
+            设置或获取当用户按下Deleted 键时是否删除Grid 上的记录.
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridControlEx.ShowOptionMenu">
+            <summary>
+            设置或获取是否显示选项控制菜单
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.GridControlExMenuEventArg.Column">
+            <summary>
+            当前响应鼠标的列
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.IGridExDataIOControl">
+            <summary>
+            实现网格数据导入导出的控制类。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraContextMenu">
+            <summary>
+            XtraContextMenu XtraGrid ContextMenu。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraContextMenu.#ctor(MB.XWinLib.XtraGrid.GridControlEx,MB.XWinLib.XtraGrid.XtraContextMenuType)">
+            <summary>
+            
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="menuTypes"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraContextMenu.CreateMenuItems(MB.XWinLib.XtraGrid.XtraContextMenuType)">
+            <summary>
+            创建XtarGrid 的Context Menu 菜单项。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.XtraContextMenu.GridContextMenu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraContextMenuType">
+            <summary>
+            XtraContextMenuType XtraGrid Context 菜单类型描述。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.Add">
+            <summary>
+            新增加。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.BatchAdd">
+            <summary>
+            批量增加。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.Delete">
+            <summary>
+            删除。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.Aggregation">
+            <summary>
+            聚组设置。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.Chart">
+            <summary>
+            图表分析。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.Print">
+            <summary>
+            打印。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.ViewControl">
+            <summary>
+            显示控制。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.Export">
+            <summary>
+            导出。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.ExportAsTemplet">
+            <summary>
+            模板输出。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.DataImport">
+            <summary>
+            导入数据。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.SaveGridState">
+            <summary>
+            保存Grid状态。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.ColumnsAllowSort">
+            <summary>
+            允许列排序。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.QuickInput">
+            <summary>
+            快速填充
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.Copy">
+            <summary>
+            复制
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.Past">
+            <summary>
+            粘贴
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.SortChildNode">
+            <summary>
+            使子节点根据显示的内容排序
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.ChartDesign">
+            <summary>
+            设计图表。
+            </summary>
+        </member>
+        <member name="F:MB.XWinLib.XtraGrid.XtraContextMenuType.ExcelEdit">
+            <summary>
+            Excel编辑
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraGridEditHelper">
+            <summary>
+            XtraGridEditHelper 操作可编辑的XtraGrid 。
+            备注： XtraGrid的tag 中存储的是，该网格控件对应绑定数据的业务类。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateEditXtraGrid(MB.XWinLib.GridDataBindingParam,System.String)">
+            <summary>
+            创建可编辑的XtraGrid 控件。
+            </summary>
+            <param name="bindParam"></param>
+            <param name="xmlFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateEditXtraGrid(MB.XWinLib.GridDataBindingParam,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},MB.WinBase.Common.GridViewLayoutInfo)">
+            <summary>
+             创建可编辑的XtraGrid 控件。
+            </summary>
+            <param name="bindParam"></param>
+            <param name="configXmlFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateCardEdit(MB.XWinLib.XtraGrid.GridControlEx,System.Object,MB.WinBase.IFace.IClientRule,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo})">
+            <summary>
+            创建可编辑的卡片网格编辑控件。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="dataSource"></param>
+            <param name="buiObj"></param>
+            <param name="editCols"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateEditBandXtraGrid(MB.XWinLib.GridDataBindingParam,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},MB.WinBase.Common.GridViewLayoutInfo)">
+            <summary>
+            创建 BandXtraGrid 网格编辑或者浏览数据。
+            </summary>
+            <param name="bindParam"></param>
+            <param name="colPropertys"></param>
+            <param name="editCols"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateBandedGridViewColumns(DevExpress.XtraGrid.Views.BandedGrid.BandedGridView,DevExpress.XtraGrid.Views.BandedGrid.GridBand,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},MB.WinBase.Common.GridViewLayoutInfo,MB.WinBase.Common.GridColumnLayoutInfo)">
+            <summary>
+            通过XML布局的配置信息创建布局列.
+            </summary>
+            <param name="bandGridView"></param>
+            <param name="gridBand"></param>
+            <param name="colPropertys"></param>
+            <param name="editCols"></param>
+            <param name="gridViewLayoutInfo"></param>
+            <param name="columnLayoutInfo"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.SetGridColumnReadonly(DevExpress.XtraGrid.Views.Grid.GridView,System.String[])">
+            <summary>
+            设置网格列为只读状态。
+            </summary>
+            <param name="gridView"></param>
+            <param name="fieldName"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.SetSelectedColStyle(DevExpress.XtraGrid.Views.Grid.GridView)">
+            <summary>
+            增加选择到指定的XtraGrid 控件中。
+            </summary>
+            <param name="gridView"></param>
+            <param name="defaultValue"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.SetEditColumn(DevExpress.XtraGrid.Columns.GridColumn,MB.WinBase.Common.ColumnPropertyInfo,MB.WinBase.Common.GridColumnLayoutInfo)">
+            <summary>
+            根据配置的XML文件设置列的信息。
+            </summary>
+            <param name="gridColumn"></param>
+            <param name="columnPropertyInfo"></param>
+            <param name="columnLayoutInfo"></param>
+            <param name="gridViewLayoutInfo"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.SetEditColumn(DevExpress.XtraGrid.Columns.GridColumn,MB.WinBase.Common.ColumnPropertyInfo,MB.WinBase.Common.GridColumnLayoutInfo,MB.WinBase.Common.GridViewLayoutInfo)">
+            <summary>
+            根据配置的XML文件设置列的信息。
+            </summary>
+            <param name="pColumn"></param>
+            <param name="pFieldInfo"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateEditItemByCol(MB.WinBase.Common.ColumnPropertyInfo,System.Boolean)">
+            <summary>
+            根据字段的类型名称获取一个XtrGrid 的编辑控件。
+            </summary>
+            <param name="dc"></param>
+            <param name="isCard">如果是卡片编辑的话图片的显示使用PictureEdit的方式。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.createEditItemByCol(System.String,System.Boolean,MB.WinBase.Common.ColumnPropertyInfo)">
+            <summary>
+            根据字段的类型名称获取一个XtrGrid 的编辑控件。
+            </summary>
+            <param name="fullTypeName"></param>
+            <param name="isCard"> 如果是卡片编辑的话图片的显示使用PictureEdit的方式。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateEditItemInt32(MB.WinBase.Common.ColumnPropertyInfo)">
+            <summary>
+            创建Int32的编辑项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.AppendEditSelectedColumn(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            在指定的网格中追加选择列。
+            注意：需要追加选择列的实体对象必须包含Selected 属性。
+            </summary>
+            <param name="grdCtl">需要加选择列的网格</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.AppendEditSelectedColumn(DevExpress.XtraGrid.GridControl,System.String,System.String)">
+            <summary>
+            在指定的网格中追加选择列。
+            </summary>
+            <param name="grdCtl">需要加选择列的网格</param>
+            <param name="columnCaption">列的标题</param>
+            <param name="columnFieldName">列的绑定字段名</param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateEditItemByEditInfo(MB.WinBase.Common.ColumnEditCfgInfo)">
+            <summary>
+            通过设置的Edit 列信息得到一个编辑列的控件。向下兼容以前版本
+            </summary>
+            <param name="editInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateEditItemByEditInfo(MB.WinBase.Common.ColumnEditCfgInfo,System.Boolean)">
+            <summary>
+            通过设置的Edit 列信息得到一个编辑列的控件。向下兼容以前版本
+            </summary>
+            <param name="editInfo"></param>
+            <param name="allowEdit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateEditItemByEditInfo(MB.WinBase.Common.ColumnEditCfgInfo,System.String)">
+            <summary>
+            通过设置的Edit 列信息得到一个编辑列的控件。
+            </summary>
+            <param name="editInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.CreateEditItemByEditInfo(MB.WinBase.Common.ColumnEditCfgInfo,System.Boolean,System.String)">
+            <summary>
+            通过设置的Edit 列信息得到一个编辑列的控件。
+            </summary>
+            <param name="editInfo"></param>
+            <param name="allowEdit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.SetInt32EditColMinValue(DevExpress.XtraGrid.GridControl,System.Int32)">
+            <summary>
+            设置整形编辑的最小值。
+            </summary>
+            <param name="ctlGrid"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.GetCurrentEditRow(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            获取当前正在编辑的行，如果存在多行的选择状态，那么就获取集合中的第一行。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridEditHelper.DeleteFocusedRow(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            删除指定控件中有焦点的数据行。
+            </summary>
+            <param name="ctrGrid"></param>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.XtraGridEditHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraGridHelper">
+            <summary>
+            XtraGridHelper  封装对XtraGrid的操作处理。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridHelper.RefreshDataGrid(DevExpress.XtraGrid.GridControl,System.Object)">
+            <summary>
+            刷新已经绑定的网格数据。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="dataSource"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridHelper.BindingToXtraGridForDynamicGroup(DevExpress.XtraGrid.GridControl,System.Object,System.String)">
+            <summary>
+            把数据绑定到动态聚组结果展示的xtraGrid中
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="dataSource">数据源</param>
+            <param name="xmlFileName">动态聚组的客户端配置文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridHelper.BindingToXtraGrid(DevExpress.XtraGrid.GridControl,System.Object,System.String)">
+            <summary>
+             把数据绑定到XtraGrid 控件中。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="dataSource"></param>
+            <param name="xmlFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridHelper.BindingToXtraGrid(DevExpress.XtraGrid.GridControl,System.Object,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},System.String,System.Boolean)">
+            <summary>
+            把数据绑定到XtraGrid 控件中。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="dataSource"></param>
+            <param name="colPropertys"></param>
+            <param name="imageDockRow"></param>
+            <param name="editCols"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridHelper.HandleClickXtraContextMenu(MB.WinBase.IFace.IForm,DevExpress.XtraGrid.GridControl,MB.XWinLib.XtraGrid.XtraContextMenuType)">
+            <summary>
+            操作当用户点击XtraGrid ContextMenu 时处理的事项。
+            </summary>
+            <param name="containerForm"></param>
+            <param name="xtraGrid"></param>
+            <param name="menuType"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridHelper.ExportToExcel(DevExpress.XtraGrid.GridControl,System.String)">
+            <summary>
+            把XtraGrid中的数据倒出到Excel 中
+            </summary>
+            <param name="pGridView"></param>
+            <param name="pExportFullName"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridHelper.ExportToText(DevExpress.XtraGrid.GridControl,System.String)">
+            <summary>
+            把XtraGrid中的数据倒出到Txt 中
+            </summary>
+            <param name="pDg"></param>
+            <param name="pExportFullName"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridHelper.ExportToExcelAndShow(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            把XtraGrid中的数据倒出到Excel 中 并打开Excel 进行显示
+            edit cdc 2012-01-09 修改为导出后不再直接打开
+            </summary>
+            <param name="pDg"></param>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.XtraGridHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraGridViewHelper">
+            <summary>
+            XtraGridViewHelper 设置XTraGrid显示的样式处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetGridViewColumnVisible(DevExpress.XtraGrid.Views.Grid.GridView,System.Boolean,System.String[])">
+            <summary>
+            设置指定的列是否显示列
+            </summary>
+            <param name="visibled"></param>
+            <param name="columns"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetGridIndicatorWidth(DevExpress.XtraGrid.GridControl,System.Int32)">
+            <summary>
+            设置GridView 控件的IndicatorWidth 。
+            </summary>
+            <param name="xtraGCtl"></param>
+            <param name="maxIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetEditGridAutoInfo(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            设置grid的编辑方式。
+            </summary>
+            <param name="xtraGCtl"></param>
+            <param name="autoNewRow"></param>
+            <param name="enterMoveNext"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetGridViewNewItem(DevExpress.XtraGrid.GridControl,System.Boolean)">
+            <summary>
+            设置grid的编辑方式。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="autoNewRow"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetGridViewNewItem(DevExpress.XtraGrid.GridControl,System.Boolean,MB.XWinLib.XtraGrid.XtraContextMenuType)">
+            <summary>
+            设置grid的编辑方式。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="autoNewRow"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.FormatActiveColumns(DevExpress.XtraGrid.Views.Grid.GridView,System.String,System.String,System.Boolean)">
+            <summary>
+            格式化动态创建列的样式。
+            </summary>
+            <param name="gridView"></param>
+            <param name="previousCol">动态创建的字段在什么列之后。</param>
+            <param name="activeLeftName"></param>
+            <param name="canEdit"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SaveXtraGridState(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            保存XtraGrid 控件的UI 操作状态。
+            </summary>
+            <param name="xtraGCtl"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.RestoreXtraGridState(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            恢复XtraGrid 控件的UI 操作保存状态。 
+            </summary>
+            <param name="xtraGCtl"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.CreateViewColumns(DevExpress.XtraGrid.GridControl,System.Object,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Object,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo})">
+            <summary>
+             创建 Xtra Grid 的column
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="dataSource"></param>
+            <param name="colPropertys"></param>
+            <param name="repositoryPicEdit"></param>
+            <param name="editCols"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.CreateViewColumns(DevExpress.XtraGrid.GridControl,System.Object,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Object,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},MB.WinBase.Common.GridViewLayoutInfo)">
+            <summary>
+            创建 Xtra Grid 的column。
+            
+            </summary>
+            <param name="grdCtl"></param>
+            <param name="dataSource"></param>
+            <param name="colPropertys"></param>
+            <param name="repositoryPicEdit"></param>
+            <param name="editCols"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetXtraGridSkin(DevExpress.XtraGrid.GridControl,MB.XWinLib.XtraGrid.XtraGridSkin)">
+            <summary>
+            设置XtrGrid 的Skin....
+            </summary>
+            <param name="xtraGrd"></param>
+            <param name="skin"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.AddStylesForConditions(DevExpress.XtraGrid.GridControl,System.Collections.Generic.List{MB.XWinLib.DesignEditor.XtraStyleConditionInfo})">
+            <summary>
+            增加网格的条件样式。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="styleConditions"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.CreateFormatCondition(MB.XWinLib.DesignEditor.XtraStyleConditionInfo,DevExpress.XtraGrid.Views.Grid.GridView)">
+            <summary>
+            生成条件样式
+            </summary>
+            <param name="info">XtraStyleConditionInfo</param>
+            <param name="gridView">GridView</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetRowCellStyle(DevExpress.XtraGrid.GridControl,DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.StyleConditionInfo})">
+            <summary>
+            根据用户值的设置设置显示列的样式。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="arg"></param>
+            <param name="styleConditions"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetGridView(DevExpress.XtraGrid.Views.Grid.GridView,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo})">
+            <summary>
+            设置网格属性。
+            </summary>
+            <param name="pView"></param>
+            <param name="pPropertys"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetCardView(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            设置Card View 的属性
+            </summary>
+            <param name="pView"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetColumn(DevExpress.XtraGrid.Columns.GridColumn,System.Data.DataColumn)">
+            <summary>
+            设置显示列的样式
+            </summary>
+            <param name="pColumn"></param>
+            <param name="pColInfo"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetColumn(DevExpress.XtraGrid.Columns.GridColumn,MB.WinBase.Common.ColumnPropertyInfo)">
+            <summary>
+             设置显示列的样式 通过配置的XML文件
+            </summary>
+            <param name="pColumn"></param>
+            <param name="pFieldInfo"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetColumnDisplayFormat(DevExpress.XtraGrid.Columns.GridColumn,MB.WinBase.Common.ColumnPropertyInfo,MB.WinBase.Common.GridColumnLayoutInfo)">
+            <summary>
+            设置列显示格式
+            </summary>
+            <param name="gridColumn"></param>
+            <param name="colLayoutInfo"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetStyles(DevExpress.XtraGrid.GridControl,System.Boolean)">
+            <summary>
+            设置控件显示的样式
+            </summary>
+            <param name="pDg"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.SetGridViewFocusedRowHandle(DevExpress.XtraGrid.Views.Grid.GridView,System.String,System.String)">
+            <summary>
+            根据商品ID 甚至对应行的焦点.
+            </summary>
+            <param name="gridView"></param>
+            <param name="columnName"></param>
+            <param name="columnValue"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.FixedFocusColumn(DevExpress.XtraGrid.GridControl)">
+            <summary>
+             冻结列
+            </summary>
+            <param name="girdView"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraGridViewHelper.UnSixedColumn(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            取消冻结。
+            </summary>
+            <param name="xtraGrid"></param>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.XtraGridViewHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraMenu">
+            <summary>
+            MenuItem 的扩展项...
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraRepositoryItemCalcEditEx">
+            <summary>
+            下拉计算列的数字选择处理。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraRepositoryItemClickButtonEdit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraRepositoryItemClickButtonEdit.#ctor(MB.WinBase.Common.ColumnEditCfgInfo)">
+            <summary>
+            
+            </summary>
+            <param name="columnEditCfgInfo"></param>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraClickButtonEdit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraRepositoryItemLookUpEditHelper">
+            <summary>
+            创建LookUpEditItem 编辑项
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraRepositoryItemLookUpEditHelper.CreateLookUpEditItems(DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit,MB.WinBase.Common.ColumnEditCfgInfo,System.String)">
+            <summary>
+             创建LookUP 编辑项
+            </summary>
+            <param name="lookUpItem"></param>
+            <param name="editInfo"></param>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.XtraRepositoryItemLookUpEditHelper.Instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraRepositoryItemNumberEdit">
+            <summary>
+            数字编辑控件。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraGrid.XtraRepositoryItemPopupContainerEdit">
+            <summary>
+            自定义的网格编辑下拉数据选择框。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraGrid.XtraRepositoryItemPopupContainerEdit.#ctor(MB.WinBase.Common.ColumnEditCfgInfo,System.Boolean)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="editInfo"></param>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.XtraRepositoryItemPopupContainerEdit.ValueFieldName">
+            <summary>
+            获取存储的字段名称。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.XtraRepositoryItemPopupContainerEdit.TextFieldName">
+            <summary>
+            获取文本显示的字段名称。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraGrid.XtraRepositoryItemPopupContainerEdit.DataSource">
+            <summary>
+            设置的数据源。
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraTreeList.TreeListContextMenu">
+            <summary>
+            TreeList 控件Context菜单。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListContextMenu.#ctor(MB.XWinLib.XtraTreeList.TreeListEx,MB.XWinLib.XtraGrid.XtraContextMenuType)">
+            <summary>
+            TreeList 控件Context菜单。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="menuTypes"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListContextMenu.CreateMenuItems(MB.XWinLib.XtraGrid.XtraContextMenuType)">
+            <summary>
+            创建XtarGrid 的Context Menu 菜单项。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraTreeList.TreeListContextMenu.GridContextMenu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraTreeList.TreeListEx">
+            <summary>
+            扩展TreeList 控件满足业务需要。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListEx.ReSetContextMenu(MB.XWinLib.XtraGrid.XtraContextMenuType)">
+            <summary>
+            重新设置弹出窗口的菜单项。
+            </summary>
+            <param name="createMenus"></param>
+        </member>
+        <member name="P:MB.XWinLib.XtraTreeList.TreeListEx.InstanceIdentity">
+            <summary>
+            当前实例的身份标识。
+            </summary>
+        </member>
+        <member name="P:MB.XWinLib.XtraTreeList.TreeListExMenuEventArg.Column">
+            <summary>
+            当前响应鼠标的列
+            </summary>
+        </member>
+        <member name="T:MB.XWinLib.XtraTreeList.TreeListHelper`1">
+            <summary>
+            树型控件绑定处理
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListHelper`1.CreateDataBinding(DevExpress.XtraTreeList.TreeList,System.Object,System.String,System.Boolean)">
+            <summary>
+            树型控件绑定处理。
+            </summary>
+            <param name="trvList"></param>
+            <param name="dataList"></param>
+            <param name="xmlFileName"></param>
+            <param name="allowEdit"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListHelper`1.CreateDataBinding(DevExpress.XtraTreeList.TreeList,System.Object,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},MB.WinBase.Common.TreeListViewCfgInfo,System.Boolean)">
+            <summary>
+             树型控件绑定处理。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="trvList"></param>
+            <param name="dataList"></param>
+            <param name="colPropertys"></param>
+            <param name="editCols"></param>
+            <param name="treeCfgInfo"></param>
+            <param name="allowEdit"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListHelper`1.RefreshTreeListData(DevExpress.XtraTreeList.TreeList,System.Collections.IList)">
+            <summary>
+            刷新已经绑定的网格数据。
+            </summary>
+            <param name="xtraGrid"></param>
+            <param name="lstDatas"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListHelper`1.CreateViewColumns(DevExpress.XtraTreeList.TreeList,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},System.Boolean)">
+            <summary>
+            创建列
+            </summary>
+            <param name="trvList"></param>
+            <param name="colPropertys"></param>
+            <param name="editCols"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListHelper`1.FormatColumn(DevExpress.XtraTreeList.Columns.TreeListColumn,MB.WinBase.Common.ColumnPropertyInfo,System.String,System.Boolean)">
+            <summary>
+            格式化编辑的列。
+            </summary>
+            <param name="gridColumn"></param>
+            <param name="colPropertyInfo"></param>
+            <param name="columnName"></param>
+        </member>
+        <member name="T:MB.XWinLib.XtraTreeList.TreeListHelper">
+            <summary>
+            TreeList 控件通用操作处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListHelper.SaveXtraGridState(MB.XWinLib.XtraTreeList.TreeListEx)">
+            <summary>
+            保存XtraGrid 控件的UI 操作状态。
+            </summary>
+            <param name="xtraGCtl"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListHelper.RestoreXtraGridState(MB.XWinLib.XtraTreeList.TreeListEx)">
+            <summary>
+            恢复XtraGrid 控件的UI 操作保存状态。 
+            </summary>
+            <param name="xtraGCtl"></param>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListHelper.SetFocusedNode(DevExpress.XtraTreeList.TreeList,System.Int32)">
+            <summary>
+            根据指定的值设置树型控件中的焦点节点。
+            </summary>
+            <param name="treeList"></param>
+            <param name="nodeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.XWinLib.XtraTreeList.TreeListHelper.SetFocusedNode(DevExpress.XtraTreeList.TreeList,System.String,System.Object)">
+            <summary>
+            根据指定的值设置树型控件中的焦点节点。
+            </summary>
+            <param name="treeList"></param>
+            <param name="fieldName"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

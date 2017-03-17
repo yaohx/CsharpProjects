@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EntitySetCache>
+  <EntitySet>
+    <Entity Name="TestUser" CustomLoaderType="MB.Orm.Test.EntitySetCacheTester,MB.Orm.Test" CacheItemPriority="NotRemovable" IsCacheItemRefreshed="True" >
+      <Expiration ExpirationType="Never" FilePath="" ExpireTime="" />
+    </Entity>
+    <Entity Name="BfCodeInfo" CustomLoaderType="MB.Orm.Test.CodeInfoCacheLoader,MB.Orm.Test" CacheItemPriority="NotRemovable" IsCacheItemRefreshed="True" >
+      <Expiration ExpirationType="Never" FilePath="" ExpireTime="" />
+    </Entity>
+  </EntitySet>
+</EntitySetCache>

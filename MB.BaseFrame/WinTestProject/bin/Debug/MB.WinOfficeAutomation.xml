@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MB.WinOfficeAutomation</name>
+    </assembly>
+    <members>
+        <member name="T:MB.WinOfficeAutomation.ExcelViewer">
+            <summary>
+            Excel查看控件
+            </summary>
+        </member>
+        <member name="M:MB.WinOfficeAutomation.ExcelViewer.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MB.WinOfficeAutomation.ExcelViewer.OpenFile(System.String)">
+            <summary>
+            打开当前的ExcelFile
+            </summary>
+            <param name="filename">要打开的全部路径</param>
+        </member>
+        <member name="M:MB.WinOfficeAutomation.ExcelViewer.CloseExcel">
+            <summary>
+            关闭当前的Excel
+            </summary>
+        </member>
+        <member name="M:MB.WinOfficeAutomation.ExcelViewer.KillExcel">
+            <summary>
+            强制杀除当前Excel
+            </summary>
+        </member>
+        <member name="M:MB.WinOfficeAutomation.ExcelViewer.SaveActiveWorkbook">
+            <summary>
+            保存当前的工作薄
+            </summary>
+        </member>
+        <member name="M:MB.WinOfficeAutomation.ExcelViewer.SaveActiveWorkbookAs(System.String)">
+            <summary>
+            把当前工作薄保存到文件上
+            </summary>
+            <param name="filename">需要保存的文件</param>
+        </member>
+        <member name="M:MB.WinOfficeAutomation.ExcelViewer.SaveCopyOfActiveWorksheetAs(System.String)">
+            <summary>
+            赋值当前工作薄到文件中
+            </summary>
+            <param name="filename">指定的文件</param>
+        </member>
+        <member name="M:MB.WinOfficeAutomation.ExcelViewer.init">
+            <summary>
+            初始化excel
+            </summary>
+        </member>
+        <member name="P:MB.WinOfficeAutomation.ExcelViewer.Saved">
+            <summary>
+            当前的工作薄是否已经被保存
+            </summary>
+        </member>
+        <member name="P:MB.WinOfficeAutomation.ExcelViewer.Application">
+            <summary>
+            被打开的Excel Application
+            </summary>
+        </member>
+    </members>
+</doc>

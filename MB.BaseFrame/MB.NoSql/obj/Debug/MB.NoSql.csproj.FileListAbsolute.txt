@@ -1,0 +1,10 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.NoSql.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.NoSql.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.NoSql\obj\Debug\MB.NoSql.csprojResolveAssemblyReference.cache
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.NoSql\obj\Debug\MB.NoSql.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.NoSql\obj\Debug\MB.NoSql.pdb
+D:\MB\MB.BaseFrame\ExportBin\MB.NoSql.dll
+D:\MB\MB.BaseFrame\ExportBin\MB.NoSql.pdb
+D:\MB\MB.BaseFrame\MB.NoSql\obj\Debug\MB.NoSql.csprojResolveAssemblyReference.cache
+D:\MB\MB.BaseFrame\MB.NoSql\obj\Debug\MB.NoSql.dll
+D:\MB\MB.BaseFrame\MB.NoSql\obj\Debug\MB.NoSql.pdb

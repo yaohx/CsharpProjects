@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B0A81C0-617B-44BC-8D84-6DF96D89094D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MB.WinEIDrive</RootNamespace>
+    <AssemblyName>MB.WinEIDrive</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ExportBin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\ExportBin\MB.WinEIDrive.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ExportBin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataHelpers.cs" />
+    <Compile Include="ExcelEditHelper.cs" />
+    <Compile Include="Excel\AbstractRange.cs" />
+    <Compile Include="Excel\AbsXLSRec.cs" />
+    <Compile Include="Excel\AbsXLSRecords.cs" />
+    <Compile Include="Excel\Area3dFormulaToken.cs" />
+    <Compile Include="Excel\AreaErr3dFormulaToken.cs" />
+    <Compile Include="Excel\AreaFormulaToken.cs" />
+    <Compile Include="Excel\ArrayFormulaToken.cs" />
+    <Compile Include="Excel\BinaryOperatorFormulaToken.cs" />
+    <Compile Include="Excel\BinaryWritable.cs" />
+    <Compile Include="Excel\BOFSubstreamType.cs" />
+    <Compile Include="Excel\BoolFormulaToken.cs" />
+    <Compile Include="Excel\BoundSheetRecord.cs" />
+    <Compile Include="Excel\BoundSheetSheetType.cs" />
+    <Compile Include="Excel\BoundSheetVisibility.cs" />
+    <Compile Include="Excel\Buffer.cs" />
+    <Compile Include="Excel\CellBorder.cs" />
+    <Compile Include="Excel\CellBorders.cs" />
+    <Compile Include="Excel\CellFormula.cs" />
+    <Compile Include="Excel\CellRange.cs" />
+    <Compile Include="Excel\CellRangeEnumerator.cs" />
+    <Compile Include="Excel\CellRecordHeader.cs" />
+    <Compile Include="Excel\CellStyle.cs" />
+    <Compile Include="Excel\CellStyleCachedCollection.cs" />
+    <Compile Include="Excel\CellStyleData.cs" />
+    <Compile Include="Excel\CellStyleDataIndexes.cs" />
+    <Compile Include="Excel\ColumnInfoOptions.cs" />
+    <Compile Include="Excel\ContinueRecord.cs" />
+    <Compile Include="Excel\ControlFormulaToken.cs" />
+    <Compile Include="Excel\CsvType.cs" />
+    <Compile Include="Excel\DBCellRecord.cs" />
+    <Compile Include="Excel\DefaultRowHeightOptions.cs" />
+    <Compile Include="Excel\ErrFormulaToken.cs" />
+    <Compile Include="Excel\ExcelCell.cs" />
+    <Compile Include="Excel\ExcelCellCollection.cs" />
+    <Compile Include="Excel\ExcelColumn.cs" />
+    <Compile Include="Excel\ExcelColumnCollection.cs" />
+    <Compile Include="Excel\ExcelColumnRowBase.cs" />
+    <Compile Include="Excel\ExcelFile.cs" />
+    <Compile Include="Excel\ExcelFillPattern.cs" />
+    <Compile Include="Excel\ExcelFont.cs" />
+    <Compile Include="Excel\ExcelFontData.cs" />
+    <Compile Include="Excel\ExcelLite.cs" />
+    <Compile Include="Excel\ExcelLongString.cs" />
+    <Compile Include="Excel\ExcelLongStrings.cs" />
+    <Compile Include="Excel\ExcelRow.cs" />
+    <Compile Include="Excel\ExcelRowCollection.cs" />
+    <Compile Include="Excel\ExcelRowColumnCellCollectionBase.cs" />
+    <Compile Include="Excel\ExcelRowColumnCollectionBase.cs" />
+    <Compile Include="Excel\ExcelShortString.cs" />
+    <Compile Include="Excel\ExcelStringBase.cs" />
+    <Compile Include="Excel\ExcelStringOptions.cs" />
+    <Compile Include="Excel\ExcelStringWithoutLength.cs" />
+    <Compile Include="Excel\ExcelWorksheet.cs" />
+    <Compile Include="Excel\ExcelWorksheetCollection.cs" />
+    <Compile Include="Excel\ExternsheetRecord.cs" />
+    <Compile Include="Excel\ExtSSTRecord.cs" />
+    <Compile Include="Excel\FillPatternStyle.cs" />
+    <Compile Include="Excel\FontOptions.cs" />
+    <Compile Include="Excel\FormulaFunctionInfo.cs" />
+    <Compile Include="Excel\FormulaFunctionsTable.cs" />
+    <Compile Include="Excel\FormulaOptions.cs" />
+    <Compile Include="Excel\FormulaParser.cs" />
+    <Compile Include="Excel\FormulaRecord.cs" />
+    <Compile Include="Excel\FormulaToken.cs" />
+    <Compile Include="Excel\FormulaTokenClass.cs" />
+    <Compile Include="Excel\FormulaTokenCode.cs" />
+    <Compile Include="Excel\FormulaTokensFactory.cs" />
+    <Compile Include="Excel\FormulaTokenType.cs" />
+    <Compile Include="Excel\FormulaTokenTypeEx.cs" />
+    <Compile Include="Excel\FunctionFormulaToken.cs" />
+    <Compile Include="Excel\FunctionVarFormulaToken.cs" />
+    <Compile Include="Excel\GemBoxLicense.cs" />
+    <Compile Include="Excel\GemBoxLicenseProvider.cs" />
+    <Compile Include="Excel\HashtableElement.cs" />
+    <Compile Include="Excel\HorizontalAlignmentStyle.cs" />
+    <Compile Include="Excel\HorizontalPageBreak.cs" />
+    <Compile Include="Excel\HorizontalPageBreakCollection.cs" />
+    <Compile Include="Excel\HorizontalPageBreaksRecord.cs" />
+    <Compile Include="Excel\IndexedHashCollection.cs" />
+    <Compile Include="Excel\IndexRecord.cs" />
+    <Compile Include="Excel\IndividualBorder.cs" />
+    <Compile Include="Excel\IntFormulaToken.cs" />
+    <Compile Include="Excel\LimitEventArgs.cs" />
+    <Compile Include="Excel\LimitEventHandler.cs" />
+    <Compile Include="Excel\LimitEventOperation.cs" />
+    <Compile Include="Excel\LineStyle.cs" />
+    <Compile Include="Excel\MergedCellRange.cs" />
+    <Compile Include="Excel\MergedCellRanges.cs" />
+    <Compile Include="Excel\MergedCellsRecord.cs" />
+    <Compile Include="Excel\MissArgFormulaToken.cs" />
+    <Compile Include="Excel\MulBlankRecord.cs" />
+    <Compile Include="Excel\MulRKRecord.cs" />
+    <Compile Include="Excel\MultipleBorders.cs" />
+    <Compile Include="Excel\NamedRange.cs" />
+    <Compile Include="Excel\NamedRangeCollection.cs" />
+    <Compile Include="Excel\NameFormulaToken.cs" />
+    <Compile Include="Excel\NameRecord.cs" />
+    <Compile Include="Excel\NumberFormatCollection.cs" />
+    <Compile Include="Excel\NumbersParser.cs" />
+    <Compile Include="Excel\NumFormulaToken.cs" />
+    <Compile Include="Excel\PageBreak.cs" />
+    <Compile Include="Excel\PageBreakCollection.cs" />
+    <Compile Include="Excel\PaletteRecord.cs" />
+    <Compile Include="Excel\PreservedRecords.cs" />
+    <Compile Include="Excel\RangeIndexingMode.cs" />
+    <Compile Include="Excel\Ref3dFormulaToken.cs" />
+    <Compile Include="Excel\RefErr3dFormulaToken.cs" />
+    <Compile Include="Excel\RefErrFormulaToken.cs" />
+    <Compile Include="Excel\RefFormulaToken.cs" />
+    <Compile Include="Excel\RKRecord.cs" />
+    <Compile Include="Excel\RowColumnResolutionMethod.cs" />
+    <Compile Include="Excel\RowOptions.cs" />
+    <Compile Include="Excel\ScriptPosition.cs" />
+    <Compile Include="Excel\SetupOptions.cs" />
+    <Compile Include="Excel\SheetIndexes.cs" />
+    <Compile Include="Excel\SSTRecord.cs" />
+    <Compile Include="Excel\SSTRelated.cs" />
+    <Compile Include="Excel\StrFormulaToken.cs" />
+    <Compile Include="Excel\StructuredStorageFileBase.cs" />
+    <Compile Include="Excel\StyleRecord.cs" />
+    <Compile Include="Excel\SupBookRecord.cs" />
+    <Compile Include="Excel\UnaryOperatorFormulaToken.cs" />
+    <Compile Include="Excel\UnderlineStyle.cs" />
+    <Compile Include="Excel\UnmanagedStorage.cs" />
+    <Compile Include="Excel\Utilities.cs" />
+    <Compile Include="Excel\VerticalAlignmentStyle.cs" />
+    <Compile Include="Excel\VerticalPageBreak.cs" />
+    <Compile Include="Excel\VerticalPageBreakCollection.cs" />
+    <Compile Include="Excel\VerticalPageBreaksRecord.cs" />
+    <Compile Include="Excel\WeakHashtable.cs" />
+    <Compile Include="Excel\WeekReferenceWithHash.cs" />
+    <Compile Include="Excel\Window1Options.cs" />
+    <Compile Include="Excel\WorksheetWindowOptions.cs" />
+    <Compile Include="Excel\WSBoolOptions.cs" />
+    <Compile Include="Excel\XFOptions1.cs" />
+    <Compile Include="Excel\XFOptions2.cs" />
+    <Compile Include="Excel\XLSDescriptor.cs" />
+    <Compile Include="Excel\XLSDescriptors.cs" />
+    <Compile Include="Excel\XLSFileReader.cs" />
+    <Compile Include="Excel\XLSFileWriter.cs" />
+    <Compile Include="Excel\XlsOptions.cs" />
+    <Compile Include="Excel\XLSRecord.cs" />
+    <Compile Include="Export\ExportBase.cs" />
+    <Compile Include="Export\ExportXls.cs" />
+    <Compile Include="Export\IExportProvider.cs" />
+    <Compile Include="FileLib.cs" />
+    <Compile Include="Import\IImportProvider.cs" />
+    <Compile Include="Import\ImportBase.cs" />
+    <Compile Include="Import\OfficeXlsImport.cs" />
+    <Compile Include="Import\TxtImport.cs" />
+    <Compile Include="Import\XlsImport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MB.Util\MB.Util.csproj">
+      <Project>{C69057E7-BEF9-4618-8FAA-B9E9D6B069B0}</Project>
+      <Name>MB.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

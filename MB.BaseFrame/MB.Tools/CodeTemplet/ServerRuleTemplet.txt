@@ -1,0 +1,59 @@
+﻿    [DataContract(Name = "#ObjectIDT#")]    
+    public enum #ObjectIDT# {
+        [MB.RuleBase.Atts.ObjectDataMapping("#XmlFileName#", EntityType = typeof(#ModelName#), KeyIsSelfAdd = true, MappingTableName = "#TableName#")]
+        [EnumMember]
+        BaseData = 0,
+        //[MB.RuleBase.Atts.ObjectDataMapping("#XmlFileName#Detail", EntityType = typeof(#XmlFileName#DetailInfo), KeyIsSelfAdd = true, MappingTableName = "#TableName#_DETAIL"),
+        //            ObjectRelation(1, RelationSetting = new string[] { "#TableName#_ID,#TableName#" })]
+        //[EnumMember]
+       // Detail
+    }
+    /// <summary>
+    /// 文件生成时间 #SystemDateTime#
+    /// </summary>
+    [MB.RuleBase.Atts.RuleSetting(#ObjectIDT#.BaseData, true, true)]
+    [MB.Aop.InjectionManager]
+    [MB.WcfService.WcfFaultBehavior(typeof(MB.WcfService.WcfFaultExceptionHandler))]
+     [MB.WcfService.WcfServiceHost(typeof(#RuleInterfaceName#))] 
+    public class #RuleName# : MB.RuleBase.BaseRule, #RuleInterfaceName#{
+       /// <summary>
+        /// 构造函数。
+        /// </summary>
+        public #RuleName#()
+            : base(typeof(#ObjectIDT#)) {
+
+        }
+
+        public override object CreateNewEntity(int dataInDocType) {
+            object newEntity = base.CreateNewEntity(dataInDocType);
+            if ((#ObjectIDT#)dataInDocType == #ObjectIDT#.BaseData) {
+                #ModelName# baseEntity = newEntity  as #ModelName#;
+               // baseEntity.CREATE_DATE = System.DateTime.Now;
+               // baseEntity.LAST_MODIFIED_DATE = System.DateTime.Now;
+                //假设
+               // baseEntity.CODE = 请在insert SQL 语句中直接调用 FU_GET_NEXT_DOC_CODE('表名称',1) sql 函数
+            }
+
+            //在新创建实体类时 根据业务的需要 设置一些默认的信息。
+          return newEntity;
+        }
+
+        #region I#ModelName# 成员
+
+        public int AddToCache(#ObjectIDT# dataInDocType, #ModelName# entity, bool isDelete, string[] propertys) {
+            return base.AddToCache((int)dataInDocType, entity, isDelete, propertys);
+        }
+
+        public List<#ModelName#> GetObjectEx(string xmlFilterParams) {
+			MB.Util.Model.QueryParameterInfo[] filters = new MB.Util.Serializer.QueryParameterXmlSerializer().DeSerializer(xmlFilterParams);
+            return new MB.RuleBase.Common.ObjectEditHelper().GetObjects<#ModelName#>(this, #ObjectIDT#.BaseData, filters);
+        }
+        public object RefreshEntity(#ObjectIDT# dataInDocType, #ModelName# entity) {
+            return base.RefreshEntity((int)dataInDocType, entity);
+        }
+        //public List<#XmlFileName#DetailInfo> GetObjectDetail(int mainKeyValue) {
+        //   return new MB.RuleBase.Common.ObjectEditHelper().GetObjectsByForeingKey<#XmlFileName#DetailInfo>(this, #ObjectIDT#.Detail, mainKeyValue);
+        //}
+        #endregion
+    }
+    

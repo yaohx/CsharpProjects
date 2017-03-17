@@ -1,0 +1,4451 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MB.WinClientDefault</name>
+    </assembly>
+    <members>
+        <member name="T:MB.WinClientDefault.AbstractEditBaseForm">
+            <summary>
+            AbstractEditBaseForm: 所有编辑窗口必须要实现的接口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractBaseForm.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractBaseForm.PopulateDefaultValue(System.Object,MB.WinBase.IFace.IClientRuleConfig)">
+            <summary>
+            为当前表单绑定的实体对象注入默认值.
+            </summary>
+            <param name="currentEntity">当前表单绑定的实体对象</param>
+            <param name="clientRuleCfg">配置</param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractBaseForm.SaveDefaultValue(MB.WinBase.Binding.BindingSourceEx,MB.WinBase.IFace.IClientRuleConfig)">
+            <summary>
+            保存默认值
+            </summary>
+            <param name="bindingSource">当前编辑窗口数据绑定</param>
+            <param name="clientRuleCfg">配置</param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractBaseForm.GetDefaultValueFilePath(System.Object)">
+            <summary>
+            获取默认值文件名
+            </summary>
+            <param name="currentEntity">当前实体类</param>
+            <returns>文件路径全名</returns>
+        </member>
+        <member name="F:MB.WinClientDefault.AbstractBaseForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractBaseForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractBaseForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Extender.IExtenderEditForm">
+            <summary>
+            扩展的对象编辑接口。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.AbstractEditBaseForm._ClientRuleObject">
+            <summary>
+            UI 层客户操作业务类。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.AbstractEditBaseForm._ClientLayoutAttribute">
+            <summary>
+            UI 层业务类的配置信息。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.AbstractEditBaseForm._CurrentEditType">
+            <summary>
+            当前业务对象的编辑类型， 当前编辑类型是根据用户的操作而发生变化的。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.AbstractEditBaseForm._BindingSource">
+            <summary>
+            当前编辑窗口数据绑定 bindingSource;
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.AbstractEditBaseForm._EditColumnCtlBinding">
+            <summary>
+            XML 配置列和编辑控件的绑定关系
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.AbstractEditBaseForm._BeforeSaveDetailEntityCache">
+            <summary>
+            当前窗口正在编辑的单据对象明细数据
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.#ctor(MB.WinBase.IFace.IClientRule,MB.WinBase.Common.ObjectEditType,MB.WinBase.Binding.BindingSourceEx)">
+            <summary>
+            
+            </summary>
+            <param name="clientRuleObject"></param>
+            <param name="editType"></param>
+            <param name="mainViewGrid"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.SetExtendToolStripButtonMenu(System.Windows.Forms.ContextMenuStrip)">
+            <summary>
+            设置扩展菜单的弹出窗口。
+            一定要在继承的子类窗口 Form_Load 事件中调用。
+            </summary>
+            <param name="cMenu"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.OnCurrentMainEditEntity_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            在主编辑对象属性值发生改变时产生。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.OnBindingSourcePositionChanged">
+            <summary>
+             在绑定的数据源的焦点行 发生改变后产生。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.OnToolsButtonValidate">
+            <summary>
+            根据当前实体的状态控制工具拦的状态。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.OnDocStateChanged(System.Object,MB.Util.Model.DocState)">
+            <summary>
+             在单据状态发生时产生。
+            </summary>
+            <param name="mainEntity"></param>
+            <param name="docState"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.ObjectDataSave(System.Object,System.String[])">
+            <summary>
+             对象数据保存。
+            </summary>
+            <param name="editEntity"></param>
+            <param name="propertys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.AcceptDataChanged(System.Boolean)">
+            <summary>
+            接受数据改变
+            </summary>
+            <param name="refreshMainEntity">判断是否刷新主体数据</param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.ObjectSubmit(System.Boolean)">
+            <summary>
+            对象提交处理。
+            </summary>
+            <param name="isSubmit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.AddNew">
+            <summary>
+            创建一个新的实体对象。
+            如果需要覆盖，别忘了添加base.AddNew();
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.Cancel">
+            <summary>
+            撤消新增。
+             如果存在明细表，继承的子类需要覆盖该方法，进行相应的其它处理后再调用 base.Cancel()
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.Save">
+            <summary>
+            把实体对象保存在中间层缓存中。
+            如果存在明细表，继承的子类需要覆盖该方法，进行相应的其它处理后再调用 base.Save()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.Delete">
+            <summary>
+            从中间层缓存中删除实体对象。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.Submit">
+            <summary>
+            
+            数据提交。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.CancelSubmit">
+            <summary>
+            取消提交。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.Flush">
+            <summary>
+            数据永久性保存。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.moveFocusPosition(MB.WinClientDefault.GridDataRowMoveType)">
+            <summary>
+            在绑定的数据源的焦点行 发生改变前时产生。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.AbstractEditBaseForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractEditBaseForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractEditBaseForm.BeforeSaveDetailEntityCache">
+            <summary>
+            当前编辑的单据明细数据集合。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractEditBaseForm.MainBindingGridView">
+            <summary>
+            浏览窗口编辑主控件。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractEditBaseForm.CurrentEditType">
+            <summary>
+            当前操作类型。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractEditBaseForm.CurrentEditEntity">
+            <summary>
+            当前编辑的主实体对象。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractEditBaseForm.BindingSource">
+            <summary>
+            数据绑定。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractEditBaseForm.DataBindingProvider">
+            <summary>
+            数据源绑定
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractEditBaseForm.ClientRuleObject">
+            <summary>
+            客户端业务类。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractEditBaseForm.ActiveUIType">
+            <summary>
+            实体对象编辑窗口。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.GridDataRowMoveType">
+            <summary>
+            网格数据焦点移动的类型
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.AbstractListViewForm">
+            <summary>
+            对象浏览窗口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.#ctor(MB.WinBase.IFace.IClientRule)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="clientRuleObject"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.Query">
+            <summary>
+            调用过滤查询窗口。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.Refresh">
+            <summary>
+            刷新浏览界面
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.CopyAsNew">
+            <summary>
+            复制新增加处理。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.DataImport">
+            <summary>
+            数据导入处理。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.DataExport">
+            <summary>
+            数据导出处理。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.ExistsUnSaveData">
+            <summary>
+            判断是否存在未保存的数据。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.GetCurrentMainGridView(System.Boolean)">
+            <summary>
+            获取当前编辑的主浏览控件。
+            </summary>
+            <param name="mustEditGrid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.GetViewDataNavigator">
+            <summary>
+            继承的子类必须继承的方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.OpenDynamicSettingForm">
+            <summary>
+            打开动态聚组设定的Form
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.AbstractListViewForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.AbstractListViewForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractListViewForm.ActiveUIType">
+            <summary>
+            当前窗口的编辑类型
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractListViewForm.IsDynamicGroupIsActive">
+            <summary>
+            表示动态聚组的模式是否开启
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.AbstractListViewForm.DynamicGroupSettingForQuery">
+            <summary>
+            动态聚组用于查询的条件
+            在打开DynamicSettingForm后点击"确定"按钮后会赋值
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.AsynGetEntitysHelper`1">
+            <summary>
+            异步加载数据，主要针对Entitys 集合类的解决方案。
+             TChannel 对应的WCF 服务端业务类必须实现接口 MB.RuleBase.IFace.IAsynGetEntitysInvoke 
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AsynGetEntitysHelper`1.InvokeGetObjectData(`0,System.Int32,System.String[],MB.Util.Model.QueryParameterInfo[])">
+            <summary>
+            异步调用服务端方法获取对应的数据。
+            </summary>
+            <param name="clientProxy">clientProxy 对应的WCF 服务端业务类必须实现接口MB.RuleBase.IFace.IAsynGetEntitysInvoke</param>
+            <param name="dataInDocType">获取的数据在单据中的数据类型，如果没有就输入0</param>
+            <param name="paramValues">参数值,根据服务端对应方法决定(可以为空)</param>
+            <param name="filterParams">动态查询参数,根据服务端对应方法决定 (可以为空)</param>
+            <returns>实体集合类</returns>
+        </member>
+        <member name="T:MB.WinClientDefault.AsynLoadDataHelper">
+            <summary>
+            在后台线程中异步调用 获取数据的方法。
+            结合后台线程的取消优点和异步调用的合理性能优点。
+            测试证明调用Microsoft 的异步能得到合理的性能。
+            报表查询分析默认的解决方案，主要针对返回值是DataSet 的数据源。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AsynLoadDataHelper.#ctor(MB.WinBase.IFace.IAsynClientQueryRule,System.Boolean)">
+            <summary>
+             在后台线程中异步调用 获取数据的方法。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AsynLoadDataHelper.#ctor(MB.WinBase.IFace.IAsynClientQueryRule,System.Boolean,System.Boolean)">
+            <summary>
+             在后台线程中异步调用 获取数据的方法。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AsynLoadDataHelper.RunLoad(System.Windows.Forms.IWin32Window,MB.Util.Model.QueryParameterInfo[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.AsynLoadDataHelper.GetTotalPageAndCurrentpage(System.Int32)">
+            <summary>
+            得到 （总共页，当前页）格式以逗号隔开
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinClientDefault.AsynLoadDataHelper.TotalRecordCount">
+            <summary>
+            执行wcf后call以后，通过消息头返回的所有记录数
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.AsynLoadDataHelper.LoadDataProcessState">
+            <summary>
+            加载数据处理状态。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.AsyncMethodCallerDelegate">
+            <summary>
+            方法后台调用的委托
+            </summary>
+            <param name="workThread"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.BackWorkWithWaitDialog">
+            <summary>
+            带有等待窗口的后台方法调用。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.BackWorkWithWaitDialog.#ctor(MB.WinClientDefault.AsyncMethodCallerDelegate)">
+            <summary>
+            在后台线程中异步调用 获取数据的方法。
+            </summary>
+            <param name="asynCaller"></param>
+            <param name="showWaitDialog"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.BackWorkWithWaitDialog.Invoke(System.Windows.Forms.IWin32Window)">
+            <summary>
+            
+            </summary>
+            <param name="winParent"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.BackWorkWithWaitDialog.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.BackWorkWithWaitDialog.ProcessState">
+            <summary>
+            处理状态。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.BfModuleCommentHelper">
+            <summary>
+            模块发表评论处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.BfModuleCommentHelper.CreateCommentClient">
+            <summary>
+            客户端模块评语实现客户端。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.ChartAnalyzeHelper">
+            <summary>
+            图表分析帮助处理
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.ChartAnalyzeHelper.CreateDefaultChartControl">
+            <summary>
+            创建默认设置的图表控件。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.ChartAnalyzeHelper.ActiveSetting">
+            <summary>
+            当前活动的配置信息。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.ChartAnalyzeHelper.Instance">
+            <summary>
+            Instance.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.ExtendToolStripButtonInfo">
+            <summary>
+            扩展菜单的描述信息。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.frmEditDocStateTrace">
+            <summary>
+            单据状态改变对应处理的事件。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.frmEditDocStateTrace.#ctor(MB.Util.Model.DocOperateType)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Common.frmEditDocStateTrace.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.frmEditDocStateTrace.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.frmEditDocStateTrace.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.EditDocStateTraceEventArgs">
+            <summary>
+            单据状态编辑对应事件参数。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.EditDocStateTraceEventArgs.#ctor(System.String,MB.Util.Model.DocOperateType)">
+            <summary>
+            单据状态编辑对应事件参数。
+            </summary>
+            <param name="remark">操作输入的备注信息</param>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.EditDocStateTraceEventArgs.DocOperateType">
+            <summary>
+            单据操作类型。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.EditDocStateTraceEventArgs.Remark">
+            <summary>
+            操作输入的备注信息。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.frmEditTreeNodeCheck">
+            <summary>
+            添加树型节点时的选择项。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Common.frmEditTreeNodeCheck.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.frmEditTreeNodeCheck.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.frmEditTreeNodeCheck.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.EditTreeNodeCheckParam">
+            <summary>
+            节点选择行为参数。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.EditTreeNodeCheckParam.#ctor">
+            <summary>
+            
+            </summary>
+            <param name="addAsChild"></param>
+            <param name="allIsSame"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.EditTreeNodeCheckParam.AddAdChild">
+            <summary>
+            作为子节点进行添加
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.EditTreeNodeCheckParam.AllIsSame">
+            <summary>
+            所有按同一方式进行处理
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.FrmQuickCellDataInput">
+            <summary>
+            把多维AdvBandGridView 转换为一维列表满足快速输入和数据导入导出Excel 的需求。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmQuickCellDataInput.#ctor">
+            <summary>
+            提供设计阶段的默认构造函数。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmQuickCellDataInput.#ctor(DevExpress.XtraGrid.GridControl,System.Data.DataTable,System.Collections.Generic.List{MB.WinBase.Data.DynamicColumnInfo},System.String)">
+            <summary>
+            把多维AdvBandGridView 转换为一维列表满足快速输入和数据导入导出Excel 的需求。
+            </summary>
+            <param name="grdCtlSrc"></param>
+            <param name="dsSource"></param>
+            <param name="dynamicCols"></param>
+            <param name="xmlFileName"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmQuickCellDataInput.#ctor(DevExpress.XtraGrid.GridControl,System.Data.DataTable,System.Collections.Generic.List{MB.WinBase.Data.DynamicColumnInfo},System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},MB.WinBase.Common.DataImportCfgInfo)">
+            <summary>
+            把多维AdvBandGridView 转换为一维列表满足快速输入和数据导入导出Excel 的需求。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Common.FrmQuickCellDataInput.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmQuickCellDataInput.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmQuickCellDataInput.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.QuickInputDataImportEventArgs">
+            <summary>
+            快速网格编辑数据导入事件。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.QuickInputDataImportEventArgs.EditGridData">
+            <summary>
+            当前编辑的网格
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.QuickInputDataImportEventArgs.ImportData">
+            <summary>
+            当前导入的数据。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.QuickInputDataImportEventArgs.Handled">
+            <summary>
+            判断相应的事件是否已经处理。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.GridRowCellEditEventArgs">
+            <summary>
+            判断当前列是否允许编辑。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.GridRowCellEditEventArgs.AllowEdit">
+            <summary>
+            判断对应的列是否允许编辑
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.GridRowCellEditEventArgs.QuickEditDataRow">
+            <summary>
+            当前快速编辑行。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.GridRowCellEditEventArgs.ColumnName">
+            <summary>
+            当前编辑行对应的列。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.FrmSummay">
+            <summary>
+            分级汇总查询窗口
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.btnInit_Click(System.Object,System.EventArgs)">
+            <summary>
+            测试用的
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.myFormLoad">
+            <summary>
+            FormLoad是调用的函数
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.bindToSummaryLevel">
+            <summary>
+            绑定汇总级别
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.bindToGrid">
+            <summary>
+            绑定到Grid
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.createDynamicProperyAccess(System.Type)">
+            <summary>
+            创建动态对象的属性访问器，以便快速的动态访问
+            </summary>
+            <param name="typeObject">对象的类型</param>
+            <returns>属性访问器，以字段存储</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.createTempSource(System.Collections.IList)">
+            <summary>
+            创建一个临时的dataSource
+            </summary>
+            <param name="dataSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.handleNoSummaryColumns(System.Collections.Generic.List{MB.WinBase.Common.GroupByColumn},System.Collections.Generic.Dictionary{System.String,MB.Util.Emit.DynamicPropertyAccessor},System.Collections.IList@)">
+            <summary>
+            对分组的列进行处理，现在提供的处理时截取字符串的长度
+            </summary>
+            <param name="notSummaryCols">分组列的配置</param>
+            <param name="dAccs"></param>
+            <param name="tempSource">要处理的集合</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.groupBy(System.String,System.Collections.Generic.List{MB.WinBase.Common.GroupByColumn},System.Collections.IList)">
+            <summary>
+            对临时数据进行分组
+            </summary>
+            <param name="selectedSummaryLevel">汇总级别</param>
+            <param name="notSummaryCols">分组列的配置信息</param>
+            <param name="dataSourceTemp">临时数据源</param>
+            <returns>IQueryable临时对象</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.convertGrouByToDataTable(System.Type,System.Collections.Generic.Dictionary{System.String,MB.Util.Emit.DynamicPropertyAccessor},System.Linq.IQueryable)">
+            <summary>
+            将汇总以后的数据动态的赋值回最终呈现的数据源
+            </summary>
+            <param name="typeObject">动态对象的类型</param>
+            <param name="dAccs">动态对象属性访问的缓存集合</param>
+            <param name="afterGroupBy">groupBy以后的数据源</param>
+            <returns>动态DataTable</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.substringOneColumn(System.Object@,MB.WinBase.Common.GroupByColumn,System.Collections.Generic.Dictionary{System.String,MB.Util.Emit.DynamicPropertyAccessor})">
+            <summary>
+            对单条数据源的，截取列进行处理，以后可以通过方法的形式扩展
+            可以在调用出循环数据源调用
+            </summary>
+            <param name="dataEntity">需要做处理的对象</param>
+            <param name="noSumCol">非聚组列的配置信息</param>
+            <param name="dAccs">属性访问器</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.prepareGroupByString(System.Collections.Generic.List{MB.WinBase.Common.GroupByColumn})">
+            <summary>
+            准备group by的类似SQL的字符串, 列名的集合以逗号隔开
+            </summary>
+            <param name="notSummaryCols">非汇总列的配置信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.prepareAggregationString(System.String)">
+            <summary>
+            准备好要取出的AGG的类似SQL的字符串
+            </summary>
+            <param name="summaryColString">以逗号隔开的汇总列集合字符串</param>
+            <returns></returns>
+        </member>
+        <member name="F:MB.WinClientDefault.Common.FrmSummay.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.FrmSummay.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.MainViewDataNavigator">
+            <summary>
+            基于 IViewGridForm 主体列表编辑数据操作行为。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.CheckIsLeafDataRow">
+            <summary>
+            判断是否为叶子行。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.#ctor(DevExpress.XtraGrid.Views.Grid.GridView)">
+            <summary>
+            基于GridView的主数据浏览
+            </summary>
+            <param name="gridView"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.#ctor(DevExpress.XtraTreeList.TreeList)">
+            <summary>
+            基于树型浏览样式的主窗口。
+            </summary>
+            <param name="treeList"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.MoveBy(System.Int32)">
+            <summary>
+            通过Index 移动行。
+            TreeListView 不支持
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.MoveFirst">
+            <summary>
+            MoveFirst
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.MoveNext">
+            <summary>
+            MoveNext
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.MovePrev">
+            <summary>
+            MovePrev
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.MoveLast">
+            <summary>
+            MoveLast
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.GetSelectedObjects(MB.WinBase.Binding.BindingSourceEx)">
+            <summary>
+            获取选中行对应的实体类集合(允许多选),如果没有选中行则返回空
+            </summary>
+            <param name="bindingSource">绑定数据源</param>
+            <returns>选中行对应的实体类集合</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.GetDescendantNodes(DevExpress.XtraTreeList.Nodes.TreeListNode)">
+            <summary>
+            获取一个TreeListNode所有的子孙节点,如果不存在则返回空
+            </summary>
+            <param name="node">父节点</param>
+            <returns>所有的子孙节点</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.MainViewDataNavigator.RemoveFocusedRow(MB.WinBase.Binding.BindingSourceEx)">
+            <summary>
+            删除焦点行。
+            </summary>
+            <param name="bindingSource"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.MainViewDataNavigator.GridView">
+            <summary>
+            GridView浏览控件
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.MainViewDataNavigator.TreeList">
+            <summary>
+            TreeListView 浏览控件
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.MainViewDataNavigator.ActiveFilterEnabled">
+            <summary>
+            ActiveFilterEnabled
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.MainViewDataNavigator.IsFirstRow">
+            <summary>
+            IsFirstRow
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.MainViewDataNavigator.IsLastRow">
+            <summary>
+            IsLastRow
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.MainViewDataNavigator.FocusedRowHandle">
+            <summary>
+            FocusedRowHandle
+            不支持TreeListView
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.MainViewDataNavigator.RowCount">
+            <summary>
+            RowCount
+            不支持TreeListView
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.MainViewDataNavigator.ActiveFilterString">
+            <summary>
+            ActiveFilterString
+            不支持TreeListView
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.DataViewType">
+            <summary>
+            数据浏览样式
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Common.DataViewType.GridView">
+            <summary>
+            GridView 控件。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Common.DataViewType.TreeListView">
+            <summary>
+            TreeListView 控件。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.UIDynamicColumnBinding`1">
+            <summary>
+            动态列的绑定处理。
+            同一个窗口，重新绑定时，注意必须要调用 Dispose
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.#ctor(MB.XWinLib.XtraGrid.GridControlEx,System.String)">
+            <summary>
+            绑定动态列处理相关。
+            </summary>
+            <param name="activeColumnIsBand"></param>
+            <param name="activeColumnNames"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.CreateDataBinding(MB.WinBase.Data.HViewDataConvert{`0},System.Collections.Generic.List{`0},System.String)">
+            <summary>
+             动态列绑定处理相关。
+            </summary>
+            <param name="dataSource"></param>
+            <param name="gridControl"></param>
+            <param name="xmlFileName"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.AcceptChanges">
+            <summary>
+            以相同的状态改变数据实体
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.CheckEntityExistsModified">
+            <summary>
+            检查编辑的实体是否已经发生改变。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.GetDetailEntitysByDataRow(System.Int32)">
+            <summary>
+            根据 RowHandle 获取当前行对应的所有编辑明细。
+            </summary>
+            <param name="rowHandle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.GetDetailEntityByDataRowAndColumn(System.Int32,System.String)">
+            <summary>
+            根据RowHandle 和列名称获取列对应的明细项。
+            </summary>
+            <param name="rowHandle"></param>
+            <param name="columnFieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.CheckRowCellAllowEdit(System.Data.DataRow,System.String)">
+            <summary>
+            检查行对应的列是否允许编辑。
+            </summary>
+            <param name="drData"></param>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.ColumnPropertys">
+            <summary>
+            当前绑定XML 的列信息
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.ColumnEditCfgInfos">
+            <summary>
+            列的编辑配置信息。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.HViewConvertObject">
+            <summary>
+            当前进行数据转换处理的对象。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIDynamicColumnBinding`1.CurrentEditTable">
+            <summary>
+            当前编辑的表结构。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.DynamicColumnBindingEventAegs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.UIBindingEditGridCtl`1">
+            <summary>
+             编辑界面数据和编辑网格数据绑定。
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.#ctor(MB.WinBase.IFace.IBaseEditForm,System.Boolean,System.String)">
+            <summary>
+            实例化明细绑定组件
+            </summary>
+            <param name="baseEditForm">当前使用明细绑定组件的编辑窗口</param>
+            <param name="createEntityFromServer">实体对象是不是从服务端创建</param>
+            <param name="foreignPropertyName">明细对象中用于做外键的属性名称</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.DeleteListItem(`0)">
+            <summary>
+            删除指定的数据
+            </summary>
+            <param name="currentEntity"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.AddNewItem">
+            <summary>
+            增加一个新的实体对象。
+            默认情况下从服务端创建新对象。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.AddNewItem(System.Boolean)">
+            <summary>
+            增加一个新的实体对象。
+            create date : 2010-01-14 
+            </summary>
+            <param name="createFromServer">判断是否从服务端创建,如果是从本地创建需要给实体的ID 赋值</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.ClearDetailData">
+            <summary>
+            清除正在编辑的所有明细数据。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.RefreshDataSource(System.Object,System.Object,`0[],DevExpress.XtraGrid.GridControl,System.String,System.Int32)">
+            <summary>
+             刷新网格数据。
+            </summary>
+            <param name="mainEntity"></param>
+            <param name="mainKeyValue"></param>
+            <param name="detailEntitys"></param>
+            <param name="editGrdCtl"></param>
+            <param name="uiXmlFileName"></param>
+            <param name="dataInDocType"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.RefreshDataSource(System.Object,System.Object,`0[],DevExpress.XtraGrid.GridControl,System.String,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},System.Int32)">
+            <summary>
+            刷新网格数据。
+            </summary>
+            <param name="mainEntity"></param>
+            <param name="mainKeyValue"></param>
+            <param name="detailEntitys"></param>
+            <param name="editGrdCtl"></param>
+            <param name="uiXmlFileName"></param>
+            <param name="dataInDocType"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.RefreshDataSource(System.Object,System.Object,`0[],DevExpress.XtraGrid.GridControl,System.String,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnPropertyInfo},System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},System.Int32)">
+            <summary>
+            刷新网格数据。
+            </summary>
+            <param name="mainEntity"></param>
+            <param name="mainKeyValue"></param>
+            <param name="detailEntitys"></param>
+            <param name="editGrdCtl"></param>
+            <param name="uiXmlFileName"></param>
+            <param name="dataInDocType"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.batchAddHelper_AfterGetDataFromDataAssistance(System.Object,MB.WinClientDefault.Common.AfterGetDataFromDataAssistanceEventArgs{`0})">
+            <summary>
+            当UIGridCtlBatchAddHelper批量数据从数据小助手获得以后，会触发代理，执行该方法
+            由于对象是从服务器批量创建的, 主键也已经被创建, 这边不用处理
+            </summary>
+            <param name="sender">事件触发者</param>
+            <param name="e">触发的参数</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.createDynamicProperyAccess(System.Type)">
+            <summary>
+            创建动态对象的属性访问器，以便快速的动态访问
+            </summary>
+            <param name="typeObject">对象的类型</param>
+            <returns>属性访问器，以字段存储</returns>
+        </member>
+        <member name="E:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.BeforeDataImport">
+            <summary>
+            从XML 文件中获取数据并点击数据整理完成之前产生。
+            </summary>
+        </member>
+        <member name="E:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.DbDataExistsValidated">
+            <summary>
+            数据导入之前相应。
+            </summary>
+        </member>
+        <member name="E:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.AfterAllDataBatchAdd">
+            <summary>
+            当批量新增结束以后触发，时间的参数中包含了批量新增的数据
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.BusinessCheck4DataImport">
+            <summary>
+            当导入明细数据时做的业务检查
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.RaiseListChangedEvents">
+            <summary>
+            指定一个值 判断是否相应ListChanged 事件.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.CurrentMainKey">
+            <summary>
+            当前加载的键值。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.BindingDetailEntitys">
+            <summary>
+            已经绑定的明细数据。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.AllowDataDelete">
+            <summary>
+            是否允许删除。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.AllowNew">
+            <summary>
+            判断明细数据是否允许新增加。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.IsEntityBatchAddedFromServer">
+            <summary>
+            批量新增时, 是不是批量从服务端创建对象
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.IsListChangedRaisedInBatchAddedSuppressed">
+            <summary>
+            是否抑制批量新增时的ListChanged事件
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIBindingEditGridCtl`1.BeforeSaveDetailEntityCache">
+            <summary>
+            正在编辑的实体对象。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.BindlingEditGridDataEventArgs`1">
+            <summary>
+            绑定控件响应控件处理相关。
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.AfterDataItemImportEventArgs`1">
+            <summary>
+            导入新项后产生的事件
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.AfterAllDataItemImportEventArgs`1">
+            <summary>
+            导入新项后产生的事件
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.AfterAllDataBatchAddEventArgs`1">
+            <summary>
+            批量新增以后产生的新事件参数
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.AfterAllDataBatchAddEventArgs`1.BatchAddedItems">
+            <summary>
+            批量新增的条目
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.BindingEditGridDataImportEventArgs">
+            <summary>
+            网格编辑控件相关处理事件
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.BindingEditGridDataImportEventArgs.#ctor(System.String[])">
+            <summary>
+            网格编辑控件相关处理事件
+            </summary>
+            <param name="existsData"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.BindingEditGridDataImportEventArgs.PropertyName">
+            <summary>
+            需要进行数据检验的属性名称。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.BindingEditGridDataImportEventArgs.CheckValues">
+            <summary>
+            准备进行检查的数据。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.BindingEditGridDataImportEventArgs.ExistsData">
+            <summary>
+            数据库中存在的数据。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.BindingEditGridDataImportEventArgs.Handed">
+            <summary>
+            是否已经处理。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.GridBeforeDataImportEventArgs">
+            <summary>
+            数据导入中从XML 文件中获取数据后
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.GridBeforeDataImportEventArgs.#ctor(MB.WinClientDefault.DataImport.DataImportInfo)">
+            <summary>
+             数据导入中从XML 文件中获取数据后
+            </summary>
+            <param name="dataImportInfo"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.GridBeforeDataImportEventArgs.Cancel">
+            <summary>
+            判断是否取消当前导入的动作。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.GridBeforeDataImportEventArgs.DataImportInfo">
+            <summary>
+            需要导入的数据信息。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.UIGridCtlBatchAddHelper`1">
+            <summary>
+            UI 层 网格批量增加处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIGridCtlBatchAddHelper`1.#ctor(MB.WinBase.IFace.IForm,System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},System.ComponentModel.BindingList{`0},System.Int32)">
+            <summary>
+            构造批量新增
+            </summary>
+            <param name="editForm">当前编辑的form实例</param>
+            <param name="editCols">当前的编辑列的配置信息</param>
+            <param name="detailEntitys">当前明细的绑定</param>
+            <param name="dataInDocType">当前明细所对应的DocType值</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Common.UIGridCtlBatchAddHelper`1.ShowBatchAppendDataToGrid">
+            <summary>
+            
+            </summary>
+            <param name="editForm"></param>
+            <param name="editCols"></param>
+            <param name="detailEntitys"></param>
+            <param name="dataInDocType"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.UIGridCtlBatchAddHelper`1.IsEntityBatchCreatedFromServer">
+            <summary>
+            批量新增时, 是不是批量从服务端创建对象
+            </summary>
+        </member>
+        <member name="E:MB.WinClientDefault.Common.UIGridCtlBatchAddHelper`1.AfterGetDataFromDataAssistance">
+            <summary>
+            当entity从服务端批量新增时从数据小助手返回数据时触发
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Common.AfterGetDataFromDataAssistanceEventArgs`1">
+            <summary>
+            从数据小助手批量选择数据以后的参数
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:MB.WinClientDefault.Common.AfterGetDataFromDataAssistanceEventArgs`1.SelectedItems">
+            <summary>
+            批量选择的数据条目
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Ctls.frmImageView.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.frmImageView.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.frmImageView.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Ctls.frmMdiMenuSelection.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.frmMdiMenuSelection.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.frmMdiMenuSelection.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Ctls.frmMdiMenuSelection.SELECT_MODULE_CODE">
+            <summary>
+            最终选择的模块编码
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Ctls.ucBfModuleComment">
+            <summary>
+            模块评语。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucBfModuleComment.#ctor(MB.WinBase.IFace.IViewGridForm)">
+            <summary>
+             模块发表评语
+            </summary>
+            <param name="viewGridForm"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.Ctls.ucBfModuleComment.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucBfModuleComment.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucBfModuleComment.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Ctls.ucDocLog.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucDocLog.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucDocLog.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Ctls.ucEditFileExplorer">
+            <summary>
+            文件浏览窗口
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucEditFileExplorer.#ctor(System.Object,System.Int32,System.Int32)">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Ctls.ucEditFileExplorer.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucEditFileExplorer.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucEditFileExplorer.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Ctls.ucEditFileExplorer.FileList">
+            <summary>
+            当前文件的浏览列表。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Ctls.ucEditFileExplorer.FileExplorerType">
+            <summary>
+            文件浏览类型...
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Ctls.ucEditFileExplorer.ShrinkImageSize">
+            <summary>
+            缩略图的大小。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Ctls.FileDataInfo">
+            <summary>
+            文件描述信息
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.FileDataInfo.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Ctls.IconSize.Small">
+            <summary>
+            16X16 icon
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Ctls.IconSize.Large">
+            <summary>
+            32X32 icon
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Ctls.IconExtractor">
+            <summary>
+            Util class to extract icons from files or directories.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.IconExtractor.GetFileIcon(System.String,MB.WinClientDefault.Ctls.IconSize)">
+            <summary>
+            Gets the icon asotiated with the filename.
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.Ctls.FolderDialog">
+            <summary>
+            FolderDialog 选择目录
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Ctls.FileExplorerType">
+            <summary>
+            文件浏览类型。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Ctls.EditFileExplorerEventArgs.Item">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Ctls.EditFileExplorerEventArgs.ItemData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Ctls.EditFileExplorerEventArgs.Cancel">
+            <summary>
+            是否取消。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Ctls.ucEntityEditBaseData.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucEntityEditBaseData.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucEntityEditBaseData.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Ctls.ucImageFileList">
+            <summary>
+            图象浏览控件。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucImageFileList.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucImageFileList.RefreshDataSource">
+            <summary>
+            重新刷新并绘制图象列表。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.Ctls.ucImageFileList.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucImageFileList.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.Ctls.ucImageFileList.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Ctls.ImageFileListEventHandler">
+            <summary>
+             事件委托申明
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Ctls.ImageFileListEventArgs">
+            <summary>
+            UP4PictureListEventArgs 公共事件定义
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.CustomUserControl.ucChartView.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.CustomUserControl.ucChartView.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.CustomUserControl.ucChartView.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DataImport.DataImportInfo">
+            <summary>
+            需要导入的数据描述信息。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.DataImportInfo.#ctor(System.Data.DataSet)">
+            <summary>
+            
+            </summary>
+            <param name="dsImportData"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.DataImport.DataImportInfo.ImportData">
+            <summary>
+            需要导入的数据。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DataImport.DefaultDataImportDialog">
+            <summary>
+            数据导入处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.DefaultDataImportDialog.#ctor(System.Boolean)">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.DefaultDataImportDialog.ShowDataImport(System.Windows.Forms.IWin32Window,MB.WinBase.IFace.IClientRule,System.String,System.Boolean,System.Func{System.Data.DataSet,System.Data.DataSet})">
+            <summary>
+             显示数据导入处理窗口。
+            </summary>
+            <param name="parent"></param>
+            <param name="buiObj"></param>
+            <param name="xmlFileName"></param>
+            <param name="importImmediate">判断是否为直接导入</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.DefaultDataImportDialog.LoadImportData(System.Windows.Forms.IWin32Window,MB.WinBase.IFace.IClientRule,System.String,System.String)">
+             <summary>
+            加载需要导入的数据。/
+             </summary>
+             <param name="parent"></param>
+             <param name="buiObj"></param>
+             <param name="xmlFileName"></param>
+             <param name="importFile"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.DefaultDataImportDialog.BusinessValidate(System.Func{System.Data.DataSet,System.Data.DataSet},System.Data.DataSet)">
+            <summary>
+            插入业务检查，把检查的结果返回
+            </summary>
+            <param name="businessCheckAfterLoadImportData">插入的业务查询的方法</param>
+            <param name="dsData"></param>
+            <returns></returns>
+        </member>
+        <member name="F:MB.WinClientDefault.DataImport.DefaultDataImportDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.DefaultDataImportDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.DefaultDataImportDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.DataImport.DefaultDataImportDialog.CurrentImportInfo">
+            <summary>
+            当前整理完成，准备导入的数据。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DataImport.DocDataImportHelper">
+            <summary>
+            征对单据的数据导入处理。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.DocDataImportHelper.ShowDataImportDialog(MB.WinBase.IFace.IViewGridForm,MB.WinBase.Binding.BindingSourceEx)">
+            <summary>
+            显示数据导入对话框。
+            </summary>
+            <param name="parent"></param>
+            <param name="clientRule"></param>
+            <param name="bindingSource"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.DocDataImportHelper.DataImport``2(MB.WinBase.IFace.IViewGridForm,System.Int32,MB.WinClientDefault.DataImport.DataImportInfo,System.Collections.IList@)">
+            <summary>
+             数据导入处理相关
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TChannel"></typeparam>
+            <param name="viewForm"></param>
+            <param name="importDataInfo"></param>
+            <param name="hasImportData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.DataImport.IImportTempletExportProvider">
+            <summary>
+            模板倒出需要实现的接口
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.IImportTempletExportProvider.TempletExport(MB.WinBase.IFace.IViewGridForm)">
+            <summary>
+            模板导出。
+            </summary>
+            <param name="viewForm"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.ImportEngine">
+            <summary>
+             数据导入处理引擎。
+             特别说明：增加这个 引擎 而不直接使用  MB.WinEIDrive.Import.XlsImport  是为了提高功能的扩展性，
+             为以后能导入 .txt 等文件格式做准备。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.ImportEngine.#ctor(System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},DevExpress.XtraGrid.GridControl,MB.WinEIDrive.Import.IImportProvider)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="buiObj"></param>
+            <param name="xtraGrid"></param>
+            <param name="importProvider"></param>
+            <param name="ignoreObjectKey"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.ImportEngine.Commit">
+            <summary>
+            提交数据导出操作。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.ImportEngine.Dispose">
+            <summary>
+            Dispose...
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DefaultAsynCustomQueryView">
+            <summary>
+            异步查询窗口，在ERP主窗体中加载
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynCustomQueryView.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.DefaultAsynCustomQueryView.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynCustomQueryView.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynCustomQueryView.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DefaultAsynQueryViewForm">
+            <summary>
+            查询异步调用分析默认缺省浏览窗口。
+            目前只支持 数据类型是DataSet 的数据分析格式。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.#ctor">
+            <summary>
+            DefaultAsynQueryViewForm
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.#ctor(MB.WinBase.IFace.IAsynClientQueryRule)">
+            <summary>
+            DefaultAsynQueryViewForm
+            </summary>
+            <param name="asynQueryRule"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.gridViewMain_CustomDrawFooterCell(System.Object,DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventArgs)">
+            <summary>
+            普通视图中自动以网格脚中的内容
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.getCustomSummaryColValues(MB.Util.Model.QueryParameterInfo[])">
+            <summary>
+            返回需要自定义的汇总列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.DataImport">
+            <summary>
+            数据导入处理。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.DataExport">
+            <summary>
+            数据导出处理。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.GetCurrentMainGridView(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="mustEditGrid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.grdCtlMain_DoubleClick(System.Object,System.EventArgs)">
+            <summary>
+            双击Grid显示详细
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.ShowDetailForm">
+            <summary>
+            双击grid中的信息，打开详细界面
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.DefaultAsynQueryViewForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultAsynQueryViewForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultLoginForm.OnClickLogin(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <param name="pwd"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.DefaultLoginForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultLoginForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultLoginForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.DefaultLoginForm.VersionNumber">
+            <summary>
+            获取或设置应用程序版本号。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.DefaultLoginForm.GetLinkServerName">
+            <summary>
+            获取连接的服务器名称。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DefaultMdiMainForm">
+            <summary>
+            默认的主窗口编辑界面。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.#ctor(System.String,MB.Util.Model.ModuleTreeNodeInfo[])">
+            <summary>
+            调用默认的主窗口
+            </summary>
+            <param name="systemName"></param>
+            <param name="treeNodes"></param>
+        </member>
+        <!-- 对于成员“M:MB.WinClientDefault.DefaultMdiMainForm.#ctor(System.String,MB.WinClientDefault.UICommand.UICommandExecutor,MB.Util.Model.ModuleTreeNodeInfo[])”忽略有格式错误的 XML 注释 -->
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.GetActiveMdiChildForm">
+            <summary>
+            获取当前活动的窗口。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.ShowUserSetting">
+            <summary>
+            显示用户设置。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.ShowApplicationSetting">
+            <summary>
+             显示系统设置。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.Exit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.SaveMdiLayput">
+            <summary>
+            保存MDI 布局
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.ValidatedColumns(MB.WinBase.IFace.IForm)">
+            <summary>
+            
+            </summary>
+            <param name="activeForm"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.ValidatedEditForm(MB.WinBase.IFace.IForm)">
+            <summary>
+            验证当前活动的编辑窗口。
+            </summary>
+            <param name="activeEditForm"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.DefaultMdiMainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultMdiMainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:MB.WinClientDefault.DefaultMdiMainForm.AfterCreateModuleNode">
+            <summary>
+            创建功能模块节点后产生的事件。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.MdiMainFunctionTreeEventHandle">
+            <summary>
+            主窗口功能模块自定义事件类型定义。
+            </summary>
+            <param name="sender"></param>
+            <param name="arg"></param>
+        </member>
+        <member name="T:MB.WinClientDefault.MdiMainFunctionTreeEventArgs">
+            <summary>
+            主窗口功能模块自定义事件类型参数定义。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.MdiMainFunctionTreeEventArgs.Node">
+            <summary>
+            当前正在创建的节点。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.MdiMainFunctionTreeEventArgs.ModuleNodeInfo">
+            <summary>
+            当前模块的节点信息。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DefaultTreeListViewForm">
+            <summary>
+            树型浏览主界面
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultTreeListViewForm.#ctor">
+            <summary>
+            树型浏览主界面
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultTreeListViewForm.GetCurrentMainGridView(System.Boolean)">
+            <summary>
+            当前数据主浏览控件。
+            </summary>
+            <param name="mustEditGrid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultTreeListViewForm.GetViewDataNavigator">
+            <summary>
+            继承的子类必须继承的方法。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:MB.WinClientDefault.DefaultTreeListViewForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultTreeListViewForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultTreeListViewForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.DefaultTreeListViewForm.ActiveUIType">
+            <summary>
+            当前活动窗口的类型。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DefaultViewForm">
+            <summary>
+            对象浏览窗口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.#ctor(MB.WinBase.IFace.IClientRule)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="clientRuleObject"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.gridViewMain_CustomDrawFooterCell(System.Object,DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventArgs)">
+            <summary>
+            普通视图中自动以网格脚中的内容
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.LoadExtraColumns">
+            <summary>
+            除了客户端配置以外加载额外的列，集成的类可以重写该方法
+            </summary>
+            <returns>返回需要加载的额外列，这里返回一个空字典</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.getTotalPageAndCurrentpage(System.Int32,System.Int32@)">
+            <summary>
+            从消息头,得到 （总共页，当前页）格式以逗号隔开
+            </summary>
+            <param name="recordCount">客户端实际的返回的记录条数</param>
+            <param name="dbRecordCount">数据库实际有的记录条数，如果与recordCount有差别，则证明中间层做了帅选</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.GetViewDataNavigator">
+            <summary>
+            继承的子类必须继承的方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.validatedPageControl(System.Int32,System.Int32)">
+            <summary>
+            验证页面上的控件在刷新数据源以后，是不是需要改变状态
+            </summary>
+            <param name="loadCount">客户端实际的返回的记录条数</param>
+            <param name="dbRecordCount">数据库实际有的记录条数，如果与recordCount有差别，则证明中间层做了帅选</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.getCustomSummaryColValues(MB.Util.Model.QueryParameterInfo[])">
+            <summary>
+            返回需要自定义的汇总列
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:MB.WinClientDefault.DefaultViewForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DefaultViewForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DataImport.IDocDataImportProvider">
+            <summary>
+            客户端业务类扩展导入导出处理类。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DataImport.IDocDataImportProvider.DataImport(MB.WinBase.IFace.IViewGridForm,MB.WinClientDefault.DataImport.DataImportInfo,System.Collections.IList@)">
+            <summary>
+            单据数据导入处理。
+            </summary>
+            <param name="viewForm"></param>
+            <param name="importDataInfo"></param>
+            <param name="hasImportData">>成功导入的数据实体</param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.BusinessOperateTrace">
+            <summary>
+            单据操作状态改变记录跟踪。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.BusinessOperateTrace.#ctor(MB.WinBase.IFace.IClientRuleConfig)">
+            <summary>
+            单据操作状态改变记录跟踪。
+            </summary>
+            <param name="clientRule"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.BusinessOperateTrace.ResetDocEntity(System.Object)">
+            <summary>
+            重新设置实体数据并刷新相应的控制处理。
+            </summary>
+            <param name="entityInfo"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.BusinessOperateTrace.ShowDocOperateTrace(System.String,System.Int32)">
+            <summary>
+            显示单据操作记录
+            </summary>
+            <param name="docType"></param>
+            <param name="docID"></param>
+        </member>
+        <member name="E:MB.WinClientDefault.BusinessOperateTrace.CommandItemClick">
+            <summary>
+            在点击操作菜单项后响应的事件。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.BusinessOperateTrace.CommandMenus">
+            <summary>
+            根据业务类创建的功能菜单项。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.BusinessOperateTrace.BusinessMenuItemsBindings">
+            <summary>
+            当前业务操作对象的公共业务操作菜单项.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper">
+            <summary>
+            关于动态聚组的一些
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.DYNAMIC_CONDITION_UI_XML_CONTENT">
+            <summary>
+            动态聚组框的客户端UI XML
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.DYNAMIC_GROUP_ACTIVE_MSG_ID">
+            <summary>
+            刷新动态聚组条件设置的消息ID
+            用于通知主窗口，动态聚组按钮是否需要点亮的消息控制
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.DYMANIC_GROUP_AGG_TYPE">
+            <summary>
+            用来表示到底是聚合字段还是分组字段
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.DYMANIC_GROUP_COL_SELECTED">
+            <summary>
+            动态聚组条件网格，增加选择框，选择框的字段名
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.#ctor(MB.WinBase.IFace.IClientRuleQueryBase,MB.XWinLib.XtraGrid.GridControlEx)">
+            <summary>
+            构造实例
+            </summary>
+            <param name="clientRuleObject">客户端UI Rule</param>
+            <param name="girdControl">用于显示的Grid Control</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.SaveDynamicGroupSettings(System.Collections.Generic.List{MB.WinClientDefault.DynamicGroup.DynamicGroupUIColumns})">
+            <summary>
+            保存配置信息
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.RestoreDynamicGroupSetting">
+            <summary>
+            恢复汇总列的信息
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.ClearDynamicGroupSetting">
+            <summary>
+            清空汇总列的客户端缓存
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.BindDynamicGroupColumnsToGrid">
+            <summary>
+            把汇总条件绑定到网格上，让用户能自由操作
+            每次动态聚组窗口加载是调用
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.GetDynamicGroupSetting">
+            <summary>
+            根据Grid得到动态聚组的最终结果，用来传递到服务端
+            </summary>
+            <returns>动态聚组设定，用来传递到服务端的</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.GetDynamicGroupSetting(System.Collections.Generic.List{MB.WinClientDefault.DynamicGroup.DynamicGroupUIColumns}@)">
+            <summary>
+            根据Grid得到动态聚组的最终结果，用来传递到服务端
+            </summary>
+            <param name="dyUIColumns">用来保存Grid的当前状态</param>
+            <returns>动态聚组设定，用来传递到服务端的</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.getDynamicSettingSectionName">
+            <summary>
+            根据Rule的全名得到保存在客户端动态聚组配置的sectionName
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIHelper.GetDynamicGroupColumnsFromConfig">
+            <summary>
+            得到动态聚组列的配置信息
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DynamicGroup.DynamicGroupUIColumns">
+            <summary>
+            用于显示当前聚组条件的实体对象
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIColumns.GetOperators(System.String)">
+            <summary>
+            得到聚组条件操作符
+            </summary>
+            <param name="itemType">参数是表明当前聚合字段的数据类型，如String,Int等</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.DynamicGroupUIColumns.GetSummaryItems(System.String)">
+            <summary>
+            得到可选的聚合类型
+            </summary>
+            <param name="itemType">参数是表明当前聚合字段的数据类型，如String,Int等</param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.DynamicGroup.ucDynamicGroupResult">
+            <summary>
+            动态聚组
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.ucDynamicGroupResult.BindDynamicResultQueryResult(System.Data.DataSet,System.String)">
+            <summary>
+            绑定动态聚组查询结果到Grid上
+            </summary>
+            <param name="dataSource"></param>
+            <param name="uiXmlFile"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.DynamicGroup.ucDynamicGroupResult.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.ucDynamicGroupResult.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.ucDynamicGroupResult.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting">
+            <summary>
+            动态聚组，汇总列，分组列，汇总条件设定
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.#ctor(MB.WinBase.IFace.IViewDynamicGroupGridForm,MB.WinBase.IFace.IClientRuleQueryBase)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dynamicGroupViewHost">打开动态聚组窗口的HOST窗口</param>
+            <param name="clientRule">客户端UI RULE</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.#ctor(MB.WinBase.IFace.IViewDynamicGroupGridForm,MB.WinBase.IFace.IClientRuleQueryBase,MB.WinBase.IFace.IQueryFilterForm)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dynamicGroupViewHost">打开动态聚组窗口的HOST窗口</param>
+            <param name="clientRule">客户端UI RULE</param>
+            <param name="filterForm">数据筛选窗口,证明在查询时打开动态聚组窗口</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.XtraFrmDynamicGroupSetting_Load(System.Object,System.EventArgs)">
+            <summary>
+            窗口Load
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.btnSure_Click(System.Object,System.EventArgs)">
+            <summary>
+            确定分组列，汇总列，汇总条件的设置
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.btnClear_Click(System.Object,System.EventArgs)">
+            <summary>
+            清空分组列，包括缓存
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.btnClose_Click(System.Object,System.EventArgs)">
+            <summary>
+            关闭窗口
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.FrmDynamicGroupSetting_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            当Form被关闭的时候触发
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.gridView_ShowingEditor(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            当AGGType为空时，也就是当该列是分组列时，只允许被选中，
+            其他字段不能被编辑
+            </summary>
+            <param name="sender">sender</param>
+            <param name="e">CancelEventArgs</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.GetDynamicGroupSetting">
+            <summary>
+            根据Grid得到动态聚组的最终结果，用来传递到服务端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.DynamicGroup.FrmDynamicGroupSetting.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Extender.AbstractGridEditRule`2">
+            <summary>
+            扩展的实现基于Mdi 子窗口网格编辑界面的业务实现类。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TChannel"></typeparam>
+        </member>
+        <member name="T:MB.WinClientDefault.Extender.IGridViewEditRule">
+            <summary>
+            网格业务类必须要实现的接口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Extender.IGridViewEditRule.CreateDataBinding(DevExpress.XtraGrid.GridControl,System.Collections.IList)">
+            <summary>
+            创建数据绑订
+            </summary>
+            <param name="grdCtl"></param>
+            <param name="dataSource"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Extender.AbstractGridEditRule`2.#ctor(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="mainDataTypeInDoc"></param>
+        </member>
+        <member name="T:MB.WinClientDefault.Extender.AbstractTreeClientRule`2">
+            <summary>
+            基于树型浏览列表显示的主浏览窗口
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TChannel"></typeparam>
+        </member>
+        <member name="T:MB.WinBase.IFace.ITreeListViewHoster">
+            <summary>
+            实现树型列表浏览窗口必须实现的接口。
+            特别说明： 这里为了让所有业务类的数据处理接口都来自  MB.WinBase.IFace
+            这里特别把它的命名空间修改为这里。
+            </summary>
+        </member>
+        <member name="M:MB.WinBase.IFace.ITreeListViewHoster.CreateTreeListViewDataBinding(MB.XWinLib.XtraTreeList.TreeListEx,MB.WinBase.Binding.BindingSourceEx)">
+            <summary>
+            创建树型控件数据绑定。
+            </summary>
+            <param name="treeListCtl"></param>
+            <param name="bindingSource"></param>
+        </member>
+        <member name="M:MB.WinBase.IFace.ITreeListViewHoster.RefreshTreeListData(MB.XWinLib.XtraTreeList.TreeListEx,System.Collections.IList)">
+            <summary>
+            刷新树型控件的数据。
+            </summary>
+            <param name="treeListCtl"></param>
+            <param name="lstData"></param>
+        </member>
+        <member name="M:MB.WinBase.IFace.ITreeListViewHoster.FormatTreeListNode(MB.XWinLib.XtraTreeList.TreeListEx,DevExpress.XtraTreeList.CustomDrawNodeImagesEventArgs)">
+            <summary>
+            格式化树型控件节点。
+            </summary>
+            <param name="treeListCtl"></param>
+            <param name="treeNode"></param>
+        </member>
+        <member name="P:MB.WinBase.IFace.ITreeListViewHoster.TreeViewCfg">
+            <summary>
+            获取树型配置的信息。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Extender.AbstractTreeClientRule`2.#ctor(System.Object)">
+            <summary>
+            创建基于树型列表的主业务类。
+            </summary>
+            <param name="mainDataTypeInDoc"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Extender.AbstractTreeClientRule`2.CreateTreeListViewDataBinding(MB.XWinLib.XtraTreeList.TreeListEx,MB.WinBase.Binding.BindingSourceEx)">
+            <summary>
+            提供树型列表控件的绑定。
+            </summary>
+            <param name="treeListCtl"></param>
+            <param name="bindingSource"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Extender.AbstractTreeClientRule`2.RefreshTreeListData(MB.XWinLib.XtraTreeList.TreeListEx,System.Collections.IList)">
+            <summary>
+            刷新控件的数据。
+            </summary>
+            <param name="treeListCtl"></param>
+            <param name="lstData"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Extender.AbstractTreeClientRule`2.FormatTreeListNode(MB.XWinLib.XtraTreeList.TreeListEx,DevExpress.XtraTreeList.CustomDrawNodeImagesEventArgs)">
+            <summary>
+            格式化树型节点。
+            </summary>
+            <param name="treeListCtl"></param>
+            <param name="treeNode"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.Extender.AbstractTreeClientRule`2.TreeViewCfg">
+            <summary>
+            树型控件的配置信息。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Extender.IViewFormStyleProvider">
+            <summary>
+            网格浏览界面扩展处理接口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Extender.IViewFormStyleProvider.RowCellStyle(MB.WinBase.IFace.IViewGridForm,DevExpress.XtraGrid.Views.Grid.GridView,DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs)">
+            <summary>
+            浏览界面中浏览网格控件的个性化处理。
+            </summary>
+            <param name="gridView"></param>
+            <param name="rowData"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:MB.WinClientDefault.Extender.ViewGridExtenderHelper">
+            <summary>
+            提供网格浏览控件的公共处理方法。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Extender.ViewGridExtenderHelper.CustomDrawRowStyleByDocState(MB.WinBase.IFace.IViewGridForm,DevExpress.XtraGrid.Views.Grid.GridView,DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs)">
+            <summary>
+            通过单据状态绘制 行的状态。
+            </summary>
+            <param name="parentForm"></param>
+            <param name="gridView"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:MB.WinClientDefault.frmDefaultAbout">
+            <summary>
+            应用系统关于窗口。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.frmDefaultAbout.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.frmDefaultAbout.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.frmDefaultAbout.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Images.ImageListHelper">
+            <summary>
+            Image ico 处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Images.ImageListHelper.GetDefaultTreeNodeImage">
+            <summary>
+            获取树型节点的默认图标信息。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Images.ImageListHelper.CreateXCommandsImage">
+            <summary>
+            获取XCommand 命令的图标。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Images.ImageListHelper.GetImageIndexByCommandID(System.ComponentModel.Design.CommandID)">
+            <summary>
+            根据CommandID 获取对应的图标Index.
+            </summary>
+            <param name="commandID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.Images.ImageListHelper.CreateBitmapFromResources(System.String)">
+            <summary>
+            从资源中创建一个位图。
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinClientDefault.Images.ImageListHelper.Instance">
+            <summary>
+            Instance.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Images.ImageInfo`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:MB.WinClientDefault.Menu.MyContextMenuStrip">
+            <summary>
+            自定义扩展右键菜单
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Menu.MyContextMenuStrip.#ctor">
+            <summary>
+            Constructor method
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Menu.MyContextMenuStrip.CreateContextMenu">
+            <summary>
+            Create Menu Method
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Menu.MyContextMenuStrip.OnItemClicked(System.Windows.Forms.ToolStripItemClickedEventArgs)">
+            <summary>
+            Item Click Event
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.Menu.MyContextMenuStrip.ColumnEditCfgInfo">
+            <summary>
+            XML配置项
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Menu.MyContextMenuStrip.ParentControl">
+            <summary>
+            菜单所属控件
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Menu.XFunctionTreeData">
+            <summary>
+            创建Mdi 主菜单需要的数据。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Menu.XtraMenuManager">
+            <summary>
+            XtraMenu 菜单创建公共处理方法。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.Menu.XtraMenuManager.#ctor(MB.WinClientDefault.UICommand.UICommandExecutor,DevExpress.XtraBars.BarManager,DevExpress.XtraBars.Bar,DevExpress.XtraBars.Bar)">
+            <summary>
+            
+            </summary>
+            <param name="commandExecutor"></param>
+            <param name="barManager"></param>
+            <param name="mainMenu"></param>
+            <param name="barTools"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Menu.XtraMenuManager.EnabledToolsMenu(MB.WinBase.IFace.IForm)">
+            <summary>
+            MDI 窗口菜单可操作设置。
+            </summary>
+            <param name="activeForm"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Menu.XtraMenuManager.RefreshToolsButtonItem(MB.Util.Model.ModuleTreeNodeInfo)">
+            <summary>
+            根据创建的命令格式化操作菜单项。
+            </summary>
+            <param name="moduleInfo"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.Menu.XtraMenuManager.CreateDefaultMenu">
+            <summary>
+            创建默认的菜单。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.OfficeAutomation.frmExcelEdit">
+            <summary>
+            打开excel编辑窗口
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.frmExcelEdit.#ctor(MB.WinClientDefault.OfficeAutomation.IExcelEditor)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="excelEdit">实现excel编辑的实体</param>
+        </member>
+        <member name="F:MB.WinClientDefault.OfficeAutomation.frmExcelEdit.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.frmExcelEdit.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.frmExcelEdit.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.OfficeAutomation.frmExcelEdit.SumittedList">
+            <summary>
+            当excel提交以后得到的所有excel的值
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.OfficeAutomation.IExcelEditor">
+            <summary>
+            Excel编辑器需要实现的接口
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.IExcelEditor.OpenExcel">
+            <summary>
+            打开excel,并且返回excelFile的路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.IExcelEditor.Submit">
+            <summary>
+            提交excel中编辑的数据
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1">
+            <summary>
+            在winform中提供的Excel编辑器
+            </summary>
+            <typeparam name="T">需要被编辑的实体</typeparam>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.#ctor(MB.WinBase.IFace.IClientRule,System.Collections.Generic.List{`0},System.String,System.Int32)">
+            <summary>
+            构造函数,使用默认主键：“ID”
+            </summary>
+            <param name="clientRule">客户端Rule</param>
+            <param name="dataSource">客户端数据源</param>
+            <param name="xmlFile">客户端UI Xml</param>
+            <param name="docType">当前编辑的对象类型的值</param>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.#ctor(MB.WinBase.IFace.IClientRule,System.Collections.Generic.List{`0},System.String,System.Int32,System.String[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="clientRule">客户端Rule</param>
+            <param name="dataSource">客户端数据源</param>
+            <param name="xmlFile">客户端UI Xml</param>
+            <param name="docType">当前编辑的对象类型的值</param>
+            <param name="mainKeys">主键的名字</param>
+            <param name="mainKeyValues">主键的值</param>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.OpenExcel">
+            <summary>
+            打开Excel编辑
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.Submit">
+            <summary>
+            提交excel中编辑的数据
+            </summary>
+            <returns>编辑数据的集合</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.createDynamicProperyAccess(System.Type)">
+            <summary>
+            创建动态对象的属性访问器，以便快速的动态访问
+            </summary>
+            <param name="typeObject">对象的类型</param>
+            <returns>属性访问器，以字段存储</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.saveOrignialDataSourceToHashTable(System.Collections.Generic.List{`0})">
+            <summary>
+            把List的每一行都进行hash，用于将来比较该行的值是不是被修改了
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.convertListToDataSet(System.Collections.Generic.List{`0})">
+            <summary>
+            把客户端传入的List转换成DataSet
+            </summary>
+            <param name="dataSource">客户端传入的DataList</param>
+            <returns>返回转换的DataSet</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.generateKeyValueString(System.Object)">
+            <summary>
+            取出数据源中的主键的值,如果主键值为空，则抛出异常
+            </summary>
+            <param name="dataSource">数据源</param>
+            <returns>主键的值</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.generateKeyValueString(System.Object,System.Boolean)">
+            <summary>
+            取出数据源中的主键的值
+            </summary>
+            <param name="dataSource">数据源</param>
+            <param name="raiseExceptionIfMainKeyIsNull">是否要抛出异常</param>
+            <returns>主键值</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.killExcelProcess">
+            <summary>
+            在打开excel前，先要把其他excel进程杀尽
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.findLookUpDataValueByKey(System.Object,System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            通过键值查找LOOK UP EDIT中的值
+            </summary>
+            <param name="key">KEY是TEXT FIELD的值</param>
+            <param name="fieldName">编辑列的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.convertToHasTable(System.Collections.Generic.Dictionary{System.String,MB.WinBase.Common.ColumnEditCfgInfo},System.Boolean)">
+            <summary>
+            把LookUpEdit查询出来的结果转换成HashTable便于查询,第一层的字典键是EditColumn的列名
+            第二层的字典键是：
+            如果把数据源变成EXCEL，需要把ID转换成TEXT则，VALUE是KEY，TEXT是值
+            如果是EXCEL变成数据源，需要把TEXT转换成ID，则TEXT是KEY, VALUE是值
+            </summary>
+            <param name="editColumns">编辑列的配置信息</param>
+            <param name="textMemberIsKey">标志位，指定了在hashTable中到底什么是KEY，什么是值。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.hashDataSource(System.Collections.Generic.List{`0})">
+            <summary>
+            把List的每一行都进行hash，用于将来比较该行的值是不是被修改了
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.computeHash(System.Object)">
+            <summary>
+            计算每个对象的哈希值
+            用于比较对象是否被修改
+            </summary>
+            <param name="obj">需要计算哈希值的对象</param>
+            <returns>计算完的哈希值</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.generateTempXlsFilePath">
+            <summary>
+            生成excel的临时文件
+            </summary>
+            <returns>临时文件的路径,包括文件名</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.formatDataSourceToExcel(System.Data.DataTable)">
+            <summary>
+            处理要变成excel的数据源
+            - 验证主键，把主键列排在列最前
+            - 清除在配置中没有的列
+            - 清除在配置中不显示的列
+            - 把不可见与不能编辑的列记录在缓存中,并且把不可见的列从数据源中清除
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.convertLookUpEditValueToText(System.Data.DataTable)">
+            <summary>
+            把数据源中lookUpEdit的value值转换成text
+            </summary>
+            <param name="dtData">DataTable数据源</param>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.sortByColumnSetting(System.Data.DataTable)">
+            <summary>
+            根据配置进行列排序
+            </summary>
+            <param name="dtData"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.getSubmittedDataFromExcel">
+            <summary>
+            得到要提交的excel数据的哈希
+            对于新的数据，直接放在新的集合对象中
+            其他数据，放在hash表中与编辑前的数据做对比 
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.xlsImport_DataProgress(System.Object,MB.WinEIDrive.Import.ImportProgressEventArgs)">
+            <summary>
+            在excel导入时，对每个Cell做处理的事件订阅
+            </summary>
+            <param name="sender">xlsImport</param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.generateClickButtonWithTextDic(System.Data.DataSet)">
+            <summary>
+            根据配置，从数据源中得到所有ClickButton的列，并把这些列的text值与列名做成字典，方便后面转换
+            </summary>
+            <param name="dsData">从excel中获得的数据源</param>
+            <returns>字典，键是ClickButtonInput的名字，值是所有text的集合</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.covertClickButtonInputTextToValue(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Object}})">
+            <summary>
+            从注册GetClickInputButtonSourceAfterSubmit事件中获取的值
+            </summary>
+            <param name="clickInputButtonColsWithTexts">整理过的clickButtonText字典,键值列名，值是所有text集合</param>
+            <returns>根据texts返回的value</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.fillClickInputButtonValueBackTo(System.Data.DataSet,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Object,System.Data.DataRow}})">
+            <summary>
+            把从注册事件中获取的值，回填到excel导入的数据源中
+            </summary>
+            <param name="dsData"></param>
+            <param name="clickButtonInputColsWithValues"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.copyNonEditPropToSubmittedEntity(`0,`0)">
+            <summary>
+            把那些不能编辑的列
+            </summary>
+            <param name="orignalDataSource">原始数据源</param>
+            <param name="submittedDataSource">EXCEL编辑以后提交的数据源</param>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="E:MB.WinClientDefault.OfficeAutomation.WinformExcelEditor`1.GetClickInputButtonSourceAfterSubmit">
+            <summary>
+            当提交excel数据后，在对ClickInputButton进行赋值的时候触发。
+            注册的事件主要提供clickInputButton的数据源
+            数据源中的字段是根据配置文件中的EditCtlDataMappingInfo中的SourceColumnName字段来决定的
+            需要返回的DataSet中。需要包括全部的SourceColumnName字段
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.OfficeAutomation.GetClickInputButtonSourceAfterSubmitEventArgs">
+            <summary>
+            提交以后，根据ClickInputButton的TextValue得到其他值的事件参数
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.OfficeAutomation.GetClickInputButtonSourceAfterSubmitEventArgs.#ctor(System.String,System.Object[])">
+             <summary>
+            构造函数,
+             </summary>
+             <param name="colName">ClickInputButton的列名</param>
+             <param name="textValues">该列所有text的值的集合</param>
+        </member>
+        <member name="P:MB.WinClientDefault.OfficeAutomation.GetClickInputButtonSourceAfterSubmitEventArgs.ColName">
+            <summary>
+            ClickInputButton的列名
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.OfficeAutomation.GetClickInputButtonSourceAfterSubmitEventArgs.TextValues">
+            <summary>
+            ClickInputButton配置的TextFieldName的值集合
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.BfModlueComment_COMMENT_TYPE1">
+            <summary>
+              Looks up a localized string similar to 一般评语.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.BfModlueComment_COMMENT_TYPE2">
+            <summary>
+              Looks up a localized string similar to 系统 BUG.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.BfModlueComment_COMMENT_TYPE3">
+            <summary>
+              Looks up a localized string similar to 功能缺陷.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.BfModlueComment_COMMENT_TYPE4">
+            <summary>
+              Looks up a localized string similar to 需求建议.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.BfModlueComment_COMMENT_TYPE5">
+            <summary>
+              Looks up a localized string similar to 请求帮助.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.BfModuleComment_COMMENT_TITLE">
+             <summary>
+               Looks up a localized string similar to 作者 {0}   {1}    发表于 {2}  
+            .
+             </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.BfModuleComment_MAX_COMMENT_LENGTH">
+            <summary>
+              Looks up a localized string similar to 当前编辑的评语长度超过 {0} 字节,请重新编辑.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.Properties.Resources.BfModuleComment_MIN_COMMENT_CHECK">
+            <summary>
+              Looks up a localized string similar to 请输入模块评语.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant">
+            <summary>
+            获取数据助手
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant._AfterGetObjectData">
+            <summary>
+             数据选择后产生的事件。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.#ctor(MB.WinBase.IFace.IClientRule)">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.#ctor(System.String,System.String,System.String)">
+            <summary>
+            获取数据助手
+            </summary>
+            <param name="invokeType">包含类和配件信息。如：MB.ERP.BaseLibrary.CWarehouse.UIRule.BfOrgWsUIRule,MB.ERP.BaseLibrary.CWarehouse.dll</param>
+            <param name="method">获取数据的方法</param>
+            <param name="conpar">实例化查询业务类的构造函数。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.GetFilterObjects(System.Int32,System.Collections.Generic.List{MB.Util.Model.QueryParameterInfo})">
+            <summary>
+            根据查询条件获取数据。
+            </summary>
+            <param name="dataInDocType"></param>
+            <param name="filterParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.CreateFilterControl(MB.WinBase.IFace.IClientRuleQueryBase,System.String)">
+            <summary>
+            创建过滤查询的窗口。
+            </summary>
+            <param name="clientRule"></param>
+            <param name="filterCfgName"></param>
+            <returns></returns>
+        </member>
+        <member name="F:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.MAX_SHOW_ROWS">
+            <summary>
+            小助手最大显示的行数
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.QueryObject">
+            <summary>
+            获取过滤数据的对象。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.FilterClientRule">
+            <summary>
+            可户业务端控制类。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.MaxSelectRows">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.CurrentEditObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.InvokeFilterParentFormHoster">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.InvokeParentControl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.HideFilterPane">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.FrmGetObjectDataAssistant.PaneViewType">
+            <summary>
+            控制项 Pane 类型。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.FrmQueryFilterInput">
+            <summary>
+            对象数据查询窗口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmQueryFilterInput.#ctor">
+            <summary>
+            
+            </summary>
+            <param name="clientRule"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmQueryFilterInput.#ctor(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="clientRule"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.QueryFilter.FrmQueryFilterInput._AfterInputQueryParameter">
+            <summary>
+             数据选择后产生的事件。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmQueryFilterInput.cbShowTotalPage_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            是否显示页数的控制器
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmQueryFilterInput.cbQueryAll_CheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            大数据查询激活勾选框
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.QueryFilter.FrmQueryFilterInput.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmQueryFilterInput.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FrmQueryFilterInput.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.ucAdvanceFilterControl">
+            <summary>
+            高级查询控件。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucAdvanceFilterControl.#ctor">
+            <summary>
+            ucAdvanceFilterControl
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucAdvanceFilterControl.IniLoadFilterControl(MB.WinBase.IFace.IViewGridForm)">
+            <summary>
+            创建高级查询控件。  
+            </summary>
+            <param name="viewGridForm"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucAdvanceFilterControl.IniLoadFilterControl(MB.WinBase.IFace.IClientRuleQueryBase,DevExpress.XtraGrid.GridControl)">
+            <summary>
+            创建高级查询控件。     
+            </summary>
+            <param name="viewGridForm"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucAdvanceFilterControl.GetQueryParameters">
+            <summary>
+             自定义的高级查询编辑项。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:MB.WinClientDefault.QueryFilter.ucAdvanceFilterControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucAdvanceFilterControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucAdvanceFilterControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.XGridFilterControl">
+            <summary>
+            自定义的高级查询编辑项。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.XGridFilterControl.GetQueryParameters">
+            <summary>
+            获取当前设置的查询参数。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.QueryParametersEditHelper">
+            <summary>
+            查询参数的编辑辅助类。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.QueryParametersEditHelper.ConvertToFilterCondition(DevExpress.Data.Filtering.BinaryOperatorType,System.Boolean)">
+            <summary>
+            设计条件转换为数据库查询参数条件
+            </summary>
+            <param name="operatorType"></param>
+            <param name="isNot"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.QueryParametersEditHelper.ConvertToParamValue(System.String)">
+            <summary>
+            删除不需要的字符。
+            </summary>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.QueryParametersEditHelper.RemoveSpecName(System.String)">
+            <summary>
+            去掉字段的 [ 和 ] 因为在Oracle 数据库查询中无效
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.FilterTemplateEditHelper">
+            <summary>
+            查询模板存储编辑处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FilterTemplateEditHelper.LoadFilterTemplate">
+            <summary>
+            加载已经保存的查询模板。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FilterTemplateEditHelper.SaveFilterTemplate(System.Collections.Generic.List{MB.WinClientDefault.QueryFilter.FilterTemplateInfo},MB.WinClientDefault.QueryFilter.FilterTemplateInfo)">
+            <summary>
+            模板保存。
+            </summary>
+            <param name="filterTemplates"></param>
+            <param name="newTemplateInfo"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FilterTemplateEditHelper.DeleteFilterTemplate(System.Collections.Generic.List{MB.WinClientDefault.QueryFilter.FilterTemplateInfo})">
+            <summary>
+            删除选择的模板。
+            </summary>
+            <param name="filterTemplates"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.FilterTemplateEditHelper.ClearFilterTemplate(System.Collections.Generic.List{MB.WinClientDefault.QueryFilter.FilterTemplateInfo})">
+            <summary>
+            清楚该模块对应的所有查询模板。
+            </summary>
+            <param name="filterTemplates"></param>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.FilterTemplateInfo">
+            <summary>
+            模板存储的描述信息。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FilterTemplateInfo.TemplateName">
+            <summary>
+            查询模板名称。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FilterTemplateInfo.FilterContent">
+            <summary>
+            查询条件内容。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.FilterTemplateInfo.SaveDateTime">
+            <summary>
+            保存的时间。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.QueryFilter.ucCombineFilterControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucCombineFilterControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucCombineFilterControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.ucDataCheckListView">
+            <summary>
+            浏览数据选择。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataCheckListView.SetDataSource(MB.WinBase.IFace.IClientRuleQueryBase,System.Object)">
+            <summary>
+            设置数据浏览
+            </summary>
+            <param name="clientRule"></param>
+            <param name="dataSource"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataCheckListView.GetSelectRows">
+            <summary>
+             获取当前选择的行。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataCheckListView.GetSelectRowsWithIndex">
+            <summary>
+             获取当前选择的行。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataCheckListView.CheckListViewItem(System.Boolean)">
+            <summary>
+            批量选择当前网格上的数据。
+            </summary>
+            <param name="check"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataCheckListView.gridViewMain_CellValueChanging(System.Object,DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs)">
+            <summary>
+            在多选状态下，保证选中的条数直接生效
+            而不是在移开焦点的时候才生效
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.QueryFilter.ucDataCheckListView.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataCheckListView.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataCheckListView.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.ucDataCheckListView.MultiSelect">
+            <summary>
+            是否可以多选。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.ucDataCheckListView.ColumnEditCfgInfo">
+            <summary>
+            XML配置信息
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.QueryFilter.ucDataTreeListView">
+            <summary>
+            树型浏览列表的数据控件。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataTreeListView.GetSelectRows">
+            <summary>
+             获取当前选择的行。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataTreeListView.SetDataSource(MB.WinBase.IFace.IClientRuleQueryBase,System.Object)">
+            <summary>
+            设置控件数据源。
+            </summary>
+            <param name="clientRule"></param>
+            <param name="dataSource"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.QueryFilter.ucDataTreeListView.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataTreeListView.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucDataTreeListView.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="E:MB.WinClientDefault.QueryFilter.ucDataTreeListView.AfterSelectData">
+            <summary>
+            双击数据后产生的事件。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.ucDataTreeListView.ColumnEditCfgInfo">
+            <summary>
+            XML配置信息
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucFilterCondition.#ctor(MB.WinBase.IFace.IViewGridForm,MB.WinBase.IFace.IClientRuleQueryBase,System.String)">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucFilterCondition.GetPreQueryParameters">
+            <summary>
+            获取已选择的条件。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucFilterCondition.GetQueryParameters">
+            <summary>
+            根据输入的条件获取查询的参数。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucFilterCondition.createChildQueryParameterForMultiValue(MB.Util.Model.QueryParameterInfo)">
+            <summary>
+            为逗号分割的多个值生成子查询参数,以OR连接.用于模糊查询.
+            </summary>
+            <param name="parInfo">原始的查询参数</param>
+        </member>
+        <member name="F:MB.WinClientDefault.QueryFilter.ucFilterCondition.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucFilterCondition.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:MB.WinClientDefault.QueryFilter.ucFilterCondition.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.ucFilterCondition.AllowEmptyFilter">
+            <summary>
+            获取是否可以允许空查询
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.QueryFilter.ucFilterCondition.MinVisibleRows">
+            <summary>
+            最少显示的行数。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.RibbonMdiMainForm">
+            <summary>
+             Ribbon 样式的系统操作主窗口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.#ctor(System.String,MB.Util.Model.ModuleTreeNodeInfo[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.GetActiveMdiChildForm">
+            <summary>
+            获取当前活动的窗口。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.ShowUserSetting">
+            <summary>
+            显示用户设置。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.ShowApplicationSetting">
+            <summary>
+             显示系统设置。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.Exit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.SaveMdiLayput">
+            <summary>
+            保存MDI 布局
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.ValidatedColumns(MB.WinBase.IFace.IForm)">
+            <summary>
+            
+            </summary>
+            <param name="activeForm"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.ValidatedEditForm(MB.WinBase.IFace.IForm)">
+            <summary>
+            验证当前活动的编辑窗口。
+            </summary>
+            <param name="activeEditForm"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.RibbonMdiMainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.RibbonMdiMainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:MB.WinClientDefault.RibbonMdiMainForm.AfterCreateModuleNode">
+            <summary>
+            创建功能模块节点后产生的事件。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.TreeViewList.TreeViewNodesSortingForm.#ctor(DevExpress.XtraTreeList.Nodes.TreeListNode,MB.WinBase.IFace.ITreeListViewHoster)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="parentSortingNode"></param>
+            <param name="treeListHoster"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.TreeViewList.TreeViewNodesSortingForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.TreeViewList.TreeViewNodesSortingForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.TreeViewList.TreeViewNodesSortingForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.UICommand.CommandExecutorBase">
+            <summary>
+            用户UI 操作的基类。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.CommandExecutorBase.#ctor(MB.WinBase.IFace.IMdiMainForm)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="hostMdiMainForm"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.CommandExecutorBase.HostMdiMainForm">
+            <summary>
+            命令集所在的主窗口。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.CommandExecutorBase.CurrentExecParameters">
+            <summary>
+            当前命令执行的参数。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.UICommand.UICommandExecutor">
+            <summary>
+            执行UI command 相关
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.UICommandExecutor.#ctor(MB.WinBase.IFace.IMdiMainForm)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="designerHost"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.UICommandExecutor.ExecCommand(System.ComponentModel.Design.CommandID)">
+            <summary>
+            执行命令
+            </summary>
+            <param name="cmdID"></param>
+        </member>
+        <member name="T:MB.WinClientDefault.UICommand.UICreateHelper">
+            <summary>
+            UICreateHelper：客户端界面创建相关处理函数。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.UICreateHelper.ShowViewGridForm(MB.WinBase.IFace.IMdiMainForm,MB.Util.Model.ModuleTreeNodeInfo)">
+            <summary>
+            创建数据网格浏览界面。
+            </summary>
+            <param name="mdiForm"></param>
+            <param name="nodeInfo"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.UICreateHelper.ShowViewGridForm(MB.WinBase.IFace.IMdiMainForm,MB.Util.Model.ModuleTreeNodeInfo,MB.WinBase.Common.ModuleOpenState)">
+            <summary>
+            创建数据网格浏览界面。
+            </summary>
+            <param name="mdiForm"></param>
+            <param name="nodeInfo"></param>
+            <param name="opennedFrom"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.UICreateHelper.CreateWinForm(MB.WinBase.IFace.IClientRuleQueryBase,MB.Util.Model.ModuleCommandInfo)">
+            <summary>
+            根据指定的模块命令参数 创建Win Form 窗口。
+            </summary>
+            <param name="clientRule">指定的客户端业务类，可以为空。</param>
+            <param name="commandInfo">模块命令参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.UICreateHelper.CreateObjectEditForm(MB.Util.Model.ModuleCommandInfo,MB.WinBase.IFace.IClientRule,MB.WinBase.Common.ObjectEditType,MB.WinBase.Binding.BindingSourceEx)">
+            <summary>
+            根据指定的参数创建对象编辑窗口。
+            </summary>
+            <param name="commandInfo"></param>
+            <param name="clientRuleObject"></param>
+            <param name="editType"></param>
+            <param name="bindingSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.UICreateHelper.CreateQueryFilterForm(MB.Util.Model.ModuleCommandInfo)">
+            <summary>
+             创建查询过滤处理接口。
+            </summary>
+            <param name="commandInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.UICreateHelper.CreateGeneralForm(MB.Util.Model.ModuleCommandInfo)">
+            <summary>
+            创建普通的显示窗口。
+            </summary>
+            <param name="commandInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.UICreateHelper.Instance">
+            <summary>
+            Instance
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.UICommand.CommandGroups">
+            <summary>
+            command 定义。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.UICommand.UICommands">
+            <summary>
+            用户 主要UI 操作Command.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.UICommands.ConvertToCommandID(MB.WinBase.Common.UICommandType)">
+            <summary>
+            把字符转换为CommandID 的格式。
+            </summary>
+            <param name="commandID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.UICommand.XMenuInfo">
+            <summary>
+            菜单项描述信息。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.XMenuInfo.#ctor(System.ComponentModel.Design.CommandID,System.String,System.Int32)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="commandID"></param>
+            <param name="description"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.XMenuInfo.#ctor(System.ComponentModel.Design.CommandID,System.String,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="commandID"></param>
+            <param name="description"></param>
+            <param name="imageIndex"></param>
+            <param name="beginGroup"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.XMenuInfo.#ctor(System.ComponentModel.Design.CommandID,System.String,System.Int32,System.Boolean,System.Int32,System.Windows.Forms.Shortcut)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="commandID"></param>
+            <param name="description"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.UICommand.XMenuInfo.#ctor(System.String,MB.WinClientDefault.UICommand.XMenuInfo[],System.Int32,System.Boolean)">
+            <summary>
+            构造函数.
+            </summary>
+            <param name="description"></param>
+            <param name="childsMenu"></param>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.XMenuInfo.CommandID">
+            <summary>
+            命令标记符。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.XMenuInfo.Description">
+            <summary>
+            命令描述。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.XMenuInfo.ImageIndex">
+            <summary>
+            命令对应的Image .
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.XMenuInfo.BeginGroup">
+            <summary>
+            判断是否从该项开始分组。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.XMenuInfo.Childs">
+            <summary>
+            子菜单。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.XMenuInfo.Index">
+            <summary>
+            顺序。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.XMenuInfo.ShowToCommandBar">
+            <summary>
+            判断是否显示在工具栏在。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.UICommand.XMenuInfo.Shortcut">
+            <summary>
+            菜单short cut.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.VersionAutoUpdate.IVersionDownload">
+            <summary>
+            UI 客户端版本更新需要实现的接口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.IVersionDownload.GetServerPackClientVN">
+            <summary>
+            获取当前版本号。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.IVersionDownload.GetUpdateFileNames(System.Double)">
+            <summary>
+            获取需要更新的文件名称。
+            </summary>
+            <param name="versionNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.IVersionDownload.GetFileBuffer(System.Double,System.String,System.Int64)">
+            <summary>
+            获取需要更新的文件 Byte.
+            </summary>
+            <param name="versionNumber"></param>
+            <param name="fileName"></param>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.WinClientDefault.VersionAutoUpdate.FileDownloadWaitDialog">
+            <summary>
+            版本下载更新等待处理窗口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.FileDownloadWaitDialog.#ctor(MB.WinClientDefault.VersionAutoUpdate.VersionDownloadHelper,MB.WinClientDefault.VersionAutoUpdate.IVersionDownload,System.Collections.Generic.List{MB.Util.Model.VersionUpdateFileInfo})">
+            <summary>
+             版本下载更新等待处理窗口。
+            </summary>
+            <param name="autoUpdate"></param>
+            <param name="forDownloadFiles"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.VersionAutoUpdate.FileDownloadWaitDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.FileDownloadWaitDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.FileDownloadWaitDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:MB.WinClientDefault.VersionAutoUpdate.FileDownloadWaitDialog.ClickCanceled">
+            <summary>
+            线程等待取消后产生的事件。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.VersionAutoUpdate.VersionAutoUpdateHelper">
+            <summary>
+            文件更新辅助类。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.VersionAutoUpdateHelper.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="applicationName"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.VersionAutoUpdateHelper.GetClientVersionNumber">
+            <summary>
+            获取客户端版本信息。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.VersionAutoUpdateHelper.CheckAndUpdateNewVersion">
+            <summary>
+            判断是否存在已经下载完成但未更新的版本，如果存在就更新它。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.VersionAutoUpdateHelper.startNewApplication(System.String,System.String)">
+            启动应用程序。
+        </member>
+        <member name="T:MB.WinClientDefault.VersionAutoUpdate.VersionDownloadHelper">
+            <summary>
+            客户端版本自动更新处理。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.VersionDownloadHelper.NotExistsAutoDownloadCfg">
+            <summary>
+            判断是否版本自动更新配置信息。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.VersionDownloadHelper.#ctor">
+            <summary>
+             客户端版本自动更新处理。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.VersionDownloadHelper.DownloadVersionFileDialog">
+            <summary>
+            判断并显示下载处理窗口。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.VersionDownloadHelper.BeginRunWork">
+            <summary>
+            开始执行线程工作。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.VersionAutoUpdate.VersionDownloadHelper.CheckExistsNewVersion(System.Double@)">
+            <summary>
+            判断是否存在新版本。
+            注意：主版本的发布一定要以整数的形式来发布。
+            </summary>
+            <param name="newNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinClientDefault.VersionAutoUpdate.VersionDownloadHelper.ProcessState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.WaitDialogForm">
+            <summary>
+            数据处理等待窗口...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.WaitDialogForm.#ctor">
+            <summary>
+            数据处理等待窗口...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.WaitDialogForm.#ctor(MB.WinBase.IFace.IWaitDialogFormHoster)">
+            <summary>
+            数据处理等待窗口...
+            </summary>
+            <param name="hosterForm">实现 IWaitDialogFormHoster 接口的调用窗口</param>
+        </member>
+        <member name="M:MB.WinClientDefault.WaitDialogForm.ShowWaitForm(System.Windows.Forms.IWin32Window)">
+            <summary>
+            显示等待窗口。
+            以非模式对话框的形式显示等待窗口。
+            </summary>
+            <param name="parent"></param>
+        </member>
+        <member name="F:MB.WinClientDefault.WaitDialogForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.WaitDialogForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.WaitDialogForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.WaitDialogForm.StatusText">
+            <summary>
+            当前正在处理的内容。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraEfficientBaseEditForm._ClientRuleObject">
+            <summary>
+            UI 层客户操作业务类。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraEfficientBaseEditForm._CurrentEditType">
+            <summary>
+            当前业务对象的编辑类型， 当前编辑类型是根据用户的操作而发生变化的。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraEfficientBaseEditForm._MainGridBindingSource">
+            <summary>
+            当前编辑窗口数据绑定 bindingSource;
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraEfficientBaseEditForm._EditColumnCtlBinding">
+            <summary>
+            XML 配置列和编辑控件的绑定关系
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraEfficientBaseEditForm._BeforeSaveDetailEntityCache">
+            <summary>
+            当前窗口正在编辑的单据对象明细数据
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.#ctor(MB.WinBase.IFace.IClientRule,MB.WinBase.Common.ObjectEditType,MB.WinBase.Binding.BindingSourceEx)">
+            <summary>
+            创建基于Xtra工具栏的默认标准编辑窗口.
+            </summary>
+            <param name="clientRuleObject"></param>
+            <param name="editType"></param>
+            <param name="mainViewGrid"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm._BusinessOperateTrace_CommandItemClick(System.Object,MB.WinClientDefault.Common.EditDocStateTraceEventArgs)">
+            <summary>
+            扩展功能菜单中通用业务操作时相应的事件。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.reloadEditBindingSource">
+            <summary>
+            由于数据源分离，重新加载编辑的数据源
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.OnAfterRefreshButtonItem">
+            <summary>
+            根据模块信息刷新工具栏菜单项。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.SetExtendToolStripButtonMenu(System.Windows.Forms.ContextMenuStrip)">
+            <summary>
+            设置扩展菜单的弹出窗口。
+            一定要在继承的子类窗口 Form_Load 事件中调用。
+            </summary>
+            <param name="cMenu"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.OnCurrentMainEditEntity_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            在主编辑对象属性值发生改变时产生。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.OnBindingSourcePositionChanged">
+            <summary>
+             在绑定的数据源的焦点行 发生改变后产生。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.OnToolsButtonValidate">
+            <summary>
+            根据当前实体的状态控制工具拦的状态。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.OnDocStateChanged(System.Object,MB.Util.Model.DocState)">
+            <summary>
+             在单据状态发生时产生。
+            </summary>
+            <param name="mainEntity"></param>
+            <param name="docState"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.ObjectDataSave(System.Object,System.String[])">
+            <summary>
+             对象数据保存。
+            </summary>
+            <param name="editEntity"></param>
+            <param name="propertys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.AcceptDataChanged(System.Boolean)">
+            <summary>
+            接受数据改变
+            </summary>
+            <param name="refreshMainEntity">判断是否刷新主体数据</param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.ObjectSubmit(System.Boolean)">
+            <summary>
+            对象提交处理。
+            </summary>
+            <param name="isSubmit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.AddNew">
+            <summary>
+            创建一个新的实体对象。
+            如果需要覆盖，别忘了添加base.AddNew();
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.Cancel">
+            <summary>
+            撤消新增。
+             如果存在明细表，继承的子类需要覆盖该方法，进行相应的其它处理后再调用 base.Cancel()
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.Save">
+            <summary>
+            把实体对象保存在中间层缓存中。
+            如果存在明细表，继承的子类需要覆盖该方法，进行相应的其它处理后再调用 base.Save()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.Delete">
+            <summary>
+            从中间层缓存中删除实体对象。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.Submit">
+            <summary>
+            数据提交。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.CancelSubmit">
+            <summary>
+            取消提交。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.Flush">
+            <summary>
+            数据永久性保存。(保留方法)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.moveFocusPosition(MB.WinClientDefault.GridDataRowMoveType)">
+            <summary>
+            在绑定的数据源的焦点行 发生改变前时产生。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraEfficientBaseEditForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraEfficientBaseEditForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.EditColumnCtlBinding">
+            <summary>
+            获取当前窗口对象创建的所有绑定控件.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.GeneralCommands">
+            <summary>
+            获取当前窗口的单据常规操作菜单项(增加\删除\保存\重做\提交)
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.BusinessOperateTrace">
+            <summary>
+            单据业务状态改变操作对象。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.BeforeSaveDetailEntityCache">
+            <summary>
+            当前编辑的单据明细数据集合。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.MainBindingGridView">
+            <summary>
+            浏览窗口编辑主控件。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.CurrentEditType">
+            <summary>
+            当前操作类型。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.CurrentEditEntity">
+            <summary>
+            当前编辑的主实体对象。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.BindingSource">
+            <summary>
+            数据绑定。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.DataBindingProvider">
+            <summary>
+            数据源绑定
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.ClientRuleObject">
+            <summary>
+            客户端业务类。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraEfficientBaseEditForm.ActiveUIType">
+            <summary>
+            实体对象编辑窗口。
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.XtraGridViewEditForm">
+            <summary>
+            基于MDI 子窗口的网格编辑窗口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraGridViewEditForm.#ctor">
+            <summary>
+            创建基于MDI 子窗口的网格编辑窗口
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraGridViewEditForm.ClearUnSaveData">
+            <summary>
+            清除没有保存的数据
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraGridViewEditForm.GetViewDataNavigator">
+            <summary>
+            继承的子类必须继承的方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraGridViewEditForm.GetTotalPageAndCurrentpage(System.Int32)">
+            <summary>
+            得到 （总共页，当前页）格式以逗号隔开
+            </summary>
+            <param name="queryRowCount">当前数据源查出来的数据条数</param>
+            <returns></returns>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraGridViewEditForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraGridViewEditForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraGridViewEditForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.XtraRibbonMdiMainForm">
+            <summary>
+             Ribbon 样式的系统操作主窗口。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraRibbonMdiMainForm.Active_Mdi_Form">
+            <summary>
+            当前活动的MDI 主窗口
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraRibbonMdiMainForm.ACTIVE_LINK_SERVER">
+            <summary>
+            当前连接的服务器。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.#ctor">
+            <summary>
+             Ribbon 样式的系统操作主窗口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.recordUserActivity(MB.Util.Model.ModuleTreeNodeInfo)">
+            <summary>
+            记录用户当前操作的模块信息
+            </summary>
+            <param name="nodeInfo"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.ValidatedCommandButton(DevExpress.XtraBars.BarButtonItem)">
+            <summary>
+            权限控制处理相关.
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.ValidatedColumns(MB.WinBase.IFace.IForm)">
+            <summary>
+            验证对象网格浏览列表中的列信息。
+            </summary>
+            <param name="activeForm"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.ValidatedEditForm(MB.WinBase.IFace.IForm)">
+            <summary>
+            验证当前活动的编辑窗口。
+            </summary>
+            <param name="activeEditForm"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.IniCreateModuleTree">
+            <summary>
+            初始化功能模块树。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.GetActiveMdiChildForm">
+            <summary>
+            获取当前活动的窗口。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.ShowUserSetting">
+            <summary>
+            显示用户设置。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.ShowApplicationSetting">
+            <summary>
+             显示系统设置。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.Exit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.SaveMdiLayput">
+            <summary>
+            保存MDI 布局
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.SelectModule(System.String)">
+            <summary>
+            子类可以通过传入的模块查询文字moduleSearchText，去做任何扩展，最后选定某一个模块
+            </summary>
+            <param name="moduleSearchText"></param>
+            <returns>返回模块编码CODE</returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.OpenFunctionModule(System.String)">
+            <summary>
+            根据输入的模块编码打开功能模块。
+            </summary>
+            <param name="moduleCode"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.ShowWorkFlowDesign">
+            <summary>
+            显示功能流程图设计窗口。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.ShowWorkFlow">
+            <summary>
+            显示功能流程图。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.OpenFunctionModuleById(System.Int32)">
+            <summary>
+            通过模块ID打开模块
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.OpenFunctionModuleById(System.Int32,MB.WinBase.Common.ModuleOpenState)">
+            <summary>
+            通过模块ID打开模块
+            </summary>
+            <param name="id"></param>
+            <param name="opennedFrom"></param>
+            <param name="openState">调用者自定义的参数</param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.barButItemFavoritesSet_ItemClick(System.Object,DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            整理收藏夹
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.IniCreateFavoritesTree">
+            <summary>
+            初始化功能模块树。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraRibbonMdiMainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraRibbonMdiMainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:MB.WinClientDefault.XtraRibbonMdiMainForm.AfterCreateModuleNode">
+            <summary>
+            创建功能模块节点后产生的事件。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraRibbonMdiMainForm.AllCreateMenuItems">
+            <summary>
+            当前活动主窗口创建的所有菜单项.
+            </summary>
+        </member>
+        <member name="T:MB.WinClientDefault.XtraAbstractEditBaseForm">
+            <summary>
+            基于Xtra工具栏的默认标准编辑窗口.
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraAbstractEditBaseForm._ClientRuleObject">
+            <summary>
+            UI 层客户操作业务类。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraAbstractEditBaseForm._CurrentEditType">
+            <summary>
+            当前业务对象的编辑类型， 当前编辑类型是根据用户的操作而发生变化的。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraAbstractEditBaseForm._BindingSource">
+            <summary>
+            当前编辑窗口数据绑定 bindingSource;
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraAbstractEditBaseForm._EditColumnCtlBinding">
+            <summary>
+            XML 配置列和编辑控件的绑定关系
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraAbstractEditBaseForm._BeforeSaveDetailEntityCache">
+            <summary>
+            当前窗口正在编辑的单据对象明细数据
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraAbstractEditBaseForm._previousMainEntity">
+            <summary>
+            前一次实体
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraAbstractEditBaseForm._previousDocState">
+            <summary>
+            前一次绑定实体的单据状态
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.#ctor(MB.WinBase.IFace.IClientRule,MB.WinBase.Common.ObjectEditType,MB.WinBase.Binding.BindingSourceEx)">
+            <summary>
+            创建基于Xtra工具栏的默认标准编辑窗口.
+            </summary>
+            <param name="clientRuleObject"></param>
+            <param name="editType"></param>
+            <param name="mainViewGrid"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm._BusinessOperateTrace_CommandItemClick(System.Object,MB.WinClientDefault.Common.EditDocStateTraceEventArgs)">
+            <summary>
+            扩展功能菜单中通用业务操作时相应的事件。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.SetControlsDisplayFormat">
+            <summary>
+            设置UI控件显示格式
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.FindControlByFieldName(System.Collections.Generic.List{System.String})">
+            <summary>
+            查找字段对应的编辑控件
+            </summary>
+            <param name="fieldNameList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.OnAfterRefreshButtonItem">
+            <summary>
+            根据模块信息刷新工具栏菜单项。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.SetExtendToolStripButtonMenu(System.Windows.Forms.ContextMenuStrip)">
+            <summary>
+            设置扩展菜单的弹出窗口。
+            一定要在继承的子类窗口 Form_Load 事件中调用。
+            </summary>
+            <param name="cMenu"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.OnCurrentMainEditEntity_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            在主编辑对象属性值发生改变时产生。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.OnBindingSourcePositionChanged">
+            <summary>
+             在绑定的数据源的焦点行 发生改变后产生。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.OnBeforeRefreshButtonItemIfEntityOrDocStateChanged(System.Boolean)">
+            <summary>
+            当执行OnToolsButtonValidate具体逻辑前，会触发该方法
+            但是该方法不会每次都被触发，只会在侦测到当前对象发生改变，或者当前对象的DocState发生改变时被触发
+            这个方法的目的是为了在继承类重写OnToolsButtonValidate，有一些消耗性能的逻辑其实只要做一次，比如从中间层取出特殊权限等
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.OnToolsButtonValidate">
+            <summary>
+            根据当前实体的状态控制工具拦的状态。
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.OnDocStateChanged(System.Object,MB.Util.Model.DocState)">
+            <summary>
+             在单据状态发生时产生。
+            </summary>
+            <param name="mainEntity"></param>
+            <param name="docState"></param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.ObjectDataSave(System.Object,System.String[])">
+            <summary>
+             对象数据保存。
+            </summary>
+            <param name="editEntity"></param>
+            <param name="propertys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.AcceptDataChanged(System.Boolean)">
+            <summary>
+            接受数据改变
+            </summary>
+            <param name="refreshMainEntity">判断是否刷新主体数据</param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.ObjectSubmit(System.Boolean)">
+            <summary>
+            对象提交处理。
+            </summary>
+            <param name="isSubmit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.AddNew">
+            <summary>
+            创建一个新的实体对象。
+            如果需要覆盖，别忘了添加base.AddNew();
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.Cancel">
+            <summary>
+            撤消新增。
+             如果存在明细表，继承的子类需要覆盖该方法，进行相应的其它处理后再调用 base.Cancel()
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.Save">
+            <summary>
+            把实体对象保存在中间层缓存中。
+            如果存在明细表，继承的子类需要覆盖该方法，进行相应的其它处理后再调用 base.Save()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.Delete">
+            <summary>
+            从中间层缓存中删除实体对象。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.Submit">
+            <summary>
+            
+            数据提交。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.CancelSubmit">
+            <summary>
+            取消提交。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.Flush">
+            <summary>
+            数据永久性保存。(保留方法)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.moveFocusPosition(MB.WinClientDefault.GridDataRowMoveType)">
+            <summary>
+            在绑定的数据源的焦点行 发生改变前时产生。
+            </summary>
+        </member>
+        <member name="F:MB.WinClientDefault.XtraAbstractEditBaseForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinClientDefault.XtraAbstractEditBaseForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.EditColumnCtlBinding">
+            <summary>
+            获取当前窗口对象创建的所有绑定控件.
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.GeneralCommands">
+            <summary>
+            获取当前窗口的单据常规操作菜单项(增加\删除\保存\重做\提交)
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.BusinessOperateTrace">
+            <summary>
+            单据业务状态改变操作对象。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.BeforeSaveDetailEntityCache">
+            <summary>
+            当前编辑的单据明细数据集合。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.MainBindingGridView">
+            <summary>
+            浏览窗口编辑主控件。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.CurrentEditType">
+            <summary>
+            当前操作类型。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.CurrentEditEntity">
+            <summary>
+            当前编辑的主实体对象。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.BindingSource">
+            <summary>
+            数据绑定。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.DataBindingProvider">
+            <summary>
+            数据源绑定
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.ClientRuleObject">
+            <summary>
+            客户端业务类。
+            </summary>
+        </member>
+        <member name="P:MB.WinClientDefault.XtraAbstractEditBaseForm.ActiveUIType">
+            <summary>
+            实体对象编辑窗口。
+            </summary>
+        </member>
+    </members>
+</doc>

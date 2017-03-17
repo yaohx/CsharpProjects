@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F5D42A6-5E4E-4322-9DD8-CC367952F47B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WinTestProject</RootNamespace>
+    <AssemblyName>WinTestProject</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignManifests>false</SignManifests>
+    <SignAssembly>false</SignAssembly>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>E:\Nick\WorkRoom\MB.BaseFrame\ExportBin\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.2.8.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.Data.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.OfficeSkins.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.OfficeSkins.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.Utils.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraBars.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraEditors.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraGrid.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraLayout.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraTreeList.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.managementconsole, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Reference Assemblies\Microsoft\mmc\v3.0\microsoft.managementconsole.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\EntLib41Src\bin\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\EntLib41Src\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\EntLib41Src\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.3.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Oracle\odp.net\bin\4\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Presentation">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Atts\AttributeConfigHelper.cs" />
+    <Compile Include="Atts\EditControlTypeAttribute.cs" />
+    <Compile Include="Atts\RuleClientLayoutAttribute.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExcelViewTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExcelViewTest.Designer.cs">
+      <DependentUpon>frmExcelViewTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuickConfigModuleInvoke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuickConfigModuleInvoke.Designer.cs">
+      <DependentUpon>frmQuickConfigModuleInvoke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestAopInvoke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestAopInvoke.Designer.cs">
+      <DependentUpon>frmTestAopInvoke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestAsynCall.cs" />
+    <Compile Include="frmTestAsynCall.Designer.cs">
+      <DependentUpon>frmTestAsynCall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestDatabase.Designer.cs">
+      <DependentUpon>frmTestDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestDataSerializer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestDataSerializer.Designer.cs">
+      <DependentUpon>frmTestDataSerializer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestDateFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestDateFilter.Designer.cs">
+      <DependentUpon>frmTestDateFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestDbPictureBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestDbPictureBox.Designer.cs">
+      <DependentUpon>frmTestDbPictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestDiyReportPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestDiyReportPrint.Designer.cs">
+      <DependentUpon>frmTestDiyReportPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestEditColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestEditColor.Designer.cs">
+      <DependentUpon>frmTestEditColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestExcelImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestExcelImport.Designer.cs">
+      <DependentUpon>frmTestExcelImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestGridLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestGridLayout.Designer.cs">
+      <DependentUpon>frmTestGridLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmtesthastable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmtesthastable.Designer.cs">
+      <DependentUpon>frmtesthastable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestImageFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestImageFiles.Designer.cs">
+      <DependentUpon>frmTestImageFiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestImageIcoEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestImageIcoEdit.Designer.cs">
+      <DependentUpon>frmTestImageIcoEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestMain.Designer.cs">
+      <DependentUpon>frmTestMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestBulkInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestBulkInsert.Designer.cs">
+      <DependentUpon>frmTestBulkInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestMultiThreadInvoke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestMultiThreadInvoke.Designer.cs">
+      <DependentUpon>frmTestMultiThreadInvoke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestMySql.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestMySql.Designer.cs">
+      <DependentUpon>frmTestMySql.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestOracleODP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestOracleODP.Designer.cs">
+      <DependentUpon>frmTestOracleODP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestOracleScalar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestOracleScalar.Designer.cs">
+      <DependentUpon>frmTestOracleScalar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestOracleTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestOracleTransaction.Designer.cs">
+      <DependentUpon>frmTestOracleTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestReadFetchcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestReadFetchcs.Designer.cs">
+      <DependentUpon>frmTestReadFetchcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestReflectionEmit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestReflectionEmit.Designer.cs">
+      <DependentUpon>frmTestReflectionEmit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestSqlite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestSqlite.Designer.cs">
+      <DependentUpon>frmTestSqlite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestStyleImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestStyleImage.Designer.cs">
+      <DependentUpon>frmTestStyleImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestTreeViewDataBinding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestTreeViewDataBinding.Designer.cs">
+      <DependentUpon>frmTestTreeViewDataBinding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmtestWcfInvoke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmtestWcfInvoke.Designer.cs">
+      <DependentUpon>frmtestWcfInvoke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestXmlSql.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestXmlSql.Designer.cs">
+      <DependentUpon>frmTestXmlSql.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestXtraGridGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestXtraGridGroup.Designer.cs">
+      <DependentUpon>frmTestXtraGridGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="myEditForm.cs" />
+    <Compile Include="myEditForm.Designer.cs">
+      <DependentUpon>myEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExcelViewTest.resx">
+      <DependentUpon>frmExcelViewTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuickConfigModuleInvoke.resx">
+      <DependentUpon>frmQuickConfigModuleInvoke.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestAopInvoke.resx">
+      <DependentUpon>frmTestAopInvoke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestAsynCall.resx">
+      <DependentUpon>frmTestAsynCall.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestDatabase.resx">
+      <DependentUpon>frmTestDatabase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestDataSerializer.resx">
+      <DependentUpon>frmTestDataSerializer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestDateFilter.resx">
+      <DependentUpon>frmTestDateFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestDbPictureBox.resx">
+      <DependentUpon>frmTestDbPictureBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestDiyReportPrint.resx">
+      <DependentUpon>frmTestDiyReportPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestEditColor.resx">
+      <DependentUpon>frmTestEditColor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestExcelImport.resx">
+      <DependentUpon>frmTestExcelImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestGridLayout.resx">
+      <DependentUpon>frmTestGridLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmtesthastable.resx">
+      <DependentUpon>frmtesthastable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestImageFiles.resx">
+      <DependentUpon>frmTestImageFiles.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestImageIcoEdit.resx">
+      <DependentUpon>frmTestImageIcoEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestMain.resx">
+      <DependentUpon>frmTestMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestBulkInsert.resx">
+      <DependentUpon>frmTestBulkInsert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestMultiThreadInvoke.resx">
+      <DependentUpon>frmTestMultiThreadInvoke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestMySql.resx">
+      <DependentUpon>frmTestMySql.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestOracleODP.resx">
+      <DependentUpon>frmTestOracleODP.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestOracleScalar.resx">
+      <DependentUpon>frmTestOracleScalar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestOracleTransaction.resx">
+      <DependentUpon>frmTestOracleTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestReadFetchcs.resx">
+      <DependentUpon>frmTestReadFetchcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestReflectionEmit.resx">
+      <DependentUpon>frmTestReflectionEmit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestSqlite.resx">
+      <DependentUpon>frmTestSqlite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestStyleImage.resx">
+      <DependentUpon>frmTestStyleImage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestTreeViewDataBinding.resx">
+      <DependentUpon>frmTestTreeViewDataBinding.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmtestWcfInvoke.resx">
+      <DependentUpon>frmtestWcfInvoke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestXmlSql.resx">
+      <DependentUpon>frmTestXmlSql.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestXtraGridGroup.resx">
+      <DependentUpon>frmTestXtraGridGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="myEditForm.resx">
+      <DependentUpon>myEditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testBandGridView.resx">
+      <DependentUpon>testBandGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testEmit.resx">
+      <DependentUpon>testEmit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testHViewDataConvert.resx">
+      <DependentUpon>testHViewDataConvert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testLightweightTextSerializer.resx">
+      <DependentUpon>testLightweightTextSerializer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testXtraGrid.resx">
+      <DependentUpon>testXtraGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="testXtraGridButtonClick.resx">
+      <DependentUpon>testXtraGridButtonClick.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xtraForm2.resx">
+      <DependentUpon>xtraForm2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="testBandGridView.cs" />
+    <Compile Include="testBandGridView.Designer.cs">
+      <DependentUpon>testBandGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testEmit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testEmit.Designer.cs">
+      <DependentUpon>testEmit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testHViewDataConvert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testHViewDataConvert.Designer.cs">
+      <DependentUpon>testHViewDataConvert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testLightweightTextSerializer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testLightweightTextSerializer.Designer.cs">
+      <DependentUpon>testLightweightTextSerializer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testXtraGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testXtraGrid.Designer.cs">
+      <DependentUpon>testXtraGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="testXtraGridButtonClick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testXtraGridButtonClick.Designer.cs">
+      <DependentUpon>testXtraGridButtonClick.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraForm1.cs" />
+    <Compile Include="XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xtraForm2.cs" />
+    <Compile Include="xtraForm2.Designer.cs">
+      <DependentUpon>xtraForm2.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MB.AOP\MB.Aop.csproj">
+      <Project>{E2BCA5C3-C382-4955-8C82-8C492DBE5D81}</Project>
+      <Name>MB.Aop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.Localization\MB.Localization.csproj">
+      <Project>{8774D674-2628-4033-B419-A2FD22EE89B7}</Project>
+      <Name>MB.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.ORM\MB.Orm.csproj">
+      <Project>{FE88EAB8-F521-4407-9CCF-352FA11E8DFE}</Project>
+      <Name>MB.Orm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.RuleBase\MB.RuleBase.csproj">
+      <Project>{BDD9AC94-DE17-423A-B8B5-20E4F2276A96}</Project>
+      <Name>MB.RuleBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.Util\MB.Util.csproj">
+      <Project>{C69057E7-BEF9-4618-8FAA-B9E9D6B069B0}</Project>
+      <Name>MB.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WcfServiceLocator\MB.WcfServiceLocator.csproj">
+      <Project>{81FE14D0-DA11-472F-AAE6-489A4239A9B9}</Project>
+      <Name>MB.WcfServiceLocator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WinBase\MB.WinBase.csproj">
+      <Project>{136BE8E8-38D6-42AA-8127-D38609758A0B}</Project>
+      <Name>MB.WinBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WinChart\MB.WinChart.csproj">
+      <Project>{E33F16E0-021E-40A9-84DC-2631F743EE79}</Project>
+      <Name>MB.WinChart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WinClientDefault\MB.WinClientDefault.csproj">
+      <Project>{27A7888C-BC3D-4D89-888A-33FB898DAA2B}</Project>
+      <Name>MB.WinClientDefault</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WinDevexpressEx\MB.XWinLib.csproj">
+      <Project>{240CAE7B-156E-43F4-BE31-396570725F00}</Project>
+      <Name>MB.XWinLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WinEIDrive\MB.WinEIDrive.csproj">
+      <Project>{8B0A81C0-617B-44BC-8D84-6DF96D89094D}</Project>
+      <Name>MB.WinEIDrive</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WinOfficeAutomation\MB.WinOfficeAutomation.csproj">
+      <Project>{D9F1E2E3-4960-4064-B091-66440DBE90C6}</Project>
+      <Name>MB.WinOfficeAutomation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.WinPrintReport\MB.WinPrintReport.csproj">
+      <Project>{07296DE9-CCDE-4497-BF02-4AFD1AC64B97}</Project>
+      <Name>MB.WinPrintReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigFile\AgentFlowDataProvider.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\testAdvBandGridView.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\FrmSummaryTest.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\Fuc.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\Icon1.ico" />
+    <Content Include="ConfigFile\MbfsFuc.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\MbfsFucDtl.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\MY_TABLE_MAIN.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ConfigFile\TestColor.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\testHViewDataConvert.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\TestMySqlDB.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\TestOracleTransaction.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ConfigFile\TestSqliteDb.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConfigFile\TreeListViewBinding.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

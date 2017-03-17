@@ -1,0 +1,12 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WcfServiceLocator.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WcfServiceLocator.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WcfServiceLocator\obj\Debug\MB.WcfServiceLocator.csprojResolveAssemblyReference.cache
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WcfServiceLocator\obj\Debug\MB.WcfServiceLocator.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WcfServiceLocator\obj\Debug\MB.WcfServiceLocator.pdb
+D:\MB\MB.BaseFrame\ExportBin\MB.WcfServiceLocator.dll
+D:\MB\MB.BaseFrame\ExportBin\MB.WcfServiceLocator.pdb
+D:\MB\MB.BaseFrame\MB.WcfServiceLocator\obj\Debug\MB.WcfServiceLocator.csprojResolveAssemblyReference.cache
+D:\MB\MB.BaseFrame\MB.WcfServiceLocator\obj\Debug\MB.WcfServiceLocator.dll
+D:\MB\MB.BaseFrame\MB.WcfServiceLocator\obj\Debug\MB.WcfServiceLocator.pdb
+D:\MB\ERP\Bin\MB.WcfServiceLocator.dll
+D:\MB\ERP\Bin\MB.WcfServiceLocator.pdb

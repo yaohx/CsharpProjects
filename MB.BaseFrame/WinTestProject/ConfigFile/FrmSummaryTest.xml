@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--   XML 文件生成时间 2012-12-06 02:23  -->
+<Entity>
+  <Columns>
+    <Column Name = "ID" Description = "内码" DataType = "System.Int32" IsKey = "True" IsNull = "True"  Visibled = "False" CanEdit = "False" VisibleWidth = "100" />
+    <Column Name = "CODE" Description = "编号" DataType = "System.String" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" />
+    <Column Name = "DOC_STATE" Description = "进度" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" />
+    <Column Name = "PRICE" Description = "单价" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" />
+    <Column Name = "NUMBER" Description = "数量" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" />
+  </Columns>
+  <GridViews>
+    <GridViewLayout Name="DefaultGridView">
+      <Column Name="LAST_MODIFIED_DATE">
+        <DisplayFormat>
+          <FormatString>yyyy-MM-dd HH:mm:ss</FormatString>
+          <FormatType>DateTime</FormatType>
+        </DisplayFormat>
+      </Column>
+    </GridViewLayout>
+  </GridViews>
+  <EditUI>
+    <Column Name="BF_ORG_CODE">
+      <EditControlType>ClickButtonInput</EditControlType>
+      <TextFieldName>CODE</TextFieldName>
+      <InvokeDataSourceDesc Type="MB.ERP.BaseLibrary.COrganization.UIRule.BfOrgUIRule,MB.ERP.BaseLibrary.COrganization.dll" Method="GetOrgEntity" />
+      <FilterCfgName></FilterCfgName>
+      <HideFilterPane>False</HideFilterPane>
+      <EditCtlDataMappings>
+        <EditCtlDataMappingInfo ColumnName = "BF_ORG_ID" SourceColumnName = "ID" />
+        <EditCtlDataMappingInfo ColumnName = "BF_ORG_CODE" SourceColumnName = "CODE" />
+        <EditCtlDataMappingInfo ColumnName = "BF_ORG_NAME" SourceColumnName = "NAME" />
+      </EditCtlDataMappings>
+    </Column>
+  </EditUI>
+  <DataFilter >
+    <!-- 主表基本项过滤 如果 EditControlType 将根据EditUI 的配置和默认设置进行创建-->
+    <!--FilterCondition  枚举类型 MB.Util.DataFilterConditions 内的所有成员都可以配置。默认是Include（包含）  -->
+    <!--LimitColumn 默认为false 设置为true ，那么该列的值只在业务类中处理，不做为拼接的SQL语句发送给数据库服务器 -->
+    <Elements Name="MainDataFilter" AllowEmptyFilter="true">
+      <Element Name="CODE" FilterCondition="Equal" LimitColumn="False" />
+    </Elements>
+  </DataFilter>
+  <!--客户端对象汇总的配置-->
+  <Summary>
+    <!--汇总列的配置 -->
+    <!--Name - 属性需要与Column节点属性Name完全一致 -->
+    <!--IsSummaryCondition - 表示该列是汇总条件列，会显示到下啦列表中。 -->
+    <!--IsSummaryItem - 表示该列是汇总列。 -->
+    <!--SummaryItemType - IsSummaryItem=True的时候使用。这个信息可以从ColumnPropertyInfo继承。如果没有设置，则继承，如果设置了，则覆盖。汇总类型有Average，Count，Max，Min，Sum -->
+    <!--IncludeSummaryColumns - 只有当IsSummaryCondition=True的时候使用，表示那些列在这个条件下需要汇总 -->
+    <Column Name = "CODE" IsSummaryCondition = "True" IsSummaryItem = "False" SummaryItemType = "None" IncludeSummaryColumns = "PRICE,NUMBER">
+      <!--IncludeGroupByColumns - 只有当IsSummaryCondition=True的时候使用，表示那些列是分组条件 -->
+      <IncludeGroupByColumns>
+        <!--SubString - 在分组前可以对列进行截断处理 -->
+        <GroupByColumn Name="CODE" SubString="0,5"></GroupByColumn>
+        <GroupByColumn Name="DOC_STATE"></GroupByColumn>
+      </IncludeGroupByColumns>
+    </Column>
+
+    <Column Name = "DOC_STATE" IsSummaryCondition = "True" IsSummaryItem = "False" SummaryItemType = "None" IncludeSummaryColumns = "PRICE"  >
+      <IncludeGroupByColumns>
+        <GroupByColumn Name="DOC_STATE"></GroupByColumn>
+      </IncludeGroupByColumns>
+    </Column>
+
+    <Column Name = "PRICE"  IsSummaryCondition = "False" IsSummaryItem = "True" SummaryItemType = "Sum"  />
+    <Column Name = "NUMBER" IsSummaryCondition = "False" IsSummaryItem = "True" SummaryItemType = "Sum"  />
+  </Summary>
+</Entity>

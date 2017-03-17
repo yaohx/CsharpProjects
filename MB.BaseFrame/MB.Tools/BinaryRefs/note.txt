@@ -1,0 +1,6 @@
+﻿Microsoft.Practices.EnterpriseLibrary.Data.dll 是一个自己编译的entil data
+不从V5引用是因为在LOAD DATASET的时候
+在DataBase.DoLoadDataSet(IDbCommand command,
+                           DataSet dataSet,
+                           string[] tableNames)
+方法中，新增adapter.FillSchema(dataSet, SchemaType.Source, tableNames[i]);以获取数据库中定义的schema

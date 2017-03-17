@@ -1,0 +1,10 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.Json\bin\Debug\MB.Json.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.Json\bin\Debug\MB.Json.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.Json\obj\Debug\MB.Json.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.Json\obj\Debug\MB.Json.pdb
+D:\MB\MB.BaseFrame\MB.Json\bin\Debug\MB.Json.dll
+D:\MB\MB.BaseFrame\MB.Json\bin\Debug\MB.Json.pdb
+D:\MB\MB.BaseFrame\MB.Json\obj\Debug\MB.Json.dll
+D:\MB\MB.BaseFrame\MB.Json\obj\Debug\MB.Json.pdb
+D:\MB\ERP\Bin\MB.Json.dll
+D:\MB\ERP\Bin\MB.Json.pdb

@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5895E74D-141F-4487-951B-A4F11DF45D34}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MB.NoSql</RootNamespace>
+    <AssemblyName>MB.NoSql</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\ExportBin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\ExportBin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MongoDbDriver\Core\BsonConstants.cs" />
+    <Compile Include="MongoDbDriver\Core\BsonDefaults.cs" />
+    <Compile Include="MongoDbDriver\Core\BsonExtensionMethods.cs" />
+    <Compile Include="MongoDbDriver\Core\BsonUtils.cs" />
+    <Compile Include="MongoDbDriver\Core\Exceptions\BsonException.cs" />
+    <Compile Include="MongoDbDriver\Core\Exceptions\BsonInternalException.cs" />
+    <Compile Include="MongoDbDriver\Core\Exceptions\BsonSerializationException.cs" />
+    <Compile Include="MongoDbDriver\Core\Exceptions\TruncationException.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBaseReader.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBaseWriter.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBinaryReader.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBinaryReaderBookmark.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBinaryReaderContext.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBinaryReaderSettings.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBinaryWriter.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBinaryWriterContext.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBinaryWriterSettings.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonBuffer.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonDocumentReader.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonDocumentReaderBookmark.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonDocumentReaderContext.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonDocumentReaderSettings.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonDocumentWriter.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonDocumentWriterContext.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonDocumentWriterSettings.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonReader.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonReaderBookmark.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonReaderState.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonWriter.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\BsonWriterState.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\ContextType.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonBuffer.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonOutputMode.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonReader.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonReaderBookmark.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonReaderContext.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonReaderSettings.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonScanner.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonToken.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonWriter.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonWriterContext.cs" />
+    <Compile Include="MongoDbDriver\Core\IO\JsonWriterSettings.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonArray.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonBinaryData.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonBinarySubType.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonBoolean.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonDateTime.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonDocument.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonDocumentWrapper.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonDouble.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonElement.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonInt32.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonInt64.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonJavaScript.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonJavaScriptWithScope.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonMaxKey.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonMinKey.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonNull.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonObjectId.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonRegularExpression.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonString.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonSymbol.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonSymbolTable.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonTimestamp.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonType.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonTypeMapper.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonUndefined.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\BsonValue.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\GuidConverter.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\GuidRepresentation.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\IConvertibleToBsonDocument.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\ICustomBsonTypeMapper.cs" />
+    <Compile Include="MongoDbDriver\Core\ObjectModel\ObjectId.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonDateTimeOptionsAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonDefaultValueAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonDiscriminatorAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonElementAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonExtraElementsAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonIdAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonIgnoreAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonIgnoreExtraElementsAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonIgnoreIfNullAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonKnownTypesAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonRepresentationAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonRequiredAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Attributes\BsonSerializationOptionsAttribute.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\BsonClassMap.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\BsonClassMapSerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\BsonDefaultSerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\BsonMemberMap.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\BsonSerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\ConventionProfile.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\DefaultValueConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\DiscriminatorConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\ElementNameConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\ExtraElementsMemberConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\IdGeneratorConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\IdMemberConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\IgnoreExtraElementsConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\IgnoreIfNullConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\MemberFinderConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Conventions\SerializeDefaultValueConventions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\IBsonSerializable.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\IBsonSerializationOptions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\IBsonSerializationProvider.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\IBsonSerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\IdGenerators\IdGenerators.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\IIdGenerator.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Options\DateTimeSerializationOptions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Options\DocumentSerializationOptions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Options\RepresentationSerializationOptions.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\ArraySerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\BsonBaseSerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\BsonIBsonSerializableSerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\BsonPrimitiveSerializers.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\BsonValueSerializers.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\CollectionGenericSerializers.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\CollectionSerializers.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\DictionaryGenericSerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\DictionarySerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\EnumSerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\NetPrimitiveSerializers.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\NullableGenericSerializer.cs" />
+    <Compile Include="MongoDbDriver\Core\Serialization\Serializers\ObjectSerializer.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\BuilderBase.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\CollectionOptionsBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\FieldsBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\GeoNearOptionsBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\GroupByBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\IndexKeysBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\IndexOptionsBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\MapReduceOptionsBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\QueryBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\SortByBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Builders\UpdateBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\CommandResults\CollectionStatsResult.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\CommandResults\CommandResult.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\CommandResults\DatabaseStatsResult.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\CommandResults\FindAndModifyResult.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\CommandResults\GeoNearResult.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\CommandResults\GetLastErrorResult.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\CommandResults\MapReduceResult.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\CommandResults\SafeModeResult.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\CommandResults\ValidateCollectionResult.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoCollectionOptions.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoCommand.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoFields.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoGeoNearOptions.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoGroupBy.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoIndexKeys.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoIndexOptions.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoMapReduceOptions.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoQuery.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoScope.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoSortBy.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Interfaces\IMongoUpdate.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoCollection.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoCollectionSettings.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoConnectionStringBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoCredentials.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoCursor.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoCursorEnumerator.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoDatabase.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoDatabaseSettings.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoDBRef.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoServer.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoServerAddress.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoServerBuildInfo.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoServerInstance.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoServerSettings.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoServerState.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoUrl.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoUrlBuilder.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\MongoUser.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\QueryFlags.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\RemoveFlags.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\SafeMode.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\UpdateFlags.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\BaseWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\CollectionOptionsDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\CollectionOptionsWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\CommandDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\CommandWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\FieldsDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\FieldsWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\GeoNearOptionsDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\GeoNearOptionsWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\GroupByDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\GroupByWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\IndexKeysDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\IndexKeysWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\IndexOptionsDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\IndexOptionsWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\MapReduceOptionsDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\MapReduceOptionsWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\QueryDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\QueryWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\ScopeDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\ScopeWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\SortByDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\SortByWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\UpdateDocument.cs" />
+    <Compile Include="MongoDbDriver\Driver\Core\Wrappers\UpdateWrapper.cs" />
+    <Compile Include="MongoDbDriver\Driver\Exceptions\MongoAuthenticationException.cs" />
+    <Compile Include="MongoDbDriver\Driver\Exceptions\MongoCommandException.cs" />
+    <Compile Include="MongoDbDriver\Driver\Exceptions\MongoConnectionException.cs" />
+    <Compile Include="MongoDbDriver\Driver\Exceptions\MongoException.cs" />
+    <Compile Include="MongoDbDriver\Driver\Exceptions\MongoInternalException.cs" />
+    <Compile Include="MongoDbDriver\Driver\Exceptions\MongoQueryException.cs" />
+    <Compile Include="MongoDbDriver\Driver\Exceptions\MongoSafeModeException.cs" />
+    <Compile Include="MongoDbDriver\Driver\GridFS\MongoGridFS.cs" />
+    <Compile Include="MongoDbDriver\Driver\GridFS\MongoGridFSCreateOptions.cs" />
+    <Compile Include="MongoDbDriver\Driver\GridFS\MongoGridFSException.cs" />
+    <Compile Include="MongoDbDriver\Driver\GridFS\MongoGridFSFileInfo.cs" />
+    <Compile Include="MongoDbDriver\Driver\GridFS\MongoGridFSSettings.cs" />
+    <Compile Include="MongoDbDriver\Driver\GridFS\MongoGridFSStream.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\BlockingQueue.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\DirectConnector.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\IndexCache.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MessageOpcode.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoConnection.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoConnectionPool.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoDeleteMessage.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoGetMoreMessage.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoInsertMessage.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoKillCursorsMessage.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoMessage.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoQueryMessage.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoReplyMessage.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoRequestMessage.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\MongoUpdateMessage.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\ReplicaSetConnector.cs" />
+    <Compile Include="MongoDbDriver\Driver\Internal\ResponseFlags.cs" />
+    <Compile Include="MongoDbDriver\Driver\MongoDefaults.cs" />
+    <Compile Include="MongoDbDriver\Driver\MongoUtils.cs" />
+    <Compile Include="Mongo\MongoDBHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MB.Util\MB.Util.csproj">
+      <Project>{C69057E7-BEF9-4618-8FAA-B9E9D6B069B0}</Project>
+      <Name>MB.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

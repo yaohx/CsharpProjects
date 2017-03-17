@@ -1,0 +1,13 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.GZipEncoder.XML
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.GZipEncoder.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.GZipEncoder.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.GZipEncoder\obj\Debug\MB.GZipEncoder.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.GZipEncoder\obj\Debug\MB.GZipEncoder.pdb
+D:\MB\MB.BaseFrame\ExportBin\MB.GZipEncoder.XML
+D:\MB\MB.BaseFrame\ExportBin\MB.GZipEncoder.dll
+D:\MB\MB.BaseFrame\ExportBin\MB.GZipEncoder.pdb
+D:\MB\MB.BaseFrame\MB.GZipEncoder\obj\Debug\MB.GZipEncoder.dll
+D:\MB\MB.BaseFrame\MB.GZipEncoder\obj\Debug\MB.GZipEncoder.pdb
+D:\MB\ERP\Bin\MB.GZipEncoder.dll
+D:\MB\ERP\Bin\MB.GZipEncoder.pdb
+D:\MB\ERP\Bin\MB.GZipEncoder.XML

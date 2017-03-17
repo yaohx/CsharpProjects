@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MB.AOP</name>
+    </assembly>
+    <members>
+        <member name="T:MB.Aop.InjectionMethodSwitchAttribute">
+            <summary>
+            用于决定一个被InjectionManagerAttribute修饰的class的某个特定方法是否启用截获 。
+            </summary>
+        </member>
+        <member name="M:MB.Aop.InjectionMethodSwitchAttribute.#ctor(System.Boolean)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="aspectManaged"></param>
+        </member>
+        <member name="P:MB.Aop.InjectionMethodSwitchAttribute.AspectManaged">
+            <summary>
+            获取判断是否启动运行截获的控制。
+            </summary>
+        </member>
+        <member name="T:MB.Aop.InjectionManager">
+            <summary>
+            Aspect 拦截注入管理。
+            </summary>
+        </member>
+        <member name="M:MB.Aop.InjectionManager.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.Aop.InjectionManager.GetAspect(System.Runtime.Remoting.Messaging.IMessage,MB.Aop.AspectActionPosition)">
+            <summary>
+            获取相关的Aspects
+            </summary>
+            <param name="msg">IMessage，包含有关方法调用的信息。</param>
+            <param name="position">拦截的位置</param>
+            <returns>Aspect数组</returns>
+        </member>
+        <member name="P:MB.Aop.InjectionManager.Aspects">
+            <summary>
+            所有的Aspect集合
+            </summary>
+        </member>
+        <member name="P:MB.Aop.InjectionManager.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.Aop.InjectionManagerAttribute">
+            <summary>
+            自定义的Aspect代理特性，在这里，创建受Aspect管理的类的代理类。
+            任何需要接受Aspect管理的类，都必须加上这个特性	
+            <br /><br />
+            <b>示例</b><br />
+            <code>
+            [InjectionManagerAttribute]<br />
+            public class BusinessClass{}
+            </code>
+            </summary>
+            <example>
+            <code>
+            [InjectionManagerAttribute]
+            public class BusinessClass{}
+            </code>
+            </example>
+        </member>
+        <member name="M:MB.Aop.InjectionManagerAttribute.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="M:MB.Aop.InjectionManagerAttribute.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="AspectManaged">指明该类是否接受Aspect管理</param>
+        </member>
+        <member name="M:MB.Aop.InjectionManagerAttribute.CreateInstance(System.Type)">
+            <summary>
+            创建受Aspect管理的类的代理类
+            </summary>
+            <param name="serverType">要创建的类的类型</param>
+            <returns>受Aspect管理的类的代理类</returns>
+        </member>
+        <member name="T:MB.Aop.InjectionProxy">
+            <summary>
+            注入真实代理，在这个类里面，实现对方法的拦截。
+            </summary>
+        </member>
+        <member name="M:MB.Aop.InjectionProxy.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="M:MB.Aop.InjectionProxy.#ctor(System.Type)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="myType">被代理的类的类型</param>
+        </member>
+        <member name="M:MB.Aop.InjectionProxy.#ctor(System.Type,System.MarshalByRefObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="myType">被代理的类的类型</param>
+            <param name="obj">被代理的对象</param>
+        </member>
+        <member name="M:MB.Aop.InjectionProxy.Invoke(System.Runtime.Remoting.Messaging.IMessage)">
+            <summary>
+            当在派生类中重写时，在当前实例所表示的远程对象上调用在所提供的 IMessage 中指定的方法。<br />
+            WebsharpAspect在这里执行对方法执行的拦截处理
+            </summary>
+            <param name="msg">IMessage，包含有关方法调用的信息。</param>
+            <returns>调用的方法所返回的消息，包含返回值和所有 out 或 ref 参数。</returns>
+        </member>
+        <member name="T:MB.Aop.AspectActionPosition">
+            <summary>
+            Aspect拦截的位置，包括在方法执行前、执行后和全部
+            </summary>
+        </member>
+        <member name="F:MB.Aop.AspectActionPosition.Before">
+            <summary>
+            在方法的开始位置拦截。
+            </summary>
+        </member>
+        <member name="F:MB.Aop.AspectActionPosition.After">
+            <summary>
+            在方法调用完成后拦截。
+            </summary>
+        </member>
+        <member name="F:MB.Aop.AspectActionPosition.Both">
+            <summary>
+            在开始和结束的位置都需要拦截。
+            </summary>
+        </member>
+        <member name="T:MB.Aop.AspectableObject">
+            <summary>
+            可进行方面注入的对象需要继承的基类。
+            从扩展方面的考虑。
+            </summary>
+        </member>
+        <member name="T:MB.Aop.AspectConfigHandler">
+            <summary>
+            读取Aspect配置文件的类
+            </summary>
+        </member>
+        <member name="M:MB.Aop.AspectConfigHandler.System#Configuration#IConfigurationSectionHandler#Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            由所有配置节处理程序实现，以分析配置节的 XML
+            </summary>
+            <param name="parent">对应父配置节中的配置设置</param>
+            <param name="context">在从 ASP.NET 配置系统中调用 Create 时为 HttpConfigurationContext。否则，该参数是保留参数，并且为空引用。</param>
+            <param name="section">一个 XmlNode，它包含配置文件中的配置信息。提供对配置节 XML 内容的直接访问。</param>
+            <returns>配置对象</returns>
+        </member>
+        <member name="T:MB.Aop.IInjection">
+            <summary>
+            定义一个需要注入的接口
+            </summary>
+        </member>
+        <member name="M:MB.Aop.IInjection.BeginProcess(System.Runtime.Remoting.Messaging.IMessage)">
+            <summary>
+            在被拦截的方法执行前执行的方法
+            </summary>
+            <param name="msg">IMessage，包含有关方法调用的信息。</param>
+        </member>
+        <member name="M:MB.Aop.IInjection.EndProcess(System.DateTime,System.Runtime.Remoting.Messaging.IMessage)">
+            <summary>
+            在被拦截的方法执行后执行的方法
+            </summary>
+            <param name="msg">IMessage，包含有关方法调用的信息。</param>
+        </member>
+        <member name="T:MB.Util.General">
+            <summary>
+            General  系统通过函数。
+            </summary>
+        </member>
+        <member name="M:MB.Util.General.#ctor">
+            <summary>
+            private constract function to prevent instance.
+            </summary>
+        </member>
+        <member name="M:MB.Util.General.GeApplicationDirectory">
+            <summary>
+            获取应用程序的当前目录。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MB.Aop.AspectInfo">
+            <summary>
+             描述Aspect配置信息的类。
+            </summary>
+        </member>
+        <member name="P:MB.Aop.AspectInfo.AssemblyName">
+            <summary>
+            Aspect所在的程序集名称
+            </summary>
+        </member>
+        <member name="P:MB.Aop.AspectInfo.ClassName">
+            <summary>
+            Aspect的类名
+            </summary>
+        </member>
+        <!-- 对于成员“P:MB.Aop.AspectInfo.DeployModell”忽略有格式错误的 XML 注释 -->
+        <member name="P:MB.Aop.AspectInfo.PointCutType">
+            <summary>
+            拦截的类型，方法(Method)、构造函数(Construction)和属性(Property)，不过目前对Property的拦截等同于Method
+            </summary>
+        </member>
+        <member name="P:MB.Aop.AspectInfo.ActionPosition">
+            <summary>
+            拦截位置的类型，有Before,After和Both
+            </summary>
+        </member>
+        <member name="P:MB.Aop.AspectInfo.MatchClass">
+            <summary>
+            被拦截类的表达式
+            </summary>
+        </member>
+        <member name="P:MB.Aop.AspectInfo.MatchMethod">
+            <summary>
+            被拦截方法的表达式
+            </summary>
+        </member>
+        <member name="P:MB.Aop.AspectInfo.MatchPattern">
+            <summary>
+            拦截的表达式
+            </summary>
+        </member>
+        <member name="P:MB.Aop.AspectInfo.SingletonAspect">
+            <summary>
+            当该Aspect是Singleton的时候，表示该Aspect对象
+            </summary>
+        </member>
+    </members>
+</doc>

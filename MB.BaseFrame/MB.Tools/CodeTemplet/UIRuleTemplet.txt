@@ -1,0 +1,25 @@
+﻿
+
+    /// <summary>
+    /// 客户端业务处理类。
+    /// 文件生成时间 #SystemDateTime#
+    /// </summary>
+    [MB.WinBase.Atts.ModuleInvokeConfig(UICommandType.AddNew, typeof(当前业务类的UI编辑界面))]
+    [MB.WinBase.Atts.ModuleInvokeConfig(UICommandType.Open, typeof(MB.WinClientDefault.DefaultViewForm))]
+    [MB.WinBase.Atts.ModuleRejectCommands(UICommandType.Print)] 
+    [MB.WcfClient.WcfClientInvoke(typeof(#ObjectName#Client), WCF 客户端生成的绝对路径)]  
+    [MB.WinBase.Atts.RuleClientLayout("#ObjectName#", DataViewStyle = DataViewStyle.General)]
+    public class #ObjectName#UIRule : MB.WinBase.AbstractClientRule<#ObjectName#Info,#ObjectName#Client> {
+        /// <summary>
+        /// construct function...
+        /// </summary>
+        public #ObjectName#UIRule()
+            : base(#ObjectName#IDT.BaseData) {
+            
+         //public #ObjectName#DetailInfo[] GetObjectDetail(int mainID) {
+         //    using (#ObjectName#nClient client = MB.WcfClient.WcfClientFactory.CreateWcfClient<#ObjectName#Client>(this)) {
+         //        return client.GetObjectDetail(mainID); 
+         //   }
+         // }
+        }
+    }

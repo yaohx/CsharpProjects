@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MB.GZipEncoder</name>
+    </assembly>
+    <members>
+        <member name="T:MB.GZipEncoder.GZipMessageEncoderFactory">
+            <summary>
+            负责创建一个自定义的 GZipMessageEncoder 编码器。
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MB.GZipEncoder.GZipMessageEncoderFactory.#ctor(System.ServiceModel.Channels.MessageEncoderFactory)" -->
+        <member name="P:MB.GZipEncoder.GZipMessageEncoderFactory.Encoder">
+            <summary>
+            框架利用这个属性从编码工厂中获取一个编码器。
+            </summary>
+        </member>
+        <member name="P:MB.GZipEncoder.GZipMessageEncoderFactory.MessageVersion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.GZipEncoder.GZipMessageEncoderFactory.GZipMessageEncoder">
+            <summary>
+            实际的WCF GZIP 编码器。
+            </summary>
+        </member>
+        <member name="F:MB.GZipEncoder.GZipMessageEncoderFactory.GZipMessageEncoder._CurrentWcfProcessMonitorInfo">
+            <summary>
+            检测性能指标的对象
+            </summary>
+        </member>
+        <member name="M:MB.GZipEncoder.GZipMessageEncoderFactory.GZipMessageEncoder.GetCurrentWcfMonitorInfo">
+            <summary>
+            返回当前的WCF性能监控的指标对象
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="FilterElementCfgs">
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="Element" type="DataFilterElementCfgInfo">
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="Name" type="xs:string" use="required" />
+      <xs:attribute name="AllowEmptyFilter" type="xs:boolean" use="required" />
+  </xs:complexType>
+  <xs:complexType name="DataFilterElementCfgInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="FilterLimits" type="ArrayOfDataFilterElementLimitInfo" />
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="EditControlType" type="xs:string" />
+    <xs:attribute default="false" name="LimitColumn" type="xs:boolean" />
+    <xs:attribute default="true" name="Nullable" type="xs:boolean" />
+    <xs:attribute default="false" name="AllowMultiValue" type="xs:boolean" />
+    <xs:attribute default="Equal" name="FilterCondition" type="DataFilterConditions" />
+    <xs:attribute name="Formate" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfDataFilterElementLimitInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataFilterElementLimitInfo" nillable="true" type="DataFilterElementLimitInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DataFilterElementLimitInfo">
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="SourceName" type="xs:string" />
+    <xs:attribute name="FilterCondition" type="DataFilterConditions" use="required" />
+    <xs:attribute name="Nullable" type="xs:boolean" use="required" />
+    <xs:attribute name="AllowFilterValue" type="xs:boolean" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="DataFilterConditions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Less" />
+      <xs:enumeration value="Greater" />
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="NotEqual" />
+      <xs:enumeration value="Include" />
+      <xs:enumeration value="NotInclude" />
+      <xs:enumeration value="BenginsWith" />
+      <xs:enumeration value="EndsWith" />
+      <xs:enumeration value="Between" />
+      <xs:enumeration value="NotBetween" />
+      <xs:enumeration value="GreaterOrEqual" />
+      <xs:enumeration value="LessOrEqual" />
+      <xs:enumeration value="IsNull" />
+      <xs:enumeration value="IsNotNull" />
+      <xs:enumeration value="In" />
+      <xs:enumeration value="NotIn" />
+      <xs:enumeration value="Like" />
+      <xs:enumeration value="NotLike" />
+      <xs:enumeration value="Special" />
+      <xs:enumeration value="SqlAppend" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

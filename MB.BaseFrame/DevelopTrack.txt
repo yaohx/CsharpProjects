@@ -1,0 +1,21 @@
+MB.BaseFrame 主体开发框架日志：
+开发进展和修改日志：
+1，09-01-08 完成整体设计；
+2，09-01-12 整理并完成 MB.AOP, MB.Location；
+3，09-01-14 废除掉MB.Orm.Oracle 全面引用Microsoft Enterprise Library 之Data Access Application Block来代替
+4，回家过年(09-01-15 到 09-02-01) 同时有 4天支持公司内部特卖会；
+5，09-02-02 开始上班 完善MB.Orm 的缓存部分；
+6，09-02-04 完成MB.Orm 的主体编码；
+7，09-02-09 完成MB.RuleBase 业务基类封装；
+8，09-02-10 到 09-02-13 RF 客户端重构，把一个EXE 拆分为3个组件。
+9，09-02-13 计划加入MB.XWinLib 提供对Devexpress 下列组件的封装以满足客户端调用的需要。
+
+
+ 2010-7-26 以后 修改的跟踪信息。
+
+ 1, enterprise library 从4.1 升级为5.0;
+ 2, devexpress Xtra 控件从9.1 升级为10.1;（解决DEV 控件licenses 的问题）
+ 3, 修改自动更新（不能覆盖只读文件,覆盖的目录不存在时出错);
+ 4, 由于 enterprise library 升级 5.0 需要 把framework 的目标平台提高到4,重新恢复到4.1,(大量POS.NET 安装的是3.5)
+    Enterprise Library 5.0 数据库异步执行的功能目前还不需要 。
+ 5,

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity>
+  <PrimaryKeyName>ID</PrimaryKeyName>
+  <MappingTableName>myTable</MappingTableName>
+  <Sqls>
+    <Sql Name="SelectObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+           SELECT * FROM myTable;
+            ]]>
+        </String>
+      </SqlString>
+    </Sql>
+    <Sql Name="AddObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+             INSERT INTO myTable(ID,Name,Code)
+              VALUES(@ID,@Name,@Code);
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@Name" Column = "Name" TypeName = "System.String" />
+        <Param Name = "@Code" Column = "Code" TypeName = "System.String" />
+      
+      </SqlString>
+    </Sql>
+    <Sql Name="UpdateObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+            UPDATE myTable SET 
+            ID = @ID,
+            NAME=@NAME,
+            CODE=@CODE,
+            CREATEDATE = SYSDATE
+            WHERE ID=@ID;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@NAME" Column = "NAME" TypeName = "System.String" />
+        <Param Name = "@CODE" Column = "CODE" TypeName = "System.String" />
+      
+      </SqlString>
+    </Sql>
+    <Sql Name="DeleteObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+            DELETE FROM myTable WHERE ID=@ID;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+    <Sql Name="InsertGlobalTemporaryl">
+      <SqlString>
+        <String>
+          <![CDATA[
+           insert into tmp_product_num(prod_num) values(@prod_num);
+            ]]>
+        </String>
+        <Param Name = "@prod_num" Column = "prod_num" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="GetFromGlobalTemporaryl">
+      <SqlString>
+        <String>
+          <![CDATA[
+           select prod_num from tmp_product_num;
+            ]]>
+        </String>
+      </SqlString>
+    </Sql>
+    <Sql Name="SelectDataForUpdate">
+      <SqlString>
+        <String>
+          <![CDATA[
+           select * from myTable where id = @ID for update;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+    <Sql Name="UpdateMyTableCode">
+      <SqlString>
+        <String>
+          <![CDATA[
+           update myTable set code =@CODE
+           WHERE id = @ID;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@CODE" Column = "CODE" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>

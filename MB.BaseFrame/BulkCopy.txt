@@ -1,0 +1,7 @@
+1,Oracle 支持批量更新，不过有一个约束如：
+UPDATE MyTabl SET NAME =@NAME WHERE ID=@ID; (这样通不过)
+UPDATE MyTabl SET ID=@ID,NAME =@NAME WHERE ID=@ID; (这样可以)
+2,批量更新的语句里面不能有 MERGE 
+
+3,关于 global temporary table 临时表的使用
+   由于批量是重新创建一个连接来完成的，如果需要使用临时表，必须提前创建连接同时在读数据的时候使用该连接读取。

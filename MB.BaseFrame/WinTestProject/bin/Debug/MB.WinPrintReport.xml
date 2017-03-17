@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MB.WinPrintReport</name>
+    </assembly>
+    <members>
+        <member name="T:MB.WinPrintReport.DefaultReportData">
+            <summary>
+            默认配置处理的报表数据处理类。
+            </summary>
+        </member>
+        <member name="T:MB.WinPrintReport.IFace.IReportData">
+            <summary>
+            打印报表需要实现的接口。
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.IFace.IReportData.GetPrintTempleteContent(System.Guid)">
+            <summary>
+            初始化打印需要的打印模板内容。
+            </summary>
+            <param name="templeteID"></param>
+        </member>
+        <member name="M:MB.WinPrintReport.IFace.IReportData.SavePrintTemplete(MB.WinPrintReport.Model.PrintTempleteContentInfo)">
+            <summary>
+            模板内容存储。
+            </summary>
+            <param name="templeteContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinPrintReport.IFace.IReportData.GetPrintTemplete(System.Guid)">
+            <summary>
+            获取当前模块的所有打印模板。
+            </summary>
+            <param name="moduleID"></param>
+            <param name="templeteID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinPrintReport.IFace.IReportData.GetModulePrintTempletes(System.String)">
+            <summary>
+            获取模块下的所有打印模板。
+            </summary>
+            <param name="moduleID"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinPrintReport.IFace.IReportData.ModuleID">
+            <summary>
+            报表对象当前对应的模块ID;
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.IFace.IReportData.DataSource">
+            <summary>
+             调用报表打印需要的数据源。
+            </summary>
+            <param name="dataSourceCfgInfo"></param>
+            <param name="parValues"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinPrintReport.IFace.IReportData.PrintTempleteChanged">
+            <summary>
+            判断打印模板是否已经发生改变。
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.IFace.IReportData.ReportParamList">
+            <summary>
+            报表 打印/浏览 参数集合。
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.DefaultReportData.#ctor(System.String,System.Data.DataSet,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            默认配置处理的报表数据处理类。 
+            </summary>
+            <param name="moduleID">报表对象对应的模块ID</param>
+            <param name="dataSource">报表对象需要的数据源</param>
+            <param name="reportParamList">报表对象的参数</param>
+        </member>
+        <!-- 对于成员“M:MB.WinPrintReport.DefaultReportData.#ctor(System.String,System.Guid,System.Data.DataSet,System.Collections.Generic.Dictionary{System.String,System.Object})”忽略有格式错误的 XML 注释 -->
+        <member name="M:MB.WinPrintReport.DefaultReportData.GetPrintTempleteContent(System.Guid)">
+            <summary>
+            打印模板的设计结构。
+            </summary>
+            <param name="templeteID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinPrintReport.DefaultReportData.SavePrintTemplete(MB.WinPrintReport.Model.PrintTempleteContentInfo)">
+            <summary>
+            保存打印模板的设计内容。
+            </summary>
+            <param name="templeteContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinPrintReport.DefaultReportData.GetPrintTemplete(System.Guid)">
+            <summary>
+            根据模块ID 获取该模块下的所有打印报表。
+            </summary>
+            <param name="moduleID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinPrintReport.DefaultReportData.GetModulePrintTempletes(System.String)">
+            <summary>
+            获取指定模块下的所有打印报表模板。
+            </summary>
+            <param name="moduleID"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinPrintReport.DefaultReportData.ModuleID">
+            <summary>
+            报表对象当前对应的模块ID。
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.DefaultReportData.PrintTempleteChanged">
+            <summary>
+            判断打印模板是否已经发生改变。
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.DefaultReportData.DataSource">
+            <summary>
+            报表设计和浏览需要的数据源。
+            注意： 目前只支持DataSet 格式，如果需要传入其它数据类型,请先转换。
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.DefaultReportData.ReportParamList">
+            <summary>
+            报表需要的用户参数列表。
+            </summary>
+        </member>
+        <member name="T:MB.WinPrintReport.FrmEditPrintTemplete">
+            <summary>
+            报表模板设计
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.FrmEditPrintTemplete.#ctor(MB.WinPrintReport.IFace.IReportData,System.Guid)">
+            <summary>
+            报表模板设计。
+            </summary>
+            <param name="reportDataHelper"></param>
+            <param name="moduleID"></param>
+            <param name="templeteID"></param>
+        </member>
+        <member name="F:MB.WinPrintReport.FrmEditPrintTemplete.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.FrmEditPrintTemplete.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MB.WinPrintReport.FrmEditPrintTemplete.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MB.WinPrintReport.Model.PrintTempleteContentInfo">
+            <summary>
+            打印模板描述信息。
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.Model.PrintTempleteContentInfo.#ctor">
+            <summary>
+            打印模板描述信息。
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.Model.PrintTempleteContentInfo.#ctor(System.Guid,System.String,System.String)">
+            <summary>
+             打印模板描述信息。
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="templeteXml"></param>
+        </member>
+        <member name="P:MB.WinPrintReport.Model.PrintTempleteContentInfo.GID">
+            <summary>
+            模板ID.
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.Model.PrintTempleteContentInfo.Name">
+            <summary>
+            模板名称。
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.Model.PrintTempleteContentInfo.DataSource">
+            <summary>
+            报表需要的数据源名称
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.Model.PrintTempleteContentInfo.Remark">
+            <summary>
+            备注。
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.Model.PrintTempleteContentInfo.TempleteXmlContent">
+            <summary>
+            打印模板内容系列化的XML 字符窜。
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.Model.PrintTempleteContentInfo.Childs">
+            <summary>
+            子报表。
+            </summary>
+        </member>
+        <member name="T:MB.WinPrintReport.PrintContextMenu">
+            <summary>
+            PrintContextMenu 提供弹出式打印需要的菜单。
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.PrintContextMenu.#ctor(MB.WinPrintReport.IFace.IReportData)">
+            <summary>
+            构造函数...
+            外部不能直接实例。
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.PrintContextMenu.ShowMenu(System.Windows.Forms.Control,MB.WinPrintReport.IFace.IReportData)">
+            <summary>
+            显示打印模板相关的操作菜单。
+            </summary>
+            <param name="iWinCtl"></param>
+            <param name="moduleID"></param>
+            <param name="templeteID"></param>
+            <param name="pars"></param>
+        </member>
+        <member name="M:MB.WinPrintReport.PrintContextMenu.ShowMenu(System.Windows.Forms.Control,System.Drawing.Point,MB.WinPrintReport.IFace.IReportData)">
+            <summary>
+            显示打印模板相关的操作菜单
+            </summary>
+            <param name="iWinCtl"></param>
+            <param name="moduleID"></param>
+            <param name="menuPoint"></param>
+            <param name="pars"></param>
+        </member>
+        <member name="T:MB.WinPrintReport.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MB.WinPrintReport.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:MB.WinPrintReport.ReportTemplete">
+            <summary>
+            报表打印模板处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.ReportTemplete.#ctor(MB.WinPrintReport.IFace.IReportData)">
+            <summary>
+            
+            </summary>
+            <param name="reportData"></param>
+        </member>
+        <member name="M:MB.WinPrintReport.ReportTemplete.ShowPreview(System.String,MB.WinPrintReport.Model.PrintTempleteContentInfo)">
+            <summary>
+            打印浏览。
+            </summary>
+            <param name="moduleID"></param>
+            <param name="templeteID"></param>
+            <param name="parmValues"></param>
+        </member>
+        <member name="M:MB.WinPrintReport.ReportTemplete.Print(System.String,MB.WinPrintReport.Model.PrintTempleteContentInfo,System.Boolean)">
+            <summary>
+            报表直接打印。可以指定是否弹出打印对话框
+            </summary>
+            <param name="moduleID"></param>
+            <param name="templeteContent"></param>
+            <param name="isDirectPrint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinPrintReport.ReportTemplete.Print(System.String,MB.WinPrintReport.Model.PrintTempleteContentInfo)">
+            <summary>
+            报表直接打印。弹出打印对话框
+            </summary>
+            <param name="moduleID"></param>
+            <param name="templeteID"></param>
+            <param name="parmValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinPrintReport.ReportTemplete.ShowDesign(System.String,MB.WinPrintReport.Model.PrintTempleteContentInfo)">
+            <summary>
+            显示打印模板设计。
+            </summary>
+            <param name="moduleID"></param>
+            <param name="templeteID"></param>
+        </member>
+        <member name="T:MB.WinPrintReport.SubReportCommand">
+            <summary>
+            子报表调用 报表 Command 处理相关
+            </summary>
+        </member>
+        <member name="M:MB.WinPrintReport.SubReportCommand.#ctor(MB.WinPrintReport.Model.PrintTempleteContentInfo,System.Data.DataSet)">
+            <summary>
+            子报表相关处理。
+            </summary>
+            <param name="printTemplete"></param>
+            <param name="dsData"></param>
+        </member>
+        <member name="M:MB.WinPrintReport.SubReportCommand.GetReportContent(System.String)">
+            <summary>
+            通过子报表的名称获取子报表的设计内容。
+            </summary>
+            <param name="reportName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WinPrintReport.SubReportCommand.GetReportDataSource(System.Data.DataRow,System.String,System.String)">
+            <summary>
+            得到子表的数据源
+            </summary>
+            <param name="parentRow"></param>
+            <param name="relationMember"></param>
+            <param name="reportName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.WinPrintReport.SubReportCommand.SubReportName">
+            <summary>
+            子报表名称。
+            </summary>
+        </member>
+    </members>
+</doc>

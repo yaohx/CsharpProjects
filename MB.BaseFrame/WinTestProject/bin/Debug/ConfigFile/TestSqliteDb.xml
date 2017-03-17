@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity>
+  <PrimaryKeyName>ID</PrimaryKeyName>
+  <MappingTableName>myTable</MappingTableName>
+  <Sqls>
+    <Sql Name="SelectObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+ ;          SELECT * FROM myTable;
+            ]]>
+        </String>
+      </SqlString>
+    </Sql>
+    <Sql Name="AddObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+             INSERT INTO myTable(ID,Name,Code,CreateDate)
+              VALUES(@ID,@Name,@Code,@CreateDate);
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@Name" Column = "Name" TypeName = "System.String" />
+        <Param Name = "@Code" Column = "Code" TypeName = "System.String" />
+        <Param Name = "@CreateDate" Column = "CreateDate" TypeName = "System.DateTime" />
+      </SqlString>
+    </Sql>
+    <Sql Name="UpdateObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+            UPDATE myTable SET Name=@Name,Code=@Code,CreateDate=@CreateDate
+            WHERE ID=@ID;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@Name" Column = "Name" TypeName = "System.String" />
+        <Param Name = "@Code" Column = "Code" TypeName = "System.String" />
+        <Param Name = "@CreateDate" Column = "CreateDate" TypeName = "System.DateTime" />
+      </SqlString>
+    </Sql>
+    <Sql Name="DeleteObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+            DELETE FROM myTable WHERE ID=@ID;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+    </Sqls>
+</Entity>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--   XML 文件生成时间 2009-04-21 04:12  -->
+<Entity>
+  <Columns>
+    <Column Name = "ID" Description = "ID" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" />
+    <Column Name = "Color" Description = "颜色" DataType = "System.Int32" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True"  VisibleWidth = "100" />
+
+  </Columns>
+  <EditUI>
+    <Column Name="Color">
+      <!--LookUpEdit 根据key值查找Name 的创建模式。 在界面的编辑中可以选择ComboBox-->
+      <EditControlType>ColorEdit</EditControlType>
+    </Column>
+  </EditUI>
+</Entity>

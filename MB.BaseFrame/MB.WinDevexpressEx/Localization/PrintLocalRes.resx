@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="ResMimeType">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="Version">
+		<value>1.0.0.0</value>
+	</resheader>
+	<resheader name="Reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="Writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="PreviewStringId.Button_Help">
+		<value>帮助</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_PageSetup">
+		<value>页面设置</value>
+	</data>
+	<data name="PreviewStringId.MPForm_Lbl_Pages">
+		<value>页数</value>
+	</data>
+	<data name="PreviewStringId.SB_ZoomFactor">
+		<value>缩放:</value>
+	</data>
+	<data name="PreviewStringId.SB_TotalPageNo">
+		<value>总页数:</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_ZoomIn">
+		<value>放大</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_FirstPage">
+		<value>第一页</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_PreviousPage">
+		<value>上一页</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_NextPage">
+		<value>下一页</value>
+	</data>
+	<data name="PreviewStringId.Msg_EmptyDocument">
+		<value>文件不包含任何页.</value>
+	</data>
+	<data name="PreviewStringId.Msg_CreatingDocument">
+		<value>正在创建文档...</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_MultiplePages">
+		<value>多页</value>
+	</data>
+	<data name="PreviewStringId.Button_Apply">
+		<value>应用</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_ZoomOut">
+		<value>缩小</value>
+	</data>
+	<data name="PreviewStringId.SB_CurrentPageNo">
+		<value>当前页数:</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Zoom">
+		<value>放大</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_PrintDirect">
+		<value>直接打印</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Magnifier">
+		<value>放大</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Print">
+		<value>打印</value>
+	</data>
+	<data name="PreviewStringId.Button_Cancel">
+		<value>取消</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Close">
+		<value>关闭预览</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Backgr">
+		<value>背景</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_EditPageHF">
+		<value>标题和脚注</value>
+	</data>
+	<data name="PreviewStringId.Button_Ok">
+		<value>确定</value>
+	</data>
+	<data name="PreviewStringId.SB_PageNone">
+		<value>none</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_LastPage">
+		<value>最后一页</value>
+	</data>
+	<data name="PreviewStringId.Msg_NeedPrinter">
+		<value>没有安装任何打印设备.</value>
+	</data>
+	<data name="PreviewStringId.Msg_WrongPrinter">
+		<value>打印机名称无效.请检查打印设置。</value>
+	</data>
+	<data name="PreviewStringId.Msg_WrongPageSettings">
+		<value>当前的打印机不支持选择的打印页面设置. \n 要继续打印？</value>
+	</data>
+	<data name="PreviewStringId.Msg_CustomDrawWarning">
+		<value>警告!</value>
+	</data>
+	<data name="PreviewStringId.PreviewForm_Caption">
+		<value>预览</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Customize">
+		<value>个性化</value>
+	</data>
+	<data name="PreviewStringId.Margin_Inch">
+		<value>英寸</value>
+	</data>
+	<data name="PreviewStringId.Margin_Millimeter">
+		<value>毫米</value>
+	</data>
+	<data name="PreviewStringId.Margin_TopMargin">
+		<value>上边距</value>
+	</data>
+	<data name="PreviewStringId.Margin_BottomMargin">
+		<value>下边距</value>
+	</data>
+	<data name="PreviewStringId.Margin_LeftMargin">
+		<value>左边距</value>
+	</data>
+	<data name="PreviewStringId.Margin_RightMargin">
+		<value>右边距</value>
+	</data>
+	<data name="PreviewStringId.ScrollingInfo_Page">
+		<value>页</value>
+	</data>
+	<data name="PreviewStringId.Msg_PageMarginsWarning">
+		<value>一个或更多边距数值在页的可印的区域之外。 继续?</value>
+	</data>
+	<data name="PreviewStringId.SB_PageInfo">
+		<value>{0} of {1}</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_HandTool">
+		<value>Hand 工具</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Export">
+		<value>文档输出...</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Send">
+		<value>发送 e-mail...</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Map">
+		<value>文档 Map</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Search">
+		<value>查找</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Watermark">
+		<value>水印</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_File">
+		<value>文件(&amp;F)</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_View">
+		<value>浏览(&amp;V)</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Background">
+		<value>背景(&amp;B)</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_PageSetup">
+		<value>页面设置(&amp;U)...</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Print">
+		<value>打印(&amp;P)...</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_PrintDirect">
+		<value>打印(&amp;R)</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Export">
+		<value>输出到(&amp;E)</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Send">
+		<value>发送(&amp;D)</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Exit">
+		<value>关闭(&amp;X)</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ViewToolbar">
+		<value>&amp;工具栏</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ViewStatusbar">
+		<value>&amp;状态栏</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ViewContinous">
+		<value>继续</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ViewFacing">
+		<value>Facing</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_BackgrColor">
+		<value>颜色(&amp;C)...</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Watermark">
+		<value>水印(&amp;W)...</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_PdfDocument">
+		<value>PDF 文档</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_TxtDocument">
+		<value>Text 文档</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_CsvDocument">
+		<value>CSV 文档</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_MhtDocument">
+		<value>MHT 文档</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_XlsDocument">
+		<value>Excel 文档</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_RtfDocument">
+		<value>Rich Text 文档</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_HtmDocument">
+		<value>HTML 文档</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_GraphicDocument">
+		<value>Graphic 文档</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ZoomPageWidth">
+		<value>页宽</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ZoomTextWidth">
+		<value>文本宽</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterPdf">
+		<value>PDF 文档</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterTxt">
+		<value>Text 文档</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterCsv">
+		<value>CSV 文档</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterMht">
+		<value>MHT 文档</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterXls">
+		<value>Excel 文档</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterRtf">
+		<value>Rich Text 文档</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterHtm">
+		<value>HTML 文档</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterBmp">
+		<value>BMP Bitmap 格式</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterGif">
+		<value>GIF Graphics Interchange Format</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterJpeg">
+		<value>JPEG File Interchange Format</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterPng">
+		<value>PNG Portable Network Graphics Format</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterTiff">
+		<value>TIFF Tag Image File Format</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterEmf">
+		<value>EMF Enhanced Windows Metafile</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterWmf">
+		<value>WMF Windows Metafile</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_Title">
+		<value>另存为</value>
+	</data>
+	<data name="PreviewStringId.EMail_From">
+		<value>From</value>
+	</data>
+	<data name="PreviewStringId.Msg_IncorrectPageRange">
+		<value>不是有效的爷面设置范围This is not a valid page range</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ImageZoom">
+		<value>Zoom Image</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Direction_Horizontal">
+		<value>横向</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Direction_Vertical">
+		<value>纵向</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Direction_BackwardDiagonal">
+		<value>BackwardDiagonal</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Direction_ForwardDiagonal">
+		<value>ForwardDiagonal</value>
+	</data>
+	<data name="PreviewStringId.WMForm_VertAlign_Bottom">
+		<value>Bottom</value>
+	</data>
+	<data name="PreviewStringId.WMForm_VertAlign_Middle">
+		<value>Middle</value>
+	</data>
+	<data name="PreviewStringId.WMForm_VertAlign_Top">
+		<value>Top</value>
+	</data>
+	<data name="PreviewStringId.WMForm_HorzAlign_Left">
+		<value>Left</value>
+	</data>
+	<data name="PreviewStringId.WMForm_HorzAlign_Center">
+		<value>Center</value>
+	</data>
+	<data name="PreviewStringId.WMForm_HorzAlign_Right">
+		<value>Right</value>
+	</data>
+	<data name="PreviewStringId.WMForm_PictureDlg_Title">
+		<value>Select Picture</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ImageStretch">
+		<value>Stretch</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ImageClip">
+		<value>Clip</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ImageZoom">
+		<value>Zoom</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Asap">
+		<value>ASAP</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Confidential">
+		<value>CONFIDENTIAL</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Copy">
+		<value>COPY</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_DoNotCopy">
+		<value>DO NOT COPY</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Draft">
+		<value>DRAFT</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Evaluation">
+		<value>EVALUATION</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Original">
+		<value>ORIGINAL</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Personal">
+		<value>PERSONAL</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Sample">
+		<value>SAMPLE</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_TopSecret">
+		<value>TOP SECRET</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Urgent">
+		<value>URGENT</value>
+	</data>
+	<data name="PreviewStringId.Msg_FontInvalidNumber">
+		<value>The font size cannot be set to zero or a negative number</value>
+	</data>
+	<data name="PreviewStringId.Msg_NotSupportedFont">
+		<value>This font is not yet supported</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ZOrderRgrItem_InFront">
+		<value>In &amp;front</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ZOrderRgrItem_Behind">
+		<value>&amp;Behind</value>
+	</data>
+	<data name="PreviewStringId.WMForm_PageRangeRgrItem_All">
+		<value>&amp;All</value>
+	</data>
+	<data name="PreviewStringId.WMForm_PageRangeRgrItem_Pages">
+		<value>&amp;Pages:</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageNumber">
+		<value>[Page #]</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageNumberOfTotal">
+		<value>[Page # of Pages #]</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageDate">
+		<value>[Date Printed]</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageTime">
+		<value>[Time Printed]</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageUserName">
+		<value>[User Name]</value>
+	</data>
+  <data name="PivotGridStringId.PopupMenuSortFieldByColumn">
+    <value>根据指定的类进行排序</value>
+  </data>
+  <data name="PivotGridStringId.PopupMenuSortFieldByRow">
+    <value>通过指定的行排序</value>
+  </data>
+  <data name="PivotGridStringId.PopupMenuSortFieldByColumn">
+    <value>通过指定的列排序</value>
+  </data>
+</root>

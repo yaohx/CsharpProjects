@@ -1,0 +1,12 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.ORM.XML
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.ORM.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.ORM.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.ORM\obj\Debug\MB.Orm.csprojResolveAssemblyReference.cache
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.ORM\obj\Debug\MB.ORM.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.ORM\obj\Debug\MB.ORM.pdb
+D:\MB\MB.BaseFrame\ExportBin\MB.ORM.XML
+D:\MB\MB.BaseFrame\ExportBin\MB.ORM.dll
+D:\MB\MB.BaseFrame\ExportBin\MB.ORM.pdb
+D:\MB\MB.BaseFrame\MB.ORM\obj\Debug\MB.Orm.csprojResolveAssemblyReference.cache
+D:\MB\MB.BaseFrame\MB.ORM\obj\Debug\MB.ORM.dll
+D:\MB\MB.BaseFrame\MB.ORM\obj\Debug\MB.ORM.pdb

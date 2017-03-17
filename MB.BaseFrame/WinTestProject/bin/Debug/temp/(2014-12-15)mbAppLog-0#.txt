@@ -1,0 +1,4 @@
+2014-12-15 10:04:31.709:(localhost8)代码执行轨迹-->开始执行  MB.Orm.Persistence.PersistenceManagerHelper.NewInstance.CreateDbCommandByXml 
+2014-12-15 10:04:31.802:(localhost8)代码执行轨迹-->成功发现SQL 语句：SelectObject
+2014-12-15 10:04:31.834:(localhost8)代码执行轨迹-->正在执行: CommandText:; SELECT * FROM myTable(没有参数)
+2014-12-15 10:04:31.834:(localhost8)代码执行轨迹-->正在执行: CommandText:; SELECT * FROM myTable(没有参数)

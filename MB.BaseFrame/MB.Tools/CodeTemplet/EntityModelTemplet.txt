@@ -1,0 +1,23 @@
+﻿   // 需要引用的命名空间  using System.Runtime.Serialization; 
+
+    /// <summary>
+    /// 文件生成时间 #SystemDateTime#
+    /// </summary>
+    [DataContract]
+    [MB.Orm.Mapping.Att.ModelMap("#TableName#","#XmlFileName#", new string [] { "#KeyProperty#" })]
+    [KnownType(typeof(#ModelName#))] 
+    public class #ModelName# : MB.Orm.Common.BaseModel {
+
+        public #ModelName#() {
+
+        }
+        #WHILE#
+        private #DataType# _#PropertyName#;
+        [DataMember]
+        [MB.Orm.Mapping.Att.ColumnMap("#PropertyName#", #SqlDataType#)]
+        public #DataType# #PropertyName# {
+            get { return _#PropertyName#; }
+            set { _#PropertyName# = value; }
+        }
+        #END#
+    }

@@ -1,0 +1,15 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WinEIDrive.XML
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WinEIDrive.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WinEIDrive.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinEIDrive\obj\Debug\MB.WinEIDrive.csprojResolveAssemblyReference.cache
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinEIDrive\obj\Debug\MB.WinEIDrive.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinEIDrive\obj\Debug\MB.WinEIDrive.pdb
+D:\MB\MB.BaseFrame\ExportBin\MB.WinEIDrive.XML
+D:\MB\MB.BaseFrame\ExportBin\MB.WinEIDrive.dll
+D:\MB\MB.BaseFrame\ExportBin\MB.WinEIDrive.pdb
+D:\MB\MB.BaseFrame\MB.WinEIDrive\obj\Debug\MB.WinEIDrive.csprojResolveAssemblyReference.cache
+D:\MB\MB.BaseFrame\MB.WinEIDrive\obj\Debug\MB.WinEIDrive.dll
+D:\MB\MB.BaseFrame\MB.WinEIDrive\obj\Debug\MB.WinEIDrive.pdb
+D:\MB\ERP\Bin\MB.WinEIDrive.dll
+D:\MB\ERP\Bin\MB.WinEIDrive.pdb
+D:\MB\ERP\Bin\MB.WinEIDrive.XML

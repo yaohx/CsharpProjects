@@ -1,0 +1,8 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinClientDefault.Test\bin\Debug\MB.WinClientDefault.Test.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinClientDefault.Test\bin\Debug\MB.WinClientDefault.Test.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinClientDefault.Test\obj\Debug\MB.WinClientDefault.Test.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinClientDefault.Test\obj\Debug\MB.WinClientDefault.Test.pdb
+D:\MB\MB.BaseFrame\MB.WinClientDefault.Test\bin\Debug\MB.WinClientDefault.Test.dll
+D:\MB\MB.BaseFrame\MB.WinClientDefault.Test\bin\Debug\MB.WinClientDefault.Test.pdb
+D:\MB\MB.BaseFrame\MB.WinClientDefault.Test\obj\Debug\MB.WinClientDefault.Test.dll
+D:\MB\MB.BaseFrame\MB.WinClientDefault.Test\obj\Debug\MB.WinClientDefault.Test.pdb

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C69057E7-BEF9-4618-8FAA-B9E9D6B069B0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MB.Util</RootNamespace>
+    <AssemblyName>MB.Util</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\ERP\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\ExportBin\MB.Util.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\ERP\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MB.AOP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MB.AOP.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.Platform.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MBDLL\MB.Platform.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MB.Platform.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ERP\MB.ERP.NET\MBERP\MB.BaseFrameV5\MBDLL\MB.Platform.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aops\MyCodeRunTrackInjection.cs" />
+    <Compile Include="APPException.cs" />
+    <Compile Include="APPMessageType.cs" />
+    <Compile Include="AsynWorkThread.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AppConfigSetting.cs" />
+    <Compile Include="DateTimeUtil.cs" />
+    <Compile Include="Model\Chart\ChartLayoutItemInfo.cs" />
+    <Compile Include="Model\Chart\ChartLayoutTemplateInfo.cs" />
+    <Compile Include="Model\Chart\ChartTemplateInfo.cs" />
+    <Compile Include="Common\DefaultCodeRunTrackInjection.cs" />
+    <Compile Include="Common\QueryParameterHelper.cs" />
+    <Compile Include="Comparer\StringEqualityComparer.cs" />
+    <Compile Include="Cryptography\Encryptor.cs" />
+    <Compile Include="CustomComparaer.cs" />
+    <Compile Include="DataHelper.cs" />
+    <Compile Include="DllContainer.cs" />
+    <Compile Include="DynamicLinq\Dynamic.cs" />
+    <Compile Include="HttpUtility.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\DataBaseQueryResult.cs" />
+    <Compile Include="Model\DynamicGroup\DataAreaField.cs" />
+    <Compile Include="Model\DynamicGroup\DynamicGroupConditionOperator.cs" />
+    <Compile Include="Model\DynamicGroup\DynamicGroupEntityInfos.cs" />
+    <Compile Include="Model\DynamicGroup\DynamicGroupRelationInfo.cs" />
+    <Compile Include="Model\DynamicGroup\DynamicGroupSetting.cs" />
+    <Compile Include="Model\DynamicGroup\SummaryItemType.cs" />
+    <Compile Include="Model\QueryBehavior.cs" />
+    <Compile Include="Model\ResponseHeaderInfo.cs" />
+    <Compile Include="Model\SMSEntity.cs" />
+    <Compile Include="Monitors\WcfMonitor\DBCommandProcessMonitorInfo.cs" />
+    <Compile Include="Monitors\WcfMonitor\DBProcessMonitorInfo.cs" />
+    <Compile Include="Monitors\WcfMonitor\WcfPerformanceMonitorBehavior.cs" />
+    <Compile Include="Monitors\WcfMonitor\WcfPerformanceMonitorMessageInspector.cs" />
+    <Compile Include="Monitors\WcfMonitor\WcfPerformaceMonitorContext.cs" />
+    <Compile Include="Monitors\WcfMonitor\WcfPerformanceMonitorScope.cs" />
+    <Compile Include="Monitors\WcfMonitor\WcfPerformanceMonitorServiceBehaviorElement.cs" />
+    <Compile Include="Monitors\WcfMonitor\WcfRequestMonitorInfo.cs" />
+    <Compile Include="MyCompressor.cs" />
+    <Compile Include="RegularExpressionsHelper.cs" />
+    <Compile Include="RESTServiceHelper.cs" />
+    <Compile Include="Serializer\DataContractFileSerializer.cs" />
+    <Compile Include="Serializer\DataContractJsonSerializeHelper.cs" />
+    <Compile Include="Serializer\DataContractSerializeHelper.cs" />
+    <Compile Include="SoftRegistry\AuthDataEncrypt.cs" />
+    <Compile Include="SoftRegistry\AuthHelper.cs" />
+    <Compile Include="SoftRegistry\AuthRightInfo.cs" />
+    <Compile Include="SoftRegistry\ClientAppType.cs" />
+    <Compile Include="SoftRegistry\FrmAuthorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoftRegistry\Tools.cs" />
+    <Compile Include="Validated\DataValidated.cs" />
+    <Compile Include="DESDataEncrypt.cs" />
+    <Compile Include="Emit\DynamicPropertyAccessorEx.cs" />
+    <Compile Include="Emit\IDynamicPropertyAccessor.cs" />
+    <Compile Include="Emit\DynamicPropertyAccessor.cs" />
+    <Compile Include="Emit\DynamicPropertyAccessorException.cs" />
+    <Compile Include="Expressions\ExpressionHelper.cs" />
+    <Compile Include="ExtendMessageHelper.cs" />
+    <Compile Include="Model\BfModuleCommentInfo.cs" />
+    <Compile Include="Model\CodeNameInfo.cs" />
+    <Compile Include="Model\DateFilterStruct.cs" />
+    <Compile Include="Model\DocOperateType.cs" />
+    <Compile Include="Model\DocState.cs" />
+    <Compile Include="Model\EntityState.cs" />
+    <Compile Include="Model\GreatCapacityInvokeParamInfo.cs" />
+    <Compile Include="Model\GreatCapacityResult.cs" />
+    <Compile Include="Model\MBShareDataProvider.cs" />
+    <Compile Include="Model\MobileMessageInfo.cs" />
+    <Compile Include="Model\ModuleCommandInfo.cs" />
+    <Compile Include="Model\ModuleTreeNodeInfo.cs" />
+    <Compile Include="Model\QueryParameterInfo.cs" />
+    <Compile Include="Model\SOD.cs" />
+    <Compile Include="Model\SysLoginUserInfo.cs" />
+    <Compile Include="Model\SysUserPrivInfo.cs" />
+    <Compile Include="Model\VersionUpdateFileInfo.cs" />
+    <Compile Include="Model\WcfCredentialInfo.cs" />
+    <Compile Include="Model\WcfFaultMessage.cs" />
+    <Compile Include="Model\ServerConfigInfo.cs" />
+    <Compile Include="MyFileStream.cs" />
+    <Compile Include="MyHashtable.cs" />
+    <Compile Include="MyNetworkCredential.cs" />
+    <Compile Include="MyWebServiceHelper.cs" />
+    <Compile Include="Serializer\BinarySerializerAndZip.cs" />
+    <Compile Include="Serializer\EntityXmlSerializer.cs" />
+    <Compile Include="Serializer\LightweightTextSerializer.cs" />
+    <Compile Include="Serializer\QueryParameterXmlSerializer.cs" />
+    <Compile Include="Serializer\SoapSerializer.cs" />
+    <Compile Include="Serializer\ValueXmlSerializerAttribute.cs" />
+    <Compile Include="MethodTraceWithTime.cs" />
+    <Compile Include="Validated\PropertyValidates.cs" />
+    <Compile Include="Validated\ValidatedHelper.cs" />
+    <Compile Include="VolumPlayHelper.cs" />
+    <Compile Include="WcfCompress\CompressionAlgorithm.cs" />
+    <Compile Include="WcfCompress\CompressionMessageFormatter.cs" />
+    <Compile Include="WcfCompress\CompressionOperationBehaviorAttribute.cs" />
+    <Compile Include="WcfCompress\CompressionUtil.cs" />
+    <Compile Include="WcfCompress\DataCompressor.cs" />
+    <Compile Include="WcfCompress\MessageCompressor.cs" />
+    <Compile Include="WcfCompress\WcfCompressManager.cs" />
+    <Compile Include="XmlConfig\ModelXmlConfigAttribute.cs" />
+    <Compile Include="XmlConfig\PropertyXmlConfigAttribute.cs" />
+    <Compile Include="Compression.cs" />
+    <Compile Include="DataFilterHelper.cs" />
+    <Compile Include="DataOrderType.cs" />
+    <Compile Include="DllFactory.cs" />
+    <Compile Include="General.cs" />
+    <Compile Include="IniFile.cs" />
+    <Compile Include="MyConvert.cs" />
+    <Compile Include="MyCustomAttributeLib.cs" />
+    <Compile Include="MyDataCache.cs" />
+    <Compile Include="MyMath.cs" />
+    <Compile Include="MyReflection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingletonProvider.cs" />
+    <Compile Include="TraceEx.cs" />
+    <Compile Include="XmlConfig\XmlConfigHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SoftRegistry\FrmAuthorization.resx">
+      <DependentUpon>FrmAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

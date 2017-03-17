@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EntitySetCache>
+  <EntitySet>
+    <!--Name 属性随便起 -->
+    <!--CustomLoaderType 类型FullName, AssemblyName -->
+    <!--CacheItemPriority 
+        缓存项的优先级 None = 0, Low = 1, Normal = 2, High = 3, NotRemovable = 4,
+        默认值是Normal -->
+    <!--IsCacheItemRefreshed True或者False，表示当缓存依赖过期的时候，是否需要刷新缓存 -->
+    <Entity Name="" CustomLoaderType="MB.Util.Test.CacheLoaderTest1, MB.Util.Test" CacheItemPriority="NotRemovable" IsCacheItemRefreshed="True" >
+      <!-- 缓存过期依赖节点 -->
+      <!-- ExpirationType Never(从不)，FileDependency(文件变化)，SlidingTime(相对时间)，AbsoluteTime(绝对时间)， 默认是Never -->
+      <!-- FilePath 如果ExpirationType是FileDependency，需要提供FilePath -->
+      <!-- ExpireTime 如果ExpirationType是SlidingTime或者AbsoluteTime，需要提供过期时间 -->
+      <Expiration ExpirationType="" FilePath="" ExpireTime="" />
+    </Entity>
+  </EntitySet>
+</EntitySetCache>

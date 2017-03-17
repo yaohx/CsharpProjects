@@ -1,0 +1,14 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WinOfficeAutomation.XML
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WinOfficeAutomation.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.WinOfficeAutomation.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinOfficeAutomation\obj\Debug\MB.WinOfficeAutomation.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinOfficeAutomation\obj\Debug\MB.WinOfficeAutomation.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.WinOfficeAutomation\obj\Debug\MB.WinOfficeAutomation.csprojResolveAssemblyReference.cache
+D:\MB\MB.BaseFrame\ExportBin\MB.WinOfficeAutomation.XML
+D:\MB\MB.BaseFrame\ExportBin\MB.WinOfficeAutomation.dll
+D:\MB\MB.BaseFrame\ExportBin\MB.WinOfficeAutomation.pdb
+D:\MB\MB.BaseFrame\MB.WinOfficeAutomation\obj\Debug\MB.WinOfficeAutomation.dll
+D:\MB\MB.BaseFrame\MB.WinOfficeAutomation\obj\Debug\MB.WinOfficeAutomation.pdb
+D:\MB\ERP\Bin\MB.WinOfficeAutomation.dll
+D:\MB\ERP\Bin\MB.WinOfficeAutomation.pdb
+D:\MB\ERP\Bin\MB.WinOfficeAutomation.XML

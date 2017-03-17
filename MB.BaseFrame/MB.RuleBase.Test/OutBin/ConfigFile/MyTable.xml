@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--   XML 文件生成时间 2012-11-23 01:29  -->
+<Entity>
+  <PrimaryKeyName>ID</PrimaryKeyName>
+  <MappingTableName>TMP_TIME_SPLIT</MappingTableName>
+  <Sqls>
+    <Sql Name="SelectObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              SELECT 
+ USER_UID 
+ ,USER_CODE 
+ ,APP_CATEGORY 
+ ,APP_CODE 
+ ,APP_DATE 
+ ,LEAVE_TIME 
+ ,UNIT 
+ ,OA_RECORD_ID 
+ ,REMARKS 
+ ,LOAD_TIME 
+ ,FLAG 
+  
+ FROM 
+ TMP_TIME_SPLIT 
+  WHERE @Where ;
+]]>
+        </String>
+        <Param Name = "@Where" Column = "Where" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+
+    <!--<Sql Name="AddObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              INSERT INTO 
+ MyTable 
+ (ID 
+ ,Name
+ );
+]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@Name" Column = "Name" TypeName = "System.String" />
+      </SqlString>
+    </Sql>-->
+
+    <Sql Name="AddObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              INSERT INTO 
+ TMP_TIME_SPLIT 
+ (USER_UID 
+ ,USER_CODE 
+ ,APP_CATEGORY 
+ ,APP_CODE 
+ ,APP_DATE 
+ ,LEAVE_TIME 
+ ,UNIT 
+ ,OA_RECORD_ID 
+ ,REMARKS 
+ ,LOAD_TIME 
+ ,FLAG 
+ ) 
+ VALUES( 
+ @USER_UID 
+ ,@USER_CODE 
+ ,@APP_CATEGORY 
+ ,@APP_CODE 
+ ,@APP_DATE 
+ ,@LEAVE_TIME 
+ ,@UNIT 
+ ,@OA_RECORD_ID 
+ ,@REMARKS 
+ ,@LOAD_TIME 
+ ,@FLAG 
+ );
+]]>
+        </String>
+        <Param Name = "@USER_UID" Column = "USER_UID" TypeName = "System.String" />
+        <Param Name = "@USER_CODE" Column = "USER_CODE" TypeName = "System.String" />
+        <Param Name = "@APP_CATEGORY" Column = "APP_CATEGORY" TypeName = "System.Int16" />
+        <Param Name = "@APP_CODE" Column = "APP_CODE" TypeName = "System.String" />
+        <Param Name = "@APP_DATE" Column = "APP_DATE" TypeName = "System.DateTime" />
+        <Param Name = "@LEAVE_TIME" Column = "LEAVE_TIME" TypeName = "System.Decimal" />
+        <Param Name = "@UNIT" Column = "UNIT" TypeName = "System.String" />
+        <Param Name = "@OA_RECORD_ID" Column = "OA_RECORD_ID" TypeName = "System.String" />
+        <Param Name = "@REMARKS" Column = "REMARKS" TypeName = "System.String" />
+        <Param Name = "@LOAD_TIME" Column = "LOAD_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@FLAG" Column = "FLAG" TypeName = "System.Int16" />
+      </SqlString>
+    </Sql>
+    
+    <Sql Name="UpdateObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              UPDATE  TMP_TIME_SPLIT 
+ SET  USER_UID = @USER_UID 
+ ,USER_CODE = @USER_CODE 
+ ,APP_CATEGORY = @APP_CATEGORY 
+ ,APP_CODE = @APP_CODE 
+ ,APP_DATE = @APP_DATE 
+ ,LEAVE_TIME = @LEAVE_TIME 
+ ,UNIT = @UNIT 
+ ,OA_RECORD_ID = @OA_RECORD_ID 
+ ,REMARKS = @REMARKS 
+ ,LOAD_TIME = @LOAD_TIME 
+ ,FLAG = @FLAG 
+  
+ WHERE ID = @ID ;
+]]>
+        </String>
+        <Param Name = "@USER_UID" Column = "USER_UID" TypeName = "System.String" />
+        <Param Name = "@USER_CODE" Column = "USER_CODE" TypeName = "System.String" />
+        <Param Name = "@APP_CATEGORY" Column = "APP_CATEGORY" TypeName = "System.Decimal" />
+        <Param Name = "@APP_CODE" Column = "APP_CODE" TypeName = "System.String" />
+        <Param Name = "@APP_DATE" Column = "APP_DATE" TypeName = "System.DateTime" />
+        <Param Name = "@LEAVE_TIME" Column = "LEAVE_TIME" TypeName = "System.Decimal" />
+        <Param Name = "@UNIT" Column = "UNIT" TypeName = "System.String" />
+        <Param Name = "@OA_RECORD_ID" Column = "OA_RECORD_ID" TypeName = "System.String" />
+        <Param Name = "@REMARKS" Column = "REMARKS" TypeName = "System.String" />
+        <Param Name = "@LOAD_TIME" Column = "LOAD_TIME" TypeName = "System.DateTime" />
+        <Param Name = "@FLAG" Column = "FLAG" TypeName = "System.Decimal" />
+      </SqlString>
+    </Sql>
+    <Sql Name="DeleteObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              DELETE 
+ FROM TMP_TIME_SPLIT 
+ WHERE ID = @ID;
+]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>

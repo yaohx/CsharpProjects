@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity>
+  <DynamicGroup>
+    <MainEntity Name="SF_DGN">
+      <Columns>
+        <Column Name = "ID" Description="" DataType="" ColArea="Group"/>
+        <Column Name = "DOC_STATE"  />
+        <Column Name = "CODE"   />
+        <Column Name = "DOC_DATE"  />
+        <Column Name = "BF_ORG_UNIT_ID"  />
+        <Column Name = "ORDER_SN"  />
+        <Column Name = "TTL_QTY"  SummaryItemType="Sum" ColArea="Aggregation" />
+        <Column Name = "TTL_VAL"  SummaryItemType="Sum" ColArea="Aggregation" />
+      </Columns>
+    </MainEntity>
+    <DetailEntity Name="SF_DGN_DTL">
+      <Columns>
+        <Column Name = "ID" Description = "内码" />
+        <Column Name = "SF_DGN_ID" Description = "交货单ID" />
+        <Column Name = "PROD_ID" Description = "商品ID" ColArea="Group" />
+        <Column Name = "PROD_COLOR" Description = "颜色"  ColArea="Group" />
+        <Column Name = "QUANTITY" Description = "数量" SummaryItemType="Sum" ColArea="Aggregation"/>
+      </Columns>
+    </DetailEntity>
+    <Relations>
+      <Relation Column="ID" WithColumn="SF_DGN_ID" />
+    </Relations>
+    <DynamicEntity>
+      <Columns>
+        <Column Name = "TTL_VAL" Description = "总金额" DataType = "System.Decimal" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" />
+        <Column Name = "TTL_QTY" Description = "总数量" DataType = "System.Decimal" IsKey = "False" IsNull = "True"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" />
+        <Column Name = "BF_ORG_UNIT_ID" Description = "发货组织ID"  DataType = "System.String" IsKey = "False" IsNull = "False"  Visibled = "True" CanEdit = "True" VisibleWidth = "100" />
+      </Columns>
+    </DynamicEntity>
+  </DynamicGroup>
+</Entity>

@@ -1,0 +1,8 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.VersionUpdate\bin\Debug\MB.VersionUpdate.exe
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.VersionUpdate\bin\Debug\MB.VersionUpdate.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.VersionUpdate\obj\Debug\MB.VersionUpdate.exe
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.VersionUpdate\obj\Debug\MB.VersionUpdate.pdb
+D:\MB\MB.BaseFrame\MB.VersionUpdate\bin\Debug\MB.VersionUpdate.exe
+D:\MB\MB.BaseFrame\MB.VersionUpdate\bin\Debug\MB.VersionUpdate.pdb
+D:\MB\MB.BaseFrame\MB.VersionUpdate\obj\Debug\MB.VersionUpdate.exe
+D:\MB\MB.BaseFrame\MB.VersionUpdate\obj\Debug\MB.VersionUpdate.pdb

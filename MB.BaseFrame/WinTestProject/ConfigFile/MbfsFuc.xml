@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--   XML 文件生成时间 2009-09-24 10:55  -->
+<Entity>
+  <PrimaryKeyName>ID</PrimaryKeyName>
+  <MappingTableName>MBFS_FUC</MappingTableName>
+  <Sqls>
+    <Sql Name="SelectObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+SELECT A.ID,
+       A.FUC_NUM,
+       A.MBFS_SUBJECT_ID,
+       A.VENDER_ID,
+       A.AGENT_ID,
+       A.OPR_ID,
+       A.PROGRESS,
+       A.CANCELLED,
+       A.REMARK,
+       A.REMARK2,
+       A.REMARK3,
+       A.DISP_WAREH_ID,
+       NVL(G.TO_CONTRACT, '0') AS TO_CONTRACT,
+       B.CODE AS MBFS_SUBJECT_CODE,
+       B.NAME AS MBFS_SUBJECT_NAME,
+       R.WAREH_NAME AS RWAREH_NAME,
+       E.NAME AS DISP_WAREH_NAME,
+       F.NAME AS VENDER_NAME,
+       A.VENDEE_ID,
+       H.NAME AS VENDEE_NAME,
+       C.AGENT_NAME AS AGENT_NAME
+  FROM MBFS_FUC A
+  LEFT OUTER JOIN MBFS_SUBJECT B ON A.MBFS_SUBJECT_ID = B.ID
+  LEFT OUTER JOIN SYS_UNIT D ON A.REMARK2 = D.UNIT_ID
+  LEFT OUTER JOIN SYS_UNIT E ON A.DISP_WAREH_ID = E.UNIT_ID
+  LEFT OUTER JOIN SYS_UNIT F ON A.VENDER_ID = F.UNIT_ID
+  LEFT OUTER JOIN SYS_UNIT H ON A.VENDEE_ID = H.UNIT_ID
+  LEFT OUTER JOIN MBFS_AGENT_DETAIL C ON A.AGENT_ID = C.AGENT_ID
+  LEFT OUTER JOIN MBFS_AGENT_DTL_RWAREH R ON R.MBFS_AGENT_DETAIL_ID = C.ID
+  LEFT OUTER JOIN (SELECT '1' AS TO_CONTRACT, MBFS_SUBJECT_ID, VENDEE_ID
+                     FROM MBFS_FUC_LOG) G ON A.MBFS_SUBJECT_ID =
+                                             G.MBFS_SUBJECT_ID
+                                         AND A.VENDEE_ID = G.VENDEE_ID ;
+            ]]>
+        </String>
+        
+      </SqlString>
+      <QueryParamMappings DefaultTableAlias="A">
+        <Mapping Name="MBFS_SUBJECT_CODE" DbFieldName="B.CODE" ></Mapping>
+        <Mapping Name="MBFS_SUBJECT_NAME" DbFieldName="B.NAME"></Mapping>
+        <Mapping Name="VENDER_NAME" DbFieldName="F.NAME"></Mapping>
+        <Mapping Name="VENDEE_NAME" DbFieldName="H.NAME"></Mapping>
+        <Mapping Name="AGENT_NAME" DbFieldName="C.AGENT_NAME"></Mapping>
+
+      </QueryParamMappings>
+    </Sql>
+    <Sql Name="AddObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              INSERT INTO MBFS_FUC(ID,FUC_NUM,MBFS_SUBJECT_ID,VENDER_ID,VENDEE_ID,AGENT_ID,OPR_ID,
+              PROGRESS,CANCELLED,REMARK,REMARK2,REMARK3,DISP_WAREH_ID) 
+              VALUES(@ID,@FUC_NUM,@MBFS_SUBJECT_ID,@VENDER_ID,@VENDEE_ID,@AGENT_ID,@OPR_ID,
+              @PROGRESS,@CANCELLED,@REMARK,@REMARK2,@REMARK3,@DISP_WAREH_ID);
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@FUC_NUM" Column = "FUC_NUM" TypeName = "System.String" />
+        <Param Name = "@MBFS_SUBJECT_ID" Column = "MBFS_SUBJECT_ID" TypeName = "System.Int32" />
+        <Param Name = "@VENDER_ID" Column = "VENDER_ID" TypeName = "System.String" />
+        <Param Name = "@VENDEE_ID" Column = "VENDEE_ID" TypeName = "System.String" />
+        <Param Name = "@AGENT_ID" Column = "AGENT_ID" TypeName = "System.String" />
+        <Param Name = "@OPR_ID" Column = "OPR_ID" TypeName = "System.String" />
+        <Param Name = "@PROGRESS" Column = "PROGRESS" TypeName = "System.String" />
+        <Param Name = "@CANCELLED" Column = "CANCELLED" TypeName = "System.String" />
+        <Param Name = "@REMARK" Column = "REMARK" TypeName = "System.String" />
+        <Param Name = "@REMARK2" Column = "REMARK2" TypeName = "System.String" />
+        <Param Name = "@REMARK3" Column = "REMARK3" TypeName = "System.String" />
+        <Param Name = "@DISP_WAREH_ID" Column = "DISP_WAREH_ID" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="UpdateObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              UPDATE  MBFS_FUC
+              SET ID = @ID, 
+              FUC_NUM = @FUC_NUM, 
+              MBFS_SUBJECT_ID = @MBFS_SUBJECT_ID, 
+              VENDER_ID = @VENDER_ID, 
+              VENDEE_ID = @VENDEE_ID, 
+              AGENT_ID = @AGENT_ID, 
+              OPR_ID = @OPR_ID, 
+              PROGRESS = @PROGRESS, 
+              CANCELLED = @CANCELLED, 
+              REMARK = @REMARK, 
+              REMARK2 = @REMARK2, 
+              REMARK3 = @REMARK3, 
+              DISP_WAREH_ID = @DISP_WAREH_ID
+              WHERE ID = @ID ;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@FUC_NUM" Column = "FUC_NUM" TypeName = "System.String" />
+        <Param Name = "@MBFS_SUBJECT_ID" Column = "MBFS_SUBJECT_ID" TypeName = "System.Int32" />
+        <Param Name = "@VENDER_ID" Column = "VENDER_ID" TypeName = "System.String" />
+        <Param Name = "@VENDEE_ID" Column = "VENDEE_ID" TypeName = "System.String" />
+        <Param Name = "@AGENT_ID" Column = "AGENT_ID" TypeName = "System.String" />
+        <Param Name = "@OPR_ID" Column = "OPR_ID" TypeName = "System.String" />
+        <Param Name = "@PROGRESS" Column = "PROGRESS" TypeName = "System.String" />
+        <Param Name = "@CANCELLED" Column = "CANCELLED" TypeName = "System.String" />
+        <Param Name = "@REMARK" Column = "REMARK" TypeName = "System.String" />
+        <Param Name = "@REMARK2" Column = "REMARK2" TypeName = "System.String" />
+        <Param Name = "@REMARK3" Column = "REMARK3" TypeName = "System.String" />
+        <Param Name = "@DISP_WAREH_ID" Column = "DISP_WAREH_ID" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="DeleteObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              DELETE 
+              FROM MBFS_FUC_DTL A
+              WHERE EXISTS(SELECT 1 FROM MBFS_FUC B
+                             WHERE A.MBFS_FUC_ID=B.ID AND B.ID=@ID) ;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+
+      <SqlString>
+        <String>
+          <![CDATA[
+              DELETE 
+              FROM MBFS_FUC 
+              WHERE ID = @ID;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+    <!-- 获取转入的期货合同 -->
+    <Sql Name="GetMbfsFucByMbfsSubject">
+      <SqlString>
+        <String>
+          <![CDATA[
+             SELECT A.ID,A.FUC_NUM,A.MBFS_SUBJECT_ID,A.VENDER_ID,A.PROGRESS,A.CANCELLED,
+                  A.REMARK2,A.DISP_WAREH_ID,A.VENDEE_ID,
+                  C.NAME AS VENDER_NAME, D.NAME AS VENDEE_NAME, C.Dwareh_Name, 
+                  F.NAME AS DISP_WAREH_NAME, A.CANCELLED,0 AS TO_CONTRACT,B.CODE AS MBFS_SUBJECT_CODE,
+                  B.NAME AS MBFS_SUBJECT_NAME,A.AGENT_ID,A.OPR_ID,A.REMARK3
+              FROM MBFS_FUC A
+              INNER JOIN MBFS_SUBJECT B ON A.MBFS_SUBJECT_ID = B.ID
+              LEFT JOIN SYS_UNIT C ON A.VENDER_ID = C.UNIT_ID
+              LEFT JOIN SYS_UNIT D ON A.VENDEE_ID = D.UNIT_ID
+              LEFT OUTER JOIN MBFS_AGENT_DETAIL C ON A.AGENT_ID = C.AGENT_ID
+              LEFT JOIN SYS_UNIT F ON A.DISP_WAREH_ID = F.UNIT_ID
+              WHERE NOT EXISTS (SELECT 1 FROM MBFS_FUC_LOG G 
+                        WHERE A.MBFS_SUBJECT_ID = G.MBFS_SUBJECT_ID AND A.VENDEE_ID = G.VENDEE_ID) 
+                    AND NVL(A.CANCELLED,'0')='0' AND A.MBFS_SUBJECT_ID=@MBFS_SUBJECT_ID ;
+          ]]>
+        </String>
+        <Param Name = "@MBFS_SUBJECT_ID" Column = "MBFS_SUBJECT_ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+    <!-- 获取打印合同标题-->
+    <Sql Name="GetContractTitleData">
+      <SqlString>
+        <String>
+          <![CDATA[
+             SELECT A.VENDEE_ID,D.NAME AS VENDEE_NAME,B.NAME             
+              FROM MBFS_FUC A
+              INNER JOIN MBFS_SUBJECT B ON A.MBFS_SUBJECT_ID = B.ID         
+              LEFT JOIN SYS_UNIT D ON A.VENDEE_ID = D.UNIT_ID
+              WHERE NVL(A.CANCELLED,'0')='0' AND A.ID=@ID ;
+          ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+
+    <!-- 获取打印合同内容-->
+    <Sql Name="GetContractContentData">
+      <SqlString>
+        <String>
+          <![CDATA[
+             SELECT A.PROD_ID,A.BATCH_DATE,A.CNTT_QTY            
+              FROM MBFS_FUC_DTL A
+              INNER JOIN MBFS_FUC B ON A.MBFS_FUC_ID = B.ID
+              WHERE NVL(B.CANCELLED,'0')='0' AND B.ID = @ID;
+          ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+
+    <!-- 获取打印合同汇总数据-->
+    <Sql Name="GetContractCollectData">
+      <SqlString>
+        <String>
+          <![CDATA[
+             SELECT A.BATCH_DATE,SUM(A.CNTT_QTY) AS CNTT_QTY, SUM(ROUND(A.CNTT_QTY*ROUND(A.UNIT_PRICE,4)*ROUND(A.DISC_RATE,4)*0.01,4)) AS CNTT_VAL            
+              FROM MBFS_FUC_DTL A
+              INNER JOIN MBFS_FUC B ON A.MBFS_FUC_ID = B.ID
+              WHERE NVL(B.CANCELLED,'0')='0' AND B.ID = @ID
+              GROUP BY A.BATCH_DATE ;
+          ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+
+    <Sql Name="Import_CheckSalesNoExists">
+      <SqlString>
+        <String>
+          <![CDATA[     
+            SELECT Rln_Num FROM RLN WHERE SHOP_ID=@ShopID AND RLN_NUM=@SaleNo; 
+          ]]>
+        </String>
+        <Param Name = "@SaleNo" Column = "SaleNo" TypeName = "System.String" />
+        <Param Name = "@ShopID" Column = "ShopID" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="AddToMyTable">
+      <SqlString>
+        <String>
+          <![CDATA[     
+           INSERT INTO MyTable(ID,Name) Values(@ID,@Name);
+          ]]>
+        </String>
+        <Param Name = "@ID" TypeName = "System.Int32" />
+        <Param Name = "@Name" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="GetMyTable">
+      <SqlString>
+        <String>
+          <![CDATA[     
+          select * from MYTable;
+          ]]>
+        </String>
+    
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>

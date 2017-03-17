@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--   XML 文件生成时间 2009-09-25 11:02  -->
+<Entity>
+  <PrimaryKeyName>ID</PrimaryKeyName>
+  <MappingTableName>MBFS_FUC_DTL</MappingTableName>
+  <Sqls>
+    <Sql Name="GetByForeingKey">
+      <SqlString>
+        <String>
+          <![CDATA[
+               SELECT A.ID,A.MBFS_FUC_ID,A.BATCH_DATE,A.PROD_ID,A.CNTT_QTY,A.VALID_CNTT_QTY,
+                A.SHOP_ID
+               FROM MBFS_FUC_DTL A
+               LEFT OUTER JOIN SYS_UNIT B ON A.SHOP_ID = B.UNIT_ID
+               LEFT JOIN PRODUCT C ON A.PROD_ID = C.PROD_ID
+               LEFT JOIN PROD_CLS D ON C.PROD_PROP = D.PROD_PROP
+                      AND C.PROD_SORT = D.PROD_SORT
+                      AND C.PROD_STYLE = D.PROD_STYLE
+               LEFT JOIN COLOR E ON C.COLOR = E.COLOR
+               LEFT JOIN PROD_EDTN F ON (C.PROD_PROP = F.PROD_PROP AND
+                           C.EDITION = F.EDITION)
+               LEFT JOIN PROD_SPEC G ON (C.PROD_PROP = G.PROD_PROP AND
+                           C.PROD_SORT = G.PROD_SORT AND
+                           C.SPEC = G.SPEC)
+               WHERE A.MBFS_FUC_ID = @MBFS_FUC_ID ;
+            ]]>
+        </String>
+        <Param Name = "@MBFS_FUC_ID" Column = "MBFS_FUC_ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+    <Sql Name="AddObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              INSERT INTO MBFS_FUC_DTL(ID,MBFS_FUC_ID,BATCH_DATE,PROD_ID,UNIT_PRICE,DISC_RATE,
+              CNTT_QTY,VALID_CNTT_QTY,REMARK,SHOP_ID) 
+              VALUES(@ID,@MBFS_FUC_ID,@BATCH_DATE,@PROD_ID,@UNIT_PRICE,@DISC_RATE,
+              @CNTT_QTY,@VALID_CNTT_QTY,@REMARK ,@SHOP_ID);
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@MBFS_FUC_ID" Column = "MBFS_FUC_ID" TypeName = "System.Int32" />
+        <Param Name = "@BATCH_DATE" Column = "BATCH_DATE" TypeName = "System.DateTime" />
+        <Param Name = "@PROD_ID" Column = "PROD_ID" TypeName = "System.String" />
+        <Param Name = "@UNIT_PRICE" Column = "UNIT_PRICE" TypeName = "System.Decimal" />
+        <Param Name = "@DISC_RATE" Column = "DISC_RATE" TypeName = "System.Decimal" />
+        <Param Name = "@CNTT_QTY" Column = "CNTT_QTY" TypeName = "System.Decimal" />
+        <Param Name = "@VALID_CNTT_QTY" Column = "VALID_CNTT_QTY" TypeName = "System.Decimal" />
+        <Param Name = "@REMARK" Column = "REMARK" TypeName = "System.String" />
+        <Param Name = "@SHOP_ID" Column = "SHOP_ID" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="UpdateObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              UPDATE  MBFS_FUC_DTL 
+              SET ID = @ID,
+              MBFS_FUC_ID = @MBFS_FUC_ID,
+              BATCH_DATE = @BATCH_DATE, 
+              PROD_ID = @PROD_ID, 
+              UNIT_PRICE = @UNIT_PRICE, 
+              DISC_RATE = @DISC_RATE, 
+              CNTT_QTY = @CNTT_QTY,
+              VALID_CNTT_QTY = @VALID_CNTT_QTY,
+              REMARK = @REMARK, 
+              SHOP_ID = @SHOP_ID  
+              WHERE ID = @ID ;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@MBFS_FUC_ID" Column = "MBFS_FUC_ID" TypeName = "System.Int32" />
+        <Param Name = "@BATCH_DATE" Column = "BATCH_DATE" TypeName = "System.DateTime" />
+        <Param Name = "@PROD_ID" Column = "PROD_ID" TypeName = "System.String" />
+        <Param Name = "@UNIT_PRICE" Column = "UNIT_PRICE" TypeName = "System.Decimal" />
+        <Param Name = "@DISC_RATE" Column = "DISC_RATE" TypeName = "System.Decimal" />
+        <Param Name = "@CNTT_QTY" Column = "CNTT_QTY" TypeName = "System.Decimal" />
+        <Param Name = "@VALID_CNTT_QTY" Column = "VALID_CNTT_QTY" TypeName = "System.Decimal" />
+        <Param Name = "@REMARK" Column = "REMARK" TypeName = "System.String" />
+        <Param Name = "@SHOP_ID" Column = "SHOP_ID" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="DeleteObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              DELETE 
+              FROM MBFS_FUC_DTL 
+              WHERE ID = @ID;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>

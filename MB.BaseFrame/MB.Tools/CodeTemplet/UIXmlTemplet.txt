@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--   XML 文件生成时间 #SystemDateTime#  -->
+<Entity>
+  <Columns>
+    #WHILE#
+    <Column Name = "#PropertyName#" Description = "#Description#" DataType = "#DataType#" IsKey = "#IsKey#" IsNull = "#IsNull#"  Visibled = "#Visibled#" CanEdit = "#CanEdit#" VisibleWidth = "#VisibleWidth#" />
+    #END#
+  </Columns>
+  
+   <DataFilter >
+    <!-- 主表基本项过滤 如果 EditControlType 将根据EditUI 的配置和默认设置进行创建-->
+    <!--FilterCondition  枚举类型 MB.Util.DataFilterConditions 内的所有成员都可以配置。默认是Include（包含）  -->
+    <!--LimitColumn 默认为false 设置为true ，那么该列的值只在业务类中处理，不做为拼接的SQL语句发送给数据库服务器 -->
+    <Elements Name="MainDataFilter" AllowEmptyFilter="true">
+      <Element Name="CODE" FilterCondition="Equal" LimitColumn="True" />
+    </Elements>
+  </DataFilter>
+ </Entity> 

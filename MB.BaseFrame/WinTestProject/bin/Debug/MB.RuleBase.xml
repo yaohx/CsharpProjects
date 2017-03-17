@@ -1,0 +1,2413 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MB.RuleBase</name>
+    </assembly>
+    <members>
+        <member name="T:MB.RuleBase.AsynQueryRule">
+            <summary>
+            所有基于异步查询分析业务类必须要继承的抽象基类。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.BaseQueryRule">
+            <summary>
+            所有插销分析业务类必须要继承的抽象基类。
+            该类数据库操作获取的是默认配置的数据库连接字符窜，
+            如果需要调用不同的数据库，需要覆盖相应的方法并调用DatabaseConfigurationScope。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.IFace.IBaseQueryRule">
+            <summary>
+            查询分析接口。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseQueryRule.GetDynamicGroupQueryData(MB.Util.Model.DynamicGroupSetting,System.String)">
+            <summary>
+            根据过滤的条件以 DataSet 获取需要的数据填充动态聚组查询。
+            </summary>
+            <param name="setting"></param>
+            <param name="xmlFilterParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseQueryRule.GetObjectAsDataSet(System.Int32,System.String)">
+            <summary>
+            根据过滤的条件以 DataSet 获取需要的数据。
+            如果存在大数据 不能在客户端直接调用,需要通过大数据调用载体来进行。
+            (未来可以通过配置的方式来解决)
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的键值。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseQueryRule.GetObjects(System.Int32,System.String)">
+            <summary>
+            根据过滤的条件以IList的格式 获取需要的数据。
+            如果存在大数据 不能在客户端直接调用,需要通过大数据调用载体来进行。
+            (未来可以通过配置的方式来解决)
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的键值。</param>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseQueryRule.GetCustomSummaryColValues(System.Collections.Generic.List{System.String},MB.Util.Model.QueryParameterInfo[])">
+            <summary>
+            得到自定义汇总列显示的内容信息
+            这个方法在基类中不会有具体实现，需要业务派生类去实现该方法
+            </summary>
+            <param name="colsToGetValue">客户端传过来需要自定义汇总的列名</param>
+            <param name="queryParams">自定义汇总时客户端传入的条件</param>
+            <returns>返回自定义汇总的列</returns>
+        </member>
+        <member name="P:MB.RuleBase.IFace.IBaseQueryRule.ObjectDataDocType">
+            <summary>
+            对象数据
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.IFace.IBaseQueryRule.QueryParamMapping">
+            <summary>
+            获取查询参数的映射列表。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BaseQueryRule.#ctor(System.Type)">
+            <summary>
+            constructer..
+            </summary>
+            <param name="objectDataDocType"></param>
+        </member>
+        <member name="M:MB.RuleBase.BaseQueryRule.GetDynamicGroupQueryData(MB.Util.Model.DynamicGroupSetting,System.String)">
+            <summary>
+            动态聚组查询获取数据
+            </summary>
+            <param name="setting"></param>
+            <param name="xmlFilterParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseQueryRule.GetObjectAsDataSet(System.Int32,System.String)">
+            <summary>
+            以DataSet 的类型返回需要获取的数据。
+            </summary>
+            <param name="dataInDocType">需要进行检查的数据类型</param>
+            <param name="xmlFilterParams">QueryParameterInfo[] 系列化后的字符窜</param>
+            <returns>以System.Data.DataSet 返回获取到的结果 </returns>  //[OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
+        </member>
+        <member name="M:MB.RuleBase.BaseQueryRule.GetObjects(System.Int32,System.String)">
+            <summary>
+            根据过滤的条件获取指定类型实体对象的集合。
+            </summary>
+            <param name="xmlFilterParams">QueryParameterInfo[] 系列化后的字符窜</param>
+            <returns>得到的实体集合</returns>  // [OperationBehavior(TransactionScopeRequired = true, TransactionAutoComplete = true)]
+        </member>
+        <member name="M:MB.RuleBase.BaseQueryRule.GetCustomSummaryColValues(System.Collections.Generic.List{System.String},MB.Util.Model.QueryParameterInfo[])">
+            <summary>
+            得到自定义汇总列显示的内容信息
+            这个方法在基类中不会有具体实现，需要业务派生类去实现该方法
+            </summary>
+            <param name="colsToGetValue">客户端传过来需要自定义汇总的列名</param>
+            <param name="queryParams">自定义汇总时客户端传入的条件</param>
+            <returns>返回自定义汇总的列</returns>
+        </member>
+        <member name="P:MB.RuleBase.BaseQueryRule.ObjectDataDocType">
+            <summary>
+            对象数据类型。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BaseQueryRule.QueryParamMapping">
+            <summary>
+            获取查询字段的映射信息。
+            除了主表以外如果还有其它的映射信息，可以在子类中覆盖该方法后继续添加。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BaseQueryRule.MessageHeaderKey">
+            <summary>
+            动态列加载对应的消息头键值
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.IFace.IAsynQueryRule">
+            <summary>
+            异步查询获取数据需要实现的接口。
+            主要针对DataSet 的解决方案。
+            报表查询分析默认的处理方法。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IAsynQueryRule.BeginRunWorker(System.Int32,System.String)">
+            <summary>
+            开始调用方法之前。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IAsynQueryRule.GetBufferCount">
+            <summary>
+            获取本次需要下载的数据块总数。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IAsynQueryRule.GetBufferByIndex(System.Int32)">
+            <summary>
+            根据Index 获取数据块。
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.AsynQueryRule.#ctor(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="objectDataDocType"></param>
+        </member>
+        <member name="M:MB.RuleBase.AsynQueryRule.BeginRunWorker(System.Int32,System.String)">
+            <summary>
+            初始化数据查询分析。   
+            </summary>
+            <param name="dataInDocType">需要进行检查的数据类型</param>
+            <param name="xmlFilterParams">QueryParameterInfo[] 系列化后的字符窜</param>
+        </member>
+        <member name="M:MB.RuleBase.AsynQueryRule.GetBufferCount">
+            <summary>
+            获取整个数据块的个数。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.AsynQueryRule.GetBufferByIndex(System.Int32)">
+            <summary>
+            根据Index 获取数据块     
+            这个是反复调用调用的方法没必须记录它的日记。
+            </summary>
+            <param name="index">在buffer 中的数据块 index</param>
+            <returns>byte[] 数组</returns>
+        </member>
+        <member name="M:MB.RuleBase.AsynQueryRule.InitBuffers(System.Data.DataSet)">
+            <summary>
+            初始化压缩查询得到的数据集为字节流。
+            </summary>
+            <param name="ds"></param>
+        </member>
+        <member name="T:MB.RuleBase.Atts.AttributeConfigHelper">
+            <summary>
+            AttributeConfigHelper: 提供基于Attribute 属性配置的公共方法。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.AttributeConfigHelper.#ctor">
+            <summary>
+            定义一个protected 的构造函数以阻止外部直接创建。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.AttributeConfigHelper.GetRuleSettingAtt(MB.RuleBase.IFace.IBaseRule)">
+            <summary>
+            根据业务类获取对应的业务类属性配置信息。
+            </summary>
+            <param name="busObj">业务操作类型</param>
+            <returns>业务类的配置信息。</returns>
+        </member>
+        <member name="M:MB.RuleBase.Atts.AttributeConfigHelper.GetObjectDataMappingAttribute(System.Object)">
+            <summary>
+            根据类型获取在单据类数据类型对应的配置。
+            </summary>
+            <param name="objTypeValue">在单据中定义的数据类型。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Atts.AttributeConfigHelper.GetObjectRelationAttByType(System.Object)">
+            <summary>
+            父子对象关系属性配置。
+            </summary>
+            <param name="objTypeValue">用户定义的单据所包含的数据类型。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Atts.AttributeConfigHelper.GetParentProviderAttByType(System.Object)">
+            <summary>
+            获取上级对象引用关系配置信息。
+            </summary>
+            <param name="objTypeValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Atts.AttributeConfigHelper.GetNextOwnAttByType(System.Object)">
+            <summary>
+            获取下级对象引用关系配置信息。
+            </summary>
+            <param name="objTypeValue"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.RuleBase.Atts.AttributeConfigHelper.Instance">
+            <summary>
+            多线程安全的单实例模式。
+            由于对外公布，该实现方法不使用SingletionProvider 的当时来进行。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Atts.NextOwnAttribute">
+            <summary>
+            NextOwnAttribute 配置当前对象下级对象的引用关系。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.NextOwnAttribute.#ctor(System.String,System.String)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="cfgXmlSqlName">判断该对象是否被引用在XML中配置的SQL语句名称。</param>
+            <param name="description"></param>
+        </member>
+        <member name="M:MB.RuleBase.Atts.NextOwnAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="ownSetting">表和键值用逗号分开，多个不同对象引用用分号分开. 如：OrderDoc,UID;Material,ID</param>
+        </member>
+        <member name="M:MB.RuleBase.Atts.NextOwnAttribute.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            检查下级单据 并需要其它查询条件时
+            </summary>
+            <param name="ownTableName"></param>
+            <param name="ownFieldName"></param>
+            <param name="description"></param>
+        </member>
+        <member name="P:MB.RuleBase.Atts.NextOwnAttribute.OwnTableName">
+            <summary>
+            当前对象下级对象的表名称。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.NextOwnAttribute.OwnFieldName">
+            <summary>
+            当前对象下级对象的字段名称名称。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.NextOwnAttribute.OwnFilter">
+            <summary>
+            过滤条件
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.NextOwnAttribute.OwnDescription">
+            <summary>
+            引用对象描述
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.NextOwnAttribute.CfgXmlSqlName">
+            <summary>
+            判断该对象是否被引用在XML中配置的SQL语句名称。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.NextOwnAttribute.RestrictOption">
+            <summary>
+             下级数据引用后上级数约束配置。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Atts.LinkRestrictOption">
+            <summary>
+            下级数据引用后上级数约束配置。    
+            </summary>
+        </member>
+        <member name="F:MB.RuleBase.Atts.LinkRestrictOption.CancelSubmit">
+            <summary>
+            提交后阻止再重做，如果需要重做需要把下级单据删除掉。
+            </summary>
+        </member>
+        <member name="F:MB.RuleBase.Atts.LinkRestrictOption.Delete">
+            <summary>
+            提交后如果存在下级单据，可以撤消提交，但不可以删除。
+            对于这部分的处理，如果下级涉及到数量、金额、单价、日期、商品等信息的引用，
+            要进行特殊的处理，否则会引起数据的不一致。
+            注意： 要详细理解后再选择这种模式。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Atts.ObjectDataMappingAttribute">
+            <summary>
+            ObjectDataMappingAttribute 单据数据关联配置自定义属性。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.ObjectDataMappingAttribute.#ctor(System.String)">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.ObjectDataMappingAttribute.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="mappingXmlFileName"></param>
+            <param name="execBySqlCmd">判断是否通过SQL Command 来执行数据库操作</param>
+            <param name="mappingInfo"></param>
+        </member>
+        <member name="M:MB.RuleBase.Atts.ObjectDataMappingAttribute.#ctor(System.String,System.String)">
+            <summary>
+            构造函数...
+            </summary>
+            <param name="mappingXmlFileName"></param>
+            <param name="selectSql"></param>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.MappingXmlFileName">
+            <summary>
+            关联对应的XML文件名称。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.MappingTableName">
+            <summary>
+            关联对应的对象表的名称。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.KeyName">
+            <summary>
+            当前
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.ExecBySqlCmd">
+            <summary>
+            判断是否通过SQL Command 来执行。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.KeyIsSelfAdd">
+            <summary>
+            判断对应的表是否以自增列作为主键。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.DeleteNotInIds">
+            <summary>
+            判断是否启动DeleteNotInIDS的方法在批量处理中删除数据。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.ForeingKeyName">
+            <summary>
+            外键名称。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.IncludeSubmit">
+            <summary>
+            判断是否包含提交功能。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.ExecByRule">
+            <summary>
+            判断是否自动进行存储处理还是特定的业务类来完成。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.ReadOnly">
+            <summary>
+            判断该对象数据是否为只读。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.Description">
+            <summary>
+            对象描述。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.CheckReturnValue">
+            <summary>
+            获取或者设置判断是否检查执行返回的值。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.TableAlias">
+            <summary>
+            表别名。
+            需要的地方再进行配置。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.EntityType">
+            <summary>
+            数据实体类型。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectDataMappingAttribute.XmlCfgSelectSqlName">
+            <summary>
+            xml 文件配置的selecte 语句的SQL 名称。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Atts.ObjectRelationAttribute">
+            <summary>
+            ObjectRelationAttribute 对象之间关联存储的属性定义。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.ObjectRelationAttribute.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.ObjectRelationAttribute.#ctor(System.Int32,System.String[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="saveOrderLevel">对象存储的先后顺序</param>
+            <param name="relation">存储关联对象的关系信息(就主表通过什么字段关联外表的数据字段和表之间用逗号分开。如果存在多个就用分号隔开。)例如："MainTableID,MainTable"</param>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectRelationAttribute.SaveOrderLevel">
+            <summary>
+            对象数据存储的顺序号
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ObjectRelationAttribute.RelationSetting">
+            <summary>
+            存储关联对象的关系信息
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Atts.ParentProviderAttribute">
+            <summary>
+            ParentProviderAttribute 配置当前对象引用上级对象的配置关系。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.ParentProviderAttribute.#ctor(System.String)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="providerTableName">当前对象引用上级对象表的名称</param>
+        </member>
+        <member name="M:MB.RuleBase.Atts.ParentProviderAttribute.#ctor(System.String,System.String,MB.RuleBase.Common.ObjectRelationType)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="providerTableName">当前对象引用上级对象表的名称.</param>
+            <param name="keyFieldName">当前对象引用上级对象表主键.</param>
+            <param name="objectRelationType"></param>
+        </member>
+        <member name="M:MB.RuleBase.Atts.ParentProviderAttribute.#ctor(System.String,System.String,System.String,MB.RuleBase.Common.ObjectRelationType)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="providerTableName">当前对象引用上级对象表的名称.</param>
+            <param name="keyFieldName">当前对象引用上级对象表主键.</param>
+            <param name="foreingKeyField">该对象引用的外键名称。</param>
+            <param name="objectRelationType"></param>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ParentProviderAttribute.ProviderTableName">
+            <summary>
+            当前对象引用上级对象表的名称.
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ParentProviderAttribute.ProviderKeyName">
+            <summary>
+            当前对象引用上级对象表主键.
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ParentProviderAttribute.ForeingKeyField">
+            <summary>
+            所引用的该对象的外键。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ParentProviderAttribute.ObjectRelationType">
+            <summary>
+            对象之间的关联类型。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.ParentProviderAttribute.AutoOneToOneCheck">
+            <summary>
+            判断和父级对象在一对一的情况下是否自动进行一对一的判断。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Atts.RuleSettingAttribute">
+            <summary>
+            RuleSettingAttribute 业务规则类的配置处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.RuleSettingAttribute.#ctor">
+            <summary>
+            构造函数.
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Atts.RuleSettingAttribute.#ctor(System.Boolean)">
+            <summary>
+            构造函数.
+            </summary>
+            <param name="startSwitch">判断是否启动</param>
+        </member>
+        <member name="M:MB.RuleBase.Atts.RuleSettingAttribute.#ctor(System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            构造函数.
+            </summary>
+            <param name="startPrivilege"></param>
+            <param name="includeSubmit"></param>
+        </member>
+        <member name="P:MB.RuleBase.Atts.RuleSettingAttribute.BaseDataType">
+            <summary>
+            主表数据在单据数据类型中的类型值。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.RuleSettingAttribute.StartPrivilege">
+            <summary>
+            判断是否启动数据权限控制。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.RuleSettingAttribute.IncludeSubmit">
+            <summary>
+            判断是否包含提交功能。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.RuleSettingAttribute.CopyAndAdd">
+            <summary>
+            判断是否包含复制新增的功能。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.RuleSettingAttribute.DateLimitFilter">
+            <summary>
+            初始化打开时，判断是否显示当天的数据。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Atts.RuleSettingAttribute.GenerateKeyModel">
+            <summary>
+            编辑对象键值产生的方式。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Atts.GenerateKeyModel">
+            <summary>
+            编辑对象键值产生的方式。
+            </summary>
+        </member>
+        <member name="F:MB.RuleBase.Atts.GenerateKeyModel.OnUIEdit">
+            <summary>
+            默认值，在UI层用户创建的时候产生。
+            </summary>
+        </member>
+        <member name="F:MB.RuleBase.Atts.GenerateKeyModel.OnDataSave">
+            <summary>
+            在数据保存的时候产生。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.BaseRule">
+            <summary>
+            所有业务类必须要继承的抽象基类。
+            该类数据库操作获取的是默认配置的数据库连接字符窜，
+            如果需要调用不同的数据库，需要覆盖相应的方法并调用DatabaseConfigurationScope。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.IFace.IBaseRule">
+            <summary>
+            所有业务类必须要实现的接口。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.Flush">
+            <summary>
+            执行业务对象保存的永久化操作。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.RefreshEntity(System.Int32,System.Object)">
+            <summary>
+            重新属性实体对象。
+            </summary>
+            <param name="dataInDocType"></param>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.AddToCache(System.Int32,System.Object,System.Boolean,System.String[])">
+            <summary>
+            增加数据到Cache 中。
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的数据。</param>
+            <param name="entity">需要增加的实体。</param>
+            <param name="propertys">需要增加的该实体的指定属性。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.DeletedImmediate(System.Int32,System.Object)">
+            <summary>
+            直接删除数据（同时执行本地和数据库操作）
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的键值。</param>
+            <param name="key">对象键值</param>.
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.Submit(System.Object,System.Boolean)">
+            <summary>
+            对象数据提交或者撤消提交。
+            </summary>
+            <param name="entity"></param>
+            <param name="cancelSubmit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.SaveDataSetImmediate(System.Data.DataSet,System.Int32)">
+            <summary>
+            保存主表数据。
+            如果存在大数据 不能在客户端直接调用,需要通过大数据调用载体来进行。
+            (未来可以通过配置的方式来解决)
+            </summary>
+            <param name="dsData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.GetCreateNewEntityIds(System.Int32,System.Int32)">
+            <summary>
+            获取指定类型新创建对象的自增列ID。
+            </summary>
+            <param name="dataInDocType"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.CreateNewEntityBatch(System.Int32,System.Int32)">
+            <summary>
+            批量创建实体对象。
+            </summary>
+            <param name="dataInDocType"></param>
+            <param name="createCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.CreateNewEntity(System.Int32)">
+            <summary>
+            根据指定的数据类型创建一个新的实体对象。
+            </summary>
+            <param name="dataInDocType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.GetObjectByKey(System.Int32,System.Object)">
+            <summary>
+            通过对象的主键获取对象下指定类型的关联子对象数据。
+            如果存在大数据 不能在客户端直接调用,需要通过大数据调用载体来进行。
+            (未来可以通过配置的方式来解决)
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的键值。</param>
+            <param name="mainKey">主表键值。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IBaseRule.CheckValueIsExists(System.Int32,System.Object,System.String[])">
+            <summary>
+            根据数据类型检查指定的值在数据库中是否已经存在
+            </summary>
+            <param name="dataInDocType">需要进行检查的数据类型</param>
+            <param name="entity">需要检查的实体对象</param>
+            <param name="checkPropertys">需要检查的属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.#ctor(System.Type)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="objectDataDocType">单据数据定义的数据类型</param>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.GetCreateNewEntityIds(System.Int32,System.Int32)">
+            <summary>
+            获取指定类型新创建对象的自增列ID。
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的数据。</param>
+            <param name="count">获取ID 的个数</param>
+            <returns>返回第一个对象的ID,其它的加1 就可以，但最大值不能超过返回值 + count -1</returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.CreateNewEntityBatch(System.Int32,System.Int32)">
+            <summary>
+            根据指定的类型批量创建实体对象。
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的数据。</param>
+            <param name="createCount">新需要创建的实体对象个数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.CreateNewEntity(System.Int32)">
+            <summary>
+            根据指定的数据类型创建一个新的实体对象。
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的数据。</param>
+            <returns>实体对象</returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.RefreshEntity(System.Int32,System.Object)">
+            <summary>
+            重新刷新数据实体对象。
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的数据。</param>
+            <param name="entity">需要刷新的实体对象</param>
+            <returns>刷新后的实体对象</returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.Flush">
+            <summary>
+            执行业务对象保存的永久化操作。
+            </summary>
+            <returns>返回收影响的实体个数，-1 表示不成功</returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.AddToCache(System.Int32,System.Object,System.Boolean,System.String[])">
+            <summary>
+            增加数据到Cache 中。
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的数据。</param>
+            <param name="entity">需要增加的实体。</param>
+            <param name="propertys">需要增加的该实体的指定属性。</param>
+            <returns>1 表示成功，-1 表示不成功</returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.DeletedImmediate(System.Int32,System.Object)">
+            <summary>
+            直接删除数据。
+            </summary>
+            <param name="dataInDocType">数据在业务类中的数据类型。</param>
+            <param name="key">需要进行删除的键值。</param>
+            <returns>返回受影响的行。</returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.Submit(System.Object,System.Boolean)">
+            <summary>
+            对象数据提交或者撤消提交。
+            </summary>
+            <param name="entity">需要提交的实体对象</param>
+            <param name="cancelSubmit">判断是否为取消提交</param>
+            <returns>-1 表示不成功</returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.SaveDataSetImmediate(System.Data.DataSet,System.Int32)">
+            <summary>
+            直接存储DataSet 数据类型。
+            </summary>
+            <param name="dsData">DataSet 类型数据。</param>
+            <param name="dataInDocType">数据在业务类中的类型。</param>
+            <returns>返回受影响的行。</returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.GetObjectByKey(System.Int32,System.Object)">
+            <summary>
+            通过对象的主键获取对象下指定类型的关联子对象数据。
+            如果存在大数据 不能在客户端直接调用,需要通过大数据调用载体来进行。
+            (未来可以通过配置的方式来解决)
+            </summary>
+            <param name="dataInDocType">在单据中的数据类型,默认为主表的键值。</param>
+            <param name="mainKey">主表键值。</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.CheckValueIsExists(System.Int32,System.Object,System.String[])">
+            <summary>
+            根据数据类型检查指定的值在数据库中是否已经存在
+            </summary>
+            <param name="dataInDocType">需要进行检查的数据类型</param>
+            <param name="entity">需要检查的实体对象</param>
+            <param name="checkPropertys">需要检查的属性名称</param>
+            <returns>true 表示存在,false 表示不存在 </returns>
+        </member>
+        <member name="M:MB.RuleBase.BaseRule.BatchSettingNewEntityID(System.Int32)">
+            <summary>
+            批量刷新待存储的实体对象的主键，如果是主表的话要注意子表是否有关联。
+            特殊说明：不建议刷新主表的主键。
+            主键名称只支持名称为 ID;     if (entity.GetType().IsSubclassOf(typeof(MB.Orm.Common.BaseModel))) {
+            </summary>
+            <param name="dataInDocType">需要刷新主键的实体类型。</param>
+        </member>
+        <member name="P:MB.RuleBase.BaseRule.CurrentDataList">
+            <summary>
+            当前准备进行处理的待处理集合。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.BulkCopy.AbstractBaseBulk">
+            <summary>
+            数据库批量处理的基础类。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.BulkCopy.IDbBulkExecute">
+            <summary>
+            数据库批量处理必须实现的接口。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.IDbBulkExecute.WriteToServer(System.String,System.String,System.Collections.IList)">
+            <summary>
+            把集合类中的所有实体对象复制到指定的表中。
+            特殊要求：如果是实体类，要求实体类的属性必须和数据库表中的字段名称一致。
+            </summary>
+            <param name="lstData">实体集合类或者DataRow[]数组</param>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.IDbBulkExecute.BatchSize">
+            <summary>
+            每一批处理的行数。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.IDbBulkExecute.BulkCopyTimeout">
+            <summary>
+            超时。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.IDbBulkExecute.NotifyAfter">
+            <summary>
+            定义在生成事件之前处理的行数。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.IDbBulkExecute.DbTransaction">
+            <summary>
+            数据库处理事务，主要是支持非TransactionScope而增加。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.AbstractBaseBulk.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.AbstractBaseBulk.#ctor(System.Data.IDbTransaction,System.String[])">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.AbstractBaseBulk.WriteToServer(System.String,System.String,System.Collections.IList)">
+            <summary>
+            继承的子类必须要实现的接口。
+            把集合中的数据存储到数据库中。
+            </summary>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="lstData">实体集合类或者DataRow[] 数组</param>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.AbstractBaseBulk.GetXmlSqlString(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String)">
+            <summary>
+            获取配置的SQL 语句。
+            </summary>
+            <param name="db"></param>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <returns></returns>
+        </member>
+        <member name="E:MB.RuleBase.BulkCopy.AbstractBaseBulk.SqlRowsCopied">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.AbstractBaseBulk.BatchSize">
+            <summary>
+            每次提交的数据块大小。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.AbstractBaseBulk.BulkCopyTimeout">
+            <summary>
+            批量处理Timeout时间。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.AbstractBaseBulk.NotifyAfter">
+            <summary>
+            处理多少后通知。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.AbstractBaseBulk.DbTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.BulkCopy.DbBulkExecuteFactory">
+            <summary>
+             数据库批量处理。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.DbBulkExecuteFactory.CreateDbBulkExecute">
+            <summary>
+            兼容老版本而增。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.DbBulkExecuteFactory.CreateDbBulkExecute(System.String[])">
+            <summary>
+            根据当前数据库类型创建批量处理业务类。
+            目前只支持Oracle 和 SqlServer。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.DbBulkExecuteFactory.CreateDbBulkExecute(System.Data.IDbTransaction)">
+            <summary>
+            兼容老版本而增加
+            </summary>
+            <param name="dbTransaction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.DbBulkExecuteFactory.CreateDbBulkExecute(System.Data.IDbTransaction,System.String[])">
+            <summary>
+            根据当前数据库类型创建批量处理业务类。
+            目前只支持Oracle 和 SqlServer。
+            </summary>
+            <param name="dbTransaction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.DbBulkExecuteFactory.CreateOracleCnString(System.String)">
+            <summary>
+            通过db.ConnectionString 返回Oracle 的数据库配置字符窜。
+            </summary>
+            <param name="cnStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.RuleBase.BulkCopy.DbBulkExecuteEventHandle">
+            <summary>
+            批量处理执行过程中的事件。
+            </summary>
+            <param name="sender"></param>
+            <param name="arg"></param>
+        </member>
+        <member name="T:MB.RuleBase.BulkCopy.DbBulkExecuteEventArgs">
+            <summary>
+            批量处理执行过程中的参数。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.DbBulkExecuteEventArgs.#ctor(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="rowsExecuted"></param>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.DbBulkExecuteEventArgs.Abort">
+            <summary>
+            判断是否终止。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.BulkCopy.DbBulkExecuteEventArgs.RowsExecuted">
+            <summary>
+            已经
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.BulkCopy.OracleBulkExecute">
+            <summary>
+            针对Oracle 的数据批量处理。
+            需要使用ODP.NET Oracle.DataAccess ,10.2之前不能使用TransactionScope ,只能ODP 事务。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.OracleBulkExecute.#ctor(System.String[])">
+            <summary>
+            需要使用 ODP.NET Oracle.DataAccess.
+            10.2之前不能使用TransactionScope ,只能ODP 事务。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.OracleBulkExecute.#ctor(System.Data.IDbTransaction,System.String[])">
+            <summary>
+              需要使用 ODP.NET Oracle.DataAccess.
+               10.2之前不能使用TransactionScope ,只能ODP 事务。
+            </summary>
+            <param name="dbTransaction"></param>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.OracleBulkExecute.CreateOracleCnString(System.String)">
+            <summary>
+            通过db.ConnectionString 返回Oracle 的数据库配置字符窜。
+            </summary>
+            <param name="cnStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.OracleBulkExecute.WriteToServer(System.String,System.String,System.Collections.IList)">
+            <summary>
+            目前Oracle 的批量处理只能在独立的事务中进行处理,使用的是Oracle.DataAccess.
+            以后Oracle 升级到11G 后再使用TransactionScope.
+            </summary>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="lstData">实体集合类或者DataRow[]数组</param>
+        </member>
+        <member name="T:MB.RuleBase.BulkCopy.SimulatedOracleHelper">
+            <summary>
+            临时解决方案，解决Oracle.DataAccess 编译版本和运行版本不一致时会出现异常的问题。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.GetOracleDataAccessConnectionString">
+            <summary>
+            获取数据库连接字符窜
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.GetOracleDataAccessConnectionString(Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            获取数据库连接字符窜
+            </summary>
+            <param name="db"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.CheckProviderIsOracleDataAccess(Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            判断是否为Oracle.DataAccess.Client
+            </summary>
+            <param name="db"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.CreateInstance(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="objectName"></param>
+            <param name="objPars"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.CreateOracleConnection">
+            <summary>
+            CreateOracleConnection
+            以数据库配置的信息创建一个Oracle.DataAccess.Client
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.CreateOracleConnection(System.String)">
+            <summary>
+            CreateOracleConnection
+            </summary>
+            <param name="cn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.SetCommandConnection(System.Data.Common.DbConnection,System.Data.Common.DbCommand)">
+            <summary>
+             SetCommandConnection
+            </summary>
+            <param name="cn"></param>
+            <param name="oracleCommand"></param>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.CreateOracleCommand(System.String)">
+            <summary>
+            CreateOracleCommand
+            </summary>
+            <param name="sql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.ExecuteNonQuery(System.Data.Common.DbCommand)">
+            <summary>
+            ExecuteNonQuery
+            </summary>
+            <param name="oracleCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.AddOracleParamter(System.Data.Common.DbCommand,System.Data.Common.DbParameter)">
+            <summary>
+            AddOracleParamter
+            </summary>
+            <param name="oracleCommand"></param>
+            <param name="paramter"></param>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.SetCommandArrayBindCount(System.Data.Common.DbCommand,System.Int32)">
+            <summary>
+            SetCommandArrayBindCount
+            </summary>
+            <param name="oracleCommand"></param>
+            <param name="arrayBindCount"></param>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.CreateOracleParameter(System.String,System.Object)">
+            <summary>
+            CreateOracleParameter
+            </summary>
+            <param name="name"></param>
+            <param name="oracleDataType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.GetOracleDbType">
+            <summary>
+            获取OracleDbType 类型。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.GetOracleDbTypeValue(System.Type,System.String)">
+            <summary>
+            获取OracleDbType Value.
+            </summary>
+            <param name="oracleDbType"></param>
+            <param name="dbTypeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SimulatedOracleHelper.ToOracleConnString(System.String)">
+            <summary>
+            转换成Oracle.DataAccess.Client 的数据库连接字符窜
+            </summary>
+            <param name="cnStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.RuleBase.BulkCopy.SqlServerBulkExecute">
+            <summary>
+            针对SqlServer 的数据批量处理.
+            使用 System.Data.SqlClient.SqlBulkCopy 进处理。
+            目前 只支持在独立事务中执行，需要的话在添加。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SqlServerBulkExecute.#ctor(System.String[])">
+             <summary>
+            针对SqlServer 的数据批量处理.
+            目前 只支持在独立事务中执行，需要的话在添加。
+             </summary>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SqlServerBulkExecute.#ctor(System.Data.IDbTransaction,System.String[])">
+            <summary>
+            针对SqlServer 的数据批量处理.
+            目前 只支持在独立事务中执行，需要的话在添加。
+            </summary>
+            <param name="dbTransaction"></param>
+        </member>
+        <member name="M:MB.RuleBase.BulkCopy.SqlServerBulkExecute.WriteToServer(System.String,System.String,System.Collections.IList)">
+            <summary>
+            调用 System.Data.SqlClient.SqlBulkCopy  进行数据批量处理。
+            XML 文件中 参数 MappingName 必须和表中字段的名称一致。
+            特殊说明：目前只支持INSERT 的情况。
+            </summary>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="lstData"> 实体集合类或者DataRow[]数组</param>
+        </member>
+        <member name="T:MB.RuleBase.Common.DatabaseExcuteByXmlHelper">
+            <summary>
+            通过XML 配置文件执行相应的数据库操作。
+            [Transaction(TransactionOption.Required)]  
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.#ctor">
+            <summary>
+            兼容老版本而增加的
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.#ctor(System.String[])">
+            <summary>
+             通过XML 配置文件执行相应的数据库操作。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.#ctor(MB.Util.Model.QueryBehavior)">
+            <summary>
+            
+            </summary>
+            <param name="queryBehavior"></param>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetObjectsByXml``1(MB.Orm.Mapping.QueryParameterMappings,System.String,System.String,MB.Util.Model.QueryParameterInfo[],System.Object[])">
+            <summary>
+            根据XML 文件名称 和SQL 名称以及指定的过滤参数获取对应的。
+            </summary>
+            <typeparam name="T">获取得到返回值的数据类型</typeparam>
+            <param name="parsMapping">参数Mapping 的信息</param>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parInfos">QueryParameterInfo 数组格式的参数</param>
+            <param name="parValues">SQL 参数值</param>
+            <returns>指定类型的集合类</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetObjectsByXml``1(System.String,System.String,System.Object[])">
+            <summary>
+            根据XML 文件名称 和SQL 名称以及指定的过滤参数获取对应的
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="parValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetObjectsByXml``1(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,System.Object[])">
+            <summary>
+             根据XML 文件名称 和SQL 名称以及指定的过滤参数获取对应的
+            </summary>
+            <typeparam name="T">获取得到返回值的数据类型</typeparam>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parValues">SQL 参数值</param>
+            <returns>指定类型的集合类</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetObjectsByXml``1(System.Type,System.String,System.String,System.Object[])">
+            <summary>
+            根据XML 文件名称 和SQL 名称以及指定的过滤参数获取对应的
+            </summary>
+            <typeparam name="T">获取得到返回值的数据类型</typeparam>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">>SQL 语句定义的名称</param>
+            <param name="parValues">SQL 参数值</param>
+            <returns>指定类型的集合类</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetObjectsByXml``1(System.Data.Common.DbTransaction,System.Type,System.String,System.String,System.Object[])">
+            <summary>
+            根据XML 文件名称 和SQL 名称以及指定的过滤参数获取对应的
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="transaction"></param>
+            <param name="cfgEntityType"></param>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="parValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetObjectsByXml``1(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction,System.Type,System.String,System.String,System.Object[])">
+            <summary>
+            根据XML 文件名称 和SQL 名称以及指定的过滤参数获取对应的
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="transaction"></param>
+            <param name="cfgEntityType"></param>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="parValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetDataSetByXmlParams(System.String,System.String,MB.Util.Model.QueryParameterInfo[])">
+            <summary>
+             通过Xml 配置的语句获取数据集。
+            </summary>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parInfos">QueryParameterInfo 数组格式的参数</param>
+            <returns>指定类型的集合类</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetDataSetByXmlParams(System.Data.Common.DbTransaction,System.String,System.String,MB.Util.Model.QueryParameterInfo[])">
+            <summary>
+             通过Xml 配置的语句获取数据集。
+            </summary>
+            <param name="transaction"></param>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parInfos">QueryParameterInfo 数组格式的参数</param>
+            <returns>指定类型的集合类</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetDataSetByXml(System.String,System.String,System.Object[])">
+            <summary>
+            通过Xml 配置的语句获取数据集。
+            </summary>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parValues">SQL 参数值</param>
+            <returns>指定类型的集合类</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetDataSetByXml(System.Data.Common.DbTransaction,System.String,System.String,System.Object[])">
+            <summary>
+            通过Xml 配置的语句获取数据集
+            </summary>
+            <param name="transaction"></param>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="parValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.GetDataSetByXml(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction,System.String,System.String,System.Object[])">
+            <summary>
+            通过Xml 配置的语句获取数据集。
+            </summary>
+            <param name="transaction"></param>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parValues">SQL 参数值</param>
+            <returns>指定类型的集合类</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteScalar(System.String,System.String,System.Object[])">
+            <summary>
+            ExecuteScalar
+            执行返回单个值，如果需要返回集合类或者DataSet 请调用 GetObjects 或者  GetDataSet 。
+            </summary>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parValues">SQL 参数值</param>
+            <returns>object 类型的返回值</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteScalar(System.Data.Common.DbTransaction,System.String,System.String,System.Object[])">
+            <summary>
+            执行返回单个值，如果需要返回集合类或者DataSet 请调用 GetObjects 或者  GetDataSet 。
+            </summary>
+            <param name="transaction"></param>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parValues">SQL 参数值</param>
+            <returns>object 类型的返回值</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteScalar``1(System.String,System.String,System.Object[])">
+            <summary>
+             ExecuteScalar
+             返回指定类型的单个值，如果需要返回集合类或者DataSet 请调用 GetObjects 或者  GetDataSet 。
+            </summary>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parValues">SQL 参数值</param>
+            <returns>指定类型的返回值</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteScalar``1(System.Data.Common.DbTransaction,System.String,System.String,System.Object[])">
+            <summary>
+            返回指定类型的单个值，如果需要返回集合类或者DataSet 请调用 GetObjects 或者  GetDataSet 。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="transaction"></param>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="parValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteScalar``1(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction,System.String,System.String,System.Object[])">
+            <summary>
+            返回指定类型的单个值，如果需要返回集合类或者DataSet 请调用 GetObjects 或者  GetDataSet 。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="transaction"></param>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="parValues">SQL 参数值</param>
+            <returns>指定类型的返回值</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteNonQueryByEntity``1(System.String,System.String,``0)">
+            <summary>
+            直接通过实体来执行数据库的存储操作。
+            特别说明：如果需要根据EntityState 的状态来进行相应的操作请使用ObjectEditHelper
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="xmFileName"></param>
+            <param name="sqlName"></param>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteNonQueryByEntity``1(System.Data.Common.DbTransaction,System.String,System.String,System.Collections.Generic.IList{``0})">
+            <summary>
+            直接通过实体来执行数据库的存储操作。
+            特别说明：如果需要根据EntityState 的状态来进行相应的操作请使用ObjectEditHelper
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="transaction"></param>
+            <param name="xmFileName"></param>
+            <param name="sqlName"></param>
+            <param name="entitys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteNonQueryByEntity``1(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction,System.String,System.String,System.Collections.Generic.IList{``0})">
+            <summary>
+            直接通过实体来执行数据库的存储操作。
+            特别说明：如果需要根据EntityState 的状态来进行相应的操作请使用ObjectEditHelper
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="transaction">可以为空，为空将使用TransactionScope</param>
+            <param name="xmFileName"></param>
+            <param name="sqlName"></param>
+            <param name="entitys">集合里面只能存在一种操作状态的实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteNonQueryBySqlParams(System.String,System.String,System.Collections.Generic.List{MB.Orm.DbSql.SqlParamInfo})">
+            <summary>
+            执行数据操作,返回受影响的行数。
+            </summary>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="sqlParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteNonQueryBySqlParams(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,System.Collections.Generic.List{MB.Orm.DbSql.SqlParamInfo})">
+            <summary>
+            执行数据操作,返回受影响的行数。
+            </summary>
+            <param name="xmlFileName">SQL 语句所在的Xml 文件名称</param>
+            <param name="sqlName">SQL 语句定义的名称</param>
+            <param name="sqlParams">SQL 参数</param>
+            <returns>返回最后执行语句受影响的行数</returns>
+        </member>
+        <!-- 对于成员“M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteNonQuery(System.String,System.String,System.Object[])”忽略有格式错误的 XML 注释 -->
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteNonQuery(System.Data.Common.DbTransaction,System.String,System.String,System.Object[])">
+            <summary>
+            执行数据操作,返回受影响的行数。
+            </summary>
+            <param name="transaction"></param>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="parValues"></param>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.ExecuteNonQuery(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction,System.String,System.String,System.Object[])”忽略有格式错误的 XML 注释 -->
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.MergeInto``1(MB.RuleBase.Common.MergrIntoParameter,System.Object[])">
+            <summary>
+            模拟ORACEL的Merge into数据库操作
+            将ORACLE的Merge into分为三个步骤
+            1. 得到需要merge到最终表的数据源，需要与最终表做一个外链接，并在数据集中取出最终表的KEY值
+            2. 将得到的数据源根据最终表的ID是否有值来区分出insert与update的数据集
+            3. 批量执行insert和update
+            使用该方法的人需要提供select(得到数据源)，insert和update的SQL语句，并指定最终表
+            </summary>
+            <param name="mergeIntoPara">执行merge into操作需要的参数</param>
+            <param name="paras">在SQL中的实际参数</param>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.MergeInto``1(System.Data.Common.DbTransaction,MB.RuleBase.Common.MergrIntoParameter,System.Object[])">
+            <summary>
+            显示传入transaction的 mergeInto, 功能与transactionscope的merge into相一致
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.MergeInto``1(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction,MB.RuleBase.Common.MergrIntoParameter,System.Object[])">
+            <summary>
+            显示传入transaction的 mergeInto, 功能与transactionscope的merge into相一致
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.DatabaseExcuteByXmlHelper.NewInstance">
+            <summary>
+            返回新的对象实例。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.MergrIntoParameter">
+            <summary>
+            模拟Merge Into所需要的参数
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.MergrIntoParameter.TargetTableName">
+            <summary>
+            Merge Into的目标表
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.MergrIntoParameter.SqlFileName">
+            <summary>
+            SQL语句文件名
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.MergrIntoParameter.SelectSourceSqlName">
+            <summary>
+            步骤一查询语句的SQL名
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.MergrIntoParameter.InsertSqlName">
+            <summary>
+            步骤二插入语句的SQL名
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.MergrIntoParameter.UpdateSqlName">
+            <summary>
+            步骤三更新语句的SQL名
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.MergrIntoParameter.KeyColumn">
+            <summary>
+            主键名称，可以不填，默认不填的时候为"ID"
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.DatabaseExecuteHelper">
+            <summary>
+            直接执行数据库SQL 语句操作处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.#ctor">
+            <summary>
+            DatabaseExecuteHelper
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.#ctor(MB.Util.Model.QueryBehavior)">
+            <summary>
+            DatabaseExecuteHelper
+            </summary>
+            <param name="queryBehavior"></param>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecByStoreProcedure(System.String,MB.Orm.DbSql.SqlParamInfo[])">
+            <summary>
+            通过存储过程执行数据库操作。
+            </summary>
+            <param name="storeProcedureName">指定的存储过程文件名称</param>
+            <param name="sqlParInfos">MB.Orm.DbSql.SqlParamInfo 数组格式的参数</param>
+            <returns>大于或者等0表示成功，-1表示不成功 </returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecByStoreProcedure(System.Data.Common.DbTransaction,System.String,MB.Orm.DbSql.SqlParamInfo[])">
+            <summary>
+            通过存储过程执行数据库操作。
+            </summary>
+            <param name="dbTran"></param>
+            <param name="storeProcedureName"></param>
+            <param name="sqlParInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteNonQuery(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand)">
+            <summary>
+            执行数据库操作，返回受影响的行数。
+            </summary>
+            <param name="db">操作数据库对象</param>
+            <param name="dbCmd">数据操作的dbCommand</param>
+            <returns>返回受影响的行数,-1 表示不成功</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteNonQuery(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand[])">
+             <summary>
+             根据DbCommand 执行相应的数据库操作。
+            特殊说明：  加入到 DbCommand[] 内的所有Command 将在同一个事务中进行处理。
+            默认使用的是  System.Transactions.TransactionScopeOption.Required
+             </summary>
+             <param name="db">操作数据库对象</param>
+             <param name="dbCmds">数据操作的dbCommand</param>
+             <returns>返回受影响的行数,-1 表示不成功</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteNonQuery(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand[],System.Transactions.TransactionScopeOption)">
+             <summary>
+             根据DbCommand 执行相应的数据库操作。
+            特殊说明：  加入到 DbCommand[] 内的所有Command 将在同一个事务中进行处理。
+             </summary>
+             <param name="db">操作数据库对象</param>
+             <param name="dbCmds">数据操作的dbCommand</param>
+             <param name="transactionScope">当前的所有操作事务处理的类型</param>
+             <returns>返回受影响的行数,-1 表示不成功</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteNonQuery(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand[],System.Data.Common.DbTransaction)">
+            <summary>
+            根据DbCommand 执行相应的数据库操作。
+            </summary>
+            <param name="db">操作数据库对象</param>
+            <param name="dbCmds">数据操作的dbCommand</param>
+            <param name="transaction">数据库操作事务(特别说明：除非特殊需要，否则尽量不要传入一个指定的事务对象)</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteNonQuery(System.String,System.Collections.Generic.List{MB.Orm.DbSql.SqlParamInfo})">
+            <summary>
+             根据SQl 字符窜 执行相应的数据库操作。
+            </summary>
+            <param name="sqlString">需要进行操作的SQL 拼接字符窜</param>
+            <param name="sqlParams">MB.Orm.DbSql.SqlParamInfo 集合类型的参数 </param>
+            <returns>返回受影响的行数,-1 表示不成功</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.GetObjects``1(System.Data.Common.DbTransaction,System.Type,System.String,System.Collections.Generic.List{MB.Orm.DbSql.SqlParamInfo})">
+            <summary>
+            根据对象类型获取值
+            </summary>
+            <typeparam name="T">获取得到返回值的数据类型</typeparam>
+            <param name="transaction"></param>
+            <param name="cfgEntityType"></param>
+            <param name="sqlString"></param>
+            <param name="sqlParams"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.GetObjects``1(System.Type,System.Data.Common.DbTransaction,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand)">
+            <summary>
+            根据对象类型获取值
+            </summary>
+            <typeparam name="T">泛型对象</typeparam>
+            <param name="entityType">泛型对象的类型，为了兼容以前的接口才这么做</param>
+            <param name="transaction">事务</param>
+            <param name="db">数据库对象</param>
+            <param name="cmd">数据库命令</param>
+            <returns>对象集合</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.resetDynamicColumns(System.Data.Common.DbCommand,MB.Util.Model.QueryBehavior)">
+            <summary>
+            为SQL语句设定动态列
+            </summary>
+            <param name="cmd"></param>
+            <param name="qh"></param>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.DumpMatch(System.String)">
+            <summary>
+            截取order by前的SQL语句，如果没有order by,则返回原SQL语句
+            </summary>
+            <param name="inputString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.GetValueTypeObjects``1(System.Type,System.Data.Common.DbTransaction,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand)">
+            <summary>
+            获取值类型的数据集合
+            备注：在这里字符窜也当做值类型进行处理。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entityType"></param>
+            <param name="transaction"></param>
+            <param name="db"></param>
+            <param name="cmd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteReader(System.String)">
+            <summary>
+            以连接式的方式直接执行SQL 语句并返回读取器 
+            </summary>
+            <param name="sqlString">需要进行操作的SQL 拼接字符窜</param>
+            <returns>IDataReader 数据读取器</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteReader(System.String,System.Data.Common.DbTransaction)">
+            <summary>
+            以连接式的方式直接执行SQL 语句并返回读取器 
+            </summary>
+            <param name="sqlString"></param>
+            <param name="sqlString">需要进行操作的SQL 拼接字符窜</param>
+            <returns>IDataReader 数据读取器</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteReader(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand)">
+            <summary>
+            ExecuteReader.
+            返回DataReader  读取器，使用后别忘了关闭掉。
+            </summary>
+            <param name="db"></param>
+            <param name="dbCmd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteScalar(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand)">
+            <summary>
+            ExecuteScalar
+            执行返回单个值。
+            </summary>
+            <param name="db">操作数据库对象</param>
+            <param name="dbCmd">数据操作的dbCommand</param>
+            <returns>object 类型的数值</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteScalar(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand,System.Data.Common.DbTransaction)">
+            <summary>
+            ExecuteScalar
+            执行返回单个值。
+            </summary>
+            <param name="db">操作数据库对象</param>
+            <param name="dbCmd">数据操作的dbCommand</param>
+            <param name="transaction"></param>
+            <returns>object 类型的数值</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteDataSet(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand)">
+            <summary>
+             执行返回一个DataSet集合。
+            </summary>
+            <param name="db">操作数据库对象</param>
+            <param name="dbCmd">数据操作的dbCommand</param>
+            <returns>DataSet 数据格式的 数据集</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteDataSet(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbCommand,System.Data.Common.DbTransaction)">
+            <summary>
+             执行返回一个DataSet集合。
+            </summary>
+            <param name="db">操作数据库对象</param>
+            <param name="dbCmd">数据操作的dbCommand</param>
+            <param name="transaction"></param>
+            <returns>>DataSet 数据格式的 数据集</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteDataSet(System.String,System.Collections.Generic.List{MB.Orm.DbSql.SqlParamInfo})">
+            <summary>
+             根据SQl 字符窜 执行相应的数据库操作。
+            </summary>
+            <param name="sqlString">需要进行操作的SQL 拼接字符窜</param>
+            <param name="sqlParams">MB.Orm.DbSql.SqlParamInfo 集合类型的参数 </param>
+            <returns>DataSet 数据格式的 数据集</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteDataSet(System.String,System.Collections.Generic.List{MB.Orm.DbSql.SqlParamInfo},System.Data.Common.DbTransaction)">
+            <summary>
+             根据SQl 字符窜 执行相应的数据库操作。
+            </summary>
+            <param name="sqlString">需要进行操作的SQL 拼接字符窜</param>
+            <param name="sqlParams">MB.Orm.DbSql.SqlParamInfo 集合类型的参数 </param>
+            <param name="transaction"></param>
+            <returns>DataSet 数据格式的 数据集</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.DatabaseExecuteHelper.ExecuteWithTransaction(System.Action{System.Data.Common.DbTransaction})">
+            <summary>
+            基于DbTransaction事务中的数据库操作
+            add by aifang
+            </summary>
+            <param name="invokeMethod"></param>
+        </member>
+        <member name="P:MB.RuleBase.Common.DatabaseExecuteHelper.NewInstance">
+            <summary>
+            返回新的对象实例。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.BusinessOperateTracHelper">
+            <summary>
+            公共处理单据状态改变跟踪记录。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.BusinessOperateTracHelper.SaveExtendDocStateTrack(System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            提供扩展的操作单据状态
+            </summary>
+            <param name="docType"></param>
+            <param name="docID"></param>
+            <param name="remark"></param>
+            <param name="operateType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.BusinessOperateTracHelper.SaveDocState(System.String,MB.Orm.Common.BaseModel,System.String,MB.Util.Model.DocOperateType)">
+            <summary>
+             存储单据操作的状态改变操作记录。
+             这里有很多特殊的约束：要求主表必须有一个ID、DOC_STATE和LAST_MODIFIED_DATE，同时键值必须是Int32类型。
+            </summary>
+            <param name="stateInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.BusinessOperateTracHelper.SaveDocState(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,MB.Orm.Common.BaseModel,System.String,MB.Util.Model.DocOperateType)">
+            <summary>
+            存储单据操作的状态改变操作记录。
+            这里有很多特殊的约束：要求主表必须有一个ID、DOC_STATE和LAST_MODIFIED_DATE，同时键值必须是Int32类型。
+            </summary>
+            <param name="db">连接的数据库</param>
+            <param name="stateInfo">状态改变的记录信息</param>
+            <returns>1表示成功，-1表示不成功</returns>
+        </member>
+        <member name="P:MB.RuleBase.Common.BusinessOperateTracHelper.NewInstance">
+            <summary>
+            返回新的对象实例。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.DocStateTraceInfo">
+            <summary>
+            单据状态跟踪描述信息。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.DocStateTraceInfo.#ctor">
+            <summary>
+            单据状态跟踪描述信息。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.DocStateTraceInfo.#ctor(System.String,System.String,System.Int32,System.String,System.String,MB.Util.Model.DocOperateType)">
+            <summary>
+            单据状态跟踪描述信息。
+            </summary>
+            <param name="tableName"></param>
+            <param name="docType"></param>
+            <param name="docID"></param>
+            <param name="userCode"></param>
+            <param name="remark"></param>
+            <param name="operateType"></param>
+        </member>
+        <member name="M:MB.RuleBase.Common.DocStateTraceInfo.#ctor(System.String,MB.Orm.Common.BaseModel,System.String,MB.Util.Model.DocOperateType)">
+            <summary>
+            单据状态跟踪描述信息。
+            </summary>
+            <param name="docType"></param>
+            <param name="docEntityInfo">单据对应的实体对象</param>
+            <param name="remark"></param>
+            <param name="operateType"></param>
+        </member>
+        <member name="P:MB.RuleBase.Common.DocStateTraceInfo.ID">
+            <summary>
+            键值ID
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.DocStateTraceInfo.DOC_TYPE">
+            <summary>
+            单据类型。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.DocStateTraceInfo.DOC_ID">
+            <summary>
+            单据对应的键值ID
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.DocStateTraceInfo.DOC_ORG_SATE">
+            <summary>
+            操作时单据的原始状态
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.DocStateTraceInfo.OP_USER_CODE">
+            <summary>
+            操作用户编码
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.DocStateTraceInfo.OP_DATE">
+            <summary>
+            操作日期（包含时间）
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.DocStateTraceInfo.OP_STATE">
+            <summary>
+            当前操作后的状态
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.DocStateTraceInfo.REMARK">
+            <summary>
+            备注。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.DocStateTraceInfo.OBJECT_TABLE_NAME">
+            <summary>
+            对象表名称。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.ObjectDataInfo">
+            <summary>
+            ObjectDataInfo 在数据存储处理中涉及到的数据对象。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataInfo.#ctor(System.Object,System.Object)">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectDataInfo.DataInDocType">
+            <summary>
+            该数据在单据定义的数据类型。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectDataInfo.ObjectData">
+            <summary>
+            对象数据
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectDataInfo.DataState">
+            <summary>
+            对象数据在集合中的状态
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectDataInfo.SaveOrderIndex">
+            <summary>
+            数据存储的顺序号
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectDataInfo.SaveToCacheDateTime">
+            <summary>
+            存储到Cache 中的时间戳,有时候需要对它进行排序，以决定存储的先后顺序。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectDataInfo.SavePropertys">
+            <summary>
+            本次实体对象存储的属性信息。
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectDataInfo.ExecuteXmlCfgSqlName">
+            <summary>
+             配置的XML 执行SQL 名称.
+            </summary>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectDataInfo.Tag">
+            <summary>
+            附加存储的数据。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.ObjectDataList">
+            <summary>
+            ObjectDataList  在数据存储处理中涉及到数据库操作的数据对象自定义集合。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataList.#ctor">
+            <summary>
+            构造函数...
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataList.Add(MB.RuleBase.Common.ObjectDataInfo)">
+            <summary>
+            增加当前需要编辑的数据对象。
+            </summary>
+            <param name="dataInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataList.AcceptDataChanges">
+            <summary>
+            提交对ObjectDataInfo 中数据的修改。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataList.RejectDataChanges">
+            <summary>
+            回滚自上次提交以来对ObjectDataInfo 中 数据的修改。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataList.OrderBySaveIndex">
+            <summary>
+            按存储的先后顺序进行排序。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataList.GetCanSaveAndOrder">
+            <summary>
+            获取可以进行数据持久化操作的对象并按SaveOrderIndex 和 进入集合的顺序进行排序
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MB.RuleBase.Common.ObjectDataState">
+            <summary>
+            ObjectDataState 标记数据在集合中的状态。
+            </summary>
+        </member>
+        <member name="F:MB.RuleBase.Common.ObjectDataState.Added">
+            <summary>
+            表示该数据是刚增加的。
+            </summary>
+        </member>
+        <member name="F:MB.RuleBase.Common.ObjectDataState.Deleted">
+            <summary>
+            存储在数据库中但已经被删除了。
+            </summary>
+        </member>
+        <member name="F:MB.RuleBase.Common.ObjectDataState.Detached">
+            <summary>
+            不存储在数据库中，在编辑的过程中新增后被删除的。
+            </summary>
+        </member>
+        <member name="F:MB.RuleBase.Common.ObjectDataState.Modified">
+            <summary>
+            存储在数据库中但已经被修改了。
+            </summary>
+        </member>
+        <member name="F:MB.RuleBase.Common.ObjectDataState.Unchanged">
+            <summary>
+            没发现任何变化 （从数据库中读取出来的默认值）。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.ObjectDataValidatedHelper">
+            <summary>
+            对象数据验证处理相关。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataValidatedHelper.CheckValueIsExists(System.Object,System.Object,System.String[])">
+            <summary>
+            根据数据类型检查指定的值在数据库中是否已经存在
+            </summary>
+            <param name="dataInDocType">需要进行检查的数据类型</param>
+            <param name="entity">需要检查的实体对象</param>
+            <param name="checkPropertys">需要检查的属性名称</param>
+            <returns>true 或 false</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataValidatedHelper.RemoveNotExistsData(System.String,System.String,System.String[])">
+            <summary>
+            移除数据库中不存在的数据。
+            检查的参数数组采取 IN 的处理方法，如果在拼接IN 语句时，长度超过8000个字符，方法自动会进行拆分处理，
+            外部没必要特殊考虑。
+            </summary>
+            <param name="tableName">需要检查指定的表名称</param>
+            <param name="fieldName">检查对应表的中的名称</param>
+            <param name="checkValues">需要检查的值</param>
+            <returns>返回数据库中存在（或者满足指定的某种条件）的值</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectDataValidatedHelper.RemoveNotExistsData(System.String,System.String,System.String,System.String[],System.Object[])">
+            <summary>
+            移除数据库中不存在的数据。
+            检查的参数数组采取 IN 的处理方法，如果在拼接IN 语句时，长度超过8000个字符，方法自动会进行拆分处理，
+            外部没必要特殊考虑。
+            </summary>
+            <param name="xmlFileName">SQL 语句配置所在的XML 文件名称</param>
+            <param name="sqlName">xml 文件中配置的SQL 语句名称（对应的SQL 语句至少包含@Where 参数 同时必须是最后一个,SQL 语句的SELECT 第一个字段为检查的值）</param>
+            <param name="fieldName">需要检查的字段名称(注意 必须是包含别名的完整的可直接拼接SQL 查询语句的字段名称)</param>
+            <param name="checkValues">需要检查的值</param>
+            <param name="parValues">除了@Where 参数外其它SQL 语句中配置的参数值</param>
+            <returns></returns>
+        </member>
+        <member name="T:MB.RuleBase.Common.ObjectEditHelper">
+            <summary>
+            业务对象编辑处理相关。
+            [Transaction(TransactionOption.Required)]  
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.#ctor">
+            <summary>
+            构造函数。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.#ctor(MB.Util.Model.QueryBehavior)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="queryBehavior"></param>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.RefreshEntity(MB.RuleBase.IFace.IBaseRule,System.Object,System.Object,System.Object[])">
+            <summary>
+            重新刷新实体对象。
+            1)应该先找对应配置的XML 文件中是否已经配置了 RefreshEntity 
+            2)如果用户没有配置再根据 GetObjects 查找
+            </summary>
+            <param name="baseRule"></param>
+            <param name="dataInDocType"></param>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.CreateNewEntity(MB.RuleBase.IFace.IBaseRule,System.Object)">
+            <summary>
+            根据类型创建一个新的实体对象。    CreateNewEntityBatch
+            </summary>
+            <param name="baseRule">指定操作的业务类。</param>
+            <param name="dataInDocType">指定的数据类型。</param>
+            <returns>数据实体</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.CreateNewEntityBatch(MB.RuleBase.IFace.IBaseRule,System.Object,System.Int32)">
+            <summary>
+            批量创建实体对象。
+            </summary>
+            <param name="baseRule"></param>
+            <param name="dataInDocType"></param>
+            <param name="createCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.SaveObjectDataList(MB.RuleBase.IFace.IBaseRule,MB.RuleBase.Common.ObjectDataList)">
+            <summary>
+            把保存在ObjectDataList 持久化到数据库中。
+            特殊说明： 暂时先在这里进行服务的提交处理，以后需要进行修改。
+            </summary>
+            <param name="baseRule">当前进行持久化操作的业务类。</param>
+            <param name="dataList">存储进行数据库操作的ObjectDataList。</param>
+            <returns>返回受影响的行。</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.DeletedImmediate(MB.RuleBase.IFace.IBaseRule,System.Object,System.Object)">
+            <summary>
+            根据键值直接执行业务类中指定数据类型的数据。
+             特殊说明： 暂时先在这里进行服务的提交处理，以后需要进行修改。
+            </summary>
+            <param name="baseRule">指定操作的业务类。</param>
+            <param name="dataInDocType">数据在业务类的中数据类型。</param>
+            <param name="key">指定需要删除的键值。</param>
+            <returns>返回受影响的行。</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.SaveDataSetImmediate(MB.RuleBase.IFace.IBaseRule,System.Object,System.Data.DataSet)">
+            <summary>
+            通过DataSet 直接存储到数据库,排除已经删除的行,对于需要删除的行请直接通过 DeletedImmediate 来进行。
+             特殊说明： 暂时先在这里进行服务的提交处理，以后需要进行修改。
+            </summary>
+            <param name="baseRule">当前需要操作的业务类。</param>
+            <param name="dataInDocType">数据在业务类的中数据类型。</param>
+            <param name="dsData">DataSet 类型数据。</param>
+            <returns>返回受影响的行。</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.CreateCmdsFromObjectDataList(MB.RuleBase.IFace.IBaseRule,Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.RuleBase.Common.ObjectDataList)">
+            <summary>
+            从ObjectDataList 创建可进行数据库操作的DbCommand。
+            </summary>
+            <param name="baseRule">指定操作的业务类(为空将根据集合中的实体类型中的配置信息来自动创建DBCommand)。</param>
+            <param name="db">数据库操作DB.</param>
+            <param name="dataList">数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.CreateCmdsFromDataSet(Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.RuleBase.IFace.IBaseRule,System.Data.DataSet,System.Object,System.Object)">
+            <summary>
+            从DataSet 中创建可以进行数据库操作的DBCommand。
+            </summary>
+            <param name="db"></param>
+            <param name="baseRule"></param>
+            <param name="dsData"></param>
+            <param name="dataInDocType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.GetObjectsByForeingKeyAsDs(MB.RuleBase.IFace.IBaseRule,System.Object,System.Object)">
+            <summary>
+            通过主键获取对应明细的数据。
+            </summary>
+            <param name="baseRule">指定操作的业务类</param>
+            <param name="dataInDocType">指定的数据类型</param>
+            <param name="mainKeyValue">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.GetObjectsByForeingKey``1(MB.RuleBase.IFace.IBaseRule,System.Object,System.Object)">
+            <summary>
+            通过主键获取对应明细的数据。
+            </summary>
+            <typeparam name="T">从MB.Orm.Common.BaseModel 中继承的数据对象类型。</typeparam>
+            <param name="baseRule">指定操作的业务类</param>
+            <param name="dataInDocType">指定的数据类型</param>
+            <param name="mainKeyValue">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.GetDynamicGroupQueryData(MB.Util.Model.DynamicGroupSetting,MB.Util.Model.QueryParameterInfo[],System.Object[])">
+            <summary>
+            动态聚组查询获取数据
+            </summary>
+            <param name="baseRule"></param>
+            <param name="setting"></param>
+            <param name="parInfos"></param>
+            <param name="parValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.GetObjectAsDataSet(MB.RuleBase.IFace.IBaseQueryRule,System.Object,MB.Util.Model.QueryParameterInfo[],System.Object[])">
+            <summary>
+            根据数据类型和过滤条件返回需要的数据。
+            </summary>
+            <param name="baseRule">指定操作的业务类。</param>
+            <param name="dataInDocType">指定的数据类型。</param>
+            <param name="whereFilters">过滤条件</param>
+            <param name="otherParamValues">其它附加的过滤条件</param>
+            <returns>满足条件的DataSet 类型数据</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.GetObjects``1(MB.RuleBase.IFace.IBaseQueryRule,System.Object,MB.Util.Model.QueryParameterInfo[],System.Object[])">
+            <summary>
+            根据指定类型获取满足条件的实体对象。
+            </summary>
+            <typeparam name="T">从MB.Orm.Common.BaseModel 中继承的数据对象类型。</typeparam>
+            <param name="baseRule">获取实体对象集合的业务类。</param>
+            <param name="dataInDocType">在业务类中的数据类型。</param>
+            <param name="filter">过滤条件。</param>
+            <returns>指定类型的集合类。</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.ExecuteScalar(System.String,System.String,System.Object[])">
+            <summary>
+             获取指定对象数据的值。
+            </summary>
+            <param name="xmlFileName"></param>
+            <param name="sqlName"></param>
+            <param name="pars"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.GetObjectByKey``1(MB.RuleBase.IFace.IBaseRule,System.Object,System.Object)">
+            <summary>
+            根据键值获取包含值的实体对象。
+            </summary>
+            <typeparam name="T">从MB.Orm.Common.BaseModel 中继承的数据对象类型。</typeparam>
+            <param name="baseRule">获取实体对象集合的业务类。</param>
+            <param name="dataInDocType">在业务类中的数据类型。</param>
+            <param name="keyValue">需要获取实体键值。</param>
+            <returns>返回指定类型的实体对象。</returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.GetObjectKeyValue(MB.RuleBase.IFace.IBaseRule,MB.RuleBase.Common.ObjectDataInfo)">
+            <summary>
+            获取数据对象的主键。
+            </summary>
+            <param name="baseRule"></param>
+            <param name="dataInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectEditHelper.ConvertEntityStateToOperationType(MB.Util.Model.EntityState)">
+            <summary>
+            转换对象数据的状态为需要进行数据库操作的操作类型。
+            </summary>
+            <param name="dataState"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectEditHelper.DefalutInstance">
+            <summary>
+            默认安全的单实例模式。
+            由于该类中的方法都需要占用大量的时间,建议外部直接通过New 的方式来进行调用。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.ObjectRelationType">
+            <summary>
+            ObjectRelationType 对象关联类型。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.ObjectSubmitHelper">
+            <summary>
+            对象提交封装处理。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.#ctor">
+            <summary>
+            对象提交封装处理。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.CheckParentHasSubmit(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,System.Int32[])">
+            <summary>
+            判断该业务对象对应的键值是否已经进行了提交处理。
+            区别于CheckHasSubmit 最主要的部分是增加和是否审核通过的判断。
+            </summary>
+            <param name="dbCmd"></param>
+            <param name="objectName"></param>
+            <param name="keyField"></param>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.CheckParentHasSubmit(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,System.String)">
+            <summary>
+            判断该业务对象对应的键值是否已经进行了提交处理。
+            区别于CheckHasSubmit 最主要的部分是增加和是否审核通过的判断。
+            </summary>
+            <param name="dbCmd"></param>
+            <param name="tableName"></param>
+            <param name="keyField"></param>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.CheckParentHasSubmit(Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.RuleBase.IFace.IBaseRule,System.Object)">
+            <summary>
+            判断该业务对象对应的键值是否已经进行了提交处理。
+            区别于CheckHasSubmit 最主要的部分是增加和是否审核通过的判断。
+            </summary>
+            <param name="dbCmd"></param>
+            <param name="busObj"></param>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.ObjectOwnerless(Microsoft.Practices.EnterpriseLibrary.Data.Database,MB.RuleBase.IFace.IBaseRule,System.Object,MB.RuleBase.Atts.LinkRestrictOption)">
+            <summary>
+            检查当前对象是否已被其它对象引用。
+            </summary>
+            <param name="db"></param>
+            <param name="baseRule"></param>
+            <param name="mainEntity"></param>
+            <param name="restrictOption"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.ObjectSubmit(MB.RuleBase.IFace.IBaseRule,System.Object)">
+            <summary>
+            提交指定的业务处理数据。
+            </summary>
+            <param name="baseRule"></param>
+            <param name="mainEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.ObjectCancelSubmit(MB.RuleBase.IFace.IBaseRule,System.Object)">
+            <summary>
+            撤消对象的提交处理相关...
+            </summary>
+            <param name="baseRule"></param>
+            <param name="mainEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.GetEntityDocState(System.Object)">
+            <summary>
+            获取实体对象的单据状态。
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.CheckTypeExistsDocState(System.Type)">
+            <summary>
+            判断指定的类型中是否包含单据状态类型。
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.ObjectSubmitHelper.CheckExistsDocState(System.Object)">
+            <summary>
+            判断实体对象的是否存在单据状态。
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MB.RuleBase.Common.ObjectSubmitHelper.NewInstance">
+            <summary>
+            返回新的对象实例。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Common.SmartDAL">
+            <summary>
+            UFSmartDAL
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Delete``1">
+            <summary>
+            Delete
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Delete``1(``0)">
+            <summary>
+            Delete
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Delete(System.Type)">
+            <summary>
+            Delete
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Update``1">
+            <summary>
+            Update
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Update``1(``0)">
+            <summary>
+            Update
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Update(System.Type)">
+            <summary>
+            Update
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Insert``1">
+            <summary>
+            Insert
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Insert``1(``0)">
+            <summary>
+            Insert
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Insert(System.Type)">
+            <summary>
+            Insert
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Query``1">
+            <summary>
+            Query
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Query(System.Type)">
+            <summary>
+            Query
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Exists(System.Type)">
+            <summary>
+            Exists
+            </summary>
+            <param name="entityType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.Common.SmartDAL.Exists``1">
+            <summary>
+            Exists
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:MB.RuleBase.Exceptions.DatabaseExecuteException">
+            <summary>
+            子类必须覆盖基类的方法。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Exceptions.DataTypeUnSupportException">
+            <summary>
+            不能进行统一处理的数据类型。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.Exceptions.RequireConfigDataMappingException">
+            <summary>
+            数据类型没有进行ObjectDataMapping 的配置。
+            </summary>
+        </member>
+        <member name="T:MB.RuleBase.DefaultGreatDataCapacity">
+            <summary>
+            缺省大数据量数据获取解决方案。
+            大数据量获取都必须采取
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.DefaultGreatDataCapacity.#ctor(System.Collections.IList)">
+            <summary>
+            构造当前session 需要进行大数据量处理的容器。
+            默认情况下单的数据块的大小为500
+            </summary>
+            <param name="listData">初始化需要进行处理的数据</param>
+        </member>
+        <member name="M:MB.RuleBase.DefaultGreatDataCapacity.#ctor(System.Collections.IList,System.Int32)">
+            <summary>
+            构造当前session 需要进行大数据量处理的容器。
+            </summary>
+            <param name="listData">初始化需要进行处理的数据</param>
+            <param name="singleSegmentCapacity">单的数据块的大小</param>
+        </member>
+        <member name="M:MB.RuleBase.DefaultGreatDataCapacity.MaxSegment">
+            <summary>
+            获取数据块的个数。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.RuleBase.DefaultGreatDataCapacity.GetDataByIndex(System.Int32)">
+            <summary>
+            根据Index 获取数据。
+            </summary>
+            <param name="index">顺序号</param>
+            <returns>List</returns>
+        </member>
+        <member name="T:MB.RuleBase.IFace.IAsynGetEntitysInvoke">
+            <summary>
+            基于实体类大数据获取必须实现的接口。
+            在生成客户端的时候注意要生成异步的访问方式。
+            </summary>
+        </member>
+        <member name="M:MB.RuleBase.IFace.IAsynGetEntitysInvoke.ReceiveGreatDataInvoke(MB.Util.Model.GreatCapacityInvokeParamInfo)">
+            <summary>
+            实现该方法,并根据不同的参数进行相应的处理。 
+            </summary>
+            <param name="invokeParams">异步调用的参数。</param>
+            <returns>GreatCapacityResult</returns>
+        </member>
+        <member name="T:MB.WcfService.MessageHeaderHelper">
+            <summary>
+            获取消息头信息相关。
+            </summary>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.GetCurrentLoginUser">
+            <summary>
+            获取当前登录的用户信息。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.GetQueryBehavior">
+            <summary>
+            获取当前查询的行为信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.GetQueryBehavior(System.String)">
+            <summary>
+            获取当前查询对象的行为信息,这个信息永远都是从WCF消息头里面加载出来的
+            add by aifang 2012-08-13 获取动态列头信息 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.SetQueryBehaviorColoums(System.String,System.String)">
+            <summary>
+            由于动态列的情况下，某些列并不是从数据库取出来的，
+            需要中间层开发人员自己定义哪些列一定要在SQL中而哪些列不能包括在SQL中
+            该方法用于重新设定当前WCF上下文中InComingMessage中的消息头QueryBehavior的Columns中的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.GetResponseHeaderInfo">
+            <summary>
+            得到服务端加载的ResponseHeaderInfo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.GetMessageHeaderContext(System.String)">
+            <summary>
+            在当前通道中获取指定消息头的信息
+            </summary>
+            <param name="headerKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.AppendMessageHeaderResponse(MB.Util.Model.ResponseHeaderInfo)">
+            <summary>
+            设定查询的总记录数，从消息头
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.AppendMessageHeaderResponse(MB.Util.Model.ResponseHeaderInfo,System.Boolean)">
+            <summary>
+            设定查询的总记录数，从消息头
+            </summary>
+            <param name="info"></param>
+            <param name="isOverwrite"></param>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.AppendMessageHeader(System.String,System.String)">
+            <summary>
+            在回复的通道中设定需要回复的消息头信息
+            </summary>
+            <param name="headerKey"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:MB.WcfService.MessageHeaderHelper.AppendMessageHeader(System.String,System.String,System.Boolean)">
+            <summary>
+            在回复的通道中设定需要回复的消息头信息
+            </summary>
+            <param name="headerKey"></param>
+            <param name="content"></param>
+            <param name="isOverwrite"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,8 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.XWinLib.Test\bin\Debug\MB.XWinLib.Test.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.XWinLib.Test\bin\Debug\MB.XWinLib.Test.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.XWinLib.Test\obj\Debug\MB.XWinLib.Test.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.XWinLib.Test\obj\Debug\MB.XWinLib.Test.pdb
+D:\MB\MB.BaseFrame\MB.XWinLib.Test\bin\Debug\MB.XWinLib.Test.dll
+D:\MB\MB.BaseFrame\MB.XWinLib.Test\bin\Debug\MB.XWinLib.Test.pdb
+D:\MB\MB.BaseFrame\MB.XWinLib.Test\obj\Debug\MB.XWinLib.Test.dll
+D:\MB\MB.BaseFrame\MB.XWinLib.Test\obj\Debug\MB.XWinLib.Test.pdb

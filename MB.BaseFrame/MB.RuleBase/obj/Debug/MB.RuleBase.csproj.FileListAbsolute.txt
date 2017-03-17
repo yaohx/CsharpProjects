@@ -1,0 +1,12 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.RuleBase.XML
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.RuleBase.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.RuleBase.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.RuleBase\obj\Debug\MB.RuleBase.csprojResolveAssemblyReference.cache
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.RuleBase\obj\Debug\MB.RuleBase.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.RuleBase\obj\Debug\MB.RuleBase.pdb
+D:\MB\MB.BaseFrame\ExportBin\MB.RuleBase.XML
+D:\MB\MB.BaseFrame\ExportBin\MB.RuleBase.dll
+D:\MB\MB.BaseFrame\ExportBin\MB.RuleBase.pdb
+D:\MB\MB.BaseFrame\MB.RuleBase\obj\Debug\MB.RuleBase.csprojResolveAssemblyReference.cache
+D:\MB\MB.BaseFrame\MB.RuleBase\obj\Debug\MB.RuleBase.dll
+D:\MB\MB.BaseFrame\MB.RuleBase\obj\Debug\MB.RuleBase.pdb

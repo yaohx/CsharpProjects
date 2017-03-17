@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--   XML 文件生成时间 2009-04-21 04:12  -->
+<Entity>
+  <PrimaryKeyName>ID</PrimaryKeyName>
+  <MappingTableName>MY_TABLE_MAIN</MappingTableName>
+  <Sqls>
+    <Sql Name="SelectObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              SELECT NAME FROM MY_TABLE_MAIN WHERE ID=@ID;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        </SqlString>
+    </Sql>
+    <Sql Name="AddObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              INSERT INTO MY_TABLE_MAIN(ID,NAME,CODE,ADDRESS)
+              VALUES(@ID,@NAME,@CODE,@ADDRESS);
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@NAME" Column = "NAME" TypeName = "System.String" />
+        <Param Name = "@CODE" Column = "CODE" TypeName = "System.String" />
+        <Param Name = "@ADDRESS" Column = "ADDRESS" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <Sql Name="UpdateObject">
+      <SqlString>
+        <String>
+          <![CDATA[
+              UPDATE MY_TABLE_MAIN SET ID=@ID, NAME=@NAME
+              WHERE ID=@ID;
+            ]]>
+        </String>
+        <Param Name = "@ID" Column = "ID" TypeName = "System.Int32" />
+        <Param Name = "@NAME" Column = "NAME" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    </Sqls>
+</Entity>

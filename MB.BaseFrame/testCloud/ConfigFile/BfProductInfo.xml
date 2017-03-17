@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <MappingTableName>Fuc_Dtl</MappingTableName>
+  <Sqls>
+    <Sql Name="GetProducts">
+      <!--获取商品信息-->
+      <SqlString>
+        <String>
+          <![CDATA[
+               SELECT ID,BF_PROD_CLS_ID,BF_PROD_COLOR_ID,
+                      BF_PROD_SPEC_ID,PROD_NUM,ADDIT_DESC,INNER_BC,
+                      PROD_STATUS,CANCEL_REASON,PROD_GRID,REMARK,IS_TRANS_B2c 
+                FROM BF_PRODUCT WHERE rownum < 100;                  
+          ]]>
+        </String>
+       
+      </SqlString>
+    </Sql>
+    <Sql Name="GetProductsIds">
+      <!--获取商品信息-->
+      <SqlString>
+        <String>
+          <![CDATA[
+               SELECT ID 
+                FROM BF_PRODUCT WHERE rownum < 100;                  
+          ]]>
+        </String>
+
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>

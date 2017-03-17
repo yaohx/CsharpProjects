@@ -1,0 +1,13 @@
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.Localization.XML
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.Localization.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\ExportBin\MB.Localization.pdb
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.Localization\obj\Debug\MB.Localization.dll
+D:\Leo\Work\MB\SourceCode\MB.BaseFrame\MB.Localization\obj\Debug\MB.Localization.pdb
+D:\MB\MB.BaseFrame\ExportBin\MB.Localization.XML
+D:\MB\MB.BaseFrame\ExportBin\MB.Localization.dll
+D:\MB\MB.BaseFrame\ExportBin\MB.Localization.pdb
+D:\MB\MB.BaseFrame\MB.Localization\obj\Debug\MB.Localization.dll
+D:\MB\MB.BaseFrame\MB.Localization\obj\Debug\MB.Localization.pdb
+D:\MB\ERP\Bin\MB.Localization.dll
+D:\MB\ERP\Bin\MB.Localization.pdb
+D:\MB\ERP\Bin\MB.Localization.XML

@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity>
+  <Sqls>
+    <!-- 获取 市场明细 数据-->
+    <Sql Name="GetAgentDetail">
+      <SqlString>
+        <String>
+          <![CDATA[
+            SELECT M.ID,M.AGENT_ID,M.AGENT_NAME,M.ATTRIBUTE_CODE FROM MBFS_AGENT_DETAIL M
+            LEFT OUTER JOIN MBFS_AGENT F ON M.MBFS_AGENT_ID=F.ID
+            WHERE F.AGENT_ID= @UNIT_ID;
+          ]]>
+        </String>
+        <Param Name = "@UNIT_ID" Column = "UNIT_ID" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <!-- 获取 市场门店明细 数据-->
+    <Sql Name="GetShopSerials">
+      <SqlString>
+        <String>
+          <![CDATA[
+        SELECT S.SHOP_ID,U.NAME AS SHOP_NAME,S.SHOP_AREA,GG.MIN_SERIES_NUMS,
+               GG.MAX_SERIES_NUMS,SE.SERIESID   
+        FROM MBFS_AGENT_DETAIL_SHOP S 
+        LEFT OUTER JOIN MBFS_AGENT_DETAIL D ON (S.MBFS_AGENT_DETAIL_ID= D.ID) 
+        LEFT OUTER JOIN MBFS_AGENT A ON (D.MBFS_AGENT_ID = A.ID) 
+        LEFT OUTER JOIN SYS_UNIT U ON S.SHOP_ID= U.UNIT_ID 
+        LEFT OUTER JOIN MBFS_SUBJECT_AREA GG ON (1 = 1 AND (NVL(S.SHOP_AREA, 0) >=
+                                          NVL(GG.MIN_AREA, 0)) AND
+                                          (NVL(S.SHOP_AREA, 0) <
+                                          NVL(GG.MAX_AREA, 0)))
+        LEFT OUTER JOIN MBFS_SUBJECT_SERIES SE ON (GG.MBFS_SUBJECT_ID = SE.MBFS_SUBJECT_ID AND SE.IS_USE='T')
+        WHERE A.AGENT_ID= @UNIT_ID AND D.AGENT_ID = @AGENT_ID AND GG.MBFS_SUBJECT_ID = @MBFS_SUBJECT_ID;
+          ]]>
+        </String>
+        <Param Name = "@UNIT_ID" Column = "UNIT_ID" TypeName = "System.String" />
+        <Param Name = "@AGENT_ID" Column = "AGENT_ID" TypeName = "System.String" />
+        <Param Name = "@MBFS_SUBJECT_ID" Column = "MBFS_SUBJECT_ID" TypeName = "System.Decimal" />
+      </SqlString>
+    </Sql>
+    <!-- 获取 市场商品款式数据-->
+    <Sql Name="GetProdCls">
+      <SqlString>
+        <String>
+          <![CDATA[
+        SELECT A.PROD_PROP || A.PROD_SORT || A.PROD_STYLE AS  PROD_CLS_ID,A.NAME,A.PROD_THEME, 
+               A.PROD_SORTS,A.ORIENTATION,A.ON_SALE_DATE,A.ON_BRAND_PRC,A.PLAN_BATCH,A.PROD_GROUP,
+               A.PROD_CLASS  
+        FROM MBFS_SUBJECT_SERIES S  
+        INNER  JOIN  PROD_CLS A  ON (S.SERIESID  = A.PROD_CLASS) 
+        WHERE A.PROD_YEAR= @PROD_YEAR AND  S.MBFS_SUBJECT_ID = @MBFS_SUBJECT_ID AND @Where;
+          ]]>
+        </String>
+        <Param Name = "@PROD_YEAR" Column = "PROD_YEAR" TypeName = "System.Decimal" />
+        <Param Name = "@MBFS_SUBJECT_ID" Column = "MBFS_SUBJECT_ID" TypeName = "System.Decimal" />
+        <Param Name = "@Where" Column = "Where" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <!-- 根据款式编码获取图片-->
+    <Sql Name="GetImageByStyle">
+      <SqlString>
+        <String>
+          <![CDATA[
+                SELECT P.STYLE_CODE,P.COLOR_CODE,I.STYLE_IMAGE
+                FROM MBFS_PRODUCT P 
+                INNER JOIN MBFS_PRODUCT_IMAGE I ON P.ID = I.MBFS_PRODUCT_ID 
+                WHERE P.STYLE_CODE = @STYLE_CODE ;
+           ]]>
+        </String>
+        <Param Name = "@STYLE_CODE" Column = "STYLE_CODE" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+    <!-- 获取加盟商期货折率 -->
+    <Sql Name="GetUnitFutureRate">
+      <SqlString>
+        <String>
+          <![CDATA[
+            SELECT U.FUTURE_RATE 
+            FROM ISSUE_UNIT U
+            WHERE EXISTS(SELECT 1 FROM  ISSUE_SUBJECT WHERE BRAND = U.BRAND_ID AND ID = @ISSUE_SUBJECT_ID) AND 
+                  U.AGENT_ID = @UNIT_ID; 
+			    ]]>
+        </String>
+        <Param Name="@ISSUE_SUBJECT_ID" Column="ISSUE_SUBJECT_ID" />
+        <Param Name="@UNIT_ID" Column="UNIT_ID" />
+      </SqlString>
+    </Sql>
+
+    <!--获取征订单的控制信息-->
+    <Sql Name="GetMbfsRestrictData">
+      <SqlString>
+        <String>
+          <![CDATA[
+             SELECT * FROM ( SELECT *
+                      FROM (SELECT G.UNIT_ID AS SHOP_ID,G.PROD_ID,
+                                   G.MIN_COUNT,
+                                   G.MAX_COUNT,
+                                   G.MUST_CHANGED,
+                                   '2' AS DOC_TYPE,
+                                   LAST_MODIFIED_DATE
+                              FROM MBFS_PRI_RESTRICT_DETAIL G
+                             INNER JOIN MBFS_PRI_RESTRICT R ON R.ID = G.MBFS_PRI_RESTRICT_ID
+                             WHERE R.MBFS_SUBJECT_ID = @MBFS_SUBJECT_ID
+                               AND G.UNIT_ID =  @UNIT_ID 
+                               AND R.DOC_STATE = '1' AND G.UNIT_TYPE='02'
+                            UNION
+                            SELECT S.SHOP_ID,G.PROD_ID,
+                                   G.MIN_COUNT,
+                                   G.MAX_COUNT,
+                                   G.MUST_CHANGED,
+                                   '1' AS DOC_TYPE,
+                                   R.LAST_MODIFIED_DATE
+                              FROM MBFS_PRI_RESTRICT_DETAIL G
+                             INNER JOIN MBFS_PRI_RESTRICT R ON R.ID = G.MBFS_PRI_RESTRICT_ID
+                             INNER JOIN MBFS_AGENT_DETAIL D ON G.UNIT_ID = D.AGENT_ID 
+                             INNER JOIN MBFS_AGENT A ON D.MBFS_AGENT_ID = A.ID AND A.IS_START='1'
+                             INNER JOIN MBFS_AGENT_DETAIL_SHOP S ON D.ID = S.MBFS_AGENT_DETAIL_ID AND S.IS_START = '1'
+                             WHERE R.MBFS_SUBJECT_ID = @MBFS_SUBJECT_ID1
+                               AND G.UNIT_ID = @UNIT_ID1
+                               AND R.DOC_STATE = '1' AND G.UNIT_TYPE ='01'
+                            UNION 
+                            SELECT 'A00030' AS SHOP_ID,G.PROD_ID,
+                                   G.MIN_COUNT,
+                                   G.MAX_COUNT,
+                                   G.MUST_CHANGED,
+                                   '0' AS DOC_TYPE,
+                                   LAST_MODIFIED_DATE
+                              FROM MBFS_GEN_RESTRICT_PRODUCT G
+                             INNER JOIN MBFS_GEN_RESTRICT R ON R.ID = G.MBFS_GEN_RESTRICT_ID
+                             WHERE R.MBFS_SUBJECT_ID = @MBFS_SUBJECT_ID2
+                               AND R.DOC_STATE = '1'
+                               AND EXISTS (SELECT 1
+                                      FROM MBFS_GEN_RESTRICT_UNIT
+                                     WHERE MBFS_GEN_RESTRICT_ID = R.ID 
+                                       AND UNIT_ID = @UNIT_ID2)) 
+                     ORDER BY DOC_TYPE DESC,
+                              LAST_MODIFIED_DATE DESC,
+                              PROD_ID ) TT WHERE TT.SHOP_ID = @SHOP_ID AND PROD_ID = @PROD_ID 
+            ]]>
+        </String>
+        <Param Name = "@MBFS_SUBJECT_ID" Column = "MBFS_SUBJECT_ID" TypeName = "System.Int32" />
+        <Param Name = "@UNIT_ID" Column = "UNIT_ID" TypeName = "System.String" />
+        <Param Name = "@MBFS_SUBJECT_ID1" Column = "MBFS_SUBJECT_ID" TypeName = "System.Int32" />
+        <Param Name = "@UNIT_ID1" Column = "UNIT_ID" TypeName = "System.String" />
+        <Param Name = "@MBFS_SUBJECT_ID2" Column = "MBFS_SUBJECT_ID" TypeName = "System.Int32" />
+        <Param Name = "@UNIT_ID2" Column = "UNIT_ID" TypeName = "System.String" />
+        <Param Name = "@SHOP_ID" Column = "SHOP_ID" TypeName = "System.String" />
+        <Param Name = "@PROD_ID" Column = "PROD_ID" TypeName = "System.String" />
+        
+      </SqlString>
+    </Sql>
+
+    <!--获取征订单的控制信息-->
+    <Sql Name="GetMbfsRestrictData22">
+      <SqlString>
+        <String>
+          <![CDATA[
+            SELECT *
+                      FROM (SELECT G.UNIT_ID AS SHOP_ID,G.PROD_ID,
+                                   G.MIN_COUNT,
+                                   G.MAX_COUNT,
+                                   G.MUST_CHANGED,
+                                   '2' AS DOC_TYPE,
+                                   LAST_MODIFIED_DATE
+                              FROM MBFS_PRI_RESTRICT_DETAIL G
+                             INNER JOIN MBFS_PRI_RESTRICT R ON R.ID = G.MBFS_PRI_RESTRICT_ID
+                             WHERE R.MBFS_SUBJECT_ID = @MBFS_SUBJECT_ID
+                               AND G.UNIT_ID =  @UNIT_ID 
+                               AND R.DOC_STATE = '1' AND G.UNIT_TYPE='02'
+                   ) TT WHERE TT.SHOP_ID = @SHOP_ID AND TT.PROD_ID = @ABC; 
+            ]]>
+        </String>
+        <Param Name = "@MBFS_SUBJECT_ID" Column = "MBFS_SUBJECT_ID" TypeName = "System.Int32" />
+        <Param Name = "@UNIT_ID" Column = "UNIT_ID" TypeName = "System.String" />
+       
+        <Param Name = "@SHOP_ID" Column = "SHOP_ID" TypeName = "System.String" />
+        <Param Name = "@ABC" Column = "ABC" TypeName = "System.String" />
+
+      </SqlString>
+    </Sql>
+    <!--获取选择的款-颜色式信息 -->
+    <Sql Name="GetColorByProdClsID">
+      <SqlString>
+        <String>
+          <![CDATA[
+                  SELECT M.SHOP_ID, S.NAME AS SHOP_NAME, G.*
+                    FROM MBFS_AGENT_DETAIL_SHOP M 
+                    INNER JOIN MBFS_AGENT_DETAIL F ON (M.MBFS_AGENT_DETAIL_ID= F.ID)  
+                    INNER JOIN MBFS_AGENT MB ON (F.MBFS_AGENT_ID = MB.ID) 
+                    LEFT OUTER JOIN SYS_UNIT S ON M.SHOP_ID = S.UNIT_ID 
+                    LEFT OUTER JOIN (                   
+                                 SELECT S.PROD_CLS_ID,
+                                         S.PROD_PROP,
+                                         S.PROD_SORT,
+                                         S.PROD_STYLE,
+                                         S.COLOR,
+                                         S.EDITION,
+                                         C.NAME AS NAME,
+                                         D.DESCRIPTION COLOR_DESC,
+                                         E.DESCRIPTION EDTN_DESC,
+                                         C.PROD_THEME,
+                                         C.PROD_SORTS,
+                                         C.ORIENTATION,
+                                         C.ON_SALE_DATE,
+                                         C.ON_BRAND_PRC,
+                                         C.PLAN_BATCH,
+                                         C.PROD_GROUP,
+                                         C.PROD_CLASS
+                                   FROM (SELECT DISTINCT SUBSTR(B.PROD_ID, 1, 8) AS PROD_CLS_ID,
+                                                          B.PROD_PROP,
+                                                          B.PROD_SORT,
+                                                          B.PROD_STYLE,
+                                                          B.COLOR,
+                                                          B.EDITION
+                                          
+                                            FROM PRODUCT B) S
+                                   LEFT OUTER JOIN PROD_CLS C ON (S.PROD_PROP = C.PROD_PROP AND
+                                                                 S.PROD_SORT = C.PROD_SORT AND
+                                                                 S.PROD_STYLE =
+                                                                 C.PROD_STYLE)
+                                   LEFT OUTER JOIN COLOR D ON (S.COLOR = D.COLOR)
+                                   LEFT OUTER JOIN PROD_EDTN E ON (S.PROD_PROP =
+                                                                  E.PROD_PROP AND
+                                                                  S.EDITION = E.EDITION)) G ON (1 = 1)
+              WHERE F.AGENT_ID = @AGENT_ID  AND MB.AGENT_ID = @AGENT_ID1
+                  AND  @WHERE 
+                  ORDER BY M.SHOP_ID,G.PROD_CLS_ID;
+            ]]>
+        </String>
+        <Param Name = "@AGENT_ID" Column = "AGENT_ID" TypeName = "System.String" />
+        <Param Name = "@AGENT_ID1" Column = "AGENT_ID1" TypeName = "System.String" />
+        <Param Name = "@WHERE" Column = "WHERE" TypeName = "System.String" />
+      </SqlString>
+    </Sql>
+  </Sqls>
+</Entity>
+

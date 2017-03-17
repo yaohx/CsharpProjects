@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E8348FD3-FCBA-4ABF-A666-A4E02160129A}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>DIYReportR3</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DIYReport</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/DIYReportV2/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\..\..\..\Company\MB\MB.BaseFrame\ExportBin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\MB.BaseFrameR5\MB.BaseFrameR5\ExportBin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MB.BaseFrameR5\MB.BaseFrameR5\ExportBin\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.Data.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.Utils.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraBars.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraEditors.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraNavBar.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraPrinting.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 2010.1\Components\Sources\DevExpress.DLL\DevExpress.XtraReports.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Barcode\BarcodeLib.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Barcode\Code128.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Barcode\Code39.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Barcode\DrawBarCodeHelper.cs" />
+    <Compile Include="Barcode\ShareLib.cs" />
+    <Compile Include="Barcode\UPCA.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\EnumPrintersHelper.cs" />
+    <Compile Include="Common\EnumPrintersHelperEx.cs" />
+    <Compile Include="ControlType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Design\Descriptors.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Design\RptCssClassAttributesEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Design\RptDataSourceEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Design\RptFieldAttributesEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\DrawHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\GraphicsPrinting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Express\ExpressValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Express\ExpressValueList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Express\ExSpecial.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Express\ExStatistical.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Express\MyCalculate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Express\SetRptObjValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extend\EndUserDesigner\MainDesignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extend\Print\PrintDocumentView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extend\Print\PrintDrawHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extend\Print\XPrintDocument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extend\Print\XPrintingSystem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GroupAndSort\FieldSortComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GroupAndSort\frmGroupSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupAndSort\frmSortAndGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupAndSort\GroupDataProcess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GroupAndSort\GroupDivide.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GroupAndSort\RptFieldInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\IniFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IActionParent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IDesignPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IDrawReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IReportDataIO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IRptSingleObj.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\IRptTextObj.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interface\ISubReportCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\MoneyLib.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PrintRibbonControllerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintRibbonControllerResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Print\DrawDetailInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Print\DrawReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Print\FrmPageSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print\MyPrinterSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Print\RptPageSetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Print\SwPrintView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\PublicFun.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportDataIO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\CreateRptObjParam.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\ExpressType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\GroupLayoutType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\LineType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptCssClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptCssClassList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObjType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptBarCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptCheckBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptDBPictureBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptExpressBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptFieldTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptHViewSpecFieldBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptLable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptOleObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptPictureBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptRect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptRichTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptObj\RptSubReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptParam.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptParamList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptSection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptSectionList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptSingleObj.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptSingleObjList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportModel\RptTextObj.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReportXmlHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RptBaseCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RptObjectHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SectionType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UndoManager\ActionInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UndoManager\ActionType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UndoManager\PropertyValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UndoManager\UndoMgr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\ClipboardEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\DesignControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserDIY\DesignControlList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\DesignEnviroment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\DesignRuler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserDIY\DesignSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserDIY\DesignSectionEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\DesignSectionList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\EditRptObjAttribute.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserDIY\FocusHandleCTL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserDIY\FocusHandleList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\FormatCtlType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\FrmArrowOperate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDIY\FrmEditCssClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDIY\FrmEditExpress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\FrmEditRptObjAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\GDIHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\HandleType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\IDragInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\ImageContextMenu.cs">
+    </Compile>
+    <Compile Include="UserDIY\ReportDesign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserDIY\SectionCaption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserDIY\XCommandExecutors.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\XCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserDIY\XDesignPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="Extend\EndUserDesigner\MainDesignForm.resx">
+      <DependentUpon>MainDesignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extend\Print\PrintDocumentView.resx">
+      <DependentUpon>PrintDocumentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupAndSort\frmGroupSetting.resx">
+      <DependentUpon>frmGroupSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupAndSort\frmSortAndGroup.resx">
+      <DependentUpon>frmSortAndGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\check.gif" />
+    <EmbeddedResource Include="Images\Subreport.gif" />
+    <EmbeddedResource Include="Images\uncheck.gif" />
+    <EmbeddedResource Include="licenses.licx" />
+    <EmbeddedResource Include="PrintRibbonControllerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PrintRibbonControllerResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print\FrmPageSetting.resx">
+      <DependentUpon>FrmPageSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\DesignControl.resx">
+      <DependentUpon>DesignControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\DesignRuler.resx">
+      <DependentUpon>DesignRuler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\DesignSection.resx">
+      <DependentUpon>DesignSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\EditRptObjAttribute.resx">
+      <DependentUpon>EditRptObjAttribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\FocusHandleCTL.resx">
+      <DependentUpon>FocusHandleCTL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\FrmArrowOperate.resx">
+      <DependentUpon>FrmArrowOperate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\FrmEditCssClass.resx">
+      <DependentUpon>FrmEditCssClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\FrmEditExpress.resx">
+      <DependentUpon>FrmEditExpress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\FrmEditRptObjAttribute.resx">
+      <DependentUpon>FrmEditRptObjAttribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\ReportDesign.resx">
+      <DependentUpon>ReportDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\SectionCaption.resx">
+      <DependentUpon>SectionCaption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDIY\XDesignPanel.resx">
+      <DependentUpon>XDesignPanel.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"></xsd:element>
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1"></xsd:attribute>
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"></xsd:attribute>
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"></xsd:attribute>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="PreviewStringId.Button_Help">
+		<value>Help</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_PageSetup">
+		<value>Page Setup</value>
+	</data>
+	<data name="PreviewStringId.MPForm_Lbl_Pages">
+		<value>Pages</value>
+	</data>
+	<data name="PreviewStringId.SB_ZoomFactor">
+		<value>Zoom Factor:</value>
+	</data>
+	<data name="PreviewStringId.SB_TotalPageNo">
+		<value>Total Page No:</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_ZoomIn">
+		<value>Zoom In</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_FirstPage">
+		<value>First Page</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_PreviousPage">
+		<value>Previous Page</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_NextPage">
+		<value>Next Page</value>
+	</data>
+	<data name="PreviewStringId.Msg_EmptyDocument">
+		<value>The document does not contain any pages.</value>
+	</data>
+	<data name="PreviewStringId.Msg_CreatingDocument">
+		<value>Creating the document...</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_MultiplePages">
+		<value>Multiple Pages</value>
+	</data>
+	<data name="PreviewStringId.Button_Apply">
+		<value>Apply</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_ZoomOut">
+		<value>Zoom Out</value>
+	</data>
+	<data name="PreviewStringId.SB_CurrentPageNo">
+		<value>Current Page No:</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Zoom">
+		<value>Zoom</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_PrintDirect">
+		<value>Print Direct</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Magnifier">
+		<value>Magnifier</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Print">
+		<value>Print</value>
+	</data>
+	<data name="PreviewStringId.Button_Cancel">
+		<value>Cancel</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Close">
+		<value>Close Preview</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Backgr">
+		<value>Background</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_EditPageHF">
+		<value>Header And Footer</value>
+	</data>
+	<data name="PreviewStringId.Button_Ok">
+		<value>OK</value>
+	</data>
+	<data name="PreviewStringId.SB_PageNone">
+		<value>none</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_LastPage">
+		<value>Last Page</value>
+	</data>
+	<data name="PreviewStringId.Msg_NeedPrinter">
+		<value>No printers installed.</value>
+	</data>
+	<data name="PreviewStringId.Msg_WrongPrinter">
+		<value>The printer name is invalid. Please check the printer settings.</value>
+	</data>
+	<data name="PreviewStringId.Msg_WrongPageSettings">
+		<value>The current printer doesn't support the selected paper size.\nProceed with printing anyway?</value>
+	</data>
+	<data name="PreviewStringId.Msg_CustomDrawWarning">
+		<value>Warning!</value>
+	</data>
+	<data name="PreviewStringId.PreviewForm_Caption">
+		<value>Preview</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Customize">
+		<value>Customize</value>
+	</data>
+	<data name="PreviewStringId.Margin_Inch">
+		<value>Inch</value>
+	</data>
+	<data name="PreviewStringId.Margin_Millimeter">
+		<value>mm</value>
+	</data>
+	<data name="PreviewStringId.Margin_TopMargin">
+		<value>Top Margin</value>
+	</data>
+	<data name="PreviewStringId.Margin_BottomMargin">
+		<value>Bottom Margin</value>
+	</data>
+	<data name="PreviewStringId.Margin_LeftMargin">
+		<value>Left Margin</value>
+	</data>
+	<data name="PreviewStringId.Margin_RightMargin">
+		<value>Right Margin</value>
+	</data>
+	<data name="PreviewStringId.ScrollingInfo_Page">
+		<value>Page</value>
+	</data>
+	<data name="PreviewStringId.Msg_PageMarginsWarning">
+		<value>One or more margins are set outside the printable area of the page. Continue?</value>
+	</data>
+	<data name="PreviewStringId.SB_PageInfo">
+		<value>{0} of {1}</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_HandTool">
+		<value>Hand Tool</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Export">
+		<value>Export Document...</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Send">
+		<value>Send e-mail...</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Map">
+		<value>Document Map</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Search">
+		<value>Search</value>
+	</data>
+	<data name="PreviewStringId.TB_TTip_Watermark">
+		<value>Watermark</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_File">
+		<value>&amp;File</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_View">
+		<value>&amp;View</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Background">
+		<value>&amp;Background</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_PageSetup">
+		<value>Page Set&amp;up...</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Print">
+		<value>&amp;Print...</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_PrintDirect">
+		<value>P&amp;rint</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Export">
+		<value>&amp;Export To</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Send">
+		<value>Sen&amp;d As</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Exit">
+		<value>E&amp;xit</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ViewToolbar">
+		<value>&amp;Toolbar</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ViewStatusbar">
+		<value>&amp;Statusbar</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ViewContinous">
+		<value>Continous</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ViewFacing">
+		<value>Facing</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_BackgrColor">
+		<value>&amp;Color...</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_Watermark">
+		<value>&amp;Watermark...</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_PdfDocument">
+		<value>PDF Document</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_TxtDocument">
+		<value>Text Document</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_CsvDocument">
+		<value>CSV Document</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_MhtDocument">
+		<value>MHT Document</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_XlsDocument">
+		<value>Excel Document</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_RtfDocument">
+		<value>Rich Text Document</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_HtmDocument">
+		<value>HTML Document</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_GraphicDocument">
+		<value>Graphic Document</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ZoomPageWidth">
+		<value>Page Width</value>
+	</data>
+	<data name="PreviewStringId.MenuItem_ZoomTextWidth">
+		<value>Text Width</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterPdf">
+		<value>PDF Document</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterTxt">
+		<value>Text Document</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterCsv">
+		<value>CSV Document</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterMht">
+		<value>MHT Document</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterXls">
+		<value>Excel Document</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterRtf">
+		<value>Rich Text Document</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterHtm">
+		<value>HTML Document</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterBmp">
+		<value>BMP Bitmap Format</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterGif">
+		<value>GIF Graphics Interchange Format</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterJpeg">
+		<value>JPEG File Interchange Format</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterPng">
+		<value>PNG Portable Network Graphics Format</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterTiff">
+		<value>TIFF Tag Image File Format</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterEmf">
+		<value>EMF Enhanced Windows Metafile</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_FilterWmf">
+		<value>WMF Windows Metafile</value>
+	</data>
+	<data name="PreviewStringId.SaveDlg_Title">
+		<value>Save As</value>
+	</data>
+	<data name="PreviewStringId.EMail_From">
+		<value>From</value>
+	</data>
+	<data name="PreviewStringId.Msg_IncorrectPageRange">
+		<value>This is not a valid page range</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ImageZoom">
+		<value>Zoom Image</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Direction_Horizontal">
+		<value>Horizontal</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Direction_Vertical">
+		<value>Vertical</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Direction_BackwardDiagonal">
+		<value>BackwardDiagonal</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Direction_ForwardDiagonal">
+		<value>ForwardDiagonal</value>
+	</data>
+	<data name="PreviewStringId.WMForm_VertAlign_Bottom">
+		<value>Bottom</value>
+	</data>
+	<data name="PreviewStringId.WMForm_VertAlign_Middle">
+		<value>Middle</value>
+	</data>
+	<data name="PreviewStringId.WMForm_VertAlign_Top">
+		<value>Top</value>
+	</data>
+	<data name="PreviewStringId.WMForm_HorzAlign_Left">
+		<value>Left</value>
+	</data>
+	<data name="PreviewStringId.WMForm_HorzAlign_Center">
+		<value>Center</value>
+	</data>
+	<data name="PreviewStringId.WMForm_HorzAlign_Right">
+		<value>Right</value>
+	</data>
+	<data name="PreviewStringId.WMForm_PictureDlg_Title">
+		<value>Select Picture</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ImageStretch">
+		<value>Stretch</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ImageClip">
+		<value>Clip</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ImageZoom">
+		<value>Zoom</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Asap">
+		<value>ASAP</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Confidential">
+		<value>CONFIDENTIAL</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Copy">
+		<value>COPY</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_DoNotCopy">
+		<value>DO NOT COPY</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Draft">
+		<value>DRAFT</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Evaluation">
+		<value>EVALUATION</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Original">
+		<value>ORIGINAL</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Personal">
+		<value>PERSONAL</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Sample">
+		<value>SAMPLE</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_TopSecret">
+		<value>TOP SECRET</value>
+	</data>
+	<data name="PreviewStringId.WMForm_Watermark_Urgent">
+		<value>URGENT</value>
+	</data>
+	<data name="PreviewStringId.Msg_FontInvalidNumber">
+		<value>The font size cannot be set to zero or a negative number</value>
+	</data>
+	<data name="PreviewStringId.Msg_NotSupportedFont">
+		<value>This font is not yet supported</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ZOrderRgrItem_InFront">
+		<value>In &amp;front</value>
+	</data>
+	<data name="PreviewStringId.WMForm_ZOrderRgrItem_Behind">
+		<value>&amp;Behind</value>
+	</data>
+	<data name="PreviewStringId.WMForm_PageRangeRgrItem_All">
+		<value>&amp;All</value>
+	</data>
+	<data name="PreviewStringId.WMForm_PageRangeRgrItem_Pages">
+		<value>&amp;Pages:</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageNumber">
+		<value>[Page #]</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageNumberOfTotal">
+		<value>[Page # of Pages #]</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageDate">
+		<value>[Date Printed]</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageTime">
+		<value>[Time Printed]</value>
+	</data>
+	<data name="PreviewStringId.PageInfo_PageUserName">
+		<value>[User Name]</value>
+	</data>
+</root>
